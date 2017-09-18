@@ -59,9 +59,17 @@ class MainController extends Controller
         if (!empty($this->footer)) {
             $footer = $this->footer;
         } else {
-            $footer = Cache::remember('footer', 24 * 60, function () {
-                return view('layouts.footer')->render();
-            });
+            if ($status) {
+                $footer = Cache::remember('docs_footer', 24 * 60, function () {
+                    $adv = $this->adv_rep->getFooter('doc');
+                    return view('layouts.footer')->with(['adv' => $adv])->render();
+                });
+            } else {
+                $footer = Cache::remember('footer', 24 * 60, function () {
+                    $adv = $this->adv_rep->getFooter('patient');
+                    return view('layouts.footer')->with(['adv' => $adv])->render();
+                });
+            }
         }
         $this->vars = array_add($this->vars, 'footer', $footer);
 

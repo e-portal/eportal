@@ -57,9 +57,7 @@
             </div>
         </div>
     </div>
-    @isset($horoscope)
-        {!! $horoscope !!}
-    @endisset
+    @include('layouts.horoscope.sidebar')
     <div class="aside-block">
         <div class="advertising">
             {!! $advertising['sidebar'] ?? '<img src="'. asset('estet') .'/img/advertising.jpg" >' !!}

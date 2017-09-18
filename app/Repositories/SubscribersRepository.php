@@ -58,8 +58,6 @@ class SubscribersRepository extends Repository
 
     public function addSubscriber($request)
     {
-        Cache::flush();
-
         $messages = [
             'status.required' => 'Вы пациент или врач? Дайте нам больше информации!',
         ];

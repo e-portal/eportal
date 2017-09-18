@@ -30,7 +30,11 @@
         </div>
         <div class="right">
             <div class="footer-ad">
-                <img src="{{ asset('estet') }}/img/footer/Rectangle 1125.png">
+                @if(!empty($adv->text))
+                    {!! $adv->text !!}
+                @else
+                    <img src="{{ asset("estet") }}/img/footer/Rectangle 1125.png">
+                @ENDIF
             </div>
         </div>
     </div>

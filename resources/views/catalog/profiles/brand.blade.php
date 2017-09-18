@@ -24,7 +24,6 @@
             <div class="main-content page-content">
                 <!-- section-3 -->
             @include('catalog.nav')
-
                 <!-- section-4 -->
                 <div class="blog-section-post">
                     <div class="content content-blog">
@@ -37,7 +36,7 @@
                                             <div class="top-rating" data-id="{{ $brand->id }}" data-source="1">
                                                 <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
                                             </div>
-                                            <p>{{ ($ratio->avg ?? 0) .' / 5 - (голосов - ' . $ratio->count . ')'}}</p>
+                                            <p>{{ ($ratio->avg ?? 0) .' / 5 - (голосов - ' . ($ratio->count ?? 0) . ')'}}</p>
                                         </div>
                                         <div class="info-kompani">
                                             <div class="kompani-contacts">

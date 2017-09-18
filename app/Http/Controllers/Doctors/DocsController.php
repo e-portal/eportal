@@ -44,7 +44,6 @@ class DocsController extends Controller
      */
     public function index($article = null)
     {
-        Cache::flush();
         if ($article) {
             $this->css = '
                 <link rel="stylesheet" type="text/css" href="' . asset('css') . '/stati-vnutrennaya.css">
@@ -122,8 +121,6 @@ class DocsController extends Controller
      */
     public function category($cat = null)
     {
-        Cache::flush();
-
         if (!$cat) {
             abort(404);
         }
@@ -131,17 +128,19 @@ class DocsController extends Controller
                 <link rel="stylesheet" type="text/css" href="' . asset('css') . '/statyi.css">
                 <link rel="stylesheet" type="text/css" href="' . asset('css') . '/statyi-media.css">
             ';
-        $this->content = Cache::remember('docs_cats'.$cat->alias, 60, function () use ($cat) {
+
+        $this->getSidebar();
+
+        $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+
+        $this->content = Cache::remember('docs_cats' . $cat->alias . $currentPage, 60, function () use ($cat) {
             $where = array(['approved', true], ['created_at', '<=', DB::raw('NOW()')], ['own', 'docs'], ['category_id', $cat->id]);
             $articles = $this->a_rep->get('*', 14, true, $where, ['created_at', 'desc'], ['image']);
-
             $this->getSidebar();
-
             return view('doc.cat')
                 ->with(['articles' => $articles, 'sidebar' => $this->sidebar, 'cat' => $cat])
                 ->render();
         });
-        $this->getSidebar();
         return $this->renderOutput();
     }
 
@@ -167,8 +166,9 @@ class DocsController extends Controller
         if (!empty($this->footer)) {
             $footer = $this->footer;
         } else {
-            $footer = Cache::remember('footer', 24 * 60, function () {
-                return view('layouts.footer')->render();
+            $adv = $this->adv_rep->getFooter('doc');
+            $footer = Cache::remember('docs_footer', 24 * 60, function () use ($adv) {
+                return view('layouts.footer')->with(['adv' => $adv])->render();
             });
         }
         $this->vars = array_add($this->vars, 'footer', $footer);
@@ -216,7 +216,9 @@ class DocsController extends Controller
             ';
 
         $this->getSidebar();
-        $this->content = Cache::remember('docs_tags' . $tag->alias, 60, function () use ($tag) {
+
+        $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $this->content = Cache::remember('docs_tags' . $tag->alias . $currentPage, 60, function () use ($tag) {
             $articles = $this->a_rep->getByTag($tag->id, 'docs');
             return view('doc.tags')
                 ->with(['articles' => $articles, 'tag' => $tag, 'sidebar' => $this->sidebar])
@@ -231,13 +233,29 @@ class DocsController extends Controller
      */
     public function lastArticles()
     {
-        $this->content = Cache::remember('docs_articles_last', 60, function () {
+        $this->css = '
+                <link rel="stylesheet" type="text/css" href="' . asset('css') . '/statyi.css">
+                <link rel="stylesheet" type="text/css" href="' . asset('css') . '/statyi-media.css">
+            ';
+
+        $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+
+        $this->content = Cache::remember('docs_articles_last-' . $currentPage, 60, function () {
             $where = array(['approved', true], ['created_at', '<=', DB::raw('NOW()')], ['own', 'docs']);
             $articles = $this->a_rep->get('*', 14, true, $where, ['created_at', 'desc'], ['image']);
 
-            return view('doc.cat')->with(['articles' => $articles])->render();
+            $cat = new \stdClass();
+            $cat->name = 'Последние новости';
+            $this->getSidebar();
+
+            return view('doc.cat')
+                ->with(['articles' => $articles, 'cat' => $cat, 'sidebar' => $this->sidebar])
+                ->render();
         });
 
+        $this->seo = Cache::remember('seo_lasts', 24 * 60, function () {
+            return $this->seo_rep->getSeo('poslednie-novosti');
+        });
         $this->getSidebar();
         return $this->renderOutput();
     }

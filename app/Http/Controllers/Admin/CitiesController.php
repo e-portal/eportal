@@ -16,6 +16,7 @@ class CitiesController extends AdminController
     {
         $this->repository = $cities;
         $this->countries = $rep;
+        $this->template = 'admin.geo.index';
     }
 
     public function index(Request $request)

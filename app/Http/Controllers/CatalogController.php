@@ -2,10 +2,10 @@
 
 namespace Fresh\Estet\Http\Controllers;
 
+use Fresh\Estet\Repositories\DocratioRepository;
 use Fresh\Estet\Repositories\EstablishmentratioRepository;
 use Fresh\Estet\Repositories\EstablishmentsRepository;
 use Fresh\Estet\Repositories\PersonsRepository;
-use Fresh\Estet\Person;
 use Fresh\Estet\Repositories\BlogsRepository;
 use Fresh\Estet\Repositories\PremiumsRepository;
 use Fresh\Estet\Repositories\AdvertisingRepository;
@@ -28,7 +28,6 @@ class CatalogController extends MainController
     )
     {
         parent::__construct($a_rep, $adv);
-        Cache::flush();
         $this->css = '
             <link rel="stylesheet" type="text/css" href="' . asset('css') . '/katalog-brendu.css">
         ';
@@ -50,11 +49,11 @@ class CatalogController extends MainController
      * @param alias $doc
      * @return view
      */
-    public function docs(PersonsRepository $rep, BlogsRepository $blog_rep, $doc = false)
+    public function docs(PersonsRepository $rep, BlogsRepository $blog_rep, DocratioRepository $ratio_rep, $doc = false)
     {
         $this->getSidebar(session()->has('doc'));
         if ($doc) {
-            $this->content = Cache::remember('doc', 24 * 60, function () use ($doc, $blog_rep) {
+            $this->content = Cache::remember('doc-' . $doc->id, 24 * 60, function () use ($doc, $blog_rep, $ratio_rep) {
                 if (!empty($doc->services)) {
                     $doc->services = json_decode($doc->services);
                 }
@@ -62,13 +61,14 @@ class CatalogController extends MainController
                 if (!empty($doc->expirience)) {
                     $doc->expirience = date_create()->diff(date_create($doc->expirience))->y;
                 }
+                $ratio = $ratio_rep->getRatio($doc->id);
 
                 //  Blogs preview
                 $where = array(['approved', true], ['created_at', '<=', DB::raw('NOW()')], ['user_id', $doc->user_id]);
                 $blogs = $blog_rep->get(['alias', 'title', 'created_at'], 3, false, $where, ['created_at', 'desc'], ['blog_img', 'category'], true);
 
                 return view('catalog.profiles.doc_profile')
-                    ->with(['profile' => $doc, 'blogs' => $blogs, 'sidebar' => $this->sidebar])
+                    ->with(['profile' => $doc, 'blogs' => $blogs, 'sidebar' => $this->sidebar, 'ratio' => $ratio[0]])
                     ->render();
             });
             $this->title = $doc->name . ' ' . $doc->lastname;
@@ -79,8 +79,8 @@ class CatalogController extends MainController
         $this->css .= '
             <link rel="stylesheet" type="text/css" href="' . asset('css') . '/katalog.css">
         ';
-
-        $this->content = Cache::remember('catalog_doc', 60, function () use ($rep) {
+        $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $this->content = Cache::remember('catalog_doc-' . $currentPage, 60, function () use ($rep) {
             $profiles = $rep->get(['name', 'address', 'phone', 'site', 'alias', 'photo'], false, true, false, false, 'specialties');
 
             return view('catalog.docs')
@@ -106,7 +106,7 @@ class CatalogController extends MainController
             $this->content = view('catalog.profiles.clinic')
                 ->with(['clinic' => $clinic, 'ratio' => $ratio[0],
                     'sidebar' => $this->sidebar
-                    ])
+                ])
                 ->render();
 
             return $this->renderOutput();
@@ -117,7 +117,9 @@ class CatalogController extends MainController
             <link rel="stylesheet" type="text/css" href="' . asset('css') . '/katalog.css">
         ';
 
-        $this->content = Cache::remember('catalog-clinic', 60, function() {
+        $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+
+        $this->content = Cache::remember('catalog-clinic-' . $currentPage, 60, function () {
             $prems_ids = $this->prem_rep->getPremIds('clinic');
 
             $prems = $this->repository->getPrems($prems_ids);
@@ -163,7 +165,9 @@ class CatalogController extends MainController
             <link rel="stylesheet" type="text/css" href="' . asset('css') . '/katalog.css">
         ';
 
-        $this->content = Cache::remember('catalog-distributor', 60, function () {
+        $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+
+        $this->content = Cache::remember('catalog-distributor-' . $currentPage, 60, function () {
             $prems_ids = $this->prem_rep->getPremIds('distributor');
 
             $prems = $this->repository->getPrems($prems_ids);
@@ -206,7 +210,10 @@ class CatalogController extends MainController
         $this->css .= '
             <link rel="stylesheet" type="text/css" href="' . asset('css') . '/katalog.css">
         ';
-        $this->content = Cache::remember('catalog-brand', 60, function () {
+
+        $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+
+        $this->content = Cache::remember('catalog-brand-' . $currentPage, 60, function () {
             $prems_ids = $this->prem_rep->getPremIds('brand');
 
             $prems = $this->repository->getPrems($prems_ids);

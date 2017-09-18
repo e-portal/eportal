@@ -103,6 +103,7 @@ return [
 //    comments
     'comment_added' => 'Коментарий отправлен на модерацию',
     'comment' => 'ID коментария',
+    'capt' => 'Каптча',
 //    prem
     'prem1' => 'ID №1',
     'prem2' => 'ID №2',

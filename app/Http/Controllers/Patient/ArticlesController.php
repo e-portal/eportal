@@ -47,7 +47,6 @@ class ArticlesController extends Controller
 
     public function index()
     {
-        Cache::flush();
         $this->content = Cache::remember('main', 60, function() {
 
             $articles = [
@@ -142,9 +141,11 @@ class ArticlesController extends Controller
                 <link rel="stylesheet" type="text/css" href="' . asset('css') . '/statyi-media.css">
             ';
         $this->getSidebar();
-        $this->content = Cache::remember('articles_tags' . $tag->alias, 60, function () use ($tag) {
-            $articles = $this->a_rep->getByTag($tag->id, 'patient');
 
+        $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+
+        $this->content = Cache::remember('articles_tags' . $tag->alias . $currentPage, 60, function () use ($tag) {
+            $articles = $this->a_rep->getByTag($tag->id, 'patient');
             return view('patient.tags')
                 ->with(['articles' => $articles, 'tag' => $tag, 'sidebar' => $this->sidebar])
                 ->render();
@@ -167,11 +168,12 @@ class ArticlesController extends Controller
                 <link rel="stylesheet" type="text/css" href="' . asset('css') . '/statyi-media.css">
             ';
 
-        $this->content = Cache::remember('articles_cats'.$cat->alias, 60, function () use ($cat) {
+        $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+
+        $this->content = Cache::remember('articles_cats' . $cat->alias . $currentPage, 60, function () use ($cat) {
             $where = array(['approved', true], ['created_at', '<=', DB::raw('NOW()')], ['own', 'patient'], ['category_id', $cat->id] );
             $articles = $this->a_rep->get('*', 14, true, $where, ['created_at', 'desc'], ['image']);
             $this->getSidebar();
-
             return view('patient.cat')
                 ->with(['articles' => $articles, 'sidebar' => $this->sidebar, 'cat' => $cat])
                 ->render();
@@ -244,7 +246,10 @@ class ArticlesController extends Controller
                 <link rel="stylesheet" type="text/css" href="' . asset('css') . '/statyi.css">
                 <link rel="stylesheet" type="text/css" href="' . asset('css') . '/statyi-media.css">
             ';
-        $this->content = Cache::remember('articles_last', 60, function () {
+
+        $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+
+        $this->content = Cache::remember('articles_last-' . $currentPage, 60, function () {
             $where = array(['approved', true], ['created_at', '<=', DB::raw('NOW()')], ['own', 'patient']);
             $articles = $this->a_rep->get(
                 '*', 14, true, $where, ['created_at', 'desc'], ['image']);

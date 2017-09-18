@@ -13,6 +13,7 @@ class CountriesController extends AdminController
     public function __construct(CountriesRepository $rep)
     {
         $this->repository = $rep;
+        $this->template = 'admin.geo.index';
     }
 
     /**

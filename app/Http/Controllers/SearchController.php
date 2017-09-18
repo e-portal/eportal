@@ -40,7 +40,6 @@ class SearchController extends MainController
      */
     public function show(Request $request)
     {
-        Cache::flush();
         $this->css = '
             <link rel="stylesheet" type="text/css" href="' . asset('css') . '/poisk.css">
         ';

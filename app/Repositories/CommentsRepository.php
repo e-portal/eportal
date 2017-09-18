@@ -76,6 +76,7 @@ class CommentsRepository
             'comment_post_ID' => 'required|integer',
             'comment_source' => 'required|integer',
             'comment_parent' => 'required|integer',
+            'capt' => 'required|size:5|alpha_num',
         ]);
 
         if ($validator->fails()) {
@@ -83,6 +84,10 @@ class CommentsRepository
         }
 
         $data = $request->except('_token');
+
+        if (session('captcha') != $data['capt']) {
+            return ['error' => 'Пожалуйста введите код изображенный на картинке'];
+        }
 
         $data['parent_id'] = $data['comment_parent'];
 

@@ -29,6 +29,7 @@ class SeosTableSeeder extends Seeder
                 ['uri' => 'reklama'],
                 ['uri' => 'karta-saita'],
                 ['uri' => 'poslednie-novosti'],
+                ['uri' => 'kategorii'],
             ]
         );
     }

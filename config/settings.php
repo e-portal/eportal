@@ -4,6 +4,7 @@ return [
 
     'theme' => env('THEME','default'),
     'paginate' => 5,
+    'paginate_tags' => 2,
     'paginate_comments' => 5,
     'profile_img' => [
         'main' => ['width' => 270, 'height' => 186,],

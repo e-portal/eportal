@@ -143,7 +143,7 @@ class EventsRepository extends Repository
         $new['cat_id'] = $data['cats'];
 
         $new['start'] = date('Y-m-d', strtotime($data['start']));
-        $new['stop'] = date('Y-m-d', strtotime($data['start']));
+        $new['stop'] = date('Y-m-d', strtotime($data['stop']));
 
         $new['content'] = $data['content'];
         $new['description'] = $data['description'];
@@ -180,7 +180,6 @@ class EventsRepository extends Repository
             $new['imgtitle'] = $event->logo->title;
         }
         // Logo props
-
 
         $updated = $event->fill($new)->save();
 
@@ -486,8 +485,15 @@ class EventsRepository extends Repository
 
         $result->transform(function($item) {
 
-            if ($item->stop) {
-                $item->day = date('d', strtotime($item->stop));
+            if (!empty($item->stop)) {
+                $item->stop_date = date('d', strtotime($item->stop));
+            }
+
+            if (!empty($item->start)) {
+                $item->start_date = date('d', strtotime($item->start));
+                if (date('m', strtotime($item->stop)) != date('m', strtotime($item->start))) {
+                    $item->start_date = 1;
+                }
             }
 
             return $item;
@@ -501,9 +507,9 @@ class EventsRepository extends Repository
     /**
      * @return \Illuminate\Support\Collection
      */
-    public function getAd()
+    public function getAd($eadv)
     {
-        return $this->eadv->select('id', 'extlink', 'title', 'image')->get();
+        return $eadv->select('id', 'extlink', 'title', 'image')->get();
     }
 
     /**

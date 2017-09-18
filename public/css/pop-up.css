@@ -1,0 +1,127 @@
+.pop-up {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pop-inner {
+    background: #fff;
+    color: #000;
+    display: block;
+    position: relative;
+    z-index: 100;
+    width: 30%;
+    border-left: 1px solid;
+    border-right: 1px solid;
+}
+
+.close-pop {
+    position: absolute;
+    right: 45%;
+    color: #000000;
+    cursor: pointer;
+    letter-spacing: 2px;
+    font-size: 12px;
+    font-family: "Roboto";
+    margin: 40px 0 0 0;
+    font-weight: bold;
+}
+
+.pop-inner-in h1 {
+    font-size: 68px;
+    color: #7E2B83;
+    text-align: center;
+    font-family: "Cormorant Garamond";
+    position: absolute;
+    margin: auto;
+    top: -50px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.close-pop::before {
+    content: '';
+    background: url("./estet/img/4066.png");
+    position: absolute;
+    height: 13px;
+    width: 19px;
+    left: -55%;
+}
+
+:active, :hover, :focus {
+    outline: 0;
+    outline-offset: 0;
+}
+
+.pop-inner-in p {
+    width: 86%;
+    text-align: center;
+    letter-spacing: 1px;
+    font-size: 26px;
+    margin: 70px auto 70px;
+    color: #202020;
+    font-family: "Cormorant Garamond";
+}
+
+.pop-inner-in form {
+    text-align: center;
+}
+
+.btn-info {
+    font-size: 12px;
+    color: #ffffff;
+    background-color: #7E2B83;
+    width: 55%;
+    height: 32px;
+    border-radius: 20px;
+    border: 0;
+    cursor: pointer;
+    position: absolute;
+    margin: auto;
+    top: 100%;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.btn-info span {
+    letter-spacing: 3px;
+    font-size: 12px;
+    font-family: "Roboto";
+}
+
+.line:first-of-type::before {
+    content: '';
+    position: absolute;
+    border-top: 1px solid;
+    width: 155px;
+    right: 0;
+}
+
+.line:first-of-type::after {
+    content: '';
+    position: absolute;
+    border-top: 1px solid;
+    width: 155px;
+}
+
+.line:last-of-type::before {
+    content: '';
+    position: absolute;
+    border-bottom: 1px solid;
+    width: 100px;
+    right: 0;
+}
+
+.line:last-of-type::after {
+    content: '';
+    position: absolute;
+    border-bottom: 1px solid;
+    width: 100px;
+}

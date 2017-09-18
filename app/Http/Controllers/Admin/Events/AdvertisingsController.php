@@ -24,13 +24,13 @@ class AdvertisingsController extends AdminController
     /**
      * @return $this
      */
-    public function show()
+    public function show(Eadv $advertising)
     {
         if (Gate::denies('UPDATE_ADVERTISING')) {
             abort(404);
         }
 
-        $advertisings = $this->repository->getAd();
+        $advertisings = $this->repository->getAd($advertising);
         $this->content = view('admin.events.ad.show')->with(['advertisings' => $advertisings])->render();
         return $this->renderOutput();
     }

@@ -41,6 +41,9 @@ class AdvertisingRepository extends Repository
         return ['status' => trans('admin.material_updated')];
     }
 
+    /**
+     * @return array
+     */
     public function getMainPatient()
     {
         $collection = $this->model->select('text', 'placement')->where('own', 'patient')->get();
@@ -57,6 +60,9 @@ class AdvertisingRepository extends Repository
         return $result;
     }
 
+    /**
+     * @return array
+     */
     public function getMainDocs()
     {
         $collection = $this->model->select('text', 'placement')->where('own', 'doc')->get();
@@ -75,6 +81,10 @@ class AdvertisingRepository extends Repository
         return $result;
     }
 
+    /**
+     * @param $own
+     * @return array
+     */
     public function getSidebar($own)
     {
         $collection = $this->model->select('text', 'placement')->where('own', $own)->get();
@@ -88,6 +98,12 @@ class AdvertisingRepository extends Repository
                 continue;
             }
         }
+        return $result;
+    }
+
+    public function getFooter($own)
+    {
+        $result = $this->model->select('text', 'placement')->where(['own' => $own, 'placement' => 'footer'])->first();
         return $result;
     }
 }

@@ -26,6 +26,10 @@ class EventsController extends AdminController
         $this->repository = $repository;
     }
 
+    /**
+     * @param EventRequest $request
+     * @return $this
+     */
     public function show(EventRequest $request)
     {
         if (Gate::denies('UPDATE_EVENTS')) {
@@ -59,6 +63,14 @@ class EventsController extends AdminController
         return $this->renderOutput();
     }
 
+    /**
+     * @param EventCategoriesRepository $cat_rep
+     * @param OrganizersRepository $org_rep
+     * @param CitiesRepository $city_rep
+     * @param CountriesRepository $country_rep
+     * @param EventRequest $request
+     * @return $this|\Illuminate\Http\RedirectResponse
+     */
     public function create(
         EventCategoriesRepository $cat_rep,
         OrganizersRepository $org_rep,
@@ -89,6 +101,10 @@ class EventsController extends AdminController
         return $this->renderOutput();
     }
 
+    /**
+     * @param $event
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function destroy($event)
     {
         if (Gate::denies('UPDATE_EVENTS')) {
@@ -102,6 +118,15 @@ class EventsController extends AdminController
         return redirect()->route('events_admin')->with($result);
     }
 
+    /**
+     * @param EventCategoriesRepository $cat_rep
+     * @param OrganizersRepository $org_rep
+     * @param CitiesRepository $city_rep
+     * @param CountriesRepository $country_rep
+     * @param EventRequest $request
+     * @param $event
+     * @return $this|\Illuminate\Http\RedirectResponse
+     */
     public function edit(
         EventCategoriesRepository $cat_rep,
         OrganizersRepository $org_rep,
@@ -141,7 +166,10 @@ class EventsController extends AdminController
         return $this->renderOutput();
     }
 
-
+    /**
+     * @param Request $request
+     * @return mixed
+     */
     public function slider(Request $request)
     {
         if (Gate::denies('UPDATE_EVENTS')) {

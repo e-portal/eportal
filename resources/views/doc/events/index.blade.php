@@ -42,17 +42,18 @@
     {!! Form::close() !!}
 </div>
 <div class="row">
-    @for($i = 1; $i < 31; $i++)
+    @for($i = 1; $i < $calendar_vars['last_number']; $i++)
         @foreach($calendar as $event)
-            @if($i > $event->day)
+            {{--{{ dump($event) }}--}}
+            @if(($i > $event->stop_date) || ($i < $event->start_date))
                 @continue
             @else
-                <div class="{{ date('D', mktime(0, 0, 0, date('m'), $i, date('Y'))) }}">{{ $i . ' ' . $event->title }}</div>
-            @endif
-            @break
+                <div @if($loop->first)class="{{ $calendar_vars['first'] }}"@endif>{{ $i . ' ' . $event->title }}</div>
+            @endif{{--
             @if($loop->last)
                 <div class="{{ date('D', mktime(0, 0, 0, date('m'), $i, date('Y'))) }}"></div>
-            @endif
+            @endif--}}
+            {{--@break--}}
         @endforeach
     @endfor
 

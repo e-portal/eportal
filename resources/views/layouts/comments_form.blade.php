@@ -36,11 +36,13 @@
                 <input readonly="" type="text" name="cod" class="section-form-test" placeholder="78535">
                 <input type="text" name="prof" class="section-form-test">
             </div>--}}
-            <input class="but-section-form @if(session()->has('doc')) but-section-purpur @endif" type="submit">
-                отправить
-            </input>
+            <input class="but-section-form @if(session()->has('doc')) but-section-purpur @endif" type="submit"></input>
         </div>
-        <p><img src="../img/content/refresh.png" alt="">Обновить</p>
+        <div class="reload">
+            <img src="{{ route('captcha') }}" class="captcha" id="captcha">
+        </div>
+        {!! Form::text('capt', old('capt') ? : '' , ['placeholder'=>'Введите символы с картинки', 'id'=>'capt', 'class'=>'section-input']) !!}
+        <p><img src="{{ asset('estet') }}/img/content/refresh.png" class="reload" alt="Обновить">Обновить</p>
         {{ Form::hidden('comment_post_ID', $id) }}
         {{ Form::hidden('comment_parent', 0) }}
         {{ Form::hidden('comment_source', $source) }}

@@ -29,6 +29,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css') }}/fonts.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('css') }}/slick.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('css') }}/menu.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css') }}/pop-up.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&amp;subset=cyrillic" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Vidaloka" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,600i,700" rel="stylesheet">
@@ -74,22 +75,29 @@
                 <div class="pop-bg"></div>
                 <div class="pop-up to-page-doctor">
                     <div class="pop-inner">
-                        <div class="close-pop">X</div>
+                        <div class="line"></div>
+                        <div class="pop-inner-in">
+                            <h1>Я врач</h1>
+                            <p>Соглашаясь просматривать материалы раздела, я подтверждаю, что являюсь дипломированным
+                                специалистом</p>
                         {{--temp--}}
                         @if(!session()->has('doc'))
                             {!! Form::open(['url' => route('switch'), 'method'=>'POST']) !!}
                             {!! Form::hidden('doc', true) !!}
-                            {!! Form::button(trans('ru.doctor'), ['class' => 'btn btn-success','type'=>'submit']) !!}
+                                <button class="btn btn-info" type="submit"><span>ПРОДОЛЖИТЬ ПРОСМОТР</span></button>
                             {!! Form::close() !!}
                         @else
                             {!! Form::open(['url' => route('switch'), 'method'=>'POST']) !!}
                             {!! Form::hidden('patient', true) !!}
-                            {!! Form::button(trans('ru.patient'), ['class' => 'btn btn-info','type'=>'submit']) !!}
+                                <button class="btn btn-info" type="submit"><span>ПРОДОЛЖИТЬ ПРОСМОТР</span></button>
                             {!! Form::close() !!}
                         @endif
                         {{--temp--}}
+                            <div class="close-pop">НАЗАД</div>
+                            <div class="line"></div>
                     </div>
                 </div>
+            </div>
             </div>
             <!--end pop-->
 <!-- end wraperr -->

@@ -116,6 +116,22 @@ return [
     'partnership' => 'Партнерство',
     'conditions' => 'Соглашение об использовании',
     'advertising' => 'Реклама на проекте',
-
+//    SEO
+    '/' => 'Главная',
+    'catalog/brendy' => 'Каталог - бренды',
+    'catalog/distributory' => 'Каталог - дистрибуторы',
+    'catalog/kliniki' => 'Каталог - клиники',
+    'catalog/vrachi' => 'Каталог - врачи',
+    'doctor/blog' => 'Блог',
+    'doctor/statyi' => 'Статьи врачей',
+    'goroscop' => 'Гороскоп',
+    'karta-saita' => 'Карта сайта',
+    'meropriyatiya' => 'Мероприятия',
+    'o-nas' => 'О проекте',
+    'partnerstvo' => 'Партнерство',
+    'poslednie-novosti' => 'Последние новости',
+    'reklama' => 'Реклама',
+    'soglashenie' => 'Пользовательское соглашение',
+    'kategorii' => 'Категории'
 
 ];

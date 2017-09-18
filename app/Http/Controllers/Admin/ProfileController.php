@@ -34,13 +34,14 @@ class ProfileController extends AdminController
         if (Gate::denies('EDIT_USERS')) {
             abort(404);
         }
-        if ($request->isMethod('post')) {
+        if (!empty($request->has('param'))) {
             $data = $request->except('_token');
 
             if (1 == $data['param']) {
                 if (!$profiles = $this->pers_rep->get(['name', 'lastname', 'phone', 'user_id'], false, true, ['lastname', $data['value']])) {
                     $profiles = null;
                 }
+                if ($profiles) $profiles->appends(['param' => $data['param']])->links();
             } elseif (2 == $data['param']) {
 
                 if ($profile = $this->pers_rep->one($data['value'])) {
@@ -56,6 +57,7 @@ class ProfileController extends AdminController
                 }
             } else {
                 $profiles = $this->pers_rep->get(['name', 'lastname', 'phone', 'user_id'], false, true);
+                if ($profiles) $profiles->appends(['param' => $data['param']])->links();
             }
             $this->content = view('admin.profiles.index')->with('profiles', $profiles)->render();
             return $this->renderOutput();

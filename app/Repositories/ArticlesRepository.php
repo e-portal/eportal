@@ -546,7 +546,7 @@ class ArticlesRepository extends Repository
 
         $articles->with(['image', 'category'])->where('own', $own);
 
-        return $this->check($articles->paginate(Config::get('settings.paginate')));
+        return $this->check($articles->paginate(Config::get('settings.paginate_tags')));
 
     }
 

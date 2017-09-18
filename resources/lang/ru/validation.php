@@ -79,7 +79,7 @@ return [
     'size'                 => [
         'numeric' => 'The :attribute must be :size.',
         'file'    => 'The :attribute must be :size kilobytes.',
-        'string'  => 'The :attribute must be :size characters.',
+        'string' => 'В поле :attribute должно быть :size символов.',
         'array'   => 'The :attribute must contain :size items.',
     ],
     'string'               => 'Поле :attribute должно быть строкового типа.',

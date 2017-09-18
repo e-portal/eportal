@@ -98,14 +98,6 @@ class AdminController extends Controller
                 $menu->add('Премиум', array('route' => 'premium'));
             }
 
-            if(Gate::allows('UPDATE_GEO')) {
-                $menu->add('Добавить страну', array('route' => 'country'));
-            }
-
-            if(Gate::allows('UPDATE_GEO')) {
-                $menu->add('Добавить город', array('route' => 'city'));
-            }
-
             if(Gate::allows('UPDATE_EVENTS')) {
                 $menu->add('Мероприятия', array('route' => 'events_admin'));
             }
@@ -121,10 +113,6 @@ class AdminController extends Controller
             if (Gate::allows('UPDATE_STATIC')) {
                 $menu->add('Статичные страницы', array('route' => 'admin_static'));
              }
-
-            /* if(Gate::allows('CONFIRMATION_DATA')){
-                 $menu->add(trans('ua.selection'),  array('route'  => 'selection'))->prepend('<i class="icon-file"></i>');
-             }*/
         });
     }
 }

@@ -105,7 +105,9 @@ class BlogsController extends DocsController
             return $this->renderOutput();
         }
 
-        $this->content = Cache::remember('blogs', 60, function () {
+        $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+
+        $this->content = Cache::remember('blogs-' . $currentPage, 60, function () {
             $where = array(['approved', true], ['created_at', '<=', DB::raw('NOW()')]);
             $blogs = $this->blog_rep->get(['title', 'alias', 'created_at'],
                 false,
@@ -135,15 +137,16 @@ class BlogsController extends DocsController
             ';
         $this->sidebar = $this->getSidebar();
 
-        $this->content = Cache::remember('blog-tag-'.$tag->id, 15, function () use ($tag) {
+        $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+
+        $this->content = Cache::remember('blog-tag-' . $tag->id . $currentPage, 15, function () use ($tag) {
             $blogs = $this->blog_rep->getByTag($tag->id);
-
             $cats = $this->cat_rep->get(['name', 'alias']);
-
             return view('doc.blog_tags')
                 ->with(['blogs' => $blogs, 'sidebar' => $this->sidebar, 'cats' => $cats, 'tag' => $tag])
                 ->render();
         });
+
         return $this->renderOutput();
     }
 
@@ -154,8 +157,9 @@ class BlogsController extends DocsController
      */
     public function category($cat = null)
     {
-        $this->content = Cache::remember('blog-cat' . $cat->id, 60, function () use ($cat) {
+        $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 
+        $this->content = Cache::remember('blog-cat' . $cat->id . $currentPage, 60, function () use ($cat) {
             $where = array(['approved', true], ['created_at', '<=', DB::raw('NOW()')], ['category_id', $cat->id] );
             $blogs = $this->blog_rep->get(
                 ['title', 'alias'],
@@ -166,7 +170,6 @@ class BlogsController extends DocsController
                 ['blog_img', 'category', 'person'],
                 true
             );
-
             $cats = $this->cat_rep->get(['name', 'alias']);
             $tags = $this->tag_rep->get(['name', 'alias']);
             $this->sidebar = $this->getSidebar();
@@ -179,7 +182,7 @@ class BlogsController extends DocsController
     }
 
     /**
-     * @return bool
+     * @return bool sidebar
      */
     public function getSidebar()
     {

@@ -48,7 +48,6 @@ class EventsController extends DocsController
 
     public function show(EventRequest $request, $event = false)
     {
-        Cache::flush();
         $this->getSidebar();
 
         if ($event) {
@@ -123,8 +122,8 @@ class EventsController extends DocsController
             $month = date('m');
         }
 
-        $firs_day = date('D', mktime(0, 0, 0, $month, 1, $year));
-        $last_number = date('t', mktime(0, 0, 0, $month, 1, $year));
+        $calendar_vars['first'] = date('D', mktime(0, 0, 0, $month, 1, $year));
+        $calendar_vars['last_number'] = date('t', mktime(0, 0, 0, $month, 1, $year));
 
 //        $day_number = cal_days_in_month(CAL_GREGORIAN, $month, $year);
 
@@ -132,7 +131,6 @@ class EventsController extends DocsController
             ['stop', '>=', date('Y-m-01', mktime(0, 0, 0, $month, 1, $year))],
             ['start', '<=', date('Y-m-t', mktime(0, 0, 0, $month, 1, $year))],
         ];
-//        dd($where1);
 
         $calendar = $this->repository->get(['title', 'stop', 'start'], false, false, $where1, false, ['logo']);
         $events = $this->repository->getWithoutPrems(true, $where, $prems_ids, false, $where_in);
@@ -155,6 +153,7 @@ class EventsController extends DocsController
             }),
             'children' => $children,
             'calendar' => $calendar,
+            'calendar_vars' => $calendar_vars,
         ];
         $this->content = view('doc.events.index')->with($vars)->render();
         return $this->renderOutput();

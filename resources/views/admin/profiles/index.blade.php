@@ -1,6 +1,6 @@
 <!-- START CONTENT -->
 <div class="container">
-    {!! Form::open(['url' => route('admin_profile'), 'class'=>'form-horizontal','method'=>'POST' ]) !!}
+    {!! Form::open(['url' => route('admin_profile'), 'class'=>'form-horizontal','method'=>'GET' ]) !!}
     <h3>Поиск профиля:</h3>
     <div class="row">
         {{ Form::label('value', 'Параметр') }}
