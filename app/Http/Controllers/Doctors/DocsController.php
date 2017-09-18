@@ -44,6 +44,7 @@ class DocsController extends Controller
      */
     public function index($article = null)
     {
+        Cache::flush();
         if ($article) {
             $this->css = '
                 <link rel="stylesheet" type="text/css" href="' . asset('css') . '/stati-vnutrennaya.css">
@@ -121,6 +122,8 @@ class DocsController extends Controller
      */
     public function category($cat = null)
     {
+        Cache::flush();
+
         if (!$cat) {
             abort(404);
         }
@@ -136,11 +139,14 @@ class DocsController extends Controller
         $this->content = Cache::remember('docs_cats' . $cat->alias . $currentPage, 60, function () use ($cat) {
             $where = array(['approved', true], ['created_at', '<=', DB::raw('NOW()')], ['own', 'docs'], ['category_id', $cat->id]);
             $articles = $this->a_rep->get('*', 14, true, $where, ['created_at', 'desc'], ['image']);
+
             $this->getSidebar();
+
             return view('doc.cat')
                 ->with(['articles' => $articles, 'sidebar' => $this->sidebar, 'cat' => $cat])
                 ->render();
         });
+        $this->getSidebar();
         return $this->renderOutput();
     }
 
