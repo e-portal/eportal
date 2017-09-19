@@ -9,7 +9,12 @@
         <!-- Approved -->
         <label><input type="checkbox" {{ (old('confirmed') || $comment->approved) ? 'checked' : ''}} value="1" name="confirmed"> Утвердить</label>
     </div>
-    {{ Form::hidden('comment_post_ID', $comment->article_id ?? ($comment->blog_id ?? ($comment->establishment_id ?? ($comment->event_id ?? '')))) }}
+    {{ Form::hidden('comment_post_ID', $comment->article_id ??
+            ($comment->blog_id ??
+            ($comment->establishment_id ??
+            ($comment->event_id ??
+            ($comment->person_id ??
+             1))))) }}
     {{ Form::hidden('comment_parent', $comment->parent_id) }}
     {{ Form::hidden('comment_source', $comment->source) }}
     <hr>

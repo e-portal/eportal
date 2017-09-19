@@ -6,7 +6,9 @@
             <div class="line-burger"></div>
         </div>
         <div class="menu-left">
-            <div class="person patient menu-elem active">Я пациент</div>
+            <div class="person patient menu-elem active">
+                <a href="{{ route('main') }}">Я пациент</a>
+            </div>
 
             <div id="toggles" class="toggles">
                 <input type="checkbox" name="checkbox1" id="checkbox1" class="ios-toggle active"/>
@@ -75,7 +77,7 @@
                                 <span>Интервью</span>
                             </a></li>
                     @endif
-                    <li class="with-sub menu-elem"><a href="">
+                    <li class="with-sub menu-elem"><a>
                             <img src="{{ asset('estet') }}/img/menu/4.png">
                             <img src="{{ asset('estet') }}/img/menu/837.png">
                             <span>Каталог</span></a>

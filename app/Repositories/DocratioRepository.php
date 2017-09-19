@@ -23,10 +23,12 @@ class DocratioRepository
     {
         $data['doc_id'] = $request->get('data_id');
         $data['data_key_doc_' . $data['doc_id']] = md5($request->ip() . $request->header('User-Agent') . substr(session()->getId(), 0, 5));
-        if (session()->has($data['data_key'])) {
-            return ['val' => $data['data_key']];
-        }
 
+        session()->forget($data['data_key_doc_' . $data['doc_id']]);
+        if (session()->has($data['data_key_doc_' . $data['doc_id']])) {
+            return ['val' => $data['data_key_doc_' . $data['doc_id']]];
+        }
+        $data['data_key'] = $data['data_key_doc_' . $data['doc_id']];
         $data['value'] = $request->get('ratio');
 
         if ($val = $this->model->where(['doc_id' => $data['doc_id'], 'data_key' => $data['data_key_doc_' . $data['doc_id']]])->first()) {

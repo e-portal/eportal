@@ -421,18 +421,6 @@ div.horoscope-description:nth-of-type(2n) .img-horoscope-description {
   border-right: 12px solid #fff;
   margin: -3% 0 0 46.5%;
 }
-
-.articles::before {
-    content: "";
-    display: inline-block;
-    vertical-align: middle;
-    width: 79px;
-    height: 7px;
-    background-color: #455ea7;
-    position: relative;
-    left: 70%;
-    top: -3px;
-}
 .articles p {
   margin: -27px 0 33px 10px;
   font-size: 24px;
@@ -664,7 +652,6 @@ div.horoscope-description:nth-of-type(2n) .img-horoscope-description {
   line-height: 15px;
 }
 footer {
-  margin-top: 50px;
   padding: 4.3% 6.7% 2.5%;
   background: #202020;
   color: #fff;
@@ -874,6 +861,15 @@ footer .social a {
 }
 .comment-post .section-form {
   margin-top: 32px;
+}
+
+.form-control {
+    height: 148px;
+    padding: 5px 0 0 15px;
+    font-size: 12px;
+    font-family: 'Roboto';
+    margin-bottom: 10px;
+    resize: vertical;
 }
 .comment-post .section-form .add-comm {
   font-family: 'Cormorant Garamond', serif;

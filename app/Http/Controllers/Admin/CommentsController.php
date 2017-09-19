@@ -32,6 +32,7 @@ class CommentsController extends AdminController
             if (!empty($data['comment'])) {
                 $this->validate($request, [
                     'comment' => 'nullable|integer',
+                    'param' => 'nullable|integer',
                 ]);
 
                 $comments[] = $this->comm_rep->getOne($data['comment'], $data['param']);

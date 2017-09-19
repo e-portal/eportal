@@ -54,6 +54,7 @@
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+  font-weight: 700;
 }
 .katalog-page .blog-section .categories-section img {
   padding-left: 13%;
@@ -106,9 +107,10 @@
 .details-page p {
   font-family: 'Cormorant Garamond', serif;
   font-size: 16px;
-  color: #000;
+  color: #000000;
   margin-top: 19px;
   line-height: 19.6px;
+  font-weight: 700;
 }
 .details-page hr {
   margin: 24px 0;
@@ -118,6 +120,7 @@
 .details-page span {
   font-family: 'Cormorant Garamond', serif;
   font-size: 16px;
+  font-weight: 700;
 }
 .kompani-info {
   margin-top: 26px;
@@ -150,6 +153,7 @@
   order: 1;
   background: #fff;
   padding-right: 14px;
+  font-weight: 700;
 }
 .kompani-info p {
   margin-top: 23px;
@@ -158,17 +162,11 @@
   font-weight: 400;
 }
 .details-page-info {
-  margin-top: 27px;
-}
-.details-page-info:before {
-  content: '';
-  position: absolute;
-  width: 41.5%;
-  height: 72%;
-  top: 204px;
-  left: -2%;
   background: #f3f3f3;
+  margin: 27px -6%;
+  padding: 6% 6%;
 }
+
 .rating {
   display: flex;
 }
@@ -332,6 +330,7 @@
   order: 1;
   background: #f3f3f3;
   padding-right: 20px;
+  font-weight: 700;
 }
 .brand-publications .publications {
   margin-top: 37px;
@@ -344,6 +343,7 @@
 .brand-publications .publications article p {
   font-family: 'Cormorant Garamond', serif;
   font-size: 19px;
+  font-weight: 700;
 }
 .brand-publications .publications article:last-child {
   border-bottom: none;
@@ -371,4 +371,49 @@
 .katalog-page .about-description p {
   margin-top: 28px;
   display: inline-block;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 991px) {
+  .blog-page .left-title {
+    width: 100%;
+    padding: 0 0 0 20px;
+  }
+
+  .blog-page .line-container {
+    width: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .blog-page .left-title .vertical-line {
+    height: 7px;
+    width: 100%;
+    order: 2;
+    margin-top: 3px;
+    margin-left: 14px;
+  }
+
+  .blog-page .left-title h2 {
+    transform: none;
+    background: none;
+    padding: 0;
+    position: relative;
+    order: 1;
+    font-size: 25px;
+    text-align: left;
+    width: initial;
+  }
+
+  .blog-page .content {
+    width: 100%;
+    padding-right: 5.8%;
+    padding-left: 5.8%;
+  }
+
+  .bread-crumbs {
+    display: none;
+  }
+
 }

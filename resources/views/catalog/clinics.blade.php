@@ -37,7 +37,7 @@
                                         <img src="{{ asset('/images/establishment/small') . '/' . $prem->logo  }}"
                                              alt="{{ $prem->alt ?? '' }}" title="{{ $prem->imgtitle ?? '' }}">
                                         <div>
-                                            <h4><span>{{ $prem->title }}</span></h4>
+                                            <h4><span>{{ str_limit($prem->title, 32) }}</span></h4>
                                             <p>
                                                 @if(!empty($prem->description))
                                                     {{ $prem->description }}
@@ -69,7 +69,7 @@
                                         <img src="{{ asset('/images/establishment/main') . '/' . $clinic->logo }}"
                                              alt="{{ $clinic->alt ?? '' }}" title="{{ $clinic->imgtitle ?? '' }}">
                                         <div>
-                                            <h4><span>{{ $clinic->title }}</span></h4>
+                                            <h4><span>{{ str_limit($clinic->title, 32) }}</span></h4>
                                             <p>
                                                 @if(!empty($clinic->description))
                                                     {{ $clinic->description }}

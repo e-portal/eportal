@@ -18,7 +18,7 @@
                                 </time>
                             </div>
                             <a class="link-title" href="{{ route('doctors', $last->alias) }}">
-                                <h3>{{ $last->title }}</h3>
+                                <h3>{{ str_limit($last->title, 64) }}</h3>
                             </a>
                         </article>
                         @if(0 == $loop->index)
@@ -47,7 +47,7 @@
                                 </time>
                             </div>
                             <a class="link-title" href="{{ route('doctors', $article->alias) }}">
-                                <h3>{{ $article->title }}</h3>
+                                <h3>{{ str_limit($article->title, 64) }}</h3>
                             </a>
                         </article>
                         @if(0 == $loop->index)

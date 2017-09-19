@@ -75,9 +75,10 @@ class BlogCategoriesRepository extends Repository {
 
     public function catSelect()
     {
-        $cats = $this->model->select(['name', 'id'])->get();
+        $cats = $this->model->select(['name', 'id', 'alias'])->get();
         $lists = array();
         foreach($cats as $category) {
+            if ('poslednie' == $category->alias) continue;
             $lists[$category->id] = $category->name;
         }
         return $lists;

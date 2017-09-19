@@ -60,7 +60,7 @@
                                             </div>
                                             <div class="kompani-contacts">
                                                 <p>Web-сайт:</p>
-                                                <a href="{{ $profile->site ?? ''}}">{{ $profile->site ?? ''}}</a>
+                                                <a href="{{ $profile->site ?? ''}}">{{ str_limit($profile->site, 32) ?? ''}}</a>
                                             </div>
                                             <div class="kompani-contacts">
                                                 <p>Опыт работы(полных лет):</p>
@@ -129,7 +129,7 @@
                         </div>
                         <div class="comment-post">
                             @include('layouts.social-networks')
-                            {{--@include('layouts.comments_form', ['id' => $profile->id, 'source' => 3])--}}
+                            @include('layouts.comments_form', ['id' => $profile->id, 'source' => 6])
                             <div class="about-description">
                                 <h4>О рубрике Каталог</h4>
                                 <p>Раздел «Мероприятия» позволяет всем заинтересованным в сфере эстетической

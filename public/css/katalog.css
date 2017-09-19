@@ -73,7 +73,7 @@
 }
 
 .katalog-page .articles-wrap .article:nth-child(2n + 1) .article-content .button-block {
-    margin-top: 24px;
+    margin-top: 25px;
 }
 
 .katalog-page .articles-wrap .article::before {
@@ -154,21 +154,28 @@
     height: 100%;
     right: 0;
     top: 0;
-    border: 3px solid #7e2b83;
+    border: 3px solid #455ea7;
 }
 
+.doctor-page .article.premium .article-content::before {
+    border: 3px solid #7e2b83;
+}
 .article.premium .article-content::after {
     content: 'ПРЕМИУМ';
     position: absolute;
     left: -9%;
     top: 3px;
     padding: 0 10px;
-    background: #7e2b83;
+    background: #455ea7;
     color: #fff;
     font-family: Roboto;
     font-size: 15px;
     letter-spacing: 2px;
     line-height: 27px;
+}
+
+.doctor-page .article.premium .article-content::after {
+    background: #7e2b83;
 }
 
 .article-content_top {

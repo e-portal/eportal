@@ -101,7 +101,7 @@ function SliderMain(slider, slides) {
         $('<div />')
             .addClass('slider-nav')
             .appendTo(this.slider);
-        $('.slider-nav').html('<div class="arr-slider prev-slide"></div><div class="dots">' + dots + '</div><div class="arr-slider next-slide"></<div>')
+        $('.slider-nav').html('<div class="arr-slider prev-slide"><</div><div class="dots">' + dots + '</div><div class="arr-slider next-slide">></div>')
         sliderEvents();
         autoslide(0);
 

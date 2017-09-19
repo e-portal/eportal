@@ -75,6 +75,10 @@ Route::post('/subscribe', 'SubscribersController@add')->name('subscribe');
  */
 Route::post('comments', 'CommentsController@store')->name('comments');
 /**
+ * ContactUs
+ */
+Route::post('contactus', 'ContactusController@store')->name('contactus');
+/**
  * Doctor's
  */
 Route::group(['prefix' => 'doctor', 'middleware' => 'doctor'], function () {

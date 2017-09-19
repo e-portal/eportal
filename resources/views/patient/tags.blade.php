@@ -22,7 +22,7 @@
                             {{ $article->created }}
                         </span>
                                     <a href="{{ route('articles', $article->alias) }}">
-                                        <p>{{ $article->title }}</p>
+                                        <p>{{ str_limit($article->title, 72) }}</p>
                                     </a>
                                 </div>
                             </div>
@@ -36,19 +36,19 @@
                                      alt="{{$article->image->alt}}" title="{{ $article->image->title }}">
                             </div>
                             <div class="block-text">
-                    <span>
-                        @if(strlen($article->created) < 6) <i class="icons icon-clock"></i> @endif
-                        {{ $article->created }}
-                    </span>
+                                <span>
+                                    @if(strlen($article->created) < 6) <i class="icons icon-clock"></i> @endif
+                                    {{ $article->created }}
+                                </span>
                                 <a href="{{ route('articles', $article->alias) }}">
-                                    <p>{{ $article->title }}</p>
+                                    <p>{{ str_limit($article->title, 72) }}</p>
                                 </a>
                             </div>
                         </div>
+                    @endif
+                @endforeach
+            @endif
         </div>
-        @endif
-        @endforeach
-        @endif
     </div>
     {!! $sidebar !!}
     <div class="pagination content-blog">

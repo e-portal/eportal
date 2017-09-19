@@ -170,58 +170,6 @@
         {!! $sidebar !!}
     </div>
 </section>
-
-<hr>
-<div class="pagination content-blog">
-    <!--PAGINATION-->
-    <div class="pagination-blog">
-        @if($profiles->lastPage() > 1)
-            <ul>
-                @if($profiles->currentPage() !== 1)
-                    <li>
-                        <a rel="prev" href="{{ $profiles->url(($profiles->currentPage() - 1)) }}"
-                           class="prev">
-                            <
-                        </a>
-                    </li>
-                @endif
-                @if($profiles->currentPage() >= 3)
-                    <li><a href="{{ $profiles->url(1) }}">1</a></li>
-                @endif
-                @if($profiles->currentPage() >= 4)
-                    <li><a href="#">...</a></li>
-                @endif
-                @if($profiles->currentPage() !== 1)
-                    <li>
-                        <a href="{{ $profiles->url($profiles->currentPage()-1) }}">{{ $profiles->currentPage()-1 }}</a>
-                    </li>
-                @endif
-                <li><a class="active disabled">{{ $profiles->currentPage() }}</a></li>
-                @if($profiles->currentPage() !== $profiles->lastPage())
-                    <li>
-                        <a href="{{ $profiles->url($profiles->currentPage()+1) }}">{{ $profiles->currentPage()+1 }}</a>
-                    </li>
-                @endif
-                @if($profiles->currentPage() <= ($profiles->lastPage()-3))
-                    <li><a href="#">...</a></li>
-                @endif
-                @if($profiles->currentPage() <= ($profiles->lastPage()-2))
-                    <li>
-                        <a href="{{ $profiles->url($profiles->lastPage()) }}">{{ $profiles->lastPage() }}</a>
-                    </li>
-                @endif
-                @if($profiles->currentPage() !== $profiles->lastPage())
-                    <li>
-                        <a rel="next" href="{{ $profiles->url(($profiles->currentPage() + 1)) }}"
-                           class="next">
-                            >
-                        </a>
-                    </li>
-                @endif
-            </ul>
-        @endif
-    </div>
-</div>
 {{--
 @if (!empty($profiles))
     @foreach($profiles as $profile)

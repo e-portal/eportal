@@ -31,7 +31,7 @@ class CatalogController extends MainController
         $this->css = '
             <link rel="stylesheet" type="text/css" href="' . asset('css') . '/katalog-brendu.css">
         ';
-
+        Cache::flush();
         $this->prem_rep = $prem_rep;
         $this->ratio_rep = $ratio_rep;
         $this->repository = $repository;

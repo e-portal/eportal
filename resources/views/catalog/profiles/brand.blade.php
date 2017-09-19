@@ -44,7 +44,7 @@
                                                 <span>{{ trans('ru.' . $brand->category) }}</span>
                                             </div>
                                             <div class="kompani-contacts">
-                                                <p>Головная компания</p>
+                                                <p>Головная компания:</p>
                                                 <span>{{ $parent->title }}</span>
                                             </div>
                                             <div class="kompani-contacts">
@@ -57,7 +57,7 @@
                                             </div>
                                             <div class="kompani-contacts">
                                                 <p>Web-сайт:</p>
-                                                <a href="{{ $brand->site }}">{{ $brand->site }}</a>
+                                                <a href="{{ $brand->site }}">{{ str_limit($brand->site, 32) }}</a>
 
                                             </div>
                                             @isset($brand->extra[0])
@@ -83,10 +83,11 @@
                                 </div>
                                 <div class="details-page">
                                     <h3>{{ $brand->title }}</h3>
-                                    <p>Комплексная разработка и сопровождение предприятий индустрии красоты и
-                                        здоровья, включая как SPA & Wellness объекты, так и медицинские у
-                                        чреждения
-                                    </p>
+                                    @if(!empty($brand->description))
+                                        <p>
+                                            {{ $brand->description }}
+                                        </p>
+                                    @endif
                                     <hr>
                                     <span>{{ $brand->address }}</span>
                                     <div class="kompani-info">
@@ -118,12 +119,6 @@
                             @endif
                         </div>
                         @include('layouts.comments_form', ['id' => $brand->id, 'source' => 3])
-                        {{--{!! Form::open(['url'=>route('ratio')]) !!}
-                        {!! Form::text('data_id') !!}
-                        {!! Form::text('source_id') !!}
-                        {!! Form::text('ratio') !!}
-                        {!! Form::button('Сохранить', ['class' => 'btn btn-large btn-primary','type'=>'submit']) !!}
-                        {!! Form::close() !!}--}}
                         <div class="about-description">
                             <h4>О рубрике Каталог</h4>
                             <p>Раздел «Мероприятия» позволяет всем заинтересованным в сфере эстетической
@@ -137,10 +132,6 @@
                         </div>
                     </div>
                 </div>
-
-
-
-
             </div>
         </div>
         {!! $sidebar !!}

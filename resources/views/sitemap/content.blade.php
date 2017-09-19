@@ -42,18 +42,104 @@
                         @endif
                     @endforeach
                 @endif
-                {{--<h2>Врачам</h2>--}}
-                {{--<div class="block">
-                    <h3><a href="{{ route('main') }}">Главная</a></h3>
-                </div>--}}
+                <h2>Врачам</h2>
+                @if(!empty($vars['cats']))
+                    @foreach($vars['cats'] as $cat)
+                        @if('docs' === $cat->own)
+                            <div class="block">
+                                <h3><a href="{{ route('docs_cat', $cat->alias) }}">{{ $cat->name }}</a></h3>
+                                @if(!empty($vars['d_articles']))
+                                    <ul>
+                                        @foreach($vars['d_articles'] as $article)
+                                            @if ($cat->id != $article->category_id)
+                                                @continue
+                                            @endif
+                                            <li>
+                                                <a href="{{ route('doctors', $article->alias) }}">{{ $article->title }}</a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                @endif
+                            </div>
+                        @endif
+                    @endforeach
+                @endif
+                <h2>Блог</h2>
+                @if(!empty($vars['blog_cats']))
+                    @foreach($vars['blog_cats'] as $cat)
+                        <div class="block">
+                            <h3><a href="{{ route('blogs_cat', $cat->alias) }}">{{ $cat->name }}</a></h3>
+                            @if(!empty($vars['blogs']))
+                                <ul>
+                                    @foreach($vars['blogs'] as $article)
+                                        @if ($cat->id != $article->category_id)
+                                            @continue
+                                        @endif
+                                        <li>
+                                            <a href="{{ route('blogs', $article->alias) }}">{{ $article->title }}</a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            @endif
+                        </div>
+                    @endforeach
+                @endif
+                <h2>Каталог</h2>
+                @if(!empty($vars['docs']))
+                    <div class="block">
+                        <h3><a href="{{ route('docs') }}">Врачи</a></h3>
+                        <ul>
+                            @foreach($vars['docs'] as $article)
+                                <li>
+                                    <a href="{{ route('docs', $article->alias) }}">
+                                        {{ $article->lastname.' '. $article->name }}
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                @if(!empty($vars['establishments']))
+                    @foreach($vars['est_cats'] as $cat)
+                        <div class="block">
+                            <h3><a href="{{  route($cat.'s') }}">{{ trans('ru.'.$cat) }}</a></h3>
+                            @if(!empty($vars['establishments']))
+                                <ul>
+                                    @foreach($vars['establishments'] as $article)
+                                        @if ($cat != $article->category)
+                                            @continue
+                                        @endif
+                                        <li>
+                                            <a href="{{ route($cat.'s', $article->alias) }}">{{ $article->title }}</a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            @endif
+                        </div>
+                    @endforeach
+                @endif
+                <h2>Мероприятия</h2>
+                @if(!empty($vars['events']))
+                    <div class="block">
+                        @if(!empty($vars['events']))
+                            <ul>
+                                @foreach($vars['events'] as $article)
+                                    <li>
+                                        <a href="{{ route('events', $article->alias) }}">{{ $article->title }}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        @endif
+                    </div>
+                @endif
             </div>
         </div>
         {!! $sidebar !!}
     </div>
 </section>
 
-
-{{--<div class="block">
+{{--
+<div class="block">
     <h3><a href="{{ route('docs_cat', $cat->alias) }}">{{ $cat->name }}</a></h3>
     @if(!empty($vars['d_articles']))
         <ul>

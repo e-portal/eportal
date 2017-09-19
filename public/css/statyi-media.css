@@ -1609,7 +1609,7 @@
     padding: 0 0 0 6%;
   }
   .img-statyi img {
-    width: 100%;
+      max-width: 100%;
     position: relative;
   }
   .block-text span {

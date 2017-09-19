@@ -20,8 +20,8 @@
                 "emoticons template paste textcolor colorpicker textpattern",
                 "importcss"
             ],
-            content_css: "{{asset('css')}}/tinimce.css",
-            importcss_file_filter: "{{asset('css')}}/app.css",
+            content_css: "{{asset('css')}}/tinimce.css, {{asset('css')}}/stati-vnutrennaya.css, {{asset('css')}}/stati-vnutrennaya-media.css",
+            importcss_file_filter: "{{asset('css')}}/stati-vnutrennaya.css",
             importcss_append: true,
             style_formats: [
                 {

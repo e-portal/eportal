@@ -48,4 +48,12 @@ class Person extends Model
     {
         return $this->hasManyThrough('Fresh\Estet\Blog', 'Fresh\Estet\User');
     }
+
+    /**
+     * @return $this
+     */
+    public function comments()
+    {
+        return $this->hasMany('Fresh\Estet\Docscomment')->where('approved', 1);
+    }
 }

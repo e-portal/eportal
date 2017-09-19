@@ -26,7 +26,7 @@
                          alt="{{$article->alt}}" title="{{ $article->img_title }}">
                 </div>
                 <div class="flex-item">
-                    <p>{{ $article->title }}</p>
+                    <p>{{ str_limit($article->title, 72) }}</p>
                     <span>{!! str_limit(strip_tags($article->content), 512) !!}</span>
                 </div>
 

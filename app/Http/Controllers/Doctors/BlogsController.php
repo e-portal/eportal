@@ -18,7 +18,12 @@ class BlogsController extends DocsController
     protected $tag_rep;
     protected $adv_rep;
 
-    public function __construct(BlogsRepository $rep, BlogCategoriesRepository $cat_rep, TagsRepository $tags, AdvertisingRepository $adv_rep)
+    public function __construct(
+        BlogsRepository $rep,
+        BlogCategoriesRepository $cat_rep,
+        TagsRepository $tags,
+        AdvertisingRepository $adv_rep
+    )
     {
         $this->css = '
                 <link rel="stylesheet" type="text/css" href="' . asset('css') . '/blog.css">

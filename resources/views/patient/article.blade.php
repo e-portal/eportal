@@ -17,14 +17,21 @@
             <div class="content-centr">
 
                 <div class="main-img">
-                    <img src="{{ asset('/images/article/main') . '/' . $article->image->path }}"
-                         alt="{{ $article->image->alt }}" title="{{ $article->image->title }}">
+                    @if(!empty($article->image->path))
+                        <img src="{{ asset('/images/article/main') . '/' . $article->image->path }}"
+                             alt="{{ $article->image->alt }}" title="{{ $article->image->title }}">
+                    @else
+                        <img src="{{ asset('/estet/img/estet.png') }}"
+                             alt="Estet-portal" title="Estet-portal">
+                    @endif
                 </div>
                 <div class="main-img-info">
                     <div class="images">
                         <div class="images-block">
-                            <img src="{{ asset('estet') }}/img/stati-vnutrennaya/2565.png" alt="">
-                            <img src="{{ asset('estet') }}/img/stati-vnutrennaya/2567.png" class="img-2567" alt="">
+                            <p>
+                                <img src="{{ asset('estet') }}/img/stati-vnutrennaya/2565.png" alt="">
+                                <img src="{{ asset('estet') }}/img/stati-vnutrennaya/2567.png" class="img-2567" alt="">
+                            </p>
                         </div>
                         {!! $article->content !!}
                     </div>
@@ -69,7 +76,7 @@
                         </time>
                     </div>
                     <a class="link-title" href="{{ route('articles', $preview->alias) }}">
-                        <h3>{{ $preview->title }}</h3>
+                        <h3>{{ str_limit($preview->title, 64) }}</h3>
                     </a>
                 </article>
                 @if(!$loop->last)

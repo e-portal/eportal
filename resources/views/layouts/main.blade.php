@@ -57,7 +57,12 @@
     </header>
     <div class="container">
         @if(!empty($title_img))
-            <h1><img src="{{ asset('estet') }}/img/title.png" alt="{{ env('APP_NAME') }}" title="{{ env('APP_NAME') }}"></h1>
+            <h1>
+                <a href="{{ route('main') }}">
+                    <img src="{{ asset('estet') }}/img/title.png" alt="{{ env('APP_NAME') }}"
+                         title="{{ env('APP_NAME') }}">
+                </a>
+            </h1>
         @endif
 
         @yield('content')
@@ -77,7 +82,7 @@
                     <div class="pop-inner">
                         <div class="line"></div>
                         <div class="pop-inner-in">
-                            <h1>Я врач</h1>
+                            <h1 class="own">Я врач</h1>
                             <p>Соглашаясь просматривать материалы раздела, я подтверждаю, что являюсь дипломированным
                                 специалистом</p>
                         {{--temp--}}

@@ -4,7 +4,7 @@
         <div class="left-title">
             <div class="line-container">
                 <div class="vertical-line"></div>
-                <h2>Последние статьи</h2>
+                <h2>Последние статьи </h2>
             </div>
         </div>
         <div class="content">
@@ -33,8 +33,8 @@
                                         </time>
                                     </div>
                                     <a href="{{ route('articles', $article->alias) }}" rel="nofollow">
-                                        <h3>{{ $article->title }}</h3></a>
-                                    {!! str_limit($article->content, 512) !!}
+                                        <h3>{{ str_limit($article->title, 64) }}</h3></a>
+                                    <p>{{ str_limit(strip_tags($article->content), 256) }}</p>
                                 </div>
                                 <div class="slide-right_bot">
                                     <a class="btn-blue" href="{{ route('articles',$article->alias) }}">Подробнее</a>
@@ -66,7 +66,7 @@
                             </time>
                         </div>
                         <a class="link-title" href="{{ route('articles', $article->alias) }}">
-                            <h3>{{ $article->title }}</h3>
+                            <h3>{{ str_limit($article->title, 64) }}</h3>
                         </a>
                     </article>
                     @if(!$loop->last)
@@ -100,7 +100,7 @@
                         </time>
                     </div>
                     <a class="link-title" href="{{ route('articles', $articles['popular'][0]->alias) }}">
-                        <h3>{{ $articles['popular'][0]->title }}</h3>
+                        <h3>{{ str_limit($articles['popular'][0]->title, 72) }}</h3>
                     </a>
                 </article>
             </div>
@@ -124,7 +124,7 @@
                                 </time>
                             </div>
                             <a class="link-title" href="{{ route('articles', $article->alias) }}">
-                                <h3>{{ $article->title }}</h3>
+                                <h3>{{ str_limit($article->title, 72) }}</h3>
                             </a>
                         </div>
                     </article>
@@ -162,7 +162,7 @@
                             <div class="horizontal-line"></div>
                         </div>
                         <a class="link-title" href="">
-                            <h3>{{ $video->title }}</h3>
+                            <h3>{{ str_limit($video->title, 64) }}</h3>
                         </a>
                     </article>
                     @if(!$loop->last)
@@ -202,7 +202,7 @@
                                 </time>
                             </div>
                             <a class="link-title" href="{{ route('articles', $article->alias) }}">
-                                <h3>{{ $article->title }}</h3>
+                                <h3>{{ str_limit($article->title, 64) }}</h3>
                             </a>
                         </div>
                     </article>
@@ -241,7 +241,7 @@
                         </time>
                     </div>
                     <a class="link-title" href="{{ route('articles', $articles['diet'][0]->alias) }}">
-                        <h3>{{ $articles['diet'][0]->title }}</h3>
+                        <h3>{{ str_limit($articles['diet'][0]->title, 72) }}</h3>
                     </a>
                 </article>
             </div>
@@ -264,7 +264,7 @@
                                 </time>
                             </div>
                             <a class="link-title" href="{{ route('articles', $article->alias) }}">
-                                <h3>{{ $article->title }}</h3>
+                                <h3>{{ str_limit($article->title, 64) }}</h3>
                             </a>
                         </div>
                     </article>
@@ -304,7 +304,7 @@
                             </time>
                         </div>
                         <a class="link-title" href="">
-                            <h3>{{ $article->title }}</h3>
+                            <h3>{{ str_limit($article->title, 64) }}</h3>
                         </a>
                     </article>
                     @if(!$loop->last)
@@ -319,6 +319,13 @@
         </div>
     </section>
 
+    <!--AD-->
+    <section class="section-useful">
+        <div class="useful">
+            {!! $advertising['main_1'] ?? '<img src="'. asset('estet') .'/img/content/rek-width.png" >' !!}
+        </div>
+    </section>
+    <!--AD-->
     <!--section 7-->
     <section id="section-7" class="medicine-treatment">
         <div class="left-title">
@@ -343,7 +350,7 @@
                         </time>
                     </div>
                     <a class="link-title" href="{{ route('articles', $articles['medicine'][0]->alias) }}">
-                        <h3>{{ $articles['medicine'][0]->title }}</h3>
+                        <h3>{{ str_limit($articles['medicine'][0]->title, 72) }}</h3>
                     </a>
                 </article>
             </div>
@@ -366,7 +373,7 @@
                                 </time>
                             </div>
                             <a class="link-title" href="{{ route('articles', $article->alias) }}">
-                                <h3>{{ $article->title }}</h3>
+                                <h3>{{ str_limit($article->title, 64) }}</h3>
                             </a>
                         </div>
                     </article>
@@ -406,7 +413,7 @@
                             </time>
                         </div>
                         <a class="link-title" href="">
-                            <h3>{{ $article->title }}</h3>
+                            <h3>{{ str_limit($article->title, 64) }}</h3>
                         </a>
                     </article>
                     @if(!$loop->last)
@@ -575,7 +582,7 @@
                         </time>
                     </div>
                     <a class="link-title" href="{{ route('articles', $articles['stomatology'][0]->alias) }}">
-                        <h3>{{ $articles['stomatology'][0]->title }}</h3>
+                        <h3>{{ str_limit($articles['stomatology'][0]->title, 72) }}</h3>
                     </a>
                 </article>
             </div>
@@ -598,7 +605,7 @@
                                 </time>
                             </div>
                             <a class="link-title" href="{{ route('articles', $article->alias) }}">
-                                <h3>{{ $article->title }}</h3>
+                                <h3>{{ str_limit($article->title, 64) }}</h3>
                             </a>
                         </div>
                     </article>
@@ -638,7 +645,7 @@
                             </time>
                         </div>
                         <a class="link-title" href="">
-                            <h3>{{ $article->title }}</h3>
+                            <h3>{{ str_limit($article->title, 64) }}</h3>
                         </a>
                     </article>
                     @if(!$loop->last)

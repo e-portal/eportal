@@ -14,6 +14,7 @@ class SitemapController extends MainController
      */
     public function index()
     {
+        Cache::flush();
         $this->repository = new SitemapRepository();
 
         $status = session()->has('doc') ? 'doc' : 'patient';
@@ -34,6 +35,7 @@ class SitemapController extends MainController
                 'event_cats' => $this->repository->getEventCats(),
             ];
             \Log::info('Карта сайта обновлена: ' . date("d-m-Y H:i"));
+
             return $vars;
         });
 

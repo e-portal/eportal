@@ -36,7 +36,7 @@
                                         <img src="{{ asset('/images/establishment/small') . '/' . $prem->logo  }}"
                                              alt="{{ $prem->alt ?? '' }}" title="{{ $prem->imgtitle ?? '' }}">
                                         <div>
-                                            <h4><span>{{ $prem->title }}</span></h4>
+                                            <h4><span>{{ str_limit($prem->title, 32) }}</span></h4>
                                             <p>
                                                 @if(!empty($prem->description))
                                                     {{ $prem->description }}
@@ -70,7 +70,7 @@
                                              alt="{{ $distributor->alt ?? '' }}"
                                              title="{{ $distributor->imgtitle ?? '' }}">
                                         <div>
-                                            <h4><span>{{ $distributor->title }}</span></h4>
+                                            <h4><span>{{ str_limit($distributor->title, 32) }}</span></h4>
                                             <p>
                                                 @if(!empty($distributor->description))
                                                     {{ $distributor->description }}

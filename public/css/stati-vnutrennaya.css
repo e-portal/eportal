@@ -1,3 +1,32 @@
+.blog-categories .select a {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    color: #000;
+    display: inline-block;
+    margin: 0px 34px 35px 0px;
+}
+
+.blog-categories .select a:before {
+    content: "";
+    border-radius: 50%;
+    background: #fff;
+    display: inline-block;
+    border: 1px solid #202020;
+    width: 11px;
+    height: 11px;
+    margin: 40px 7px 0 0;
+}
+
+.social-networks .social-post a {
+    height: 18px;
+    display: block;
+    cursor: pointer;
+}
+
+.social-networks .social-post a:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 25px;
+}
 .hrp {
     width: 100%;
     display: -webkit-box;
@@ -331,7 +360,8 @@ div.horoscope-description:nth-of-type(2n) .img-horoscope-description {
 .heading-title {
     font-size: 36px;
     font-family: "Cormorant Garamond";
-    margin: 3% 0 5% 0;
+    margin: 3% auto 5%;
+    width: 77%;
 }
 
 .main-img {
@@ -363,10 +393,17 @@ div.horoscope-description:nth-of-type(2n) .img-horoscope-description {
     margin: 0 0 9% 0;
 }
 
+/*.images-block p img {
+    width: 46%;
+}*/
+
 .images p {
     margin: 0 0 2% 0;
     font-size: 19px;
     font-family: "Cormorant Garamond";
+    /*    display: flex;
+        justify-content: inherit;
+        width: 100%;*/
 }
 
 h3 {
@@ -728,7 +765,7 @@ h3 {
 }
 
 footer {
-    margin-top: 50px;
+    /*margin-top: 50px;*/
     padding: 4.3% 6.7% 2.5%;
     background: #202020;
     color: #fff;
@@ -753,6 +790,14 @@ footer img {
     width: 100%;
 }
 
+.form-control {
+    height: 148px;
+    padding: 5px 0 0 15px;
+    font-size: 12px;
+    font-family: 'Roboto';
+    margin-bottom: 10px;
+    resize: vertical;
+}
 footer a {
     color: #fff;
 }
@@ -932,7 +977,7 @@ footer .social a {
     font-family: 'Cormorant Garamond', serif;
     font-size: 19px;
     color: #000;
-    margin-top: 35px;
+    margin: 35px 0 35px 0;
 }
 
 .blog-categories .select .form-select {
@@ -1143,7 +1188,7 @@ footer .social a {
 }
 
 .horoscope .hrp .icons-img {
-    margin: 13px 0 23px 0;
+    /*margin: 13px 0 23px 0;*/
 }
 
 .horoscope .aside-block .form-wrap {

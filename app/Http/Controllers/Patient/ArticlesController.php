@@ -38,6 +38,7 @@ class ArticlesController extends Controller
         CategoriesRepository $cat_rep
     )
     {
+        Cache::flush();
         $this->a_rep = $repository;
         $this->adv_rep = $adv;
         $this->seo_rep = $seo_rep;

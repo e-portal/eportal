@@ -56,7 +56,7 @@
                                             </div>
                                             <div class="kompani-contacts">
                                                 <p>Web-сайт:</p>
-                                                <a href="{{ $distributor->site }}">{{ $distributor->site }}</a>
+                                                <a href="{{ $distributor->site }}">{{ str_limit($distributor->site, 32) }}</a>
                                             </div>
                                             <div class="kompani-contacts">
                                                 <p>Дочерние бренды:</p>
@@ -95,10 +95,11 @@
                                 </div>
                                 <div class="details-page">
                                     <h3>{{ $distributor->title }}</h3>
-                                    <p>Комплексная разработка и сопровождение предприятий индустрии красоты и
-                                        здоровья, включая как SPA & Wellness объекты, так и медицинские у
-                                        чреждения
-                                    </p>
+                                    @if(!empty($distributor->description))
+                                        <p>
+                                            {{ $distributor->description }}
+                                        </p>
+                                    @endif
                                     <hr>
                                     <span>{{ $distributor->address }}</span>
                                     <div class="kompani-info">

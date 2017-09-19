@@ -40,6 +40,8 @@
 .slide-right_top {
     font-family: 'Cormorant';
     font-weight: 600;
+    overflow: hidden;
+    height: 250px;
 }
 .slide-right_top h3 {
     margin-top: 8.4%;
@@ -72,12 +74,23 @@
 
 .slide-right_bot a:hover {
     background: #455ea7;
-    color: #202020;
+    color: #fff;
 }
 
 .doctor-page .slide-right_bot a:hover {
     background: #7e2b83;
     color: #fff;
+}
+
+.useful {
+    max-width: 1170px;
+    height: 230px;
+    width: 100%;
+    margin: 0 4% 0 4%;
+}
+
+.section-useful {
+    margin-top: 146px;
 }
 .slider-nav {
     display: flex;
@@ -167,13 +180,18 @@
     margin-right: 19px;
 }
 .video .articles-horizontal::before {
-    height: 150%;
+    height: 145%;
     top: -39px;
     background: #202020;
 }
 .video .button-block a {
     background: #fff;
     color: #202020;
+}
+
+.video .button-block a:hover {
+    background: #455ea7;
+    color: #fff;
 }
 .video .button-line::before {
     background: #5d5d5d;
@@ -265,12 +283,13 @@
     transform: none;
     position: relative;
     background-color: #fff;
-    padding-right: 14px;
+    padding-right: 0px;
+    padding-left: 0;
 }
 
 .interesting-facts .aside-block .form-wrap {
-    margin: 0;
-    padding: 8% 15%;
+    margin: 12% 0;
+    padding: 9% 14%;
 }
 
 .interesting-facts .aside-block .form-wrap form h4,
@@ -290,6 +309,8 @@
     height: 32px;
     border: 1px solid #e4e4e4;
     padding-left: 12px;
+    font-family: 'Roboto', sans-serif;
+    color: #5D5D5D;
 }
 
 .interesting-facts .aside-block .form-wrap form button {
@@ -300,6 +321,7 @@
     font-weight: 400;
     font-size: 14px;
     letter-spacing: 4px;
+    cursor: pointer;
 }
 
 /*-------------section 5---------------*/

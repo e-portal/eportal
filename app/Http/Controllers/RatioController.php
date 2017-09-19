@@ -34,15 +34,9 @@ class RatioController extends Controller
             case 2:
                 $doc_rep = new DocratioRepository(new Docsratio());
                 $result = $doc_rep->setRatio($request);
-                dd($result);
+
                 if (!empty(($result['doc_id']))) {
                     $result[0] = $doc_rep->getRatio($result['doc_id'])[0];
-                }
-
-                if (true == $result) {
-                    $result = $doc_rep->getRatio($result);
-                } else {
-                    $result = false;
                 }
                 break;
             default:

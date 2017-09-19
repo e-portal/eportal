@@ -326,8 +326,8 @@ div.horoscope-description:nth-of-type(2n) .img-horoscope-description {
   width: 46%;
 }
 .statyi-block .img-statyi img {
-    width: 337px;
-    height: 234px;
+    width: 100%;
+    height: auto;
 }
 .block-text {
   margin: 7.5% 0 3% 0;
@@ -572,6 +572,15 @@ div.horoscope-description:nth-of-type(2n) .img-horoscope-description {
 .reklama {
   width: 100%;
 }
+
+.form-control {
+    height: 148px;
+    padding: 5px 0 0 15px;
+    font-size: 12px;
+    font-family: 'Roboto';
+    margin-bottom: 10px;
+    resize: vertical;
+}
 .img_articles_news-popul img {
   width: 100%;
 }
@@ -598,7 +607,7 @@ div.horoscope-description:nth-of-type(2n) .img-horoscope-description {
   line-height: 15px;
 }
 footer {
-  margin-top: 50px;
+    /*margin-top: 50px;*/
   padding: 4.3% 6.7% 2.5%;
   background: #202020;
   color: #fff;
@@ -780,5 +789,5 @@ footer .social a {
   margin: 15% 0 0 0;
 }
 .horoscope .hrp .icons-img {
-  margin: 0 0 35px 0;
+    /*margin: 0 0 35px 0;*/
 }

@@ -27,7 +27,7 @@
                                 @else
                                     {{ route('articles', $last->alias) }}">
                                 @endif
-                                <h3>{{ $last->title }}</h3>
+                                <h3>{{ str_limit($last->title, 64) }}</h3>
                             </a>
                         </article>
                         @if(0 == $loop->index)
@@ -58,13 +58,13 @@
                             @if($status)
                                 <p>
                                     <a class="link-title" href="{{ route('doctors', $article->alias) }}">
-                                        <h3>{{ $article->title }}</h3>
+                                        <h3>{{ str_limit($article->title, 64) }}</h3>
                                     </a>
                                 </p>
                             @else
                                 <p>
                                     <a class="link-title" href="{{ route('articles', $article->alias) }}">
-                                        <h3>{{ $article->title }}</h3>
+                                        <h3>{{ str_limit($article->title, 64) }}</h3>
                                     </a>
                                 </p>
                             @endif

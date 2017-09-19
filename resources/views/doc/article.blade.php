@@ -16,8 +16,13 @@
             <div class="content-centr">
 
                 <div class="main-img">
+                    @if(!empty($article->image->path))
                     <img src="{{ asset('/images/article/main') . '/' . $article->image->path }}"
                          alt="{{ $article->image->alt }}" title="{{ $article->image->title }}">
+                    @else
+                        <img src="{{ asset('/estet/img/estet.png') }}"
+                             alt="Estet-portal" title="Estet-portal">
+                    @endif
                 </div>
                 <div class="main-img-info">
                     <div class="images">

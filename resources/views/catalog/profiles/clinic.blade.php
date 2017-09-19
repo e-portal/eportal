@@ -72,7 +72,7 @@
                                             </div>
                                             <div class="kompani-contacts">
                                                 <p>Web-сайт:</p>
-                                                <a href="{{ $clinic->site }}">{{ $clinic->site }}</a>
+                                                <a href="{{ $clinic->site }}">{{ str_limit($clinic->site, 32) }}</a>
                                             </div>
                                         </div>
                                         <div class="kervices-kompani">
@@ -89,10 +89,11 @@
                                 </div>
                                 <div class="details-page">
                                     <h3>{{ $clinic->title }}</h3>
-                                    <p>Комплексная разработка и сопровождение предприятий индустрии красоты и
-                                        здоровья, включая как SPA & Wellness объекты, так и медицинские у
-                                        чреждения
-                                    </p>
+                                    @if(!empty($clinic->description))
+                                        <p>
+                                            {{ $clinic->description }}
+                                        </p>
+                                    @endif
                                     <hr>
                                     <span>{{ $clinic->address }}</span>
                                     <div class="kompani-info">

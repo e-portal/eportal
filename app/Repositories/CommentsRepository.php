@@ -2,6 +2,7 @@
 namespace Fresh\Estet\Repositories;
 
 use Fresh\Estet\Blogcomment;
+use Fresh\Estet\Docscomment;
 use Fresh\Estet\Establishmentcomment;
 use Fresh\Estet\Eventcomment;
 use Fresh\Estet\Horocomment;
@@ -11,6 +12,7 @@ use Fresh\Estet\Establishment;
 use Fresh\Estet\Blog;
 use Fresh\Estet\Event;
 use Fresh\Estet\Comment;
+use Fresh\Estet\Person;
 use Config;
 
 
@@ -34,6 +36,9 @@ class CommentsRepository
             case 5:
                 $comments = Horocomment::where('approved', 0)->select(['name', 'email', 'id', 'text'])->orderBy('created_at', 'desc')->paginate(Config::get('settings.paginate_comments'));
                 return $comments;
+            case 6:
+                $comments = Docscomment::where('approved', 0)->select(['name', 'email', 'id', 'text'])->orderBy('created_at', 'desc')->paginate(Config::get('settings.paginate_comments'));
+                return $comments;
             default:
                 return ['error'=>'Ошибка получения коментария'];
         }
@@ -55,6 +60,14 @@ class CommentsRepository
                 return $comment;
             case 4:
                 $comment = Eventcomment::find($id);
+
+                return $comment;
+            case 5:
+                $comment = Horocomment::find($id);
+
+                return $comment;
+            case 6:
+                $comment = Docscomment::find($id);
 
                 return $comment;
             default:
@@ -122,6 +135,13 @@ class CommentsRepository
                 break;
             case 5:
                 $model = new Horocomment();
+                break;
+            case 6:
+                if (!Person::where('id', '=', $data['comment_post_ID'])->exists()) {
+                    return ['error' => 'Ошибка получения коментария'];
+                }
+                $data['person_id'] = $data['comment_post_ID'];
+                $model = new Docscomment();
                 break;
             default:
                 return ['error'=>'Ошибка получения коментария'];
@@ -205,6 +225,14 @@ class CommentsRepository
                 }
 
                 break;
+            case 6:
+                $model = Docscomment::where('id', '=', $id)->first();
+
+                if (!$model) {
+                    return ['error' => 'Ошибка получения коментария'];
+                }
+
+                break;
             default:
                 return ['error'=>'Ошибка получения коментария'];
         }
@@ -254,6 +282,13 @@ class CommentsRepository
                 break;
             case 5:
                 $model = Horocomment::where('id', '=', $id)->first();
+
+                if (!$model) {
+                    return ['error' => 'Ошибка получения коментария'];
+                }
+                break;
+            case 6:
+                $model = Docscomment::where('id', '=', $id)->first();
 
                 if (!$model) {
                     return ['error'=>'Ошибка получения коментария'];

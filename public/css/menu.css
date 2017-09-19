@@ -165,6 +165,10 @@ header .container-fool {
 .menu-elem {
     cursor: pointer;
 }
+
+.menu-elem a {
+    color: #202020;
+}
 header .line-bottom-menu {
     border-bottom: 1px solid #000000;
     box-sizing: border-box;
@@ -455,8 +459,9 @@ header .line-bottom-menu {
     left: 0;
     height: 100%;
     width: 100%;
-    background: rgba(0, 0, 0, .5);
+    background: #FFFFFF;
     z-index: 2;
+    opacity: .9;
 }
 
 .pop-up {
@@ -471,7 +476,7 @@ header .line-bottom-menu {
 }
 
 .pop-inner {
-    background: #fff;
+    /*background: #fff;*/
     color: #000;
     display: block;
     position: relative;

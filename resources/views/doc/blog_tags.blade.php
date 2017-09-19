@@ -17,12 +17,12 @@
                                          alt="{{$blog->blog_img->alt}}" title="{{ $blog->blog_img->title }}">
                                 </div>
                                 <div class="block-text">
-                        <span>
-                            @if(strlen($blog->created) < 6) <i class="icons icon-clock"></i> @endif
-                            {{ $blog->created }}
-                        </span>
+                                <span>
+                                    @if(strlen($blog->created) < 6) <i class="icons icon-clock"></i> @endif
+                                    {{ $blog->created }}
+                                </span>
                                     <a href="{{ route('blogs', $blog->alias) }}">
-                                        <p>{{ $blog->title }}</p>
+                                        <p>{{ str_limit($blog->title, 72) }}</p>
                                     </a>
                                 </div>
                             </div>
@@ -36,12 +36,12 @@
                                      alt="{{$blog->blog_img->alt}}" title="{{ $blog->blog_img->title }}">
                             </div>
                             <div class="block-text">
-                    <span>
-                        @if(strlen($blog->created) < 6) <i class="icons icon-clock"></i> @endif
-                        {{ $blog->created }}
-                    </span>
+                                <span>
+                                    @if(strlen($blog->created) < 6) <i class="icons icon-clock"></i> @endif
+                                    {{ $blog->created }}
+                                </span>
                                 <a href="{{ route('blogs', $blog->alias) }}">
-                                    <p>{{ $blog->title }}</p>
+                                    <p>{{ str_limit($blog->title, 72) }}</p>
                                 </a>
                             </div>
                         </div>
@@ -51,6 +51,7 @@
         @endif
     </div>
     {!! $sidebar !!}
+    </div>
     <div class="pagination content-blog">
         <!--PAGINATION-->
         <div class="pagination-blog">
