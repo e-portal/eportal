@@ -4,7 +4,7 @@
     </p>
 </div>
 <!--section 1-->
-<section id="section-1" class="horoscope">
+<section id="section-1" class="blog-page">
     <div class="left-title left-title-planshet">
         <div class="line-container text-vertical">
             <div class="vertical-line"></div>

@@ -5,9 +5,11 @@ use Fresh\Estet\BlogCategory;
 use Fresh\Estet\Establishment;
 use Fresh\Estet\Event;
 use Fresh\Estet\Eventscategory;
+use Fresh\Estet\Horoscope;
 use Fresh\Estet\Menu;
 use App;
 use Fresh\Estet\Person;
+use Fresh\Estet\Static_page;
 use URL;
 use Cache;
 use DB;
@@ -119,13 +121,19 @@ class SitemapRepository
 //      Docs
         $sitemap_main = App::make("sitemap");
 
-        $sitemap_main->add(URL::to('/'), '2017-08-15T20:10:00+02:00', '0.6', 'daily');
-        $sitemap_main->add(URL::to('goroscop'), '2012-08-16T12:30:00+02:00', '0.8', 'monthly');
-        $sitemap_main->add(URL::to('doctor/blog'), '2012-08-16T12:30:00+02:00', '0.8', 'daily');
-        $sitemap_main->add(URL::to('catalog/kliniki'), '2012-08-16T12:30:00+02:00', '0.8', 'daily');
-        $sitemap_main->add(URL::to('catalog/brendy'), '2012-08-16T12:30:00+02:00', '0.8', 'daily');
-        $sitemap_main->add(URL::to('catalog/distributory'), '2012-08-16T12:30:00+02:00', '0.8', 'daily');
-        $sitemap_main->add(URL::to('catalog/vrachi'), '2012-08-16T12:30:00+02:00', '0.8', 'daily');
+        $horo_update = Horoscope::select('updated_at')->first();
+        $sitemap_main->add(URL::to('/'), date('Y-m-d 00:00:00'), '0.6', 'daily');
+        $sitemap_main->add(URL::to('goroscop'), $horo_update->updated_at, '0.8', 'monthly');
+        $sitemap_main->add(URL::to('doctor/blog'), date('Y-m-d 00:00:00'), '0.8', 'daily');
+        $sitemap_main->add(URL::to('catalog/kliniki'), date('Y-m-d 00:00:00'), '0.8', 'daily');
+        $sitemap_main->add(URL::to('catalog/brendy'), date('Y-m-d 00:00:00'), '0.8', 'daily');
+        $sitemap_main->add(URL::to('catalog/distributory'), date('Y-m-d 00:00:00'), '0.8', 'daily');
+        $sitemap_main->add(URL::to('catalog/vrachi'), date('Y-m-d 00:00:00'), '0.8', 'daily');
+
+        $statics = Static_page::select('updated_at', 'own')->get();
+        foreach ($statics as $page) {
+            $sitemap_main->add(route($page->own), $page->updated_at, '0.8', 'monthly');
+        }
 
 //        categories
         $cats = Menu::with('category')->get();

@@ -23,11 +23,53 @@ h3 {
   width: 12px;
   border: 1px solid #455ea7;
   position: absolute;
-  margin: 7px 0 0 -15px;
+    margin: 18px 0 0 -15px;
 }
-.vertical-line {
+
+.main-content h2::before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 1px;
+    width: 12px;
+    border: 1px solid #455ea7;
+    position: absolute;
+    margin: 18px 0 0 -10px;
+}
+
+.site-discr::before {
+    content: '';
+    position: absolute;
+    border: 1px solid #455ea7;
+    height: 30.8%;
+    margin: 18px 0 0 -11px;
+}
+
+.site-patient {
+    margin: 0 0 0 15px;
+}
+
+.block-main h3::before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 1px;
+    width: 12px;
+    border: 1px solid #455ea7;
+    position: absolute;
+    margin: 12px 0 0 -15px;
+}
+
+/*.vertical-line {
   background: #202020;
 }
+*/
 .block li {
   list-style-type: none;
   font-size: 16px;
@@ -46,26 +88,80 @@ h3 {
   margin: 0 14px 0 0;
 }
 .block {
-  margin: 0 0 0 -28px;
+    margin: 0 0 0 23px;
+    position: relative;
+}
+
+.block-main a {
+    color: #202020;
+}
+
+.block a {
+    color: #202020;
 }
 .block li {
-  margin: 13px 0 14px 0;
+    margin: 0 0 42px 0;
 }
 .block ul {
   margin: 18px 0 33px 0;
 }
 .block li a {
   color: #000;
+    position: absolute;
+    width: 90%;
 }
 .block li img {
   padding: 0 2.3% 0.5% 0;
+}
+
+.block-main li {
+    list-style-type: none;
+    font-size: 16px;
+    font-family: "Cormorant Garamond";
+}
+
+.block-main li::before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 1px;
+    border: solid #202020;
+    border-width: 0 14px 0 9px;
+    margin: 0 14px 0 0;
+}
+
+.block-main::before {
+    content: '';
+    position: absolute;
+    border: 1px solid #455ea7;
+    height: 100%;
+    margin: 13px 0 0 -15px;
+}
+
+.block-main ul {
+    margin: 18px 0 33px 0;
+}
+
+.block-main li {
+    padding: 0 0 14px 0;
+}
+
+.block-main li a {
+    color: #000;
+}
+
+.block-main li img {
+    padding: 0 2.3% 0.5% 0;
 }
 .block::before {
   content: '';
   position: absolute;
   border: 1px solid #455ea7;
   height: 100%;
-  margin: 9px 0 0 -15px;
+    margin: 20px 0 0 -15px;
 }
 .vertical-line-map {
   background: #455ea7;
@@ -73,7 +169,8 @@ h3 {
 .aside-map {
   margin: 32px 0 0 0;
 }
-.block:nth-child(1) {
+
+/*.block:nth-child(1) {
   padding-left: 0px;
 }
 .block:nth-child(2) {
@@ -102,7 +199,7 @@ h3 {
 }
 .block:nth-child(10) {
   padding-left: 252px;
-}
+}*/
 @media (max-width: 767px) {
   .content-center .block {
     padding-left: 0;

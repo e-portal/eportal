@@ -153,16 +153,14 @@ input.checkbox {
   font-size: 19px;
 }
 .select-left .item2 {
-  /* margin: 17% 0 18% 0; */
-  padding-top: 16%;
+  margin: 32px 0 15px 0;
 }
 .select-right {
   font-family: 'Cormorant Garamond', serif;
   font-size: 19px;
 }
 .select-right .item1 {
-  /* margin: 29px 0 0 0; */
-  padding-top: 38%;
+  margin: 32px 0 15px 0;
 }
 .select-left span {
   margin: 3% 0 14% 0;
@@ -189,8 +187,9 @@ input.checkbox {
 }
 .select-search-scope select {
   background-color: #f3f3f3;
-  font-size: 19px;
+  font-size: 16px;
   width: 100%;
+  font-family: 'Cormorant Garamond';
 }
 .link-center a {
   color: #455ea7;
@@ -233,6 +232,12 @@ input.checkbox {
   font-size: 14px;
   font-family: 'Roboto';
   text-align: center;
+  position: absolute;
+}
+
+.item .item-description {
+  position: relative;
+  margin: 3px 0 0 30px;
 }
 .link-center p {
   color: #5d5d5d;
@@ -270,11 +275,14 @@ input.checkbox {
   margin: 2%;
 }
 footer {
-  margin-top: 150px;
   padding: 4.3% 6.7% 2.5%;
   background: #202020;
   color: #fff;
   font-size: 0;
+}
+
+.remember-me .label {
+  cursor: pointer;
 }
 footer .footer-top,
 footer .footer-bot {
@@ -291,9 +299,6 @@ footer .footer-bot {
 }
 footer img {
   width: 100%;
-}
-footer a {
-  color: #fff;
 }
 footer .left {
   width: 17%;
@@ -393,18 +398,6 @@ footer .social a {
   width: 50%;
   display: inline-block;
   vertical-align: middle;
-}
-.footer-bot .right span:first-child {
-  display: block;
-  font-size: 12px;
-  line-height: 20px;
-}
-.footer-bot .right span:last-child {
-  font-size: 20px;
-  line-height: 28px;
-}
-.partner {
-  border-right: 1px solid rgba(168,167,167,0.21);
 }
 .partner span:last-child {
   letter-spacing: 2px;
@@ -539,9 +532,6 @@ footer .social a {
 .horoscope .content-aside-main .articles-vertical {
   margin: 0 0 65px 0;
 }
-.horoscope .hrp .icons-img {
-  margin: 5px 0 29px 0;
-}
 .horoscope .aside-block .form-wrap {
   margin: 27.6% 0;
   padding: 13% 9.6%;
@@ -616,9 +606,6 @@ footer .social a {
 }
 .horoscope .content-aside-main .articles-vertical {
   margin: 0 0 65px 0;
-}
-.horoscope .hrp .icons-img {
-  margin: 5px 0 29px 0;
 }
 .horoscope .aside-block .form-wrap {
   margin: 27.6% 0;

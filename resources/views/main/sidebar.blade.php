@@ -17,7 +17,7 @@
                         <article>
                             <div class="title-time">
                                 <time>
-                                    @if(strlen($last->created) < 6) <i class="icons icon-clock"></i> @endif
+                                    @if(strlen($last->created) < 6) <i class="icons icon-clock"></i>@endif
                                     {{ $last->created }}
                                 </time>
                             </div>
@@ -35,6 +35,11 @@
                     @endforeach
                 @endif
             </div>
+        </div>
+    </div>
+    <div class="aside-block">
+        <div class="advertising">
+            {!! $advertising['sidebar'] ?? '<img src="'. asset('estet') .'/img/advertising.jpg" >' !!}
         </div>
     </div>
     <div class="aside-block highly-block">
@@ -79,8 +84,10 @@
     @include('layouts.horoscope.sidebar')
     <div class="aside-block">
         <div class="advertising">
-            {!! $advertising['sidebar'] ?? '<img src="'. asset('estet') .'/img/advertising.jpg" >' !!}
+            {!! $advertising['sidebar_2'] ?? '<img src="'. asset('estet') .'/img/advertising.jpg" >' !!}
         </div>
+    </div>
+    <div class="aside-block">
         @include('layouts.subscribe')
     </div>
 </aside>

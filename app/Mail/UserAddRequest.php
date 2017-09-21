@@ -29,6 +29,8 @@ class UserAddRequest extends Mailable
      */
     public function build()
     {
-        return $this->from(env('ADMIN_EMAIL'))->view('email.add-user-request')->with('id', $this->user_id);
+        return $this->from(env('ADMIN_EMAIL'))
+            ->view('email.add-user-request')
+            ->with('id', $this->user_id);
     }
 }

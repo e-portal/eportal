@@ -59,9 +59,17 @@ class Static_pageController extends MainController
 
     public function getFooter($name)
     {
-        $this->footer = Cache::remember('footer-' . $name, 24 * 60, function () {
-            return view('layouts.footer')->render();
-        });
+        if (session()->has('doc')) {
+            $this->footer = Cache::remember('footer-doc-' . $name, 24 * 60, function () {
+                $adv = $this->adv_rep->getFooter('doc');
+                return view('layouts.footer')->with(['adv' => $adv])->render();
+            });
+        } else {
+            $this->footer = Cache::remember('footer-patient-' . $name, 24 * 60, function () {
+                $adv = $this->adv_rep->getFooter('patient');
+                return view('layouts.footer')->with(['adv' => $adv])->render();
+            });
+        }
     }
 
     /**

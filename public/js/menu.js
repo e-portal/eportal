@@ -85,6 +85,31 @@ $('.with-sub.menu-elem').click(function (e) {
     }
 });
 
+function getCookie(name) {
+    var matches = document.cookie.match(new RegExp(
+        "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+    ));
+    return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
+/* switch patient */
+
+function switchSites() {
+    $('.doctor,.checkbox-label').click(function () {
+        cook = getCookie('user_status');
+        console.log(cook);
+        if (cook) {
+            $('.to-page-doctor form').submit();
+            return true
+        }
+        $('#checkbox1').removeClass('active');
+        $('.wrap-pop').addClass('active');
+    });
+    $('.close-pop, .pop-bg').click(function () {
+        $('#checkbox1').addClass('active');
+        $('.wrap-pop').removeClass('active');
+    });
+};switchSites();
 
 
 
@@ -104,3 +129,12 @@ $('.burger').click(function () {
     $(this).toggleClass('active');
     $(this).hasClass('active') ? $('.nav_container').addClass('active') : $('.nav_container').removeClass('active');
 })
+
+
+/*background-menu-active hover*/
+$('.submenu').mouseover(function () {
+    $('.background-menu-active').css('display', 'block');
+});
+$('.submenu').mouseout(function () {
+    $('.background-menu-active').css('display', 'none');
+});

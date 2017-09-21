@@ -271,6 +271,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
         Route::match(['post', 'get'], 'edit/{seo}', 'Admin\SeoController@edit')->name('seo_update')->where('seo', '[0-9]+');
     });
     /**
+     * Admin ContactUs
+     */
+    Route::group(['prefix' => 'contactus'], function () {
+        Route::match(['post', 'get'], '/', 'Admin\ContactusController@show')->name('contactus_admin');
+        Route::get('/del/{contactus}', 'Admin\ContactusController@del')->name('contactus_del')->where('contactus', '[0-9]+');
+    });
+    /**
      * Admin STATIC
      */
     Route::group(['prefix' => 'static'], function () {

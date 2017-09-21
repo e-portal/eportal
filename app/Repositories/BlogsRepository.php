@@ -400,6 +400,7 @@ class BlogsRepository extends Repository {
         Cache::forget('doc');
         Cache::forget('blogs');
         Cache::forget('blogs_sidebar');
+        Cache::forget('docsArticles');
     }
 
     /**
@@ -596,7 +597,7 @@ class BlogsRepository extends Repository {
         }
 
         if ($where) {
-            if (is_array($where[0]) && !empty(($where[3]))) {
+            /*if (is_array($where[0]) && !empty(($where[3]))) {
                 $builder->where([$where[0], $where[1], $where[2], $where[3]]);
             } elseif (is_array($where[0]) && !empty(($where[2]))) {
                 $builder->where([$where[0], $where[1], $where[2]]);
@@ -604,7 +605,8 @@ class BlogsRepository extends Repository {
                 $builder->where([$where[0], $where[1]]);
             } else {
                 $builder->where($where[0], $where[1], $where[2] = false);
-            }
+            }*/
+            $builder->where($where);
         }
 
         if ($order) {

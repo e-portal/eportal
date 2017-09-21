@@ -25,6 +25,7 @@ class BlogsController extends DocsController
         AdvertisingRepository $adv_rep
     )
     {
+        Cache::flush();
         $this->css = '
                 <link rel="stylesheet" type="text/css" href="' . asset('css') . '/blog.css">
                 <link rel="stylesheet" type="text/css" href="' . asset('css') . '/blog-vnutrennyaya.css">
@@ -49,10 +50,18 @@ class BlogsController extends DocsController
                 $blog = $this->blog_rep->one($blog_alias, true);
                 if ($blog) {
                     $blog->load('comments');
+                    $blog->load('blog_img');
                 }
-
+                if (!empty($blog->seo)) {
+                    $blog->seo = $this->blog_rep->convertSeo($blog->seo);
+                } else {
+                    $blog->seo = new \stdClass();
+                }
+                $blog->seo->og_image = asset('/images/blog/main') . '/' . $blog->blog_img->path;
                 return $blog;
             });
+
+            $this->seo = $blog->seo ?? '<img src="' . asset('estet') . '/img/estet.png" >';
 
             if (!$blog) {
                 abort(404);

@@ -1,3 +1,4 @@
-@if($content)
+Рассылка:
+@if(!empty($content))
     {!! $content !!}
 @endif

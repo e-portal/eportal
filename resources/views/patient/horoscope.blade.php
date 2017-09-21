@@ -151,7 +151,7 @@
                 </div>
             @endforeach
         @endif
-                @include('layouts.comments_form', ['id' => 1, 'source' => 5])
+            @include('layouts.comments_form', ['id' => 1, 'source' => 5])
         </div>
 
        {!! $sidebar !!}
@@ -182,7 +182,7 @@
                         </time>
                     </div>
                     <a class="link-title" href="{{ route('articles', $article->alias) }}">
-                        <h3>{{ $article->title }}</h3>
+                        <h3>{{ str_limit($article->title, 72) }}</h3>
                     </a>
                 </article>
                 @if(!$loop->last)
@@ -192,9 +192,6 @@
         </div>
     </div>
 </section>
-</div>
-
-
 <!---------------------------------------------about the rubrics start------------------------------------->
 <div class="container container-rubrics">
     <div class="rubrics">

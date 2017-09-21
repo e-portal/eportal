@@ -11,7 +11,7 @@
         </div>
     </div>
     <div class="section-form">
-        {{--@if (count($errors) > 0)
+        @if (count($errors) > 0)
             <div class="alert alert-danger">
                 <p class="error">
                     @foreach ($errors->toArray() as $key=>$error)
@@ -24,25 +24,28 @@
             <div class="alert alert-success">
                 {{ session('status') }}
             </div>
-        @endif--}}
+        @endif
         <p class="add-comm">Добавить коментарий:</p>
         {!! Form::open(['url' => route('comments'),'class'=>'section-form-up','method'=>'post']) !!}
         {!! Form::text('email', old('email') ? : '' , ['placeholder'=>'Ваша почта', 'id'=>'email', 'class'=>'section-input']) !!}
         {!! Form::text('name', old('name') ? : '' , ['placeholder'=>'Имя', 'id'=>'name', 'class'=>'section-input']) !!}
         {!! Form::textarea('text', old('text') ? : '' ,
          ['placeholder'=>'Коментарий', 'id'=>'text', 'class'=>'form-control', 'rows'=>3, 'cols'=>40]) !!}
-        <div class="section-form-down">
-            {{--<div>
-                <input readonly="" type="text" name="cod" class="section-form-test" placeholder="78535">
-                <input type="text" name="prof" class="section-form-test">
-            </div>--}}
-            <input class="but-section-form @if(session()->has('doc')) but-section-purpur @endif" type="submit"></input>
+        <div class="block-forms">
+            <div class="block-left">
+                <div class="reload">
+                    <img src="{{ route('captcha') }}" class="captcha" id="captcha">
+                    <p><img src="{{ asset('estet') }}/img/content/refresh.png" class="reload" alt="Обновить">Обновить
+                    </p>
+                </div>
+                <div class="block-right">
+                    {!! Form::text('capt', old('capt') ? : '' , ['id'=>'capt', 'class'=>'section-input section-input-reload']) !!}
+                </div>
+            </div>
+            <div class="section-form-down">
+                <input class="but-section-form @if(session()->has('doc')) but-section-purpur @endif" type="submit">
+            </div>
         </div>
-        <div class="reload">
-            <img src="{{ route('captcha') }}" class="captcha" id="captcha">
-        </div>
-        {!! Form::text('capt', old('capt') ? : '' , ['placeholder'=>'Введите символы с картинки', 'id'=>'capt', 'class'=>'section-input']) !!}
-        <p><img src="{{ asset('estet') }}/img/content/refresh.png" class="reload" alt="Обновить">Обновить</p>
         {{ Form::hidden('comment_post_ID', $id) }}
         {{ Form::hidden('comment_parent', 0) }}
         {{ Form::hidden('comment_source', $source) }}

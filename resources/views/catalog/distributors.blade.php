@@ -33,8 +33,11 @@
                             <div class="article premium">
                                 <div class="article-content">
                                     <div class="article-content_top">
-                                        <img src="{{ asset('/images/establishment/small') . '/' . $prem->logo  }}"
-                                             alt="{{ $prem->alt ?? '' }}" title="{{ $prem->imgtitle ?? '' }}">
+                                        <a href="{{ route('distributors',['distributor'=> $prem->alias]) }}"
+                                           rel="nofollow">
+                                            <img src="{{ asset('/images/establishment/small') . '/' . $prem->logo  }}"
+                                                 alt="{{ $prem->alt ?? '' }}" title="{{ $prem->imgtitle ?? '' }}">
+                                        </a>
                                         <div>
                                             <h4><span>{{ str_limit($prem->title, 32) }}</span></h4>
                                             <p>
@@ -52,7 +55,7 @@
                                     <div class="button-block">
                                         <div class="button-line"></div>
                                         <a href="{{ route('distributors',['distributor'=> $prem->alias]) }}">
-                                            Подробнее о дистрибуторе
+                                            Подробнее
                                         </a>
                                     </div>
                                 </div>
@@ -66,9 +69,12 @@
                             <div class="article">
                                 <div class="article-content">
                                     <div class="article-content_top">
-                                        <img src="{{ asset('/images/establishment/main') . '/' . $distributor->logo }}"
-                                             alt="{{ $distributor->alt ?? '' }}"
-                                             title="{{ $distributor->imgtitle ?? '' }}">
+                                        <a href="{{ route('distributors',['distributor'=> $distributor->alias]) }}"
+                                           rel="nofollow">
+                                            <img src="{{ asset('/images/establishment/main') . '/' . $distributor->logo }}"
+                                                 alt="{{ $distributor->alt ?? '' }}"
+                                                 title="{{ $distributor->imgtitle ?? '' }}">
+                                        </a>
                                         <div>
                                             <h4><span>{{ str_limit($distributor->title, 32) }}</span></h4>
                                             <p>
@@ -85,7 +91,7 @@
                                     <div class="button-block">
                                         <div class="button-line"></div>
                                         <a href="{{ route('distributors',['distributor'=> $distributor->alias]) }}">
-                                            Подробнее о дистрибуторе
+                                            Подробнее
                                         </a>
                                     </div>
                                 </div>
@@ -146,20 +152,23 @@
                             @endif
                         </div>
                     </div>
-                    <div class="about-description">
-                        <h4>О рубрике Каталог</h4>
-                        <p>Раздел «Мероприятия» позволяет всем заинтересованным в сфере эстетической
-                            медицины не пропустить медицинские мероприятия, которые помогут не только
-                            постоянно следить за мировыми и местными событиями, интересными для
-                            врачей-эстетистов и специалистов других отраслей медицины, но и позволят
-                            расширить базу знаний и завести новые знакомства, получить бесценный опыт
-                            и повысить свою квалификацию. Медицинские мероприятия для профессионалов
-                            включают в себя тренинги, практикумы, обучающие курсы, конференции,
-                            выставки и прочие события в мире медицины..</p>
-                    </div>
                 </div>
             </div>
         </div>
         {!! $sidebar !!}
     </div>
 </section>
+<div class="about-description">
+    <div class="about-description-text">
+        <h4>О рубрике Каталог</h4>
+        <p>Раздел «Мероприятия» позволяет всем заинтересованным в сфере эстетической
+            медицины не пропустить медицинские мероприятия, которые помогут не только
+            постоянно следить за мировыми и местными событиями, интересными для
+            врачей-эстетистов и специалистов других отраслей медицины, но и позволят
+            расширить базу знаний и завести новые знакомства, получить бесценный опыт
+            и повысить свою квалификацию. Медицинские мероприятия для профессионалов
+            включают в себя тренинги, практикумы, обучающие курсы, конференции,
+            выставки и прочие события в мире медицины..
+        </p>
+            </div>
+        </div>

@@ -117,5 +117,6 @@ return [
     'stop' => 'Дата окончания',
 //    sibscribe
     'status' => 'Принадлежность',
-
+//    contacts
+    'subject' => 'Тема',
 ];

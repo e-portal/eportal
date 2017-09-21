@@ -11,7 +11,8 @@
             </div>
 
             <div id="toggles" class="toggles">
-                <input type="checkbox" name="checkbox1" id="checkbox1" class="ios-toggle active"/>
+                <input type="checkbox" name="checkbox1" id="checkbox1"
+                       class="ios-toggle @if(!(session()->has('doc'))) active @endif"/>
                 <label for="checkbox1" class="checkbox-label"></label>
             </div>
             <div class="person doctor menu-elem">Я врач</div>
@@ -107,7 +108,7 @@
                                     <li><a href="{{ route('sitemap') }}">Карта сайта</a></li>
                                     <li><a href="{{ route('conditions') }}">Соглашение об использовании</a></li>
                                     <li><a href="{{ route('partnership') }}">Партнерство</a></li>
-                                    <li><a href="#">Видео отзывы</a></li>
+                                    <li><a href="{{ route('article_cat', 'video-otzyvy' ) }}">Видео отзывы</a></li>
                                 </ul>
 
                             </li>

@@ -147,14 +147,6 @@ abstract class Repository {
         return $str;
     }
 
-    public function convertSeo($seo)
-    {
-        if (is_string($seo) && is_object(json_decode($seo)) && (json_last_error() == JSON_ERROR_NONE)) {
-            $seo = json_decode($seo);
-        }
-        return $seo;
-    }
-
     public function convertDate($date)
     {
         $midnight = strtotime('today midnight');
@@ -168,6 +160,13 @@ abstract class Repository {
         return $date;
     }
 
+    public function convertSeo($seo)
+    {
+        if (is_string($seo) && is_object(json_decode($seo)) && (json_last_error() == JSON_ERROR_NONE)) {
+            $seo = json_decode($seo);
+        }
+        return $seo;
+    }
 }
 
 ?>

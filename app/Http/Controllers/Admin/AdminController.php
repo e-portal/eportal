@@ -50,6 +50,10 @@ class AdminController extends Controller
                 $menu->add(trans('ru.users'),  array('route'  => 'users'));
             }
 
+            if (Gate::allows('ADMIN_USERS')) {
+                $menu->add('E-mail для контактов', array('route' => 'contactus_admin'));
+            }
+
             if(Gate::allows('EDIT_USERS')){
                 $menu->add(trans('ru.profiles'),  array('route'  => 'admin_profile'));
             }
@@ -112,7 +116,7 @@ class AdminController extends Controller
 
             if (Gate::allows('UPDATE_STATIC')) {
                 $menu->add('Статичные страницы', array('route' => 'admin_static'));
-             }
+            }
         });
     }
 }

@@ -111,7 +111,7 @@
                         <p>{{ $blog->category->name }}</p>
                     </div>
                     <a class="link-title" href="{{ route('blogs',['blog'=> $blog->alias]) }}">
-                        <h3>{{ $blog->title }}</h3>
+                        <h3>{{ str_limit($blog->title, 72) }}</h3>
                     </a>
                     <div class="blog-read-more">
                         <div class="author">

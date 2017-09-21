@@ -5,7 +5,6 @@
     display: inline-block;
     margin: 0px 34px 35px 0px;
 }
-
 .blog-categories .select a:before {
     content: "";
     border-radius: 50%;
@@ -16,13 +15,11 @@
     height: 11px;
     margin: 40px 7px 0 0;
 }
-
 .social-networks .social-post a {
     height: 18px;
     display: block;
     cursor: pointer;
 }
-
 .social-networks .social-post a:hover {
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 25px;
@@ -390,20 +387,24 @@ div.horoscope-description:nth-of-type(2n) .img-horoscope-description {
     -moz-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    margin: 0 0 9% 0;
+    margin: 9% 0 9% 0;
 }
 
-/*.images-block p img {
+.images-block p picture {
     width: 46%;
-}*/
+}
 
 .images p {
     margin: 0 0 2% 0;
     font-size: 19px;
     font-family: "Cormorant Garamond";
-    /*    display: flex;
-        justify-content: inherit;
-        width: 100%;*/
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.images p picture img {
+    width: 100%;
 }
 
 h3 {
@@ -789,7 +790,6 @@ footer .footer-bot {
 footer img {
     width: 100%;
 }
-
 .form-control {
     height: 148px;
     padding: 5px 0 0 15px;
@@ -798,9 +798,7 @@ footer img {
     margin-bottom: 10px;
     resize: vertical;
 }
-footer a {
-    color: #fff;
-}
+
 
 footer .left {
     width: 17%;
@@ -917,16 +915,7 @@ footer .social a {
     vertical-align: middle;
 }
 
-.footer-bot .right span:first-child {
-    display: block;
-    font-size: 12px;
-    line-height: 20px;
-}
 
-.footer-bot .right span:last-child {
-    font-size: 20px;
-    line-height: 28px;
-}
 
 .partner {
     border-right: 1px solid rgba(168, 167, 167, 0.21);
@@ -1145,7 +1134,7 @@ footer .social a {
     -moz-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    margin-top: 30px;
+    /*margin-top: 30px;*/
 }
 
 .comment-post .section-form .section-form-up .section-form-down div {
@@ -1160,7 +1149,7 @@ footer .social a {
     text-align: center;
 }
 
-.comment-post .section-form .section-form-up .but-section-form {
+/*.comment-post .section-form .section-form-up .but-section-form {
     width: 23.5%;
     border-radius: 40px;
     background: #455ea7;
@@ -1172,12 +1161,43 @@ footer .social a {
     text-transform: uppercase;
     border: 0;
     cursor: pointer;
-}
+}*/
 
 .comment-post .section-form .section-form-up .but-section-purpur {
     background: #7e2b83;
 }
 
+/*.block-forms {
+  display: flex;
+}
+.section-form .block-left {
+    width: 71%;
+    display: flex;
+}
+.reload {
+    margin: 0 10px 0 0;
+}
+.section-form .block-right {
+    width: 45%;
+}
+.comment-post .section-form .section-form-up .sectio    n-form-down {
+    margin-top: 0;
+    display: block;
+    width: 28%;
+}
+.comment-post .section-form .section-form-up .but-section-form {
+    width: 100%;
+    border-radius: 40px;
+    background: #455ea7;
+    color: #fff;
+    height: 35px;
+    font-size: 14px;
+    font-family: "Roboto-Bold";
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    border: 0;
+    cursor: pointer;
+}*/
 /*******************************************form*******************************************/
 .horoscope .content-aside-main .content {
     margin-top: 36px;

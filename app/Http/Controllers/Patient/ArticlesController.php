@@ -63,7 +63,9 @@ class ArticlesController extends Controller
                 'psychology' => $this->a_rep->getMain([['category_id', 18]],3, ['created_at', 'desc'], 'patient'),
             ];
             $advertising = $this->adv_rep->getMainPatient();
-            return view('patient.content')->with(['articles' => $articles, 'advertising' => $advertising])->render();
+            return view('patient.content')
+                ->with(['articles' => $articles, 'advertising' => $advertising])
+                ->render();
 
         });
         $this->title = 'Главная';
@@ -105,13 +107,19 @@ class ArticlesController extends Controller
             $article = Cache::remember('patients_article-'.$article->id, 60, function () use ($article) {
                 if (!empty($article->seo)) {
                     $article->seo = $this->a_rep->convertSeo($article->seo);
+                } else {
+                    $article->seo = new \stdClass();
                 }
                 $article->created = $this->a_rep->convertDate($article->created_at);
                 $article->load('category');
                 $article->load('tags');
                 $article->load('comments');
+                $article->load('image');
+                $article->seo->og_image = asset('/images/article/main') . '/' . $article->image->path;
                 return $article;
             });
+
+            $this->seo = $article->seo ?? '<img src="' . asset('estet') . '/img/estet.png" >';
 
             $same = $this->a_rep->get(
                 ['title', 'alias', 'created_at'], 3, false,
@@ -207,7 +215,8 @@ class ArticlesController extends Controller
             $footer = $this->footer;
         } else {
             $footer = Cache::remember('footer', 24*60, function () {
-                return view('layouts.footer')->render();
+                $adv = $this->adv_rep->getFooter('patient');
+                return view('layouts.footer')->with(['adv' => $adv])->render();
             });
         }
         $this->vars = array_add($this->vars, 'footer', $footer);
@@ -283,7 +292,11 @@ class ArticlesController extends Controller
             //          most displayed
             $where = array(['approved', true], ['created_at', '<=', DB::raw('NOW()')], ['own', 'patient']);
             $articles = $this->a_rep->mostDisplayed(['title', 'alias', 'created_at'], $where, 2, ['view', 'desc']);
-            return view('patient.sidebar')->with(['lasts' => $lasts, 'articles' => $articles])->render();
+
+            $advertising = $this->adv_rep->getSidebar('patient');
+            return view('patient.sidebar')
+                ->with(['lasts' => $lasts, 'articles' => $articles, 'advertising' => $advertising])
+                ->render();
         });
         return true;
     }

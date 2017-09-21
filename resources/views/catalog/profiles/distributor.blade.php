@@ -15,7 +15,7 @@
                 <a href="#" itemprop="url">
                     <span itemprop="title">Дистрибуторы</span>
                 </a>
-            </div>/
+            </div>
             <div itemscope itemtype="#">
                 <span itemprop="title">Alfa Spa Development</span>
             </div>

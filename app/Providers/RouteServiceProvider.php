@@ -71,6 +71,7 @@ class RouteServiceProvider extends ServiceProvider
         Route::model('advertising', \Fresh\Estet\Advertising::class);
         Route::model('eadvertising', \Fresh\Estet\Eadv::class);
         Route::model('blog', \Fresh\Estet\Blog::class);
+        Route::model('contactus', \Fresh\Estet\Contact::class);
         Route::model('static', \Fresh\Estet\Static_page::class);
 
 

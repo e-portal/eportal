@@ -1,3 +1,10 @@
+.remember-me {
+    position: absolute;
+    margin: 20px auto;
+    left: 34%;
+    font-family: "Roboto";
+    letter-spacing: 1px;
+}
 .pop-up {
     position: absolute;
     top: 0;
@@ -90,6 +97,9 @@
     font-family: "Roboto";
 }
 
+.remember-me .label {
+    cursor: pointer;
+}
 .line:first-of-type::before {
     content: '';
     position: absolute;
@@ -117,42 +127,36 @@
     position: absolute;
     border-bottom: 1px solid;
     width: 16%;
+    left: 0;
 }
 
 @media (min-width: 319px) and (max-width: 449px) {
     .btn-info {
         width: 62%;
     }
-
     .btn-info span {
         letter-spacing: 3px;
         font-size: 8px;
         font-family: "Roboto";
     }
-
     .pop-inner-in .own {
         font-size: 50px;
         top: -37px;
         display: block;
     }
-
     .pop-inner-in p {
         font-size: 18px;
     }
-
     .close-pop {
         right: 42%;
     }
-
     .pop-inner {
         width: 85%;
     }
-
     .line:first-of-type::before {
         content: '';
         width: 17%;
     }
-
     .line:first-of-type::after {
         content: '';
         width: 17%;
@@ -163,56 +167,45 @@
     .btn-info {
         width: 62%;
     }
-
     .btn-info span {
         letter-spacing: 3px;
         font-size: 8px;
         font-family: "Roboto";
     }
-
     .pop-inner-in .own {
         font-size: 50px;
         top: -37px;
         display: block;
     }
-
     .pop-inner-in p {
         font-size: 20px;
     }
-
     .close-pop {
         right: 42%;
     }
-
     .pop-inner {
         width: 70%;
     }
 }
-
 @media (min-width: 768px) and (max-width: 1228px) {
     .btn-info {
         width: 62%;
     }
-
     .btn-info span {
         letter-spacing: 3px;
         font-size: 10px;
         font-family: "Roboto";
     }
-
     .pop-inner-in .own {
         font-size: 50px;
         top: -37px;
     }
-
     .pop-inner-in p {
         font-size: 20px;
     }
-
     .close-pop {
         right: 42%;
     }
-
     .pop-inner {
         width: 40%;
     }

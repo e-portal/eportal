@@ -111,12 +111,11 @@
                                 <p>Страница<span class="start">{{ $titles->currentPage() }}</span>из<span class="end">{{ $titles->lastPage() }}</span></p>
                             </div>
                         @endif
-
                         @foreach($titles as $title)
                         <div class="link-center">
                             <div class="item">
                                 <div class="item-number">
-                                    <span>{{ $loop->iteration }}</span>
+                                    <span>{{ (($titles->currentPage()-1)*$titles->perPage())+$loop->iteration }}</span>
                                 </div>
                                 <div class="item-description">
                                     <a href="{{ $title->path ?? '#' }}">

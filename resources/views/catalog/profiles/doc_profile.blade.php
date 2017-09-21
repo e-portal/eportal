@@ -128,7 +128,6 @@
                             @endif
                         </div>
                         <div class="comment-post">
-                            @include('layouts.social-networks')
                             @include('layouts.comments_form', ['id' => $profile->id, 'source' => 6])
                             <div class="about-description">
                                 <h4>О рубрике Каталог</h4>

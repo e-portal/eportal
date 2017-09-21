@@ -4,7 +4,7 @@
     </p>
 </div>
 <!--section 1-->
-<section id="section-1" class="horoscope">
+<section id="section-1" class="blog-page">
     <div class="left-title left-title-planshet">
         <div class="line-container text-vertical">
             <div class="vertical-line"></div>
@@ -27,12 +27,6 @@
                 </div>
                 <div class="main-img-info">
                     <div class="images">
-                        <div class="images-block">
-                            <p>
-                                <img src="{{ asset('estet') }}/img/stati-vnutrennaya/2565.png" alt="">
-                                <img src="{{ asset('estet') }}/img/stati-vnutrennaya/2567.png" class="img-2567" alt="">
-                            </p>
-                        </div>
                         {!! $article->content !!}
                     </div>
                 </div>

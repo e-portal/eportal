@@ -104,7 +104,6 @@
                     </a>
                 </article>
             </div>
-
             <div class="articles-vertical">
                 @foreach($articles['popular'] as $article)
                     @if($loop->first)
@@ -323,8 +322,60 @@
         </div>
     </section>
     <!--section 6-->
+    <!--section 6-1 -->
+    <section id="section-6-1" class="blog-doctor">
+        <div class="left-title">
+            <div class="line-container">
+                <div class="vertical-line"></div>
+                <h2>Блог</h2>
+            </div>
+        </div>
+        <div class="content articles-divisions">
+            @if(!empty($articles['blogs']))
+                @foreach($articles['blogs'] as $blog)
+                    <article>
+                        <a class="link-img" href="{{ route('blogs', $blog->alias) }}" rel="nofollow">
+                            <img title="{{ $blog->blog_img->title }}" alt="{{ $blog->blog_img->alt }}"
+                                 src="{{ asset('/images/blog/middle') . '/' . $blog->blog_img->path }}">
+                        </a>
+                        <div>
+
+                            <div class="title-time">
+                                <time>
+                                    @if(strlen($blog->created) < 6) <i class="icons icon-clock"></i> @endif
+                                    {{ $blog->created }}
+                                </time>
+                                <p>{{ $blog->category->name }}</p>
+                            </div>
+                            <a class="link-title" href="{{ route('blogs', $blog->alias) }}">
+                                <h3>{{ str_limit($blog->title, 64) }}</h3>
+                            </a>
+                            <div class="blog-read-more">
+                                <div class="author">
+                                    <i class="icon-men"></i>
+                                    <p>{{ $blog->person->person->lastname . ' ' . $blog->person->person->name }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                @endforeach
+            @endif
+        </div>
+        <div class="button-block">
+            <div class="button-line"></div>
+            <a href="{{ route('blogs') }}">Перейти к разделу</a>
+        </div>
+    </section>
+    <!--section 6-1 -->
+    <!--AD-->
+    <section class="section-useful desser">
+        <div class="useful">
+            {!! $advertising['main_2'] ?? '<img src="'. asset('estet') .'/img/content/rek-width.png" >' !!}
+        </div>
+    </section>
+    <!--AD-->
     <!--section 7-->
-    <section id="section-7" class="medicine-treatment">
+    <section id="section-7" class="medicine-treatment treatment-doctor">
         <div class="left-title">
             <div class="line-container">
                 <div class="vertical-line"></div>
@@ -493,7 +544,7 @@
     </section>
     <!--section 9-->
     <!--section 10-->
-    <section id="section-11" class="psychology">
+    <section id="section-11" class="psychology endocrinology">
         <div class="left-title">
             <div class="line-container">
                 <div class="vertical-line"></div>
@@ -531,8 +582,15 @@
         </div>
     </section>
     <!--section 10-->
+    <!--AD-->
+    <section class="section-useful">
+        <div class="useful">
+            {!! $advertising['main_3'] ?? '<img src="'. asset('estet') .'/img/content/rek-width.png" >' !!}
+        </div>
+    </section>
+    <!--AD-->
     <!--section 11-->
-    <section id="section-10" class="stomatology">
+    <section id="section-10" class="stomatology  stomatology-doctor">
         <div class="left-title">
             <div class="line-container">
                 <div class="vertical-line"></div>
@@ -596,6 +654,145 @@
         </div>
     </section>
     <!--section 11-->
+
+    <!-- section 11-1 -->
+    <section id="section-11-1" class="venerology">
+        <div class="left-title">
+            <div class="line-container">
+                <div class="vertical-line"></div>
+                <h2>Венерология</h2>
+            </div>
+        </div>
+        <div class="content articles-divisions">
+            <div class="articles-vertical">
+                <article>
+                    <a class="link-img" href="http://39.j2landing.com/doctor/statyi/kosmetologia-555" rel="nofollow">
+                        <img src="http://39.j2landing.com/images/article/small/kosmetologia-555-1505892011.jpeg" alt=""
+                             title="">
+                        <div class="views">10</div>
+                    </a>
+                    <div>
+                        <div class="title-time">
+                            <time>20.09.2017</time>
+                        </div>
+                        <a class="link-title" href="http://39.j2landing.com/doctor/statyi/kosmetologia-555">
+                            <h3>Товарищи! постоянное информационно-пропагандистское обеспечение...</h3>
+                        </a>
+                    </div>
+                </article>
+                <hr>
+                <article>
+                    <a class="link-img" href="http://39.j2landing.com/doctor/statyi/kosmetologia2" rel="nofollow">
+                        <img src="http://39.j2landing.com/images/article/small/kosmetologia2-1504010652.jpeg"
+                             alt="test_alt_img"
+                             title="title">
+                        <div class="views">4</div>
+                    </a>
+                    <div>
+                        <div class="title-time">
+                            <time>29.08.2017</time>
+                        </div>
+                        <a class="link-title" href="http://39.j2landing.com/doctor/statyi/kosmetologia2">
+                            <h3>Статья косметология 2</h3>
+                        </a>
+                    </div>
+                </article>
+                <hr>
+                <article>
+                    <a class="link-img" href="http://39.j2landing.com/doctor/statyi/kosmetologia1" rel="nofollow">
+                        <img src="http://39.j2landing.com/images/article/small/kosmetologia1-1504010578.jpeg"
+                             alt="test_alt_img"
+                             title="title">
+                        <div class="views">8</div>
+                    </a>
+                    <div>
+                        <div class="title-time">
+                            <time>29.08.2017</time>
+                        </div>
+                        <a class="link-title" href="http://39.j2landing.com/doctor/statyi/kosmetologia1">
+                            <h3>Статья косметология 1</h3>
+                        </a>
+                    </div>
+                </article>
+                <div class="button-block">
+                    <div class="button-line"></div>
+                    <a href="{{ route('docs_cat', $articles['stomatology'][0]->cat_alias) }}">Перейти к разделу</a>
+                </div>
+            </div>
+
+            <div class="block-doctor-ven">
+                <div class="left-title">
+                    <div class="line-container">
+                        <div class="vertical-line"></div>
+                        <h2>Урология</h2>
+                    </div>
+                </div>
+
+                <div class="articles-vertical">
+                    <article>
+                        <a class="link-img" href="http://39.j2landing.com/doctor/statyi/kosmetologia-555"
+                           rel="nofollow">
+                            <img src="http://39.j2landing.com/images/article/small/kosmetologia-555-1505892011.jpeg"
+                                 alt=""
+                                 title="">
+                            <div class="views">10</div>
+                        </a>
+                        <div>
+                            <div class="title-time">
+                                <time>20.09.2017</time>
+                            </div>
+                            <a class="link-title" href="http://39.j2landing.com/doctor/statyi/kosmetologia-555">
+                                <h3>Товарищи! постоянное информационно-пропагандистское обеспечение...</h3>
+                            </a>
+                        </div>
+                    </article>
+                    <hr>
+                    <article>
+                        <a class="link-img" href="http://39.j2landing.com/doctor/statyi/kosmetologia2" rel="nofollow">
+                            <img src="http://39.j2landing.com/images/article/small/kosmetologia2-1504010652.jpeg"
+                                 alt="test_alt_img"
+                                 title="title">
+                            <div class="views">4</div>
+                        </a>
+                        <div>
+                            <div class="title-time">
+                                <time>29.08.2017</time>
+                            </div>
+                            <a class="link-title" href="http://39.j2landing.com/doctor/statyi/kosmetologia2">
+                                <h3>Статья косметология 2</h3>
+                            </a>
+                        </div>
+                    </article>
+                    <hr>
+                    <article>
+                        <a class="link-img" href="http://39.j2landing.com/doctor/statyi/kosmetologia1" rel="nofollow">
+                            <img src="http://39.j2landing.com/images/article/small/kosmetologia1-1504010578.jpeg"
+                                 alt="test_alt_img"
+                                 title="title">
+                            <div class="views">8</div>
+                        </a>
+                        <div>
+                            <div class="title-time">
+                                <time>29.08.2017</time>
+                            </div>
+                            <a class="link-title" href="http://39.j2landing.com/doctor/statyi/kosmetologia1">
+                                <h3>Статья косметология 1</h3>
+                            </a>
+                        </div>
+                    </article>
+                    <div class="button-block">
+                        <div class="button-line"></div>
+                        <a href="{{ route('docs_cat', $articles['stomatology'][0]->cat_alias) }}">Перейти к разделу</a>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </section>
+    <!-- section 11-1 -->
+
     <!--section 12-->
     <section id="section-11" class="psychology">
         <div class="left-title">

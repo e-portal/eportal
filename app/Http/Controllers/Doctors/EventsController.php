@@ -5,6 +5,7 @@ namespace Fresh\Estet\Http\Controllers\Doctors;
 use Fresh\Estet\Http\Requests\EventRequest;
 use Fresh\Estet\Repositories\AdvertisingRepository;
 use Fresh\Estet\Repositories\ArticlesRepository;
+use Fresh\Estet\Repositories\BlogsRepository;
 use Fresh\Estet\Repositories\CitiesRepository;
 use Fresh\Estet\Repositories\CountriesRepository;
 use Fresh\Estet\Repositories\EventCategoriesRepository;
@@ -34,10 +35,11 @@ class EventsController extends DocsController
         OrganizersRepository $organizer,
         PremiumsRepository $prem,
         AdvertisingRepository $adv,
-        SeoRepository $seo_rep
+        SeoRepository $seo_rep,
+        BlogsRepository $blog
     )
     {
-        parent::__construct($article, $adv, $seo_rep);
+        parent::__construct($article, $adv, $seo_rep, $blog);
         $this->repository = $repository;
         $this->countries = $countries;
         $this->cities = $cities;
@@ -48,8 +50,8 @@ class EventsController extends DocsController
 
     public function show(EventRequest $request, $event = false)
     {
+        Cache::flush();
         $this->getSidebar();
-
         if ($event) {
 
             $this->title = $event->title;
@@ -61,17 +63,24 @@ class EventsController extends DocsController
         $this->content = Cache::remember('event_content-' . $event->alias, 60, function () use ($event) {
             if (!empty($event->seo)) {
                 $event->seo = $this->repository->convertSeo($event->seo);
+            } else {
+                $event->seo = new \stdClass();
             }
+            $event->seo->og_image = asset('/images/event/main') . '/' . $event->logo->path;
+            
             $event->created = $this->repository->convertDate($event->created_at);
             $event->load('logo');
             $event->load('slider');
             $event->load('comments');
+
             $similar = $this->repository->getSimilar($event->id, $event->organizer_id, $event->cat_id);
 
             return view('doc.events.event')->with(['event' => $event, 'similars' => $similar, 'sidebar' => $this->sidebar])->render();
         });
 
-        $this->repository->displayed($event);
+            $this->seo = $event->seo ?? '<img src="' . asset('estet') . '/img/estet.png" >';
+
+            $this->repository->displayed($event);
 
             return $this->renderOutput();
         }

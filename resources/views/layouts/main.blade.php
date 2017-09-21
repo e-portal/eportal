@@ -58,10 +58,15 @@
     <div class="container">
         @if(!empty($title_img))
             <h1>
-                <a href="{{ route('main') }}">
+                @if(('main' == Route::currentRouteName()))
                     <img src="{{ asset('estet') }}/img/title.png" alt="{{ env('APP_NAME') }}"
                          title="{{ env('APP_NAME') }}">
-                </a>
+                @else
+                    <a href="{{ route('main') }}">
+                        <img src="{{ asset('estet') }}/img/title.png" alt="{{ env('APP_NAME') }}"
+                             title="{{ env('APP_NAME') }}">
+                    </a>
+                @endif
             </h1>
         @endif
 
@@ -90,20 +95,29 @@
                             {!! Form::open(['url' => route('switch'), 'method'=>'POST']) !!}
                             {!! Form::hidden('doc', true) !!}
                                 <button class="btn btn-info" type="submit"><span>ПРОДОЛЖИТЬ ПРОСМОТР</span></button>
+                                <div class="remember-me"><input id="checkBox" name="remember" value="remember"
+                                                                type="checkbox"><label class="label" for="checkBox">Запомнить
+                                        меня</label></div>
+                                <div class="close-pop">НАЗАД</div>
+                                <div class="line"></div>
                             {!! Form::close() !!}
                         @else
                             {!! Form::open(['url' => route('switch'), 'method'=>'POST']) !!}
                             {!! Form::hidden('patient', true) !!}
                                 <button class="btn btn-info" type="submit"><span>ПРОДОЛЖИТЬ ПРОСМОТР</span></button>
+                                <div class="remember-me"><input id="checkBox" name="remember" value="remember"
+                                                                type="checkbox"><label class="label" for="checkBox">Запомнить
+                                        меня</label></div>
+                                <div class="close-pop">НАЗАД</div>
+                                <div class="line"></div>
                             {!! Form::close() !!}
                         @endif
                         {{--temp--}}
-                            <div class="close-pop">НАЗАД</div>
-                            <div class="line"></div>
                     </div>
                 </div>
             </div>
             </div>
+            <div class="background-menu-active"></div>
             <!--end pop-->
 <!-- end wraperr -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>

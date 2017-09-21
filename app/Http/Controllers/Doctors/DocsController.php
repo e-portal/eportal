@@ -5,6 +5,7 @@ namespace Fresh\Estet\Http\Controllers\Doctors;
 use Fresh\Estet\Repositories\AdvertisingRepository;
 use Fresh\Estet\Repositories\ArticlesRepository;
 use Fresh\Estet\Http\Controllers\Controller;
+use Fresh\Estet\Repositories\BlogsRepository;
 use Fresh\Estet\Repositories\EventsRepository;
 use Fresh\Estet\Event;
 use Fresh\Estet\Repositories\SeoRepository;
@@ -21,6 +22,7 @@ class DocsController extends Controller
     protected $sidebar = false;
     protected $a_rep;
     protected $adv_rep;
+    protected $blog_rep;
     protected $title_img;
     protected $seo_rep;
     protected $seo = false;
@@ -31,11 +33,17 @@ class DocsController extends Controller
      * DocsController constructor.
      * @param ArticlesRepository $repository
      */
-    public function __construct(ArticlesRepository $repository, AdvertisingRepository $adv, SeoRepository $seo_rep)
+    public function __construct(
+        ArticlesRepository $repository,
+        AdvertisingRepository $adv,
+        SeoRepository $seo_rep,
+        BlogsRepository $blog
+    )
     {
         $this->a_rep = $repository;
         $this->adv_rep = $adv;
         $this->seo_rep = $seo_rep;
+        $this->blog_rep = $blog;
     }
 
     /**
@@ -56,13 +64,19 @@ class DocsController extends Controller
             $article = Cache::remember('docs_article-' . $article->id, 60, function () use ($article) {
                 if (!empty($article->seo)) {
                     $article->seo = $this->a_rep->convertSeo($article->seo);
+                } else {
+                    $article->seo = new \stdClass();
                 }
                 $article->created = $this->a_rep->convertDate($article->created_at);
                 $article->load('category');
                 $article->load('tags');
                 $article->load('comments');
+                $article->load('image');
+                $article->seo->og_image = asset('/images/article/main') . '/' . $article->image->path;
                 return $article;
             });
+
+            $this->seo = $article->seo ?? '<img src="' . asset('estet') . '/img/estet.png" >';
 
             $same = $this->a_rep->get(
                 ['title', 'alias', 'created_at'], 3, false,
@@ -94,8 +108,13 @@ class DocsController extends Controller
                 'urology' => $this->a_rep->getMain([['category_id', 11]],3, ['created_at', 'desc'], 'docs'),
                 'trihology' => $this->a_rep->getMain([['category_id', 7]],3, ['created_at', 'desc'], 'docs'),
                 'events' => $events->get(['id', 'alias', 'title', 'created_at', 'view'], 3, false, [['approved',1]], ['created_at', 'desc'], ['logo']),
+                'blogs' => $this->blog_rep->get(['id', 'alias', 'title', 'created_at', 'view'], 4, false, [['approved', 1]], ['created_at', 'desc'], ['blog_img', 'category', 'person'], true),
             ];
-            return view('doc.content')->with(['articles' => $articles])->render();
+
+            $advertising = $this->adv_rep->getMainDocs();
+            return view('doc.content')
+                ->with(['articles' => $articles, 'advertising' => $advertising])
+                ->render();
         });
         $this->title = 'Профессионалам';
         $this->seo = Cache::remember('seo_docs', 24 * 60, function () {
@@ -122,8 +141,6 @@ class DocsController extends Controller
      */
     public function category($cat = null)
     {
-        Cache::flush();
-
         if (!$cat) {
             abort(404);
         }
@@ -172,8 +189,8 @@ class DocsController extends Controller
         if (!empty($this->footer)) {
             $footer = $this->footer;
         } else {
-            $adv = $this->adv_rep->getFooter('doc');
-            $footer = Cache::remember('docs_footer', 24 * 60, function () use ($adv) {
+            $footer = Cache::remember('docs_footer', 24 * 60, function () {
+                $adv = $this->adv_rep->getFooter('doc');
                 return view('layouts.footer')->with(['adv' => $adv])->render();
             });
         }
@@ -278,7 +295,12 @@ class DocsController extends Controller
             //          most displayed
             $where = array(['approved', true], ['created_at', '<=', DB::raw('NOW()')], ['own', 'docs']);
             $articles = $this->a_rep->mostDisplayed(['title', 'alias', 'created_at'], $where, 2, ['view', 'asc']);
-            return view('doc.sidebar')->with(['lasts' => $lasts, 'articles' => $articles])->render();
+
+            $advertising = $this->adv_rep->getSidebar('doc');
+
+            return view('doc.sidebar')
+                ->with(['lasts' => $lasts, 'articles' => $articles, 'advertising' => $advertising])
+                ->render();
         });
         return true;
     }

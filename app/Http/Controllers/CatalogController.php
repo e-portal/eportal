@@ -28,6 +28,7 @@ class CatalogController extends MainController
     )
     {
         parent::__construct($a_rep, $adv);
+        Cache::flush();
         $this->css = '
             <link rel="stylesheet" type="text/css" href="' . asset('css') . '/katalog-brendu.css">
         ';

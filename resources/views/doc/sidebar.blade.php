@@ -28,6 +28,11 @@
             </div>
         </div>
     </div>
+    <div class="aside-block">
+        <div class="advertising">
+            {!! $advertising['sidebar'] ?? '<img src="'. asset('estet') .'/img/advertising.jpg" >' !!}
+        </div>
+    </div>
     <div class="aside-block highly-block">
         <div class="left-title">
             <div class="line-container">
@@ -58,17 +63,12 @@
         </div>
     </div>
     @include('layouts.horoscope.sidebar')
-    <div class="aside-block">
-        <div class="advertising">
-            {!! $advertising['sidebar'] ?? '<img src="'. asset('estet') .'/img/advertising.jpg" >' !!}
-        </div>
-    </div>
     <div class="aside-block subscribe-block">
         @include('layouts.subscribe')
     </div>
     <div class="aside-block">
         <div class="advertising">
-            {!! $advertising['sidebar'] ?? '<img src="'. asset('estet') .'/img/advertising.jpg" >' !!}
+            {!! $advertising['sidebar_2'] ?? '<img src="'. asset('estet') .'/img/advertising.jpg" >' !!}
         </div>
     </div>
 </aside>

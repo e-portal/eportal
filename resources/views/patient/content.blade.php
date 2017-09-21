@@ -76,7 +76,6 @@
             </div>
         </div>
     </section>
-
     <!--section 2-->
     <section id="section-2" class="most-popular">
         <div class="left-title">
@@ -135,7 +134,13 @@
             </div>
         </div>
     </section>
-
+    <!--AD-->
+    <section class="section-useful section-clos">
+        <div class="useful">
+            {!! $advertising['main_2'] ?? '<img src="'. asset('estet') .'/img/content/rek-width.png" >' !!}
+        </div>
+    </section>
+    <!--AD-->
     <!--section 3-->
     <section id="section-3" class="video">
 
@@ -322,7 +327,7 @@
     <!--AD-->
     <section class="section-useful">
         <div class="useful">
-            {!! $advertising['main_1'] ?? '<img src="'. asset('estet') .'/img/content/rek-width.png" >' !!}
+            {!! $advertising['main_2'] ?? '<img src="'. asset('estet') .'/img/content/rek-width.png" >' !!}
         </div>
     </section>
     <!--AD-->

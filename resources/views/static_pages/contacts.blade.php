@@ -4,7 +4,7 @@
     </p>
 </div>
 <!--section 1-->
-<section id="section-1" class="horoscope">
+<section id="section-1" class="blog-page">
     <div class="left-title left-title-planshet">
         <div class="line-container text-vertical">
             <div class="vertical-line"></div>
@@ -21,8 +21,23 @@
                     </div>
                 </div>
             </div>
+            {{--form--}}
             <div class="comment-post">
                 <div class="section-form">
+                    @if (count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <p class="error">
+                                @foreach ($errors->toArray() as $key=>$error)
+                                {!! str_replace($key, '<strong>' . trans('admin.' . $key) . '</strong>', $error[0]) !!}</br>
+                                @endforeach
+                            </p>
+                        </div>
+                    @endif
+                    @if (session('status'))
+                        <div class="alert alert-success">
+                            {{ session('status') }}
+                        </div>
+                    @endif
                     <p class="add-comm">Добавить коментарий:</p>
                     {!! Form::open(['url' => route('contactus'),'class'=>'section-form-up','method'=>'post']) !!}
                     {!! Form::text('name', old('name') ? : '' , ['placeholder'=>'Имя', 'id'=>'name', 'class'=>'section-input']) !!}
@@ -30,19 +45,26 @@
                     {!! Form::text('subject', old('subject') ? : '' , ['placeholder'=>'Тема', 'id'=>'subject', 'class'=>'section-input']) !!}
                     {!! Form::textarea('text', old('text') ? : '' ,
                      ['placeholder'=>'Сообщение', 'id'=>'text', 'class'=>'form-control', 'rows'=>3, 'cols'=>40]) !!}
-                    <div class="section-form-down">
-                        <input class="but-section-form @if(session()->has('doc')) but-section-purpur @endif"
-                               type="submit"></input>
+                    <div class="block-forms">
+                        <div class="block-left">
+                            <div class="reload">
+                                <img src="{{ route('captcha') }}" class="captcha" id="captcha">
+                                <p><img src="{{ asset('estet') }}/img/content/refresh.png" class="reload"
+                                        alt="Обновить">Обновить</p>
+                            </div>
+                            <div class="block-right">
+                                {!! Form::text('capt', old('capt') ? : '' , ['id'=>'capt', 'class'=>'section-input section-input-reload']) !!}
+                            </div>
+                        </div>
+                        <div class="section-form-down">
+                            <input class="but-section-form @if(session()->has('doc')) but-section-purpur @endif"
+                                   type="submit">
+                        </div>
                     </div>
-                    <div class="reload">
-                        <img src="{{ route('captcha') }}" class="captcha" id="captcha">
-                    </div>
-                    {!! Form::text('capt', old('capt') ? : '' , ['placeholder'=>'Введите символы с картинки', 'id'=>'capt', 'class'=>'section-input']) !!}
-                    <p><img src="{{ asset('estet') }}/img/content/refresh.png" class="reload" alt="Обновить">Обновить
-                    </p>
                     {!! Form::close() !!}
                 </div>
             </div>
+            {{--form--}}
         </div>
         {!! $sidebar !!}
     </div>

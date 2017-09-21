@@ -490,6 +490,20 @@ header .line-bottom-menu {
     color: #fff;
     cursor: pointer;
 }
+
+.background-menu-active {
+    position: fixed;
+    background-color: rgba(0, 0, 0, .5);
+    position: fixed;
+    z-index: 6;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
 @media only screen and (max-width: 1271px) {
 
     container {width: 768px }

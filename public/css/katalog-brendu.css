@@ -30,10 +30,10 @@
   position: relative;
 }
 .katalog-page .blog-section .categories-section {
-  width: 22%;
-  display: inline-block;
-  position: relative;
-  margin-right: 4%;
+    width: 22.7%;
+    display: inline-block;
+    position: relative;
+    margin-right: 3%;
 }
 .katalog-page .blog-section .categories-section:before {
   content: '';
@@ -41,24 +41,27 @@
   height: 33%;
   position: absolute;
   width: 100%;
+    margin: -10px 0 0 0;
 }
 .katalog-page .blog-section .categories-section:nth-child(4n) {
   margin-right: 0;
 }
 .katalog-page .blog-section .categories-section a {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 26px;
-  color: #202020;
-  position: relative;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  font-weight: 700;
+    font-family: 'Cormorant Garamond', serif;
+    color: #202020;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: baseline;
+    align-items: baseline;
+    font-weight: 700;
+    font-size: 20px;
 }
 .katalog-page .blog-section .categories-section img {
-  padding-left: 13%;
-  position: relative;
+    position: relative;
+    padding: 6% 4% 0 4%;
+    width: 37px;
+    height: auto;
 }
 .katalog-page .blog-section .categories-section.active {
   background-color: #f3f3f3;
@@ -373,47 +376,41 @@
   display: inline-block;
   font-weight: 700;
 }
-
 @media screen and (max-width: 991px) {
-  .blog-page .left-title {
-    width: 100%;
-    padding: 0 0 0 20px;
-  }
 
-  .blog-page .line-container {
-    width: 100%;
-    margin: 0;
+    .bread-crumbs {
+        display: none;
+    }
+
+    .blog-section-post .content {
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+}
+
+@media screen and (max-width: 767px) {
+    .katalog-page .blog-section {
     display: flex;
-    align-items: center;
-  }
-
-  .blog-page .left-title .vertical-line {
-    height: 7px;
+        flex-wrap: wrap;
     width: 100%;
-    order: 2;
-    margin-top: 3px;
-    margin-left: 14px;
-  }
+        justify-content: space-between;
+    }
 
-  .blog-page .left-title h2 {
-    transform: none;
-    background: none;
-    padding: 0;
-    position: relative;
-    order: 1;
-    font-size: 25px;
-    text-align: left;
-    width: initial;
-  }
+    .katalog-page .blog-section .categories-section {
+        width: 46%;
+        margin-bottom: 10%;
+        margin-right: 0;
+    }
 
-  .blog-page .content {
-    width: 100%;
-    padding-right: 5.8%;
-    padding-left: 5.8%;
-  }
+    .article-content_top {
+        flex-direction: column;
+        padding-right: 0;
+    }
 
-  .bread-crumbs {
-    display: none;
-  }
+    .katalog-page .article-content .article-content_top img {
+        width: 100%;
+    }
+
 
 }

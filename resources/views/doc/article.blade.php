@@ -26,10 +26,6 @@
                 </div>
                 <div class="main-img-info">
                     <div class="images">
-                        <div class="images-block">
-                            <img src="{{ asset('estet') }}/img/stati-vnutrennaya/2565.png" alt="">
-                            <img src="{{ asset('estet') }}/img/stati-vnutrennaya/2567.png" class="img-2567" alt="">
-                        </div>
                         {!! $article->content !!}
                     </div>
                 </div>
@@ -59,6 +55,7 @@
     <div class="content">
         <!--articles-gray-->
         <div class="articles-horizontal">
+            @if(!empty($same))
             @foreach($same as $preview)
                 <article>
                     <a class="link-img" href="{{ route('doctors', $preview->alias) }}" rel="nofollow">
@@ -79,6 +76,7 @@
                     <div class="line-vertical"></div>
                 @endif
             @endforeach
+            @endif
         </div>
     </div>
 </section>

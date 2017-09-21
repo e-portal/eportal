@@ -54,7 +54,7 @@ return [
     'specialties' => 'Редактирование специальностей',
     'establishment' => 'Редактирование учреждений',
     'doctor' => 'Я доктор',
-    'patient' => 'Я больной',
+    'patient' => 'Пациент',
     'blog' => 'Блог',
     /**
      * Catalog

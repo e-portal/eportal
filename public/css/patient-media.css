@@ -33,7 +33,7 @@
     }
 
     .slide-right_top .title-time {
-        margin-top: 4.1%;
+        margin-top: 4.5%;
     }
 
     .slide-right_top a h3 {
@@ -116,16 +116,18 @@
 
     .video .articles-horizontal::before {
         top: -47px;
+        height: 149%;
     }
 
     .video .button-block {
-        margin-top: 23px;
+        margin-top: 38px;
         padding-right: 6.8%;
     }
 
     /* section 4  */
     .interesting-facts {
-        margin-top: 137px;
+        margin-top: 151px;
+        height: 800px;
     }
 
     .interesting-facts .left-title .vertical-line {
@@ -143,9 +145,9 @@
 
     .interesting-facts .articles-vertical {
         order: 1;
-        height: 360px;
+        height: 414px;
         margin: 0;
-        left: -4%;
+        left: -3.2%;
     }
 
     .interesting-facts .articles-vertical .mCSB_container {
@@ -156,6 +158,19 @@
         margin: 0;
     }
 
+    .interesting-facts .aside-block .form-wrap {
+        margin: 0 0 0 0;
+        padding: 7% 13% 10% 16%;
+    }
+
+    .interesting-facts .form-title {
+        margin-top: 2%;
+    }
+
+    .interesting-facts .aside-block .form-wrap form button {
+        width: 75%;
+        margin-left: 14%;
+    }
     .interesting-facts .articles-vertical article .link-img {
         width: 30.8%;
     }
@@ -165,7 +180,7 @@
     }
 
     .interesting-facts .articles-vertical article:nth-child(2n)::before {
-        width: 100%;
+        width: 91%;
         left: -5%;
     }
 
@@ -189,10 +204,15 @@
     }
 
     .interesting-facts .aside-block .line-container h2 {
-        padding-right: 49px;
+        padding-right: 9%;
+        padding-left: 31px;
+        left: 11%;
     }
 
     /* section 5  */
+    .diet-food {
+        margin-top: 58px;
+    }
     .diet-food .button-block {
         margin-top: 78px;
         padding-right: 0;
@@ -215,6 +235,9 @@
         padding-right: 6.8%;
     }
 
+    .useful img {
+        width: 100%;
+    }
     .medicine-treatment .button-block {
         margin-top: 78px;
         padding-right: 0;
@@ -275,6 +298,27 @@
     .psychology {
         margin-top: 143px;
     }
+
+    /*section-6*/
+    .beauty-health .articles-horizontal .title-time {
+        margin-top: 22px;
+    }
+
+    .section-useful {
+        margin-top: 133px;
+    }
+
+    .useful {
+        margin: 0 5% 0 8%;
+    }
+
+    .medicine-treatment {
+        margin-top: 54px;
+    }
+
+    .container {
+        padding-bottom: 139px;
+    }
 }
 @media screen and (max-width: 767px) {
     .slide-right_top .title-time a {
@@ -282,9 +326,12 @@
     }
 
     .content {
-        margin-top: 80px;
+        margin-top: 19px;
     }
 
+    .last-articles .left-title {
+        margin-top: 34%;
+    }
     .slider-nav {
         display: none;
     }
@@ -294,6 +341,13 @@
         margin-right: 7px;
     }
 
+    .last-articles .articles-horizontal {
+        margin-top: 42px;
+    }
+
+    .last-articles .articles-horizontal article {
+        margin-bottom: 9%;
+    }
     .slide-right_top {
         overflow: hidden;
         height: auto;
@@ -304,13 +358,23 @@
     }
 
     .slide-right_top a h3 {
-        margin-top: 2.4%;
+        margin-top: 34%;
         overflow: hidden;
         height: 40px;
     }
 
     .slide-right_top h3 {
         font-size: 19px;
+    }
+
+    .last-articles .slide-right_top a h3 {
+        margin-top: 3.8%;
+    }
+
+    .last-articles .articles-horizontal article:nth-of-type(2n + 1)::before,
+    .last-articles .articles-vertical article:nth-of-type(2n + 1)::before {
+        height: 135%;
+        top: -14%;
     }
 
     .slide-right_top p {
@@ -352,7 +416,7 @@
     }
 
     .most-popular {
-        margin-top: 47px;
+        margin-top: 30px;
     }
 
     .most-popular .content {
@@ -371,6 +435,8 @@
     .article-big h3 {
         font-size: 19px;
         line-height: 21px;
+        overflow: hidden;
+        height: 45px;
     }
 
     .article-big article a:last-of-type {
@@ -385,15 +451,11 @@
     .articles-vertical article {
         margin-bottom: 0;
         margin-top: 0;
-        padding: 16px 0;
+        padding: 14px 0;
     }
 
     .articles-vertical article h3 {
         line-height: 15px;
-    }
-
-    .articles-vertical article .link-img {
-        width: 26.1%;
     }
 
     .articles-vertical article > div {
@@ -410,31 +472,41 @@
         padding: 2px 3px;
     }
 
+    .video {
+        margin-top: 35px;
+    }
     .video .left-title h2 {
         color: #fff;
     }
 
+    .video .content {
+        margin-top: 29px;
+    }
     .video .left-title .vertical-line {
         background: #fff;
     }
 
     .video .articles-horizontal article:nth-of-type(1)::before {
         height: 200%;
-        top: -23%;
+        top: -20%;
         background: #202020;
     }
 
+    .video .button-block {
+        margin-top: 17px;
+        padding-right: 0;
+    }
     .video .articles-horizontal article:nth-of-type(2)::before {
         content: '';
         position: absolute;
         width: 150%;
-        height: 100%;
+        height: 101%;
         left: -25%;
         background: #202020;
     }
 
     .video .articles-horizontal article:nth-of-type(3)::before {
-        height: 132%;
+        height: 127%;
         background: #202020;
     }
 
@@ -449,7 +521,7 @@
     }
 
     .video .articles-horizontal .title-time {
-        margin-top: 8px;
+        margin-top: 11px;
     }
 
     .video .articles-horizontal h3 {
@@ -460,4 +532,121 @@
     .video .horizontal-line {
         height: 4px;
     }
+
+    .section-clos {
+        display: inline-block;
+        margin-top: 18px;
+    }
+
+    .useful {
+        margin: 0;
+        height: 182px;
+    }
+
+    .button-block {
+        left: 0;
+        padding-right: 0;
+    }
+
+    /*section-4*/
+    .interesting-facts .left-title .vertical-line {
+        height: 7px;
+    }
+
+    .interesting-facts {
+        margin-top: 125px;
+    }
+
+    .interesting-facts {
+        height: auto;
+    }
+
+    .interesting-facts .articles-vertical {
+        height: auto;
+        left: 0;
+    }
+
+    .interesting-facts .articles-vertical article:nth-child(2n)::before {
+        background: inherit;
+    }
+
+    .articles-vertical article:nth-of-type(3) {
+        padding-bottom: 11px;
+    }
+
+    .interesting-facts .aside-block {
+        margin-top: 88px;
+        padding: initial;
+    }
+
+    .articles-vertical article .link-img {
+        width: 26.1%;
+    }
+
+    .interesting-facts .articles-vertical article .link-img {
+        width: 26.1%;
+    }
+
+    .interesting-facts .articles-vertical article > div {
+        width: 73%;
+        padding-right: 0;
+    }
+
+    .interesting-facts .articles-vertical article:first-child {
+        padding: 16px 0;
+    }
+
+    .interesting-facts .aside-block .form-wrap {
+        padding: 10% 7%;
+        position: relative;
+    }
+
+    .interesting-facts .aside-block .form-wrap form h4,
+    .interesting-facts .aside-block .form-wrap form strong {
+        font-size: 19px;
+    }
+
+    .interesting-facts .aside-block .form-wrap form input,
+    .interesting-facts .aside-block .form-wrap form select {
+        height: 19px;
+    }
+
+    .interesting-facts .aside-block .form-wrap form strong {
+        margin: 1px 0 22px;
+    }
+
+    .form-control {
+        font-size: 10px;
+        padding: 0;
+    }
+
+    .interesting-facts .aside-block .form-wrap form button {
+        width: 86%;
+        margin-left: auto;
+        height: 22px;
+        letter-spacing: 2px;
+    }
+
+    /*section-5*/
+    .diet-food {
+        margin-top: 85px;
+    }
+
+    .diet-food .article-big article a:last-of-type {
+        margin-top: 5.1%;
+    }
+
+    .diet-food .articles-vertical {
+        margin-top: 16px;
+    }
+
+    .diet-food .button-block {
+        margin-top: 57px;
+    }
+
+    /*section-6*/
+    .beauty-health {
+        margin-top: 86px;
+    }
+
 }

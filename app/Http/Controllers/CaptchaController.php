@@ -9,7 +9,7 @@ class CaptchaController extends Controller
     public function show(Request $request)
     {
         header("Content-Type: image/png");
-        $im = imagecreate(230, 50);
+        $im = imagecreate(200, 32);
         $color = imagecolorallocate($im, 64, 64, 64);
         imageantialias($im, true);
 
@@ -24,7 +24,7 @@ class CaptchaController extends Controller
         $z = 40;
 
         for ($i=0; $i<$nChars; $i++) {
-            $size = rand(16, 30);
+            $size = rand(16, 28);
             $angle = -30 + rand(0, 60);
 
             imagettftext($im, $size, $angle, $x, $y, $text_color,

@@ -14,6 +14,7 @@ class HoroscopeController extends ArticlesController
      */
     public function index()
     {
+        Cache::flush();
         $signs = Cache::remember('horoscope', 60*24*30, function () {
            return array_except(Horoscope::first()->toArray(), ['id', 'created_at', 'updated_at']);
         });
