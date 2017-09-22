@@ -9,6 +9,7 @@
                                         ], null, ['placeholder' => 'Выбрать категорию', 'class' => 'form-control'])
                         !!}
         <!-- Submit -->
+        <hr>
         {!! Form::button(trans('admin.find'), ['class' => 'btn btn-success','type'=>'submit']) !!}
         {!! Form::close() !!}
 </div>

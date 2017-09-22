@@ -58,7 +58,7 @@
                                                     @continue
                                                 @endif
                                                 <li>
-                                                    <a href="{{ route('doctors', $article->alias) }}">{{ $article->title }}</a>
+                                                    <a href="{{ route('doctors_art', $article->alias) }}">{{ $article->title }}</a>
                                                 </li>
                                             @endforeach
                                         </ul>
@@ -67,8 +67,11 @@
                             @endif
                         @endforeach
                     @endif
-                    <div class="site-discr-1">
-                        <div class="site-discr"><h2>Блог</h2></div>
+
+                    <div class="site-patient">
+                        <div class="site-discr">
+                            <h2>Блог</h2>
+                        </div>
                         @if(!empty($vars['blog_cats']))
                             @foreach($vars['blog_cats'] as $cat)
                                 <div class="block">

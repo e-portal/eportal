@@ -13,15 +13,17 @@
                         <div class="statyi-content">
                             <div class="statyi-block">
                                 <div class="img-statyi">
-                                    <img src="{{ asset('/images/article/small').'/'.$article->image->path }}"
-                                         alt="{{$article->image->alt}}" title="{{ $article->image->title }}">
+                                    <a href="{{ route('doctors_art', $article->alias) }}">
+                                        <img src="{{ asset('/images/article/small').'/'.$article->image->path }}"
+                                             alt="{{$article->image->alt}}" title="{{ $article->image->title }}">
+                                    </a>
                                 </div>
                                 <div class="block-text">
                         <span>
                             @if(strlen($article->created) < 6) <i class="icons icon-clock"></i> @endif
                             {{ $article->created }}
                         </span>
-                                    <a href="{{ route('doctors', $article->alias) }}">
+                                    <a href="{{ route('doctors_art', $article->alias) }}">
                                         <p>{{ str_limit($article->title, 72) }}</p>
                                     </a>
                                 </div>
@@ -32,15 +34,17 @@
                     @else
                         <div class="statyi-block">
                             <div class="img-statyi">
-                                <img src="{{ asset('/images/article/small').'/'.$article->image->path }}"
-                                     alt="{{$article->image->alt}}" title="{{ $article->image->title }}">
+                                <a href="{{ route('doctors_art', $article->alias) }}">
+                                    <img src="{{ asset('/images/article/small').'/'.$article->image->path }}"
+                                         alt="{{$article->image->alt}}" title="{{ $article->image->title }}">
+                                </a>
                             </div>
                             <div class="block-text">
                                 <span>
                                     @if(strlen($article->created) < 6) <i class="icons icon-clock"></i> @endif
                                     {{ $article->created }}
                                 </span>
-                                <a href="{{ route('doctors', $article->alias) }}">
+                                <a href="{{ route('doctors_art', $article->alias) }}">
                                     <p>{{ str_limit($article->title, 72) }}</p>
                                 </a>
                             </div>
@@ -100,22 +104,3 @@
     </div>
     </div>
 </section>
-<!---------------------------------------------about the rubrics start------------------------------------->
-<div class="container container-rubrics">
-    <div class="rubrics">
-        <h3>О рубрике Каталог</h3>
-        <p>
-            Раздел «Мероприятия» позволяет всем заинтересованным в сфере эстетической медицины не пропустить
-            медицинские
-            мероприятия, которые помогут не только постоянно следить за мировыми и местными событиями,
-            интересными для
-            врачей-эстетистов и специалистов других отраслей медицины, но и позволят расширить базу знаний и
-            завести новые
-            знакомства, получить бесценный опыт и повысить свою квалификацию. Медицинские мероприятия для
-            профессионалов
-            включают в себя тренинги, практикумы, обучающие курсы, конференции, выставки и прочие события в мире
-            медицины.
-        </p>
-    </div>
-</div>
-<!------------------------------------------------about the rubrics end------------------------------------------------>

@@ -83,13 +83,18 @@ class Static_pageController extends MainController
                 <link rel="stylesheet" type="text/css" href="' . asset('css') . '/stati-vnutrennaya-media.css">
             ';
         $this->getSidebar(session()->has('doc'));
-        $this->content = Cache::remember($name, 24 * 60, function () use ($name) {
+        $page = Cache::remember($name, 24 * 60, function () use ($name) {
             $model = $this->repository->get(['title', 'seo', 'text'], false, false, ['own', $name]);
             $model = $model->first();
             $model->seo = $this->repository->convertSeo($model->seo);
-
-            return view('static_pages.' . $name)->with([$name => $model, 'sidebar' => $this->sidebar])->render();
+            return $model;
         });
+
+        $this->seo = $page->seo;
+//        dd($this->seo);
+        $this->seo->og_image = asset('/estet/img') . '/' . $name . '.png';
+
+        $this->content = view('static_pages.' . $name)->with([$name => $page, 'sidebar' => $this->sidebar])->render();
         $this->getFooter($name);
         return $this->renderOutput();
     }

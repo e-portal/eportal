@@ -9,6 +9,7 @@
             </div>
         </div>
     @endforeach
+    <hr>
     {!! Form::button('Сохранить', ['class' => 'btn btn-large btn-primary','type'=>'submit']) !!}
     {!! Form::close() !!}
 @endif

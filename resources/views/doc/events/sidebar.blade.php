@@ -46,8 +46,8 @@
                                     {{ $article->created }}
                                 </time>
                             </div>
-                            <a class="link-title" href="{{ route('doctors', $article->alias) }}">
-                                <h3>{{ $article->title }}</h3>
+                            <a class="link-title" href="{{ route('doctors_art', $article->alias) }}">
+                                <h3>{{ str_limit($article->title, 72) }}</h3>
                             </a>
                         </article>
                         @if(0 == $loop->index)
@@ -57,10 +57,15 @@
             </div>
         </div>
     </div>
+    <div class="aside-block">
+        <div class="advertising">
+            {!! $advertising['sidebar'] ?? '<img src="'. asset('estet') .'/img/200x325.png" >' !!}
+        </div>
+    </div>
     @include('layouts.horoscope.sidebar')
     <div class="aside-block">
         <div class="advertising">
-            {!! $advertising['sidebar'] ?? '<img src="'. asset('estet') .'/img/advertising.jpg" >' !!}
+            {!! $advertising['sidebar_2'] ?? '<img src="'. asset('estet') .'/img/200x325.png" >' !!}
         </div>
     </div>
     <div class="aside-block subscribe-block">
@@ -99,7 +104,7 @@
         @foreach($articles as $article)
             <div class="row">
                 <p><span class="label label-default">{{ $article->created }}</span></p>
-                <p><a href="{{ route('doctors', $article->alias) }}"> {{ $article->title }}</a></p>
+                <p><a href="{{ route('doctors_art', $article->alias) }}"> {{ $article->title }}</a></p>
             </div>
         @endforeach
     @endif

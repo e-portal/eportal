@@ -5,12 +5,24 @@
     display: inline-block;
     margin: 0px 34px 35px 0px;
 }
-.blog-categories .select a:before {
+
+.blog-page .blog-categories .select a:before {
     content: "";
     border-radius: 50%;
-    background: #fff;
+    background: #455ea7;
     display: inline-block;
-    border: 1px solid #202020;
+    border: 1px solid #455ea7;
+    width: 11px;
+    height: 11px;
+    margin: 40px 7px 0 0;
+}
+
+.doctor-page .blog-categories .select a:before {
+    content: "";
+    border-radius: 50%;
+    background: #7e2b83;
+    display: inline-block;
+    border: 1px solid #7e2b83;
     width: 11px;
     height: 11px;
     margin: 40px 7px 0 0;
@@ -19,10 +31,6 @@
     height: 18px;
     display: block;
     cursor: pointer;
-}
-.social-networks .social-post a:hover {
-    background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 25px;
 }
 .hrp {
     width: 100%;
@@ -359,6 +367,7 @@ div.horoscope-description:nth-of-type(2n) .img-horoscope-description {
     font-family: "Cormorant Garamond";
     margin: 3% auto 5%;
     width: 77%;
+    font-weight: 600;
 }
 
 .main-img {
@@ -765,156 +774,6 @@ h3 {
     line-height: 15px;
 }
 
-footer {
-    /*margin-top: 50px;*/
-    padding: 4.3% 6.7% 2.5%;
-    background: #202020;
-    color: #fff;
-    font-size: 0;
-}
-
-footer .footer-top,
-footer .footer-bot {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -moz-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-}
-
-footer img {
-    width: 100%;
-}
-.form-control {
-    height: 148px;
-    padding: 5px 0 0 15px;
-    font-size: 12px;
-    font-family: 'Roboto';
-    margin-bottom: 10px;
-    resize: vertical;
-}
-
-
-footer .left {
-    width: 17%;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-    -moz-box-orient: vertical;
-    -moz-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -moz-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-}
-
-footer .right {
-    width: 24%;
-}
-
-footer .center {
-    width: 50%;
-}
-
-footer p {
-    font-family: "Roboto";
-    color: #a8a7a7;
-    font-size: 12px;
-    line-height: 15px;
-}
-
-footer p:first-child {
-    margin-bottom: 6%;
-}
-
-.footer-top {
-    padding-bottom: 3.1%;
-    border-bottom: 1px solid rgba(168, 167, 167, 0.21);
-}
-
-.footer-head img {
-    margin-top: 4px;
-}
-
-footer .social-wrap h5 {
-    margin-bottom: 10px;
-    font-family: "SegoeUIRegular";
-    font-size: 16px;
-    text-align: center;
-}
-
-footer .social {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -moz-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-}
-
-footer .social a {
-    width: 19px;
-    display: block;
-}
-
-.footer-bot {
-    padding-top: 2%;
-}
-
-.footer-bot .app-store {
-    width: 125px;
-}
-
-.footer-menu div {
-    padding: 5px 0;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -moz-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-}
-
-.footer-menu a {
-    font-family: 'Roboto';
-    color: #d1d1d1;
-    font-size: 12px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-.footer-bot .right {
-    text-align: center;
-    font-family: 'Roboto';
-}
-
-.footer-bot .right > * {
-    width: 50%;
-    display: inline-block;
-    vertical-align: middle;
-}
-
 
 
 .partner {
@@ -1041,9 +900,6 @@ footer .social a {
 }
 
 /*******************************************form*******************************************/
-.comment-post {
-    width: 95%;
-}
 
 .comment-post .social-networks {
     display: -webkit-box;
@@ -1107,15 +963,6 @@ footer .social a {
     flex-direction: column;
 }
 
-.comment-post .section-form .section-form-up .section-input {
-    width: 31.5%;
-    height: 32px;
-    padding: 0 0 0 15px;
-    font-size: 12px;
-    font-family: 'Roboto';
-    margin-bottom: 10px;
-}
-
 .comment-post .section-form .section-form-up .section-form-text {
     height: 98px;
     padding: 7px 0 0 15px;
@@ -1148,56 +995,10 @@ footer .social a {
     font-size: 19px;
     text-align: center;
 }
-
-/*.comment-post .section-form .section-form-up .but-section-form {
-    width: 23.5%;
-    border-radius: 40px;
-    background: #455ea7;
-    color: #fff;
-    height: 35px;
-    font-size: 14px;
-    font-family: "Roboto-Bold";
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    border: 0;
-    cursor: pointer;
-}*/
-
 .comment-post .section-form .section-form-up .but-section-purpur {
     background: #7e2b83;
 }
 
-/*.block-forms {
-  display: flex;
-}
-.section-form .block-left {
-    width: 71%;
-    display: flex;
-}
-.reload {
-    margin: 0 10px 0 0;
-}
-.section-form .block-right {
-    width: 45%;
-}
-.comment-post .section-form .section-form-up .sectio    n-form-down {
-    margin-top: 0;
-    display: block;
-    width: 28%;
-}
-.comment-post .section-form .section-form-up .but-section-form {
-    width: 100%;
-    border-radius: 40px;
-    background: #455ea7;
-    color: #fff;
-    height: 35px;
-    font-size: 14px;
-    font-family: "Roboto-Bold";
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    border: 0;
-    cursor: pointer;
-}*/
 /*******************************************form*******************************************/
 .horoscope .content-aside-main .content {
     margin-top: 36px;

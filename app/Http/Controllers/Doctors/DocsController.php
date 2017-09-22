@@ -46,6 +46,52 @@ class DocsController extends Controller
         $this->blog_rep = $blog;
     }
 
+    public function showMain()
+    {
+        $this->content = Cache::remember('docsArticles', 60, function () {
+            $events = new EventsRepository(new Event());
+            $articles = [
+                'lasts' => $this->a_rep->getMain([['id', '<>', null]], 6, ['created_at', 'desc'], 'docs'),
+                'popular' => $this->a_rep->getMain([['id', '<>', null]], 4, ['view', 'desc'], 'docs'),
+                'video' => $this->a_rep->getMain([['category_id', 20]], 3, ['created_at', 'desc'], 'docs'),
+                'experts' => $this->a_rep->getMain([['category_id', 2]], 20, ['created_at', 'desc'], 'docs'),
+                'cosmetology' => $this->a_rep->getMain([['category_id', 5]], 4, ['created_at', 'desc'], 'docs'),
+                'dermatology' => $this->a_rep->getMain([['category_id', 4]], 4, ['created_at', 'desc'], 'docs'),
+                'practic' => $this->a_rep->getMain([['category_id', 1]], 3, ['created_at', 'desc'], 'docs'),
+                'plastic' => $this->a_rep->getMain([['category_id', 6]], 4, ['created_at', 'desc'], 'docs'),
+                'endocrinology' => $this->a_rep->getMain([['category_id', 12]], 3, ['created_at', 'desc'], 'docs'),
+                'stomatology' => $this->a_rep->getMain([['category_id', 8]], 4, ['created_at', 'desc'], 'docs'),
+                'venerology' => $this->a_rep->getMain([['category_id', 9]], 3, ['created_at', 'desc'], 'docs'),
+                'urology' => $this->a_rep->getMain([['category_id', 11]], 3, ['created_at', 'desc'], 'docs'),
+                'trihology' => $this->a_rep->getMain([['category_id', 7]], 3, ['created_at', 'desc'], 'docs'),
+                'events' => $events->get(['id', 'alias', 'title', 'created_at', 'view'], 3, false, [['approved', 1]], ['created_at', 'desc'], ['logo']),
+                'blogs' => $this->blog_rep->get(['id', 'alias', 'title', 'created_at', 'view'], 4, false, [['approved', 1]], ['created_at', 'desc'], ['blog_img', 'category', 'person'], true),
+            ];
+
+            $advertising = $this->adv_rep->getMainDocs();
+            return view('doc.content')
+                ->with(['articles' => $articles, 'advertising' => $advertising])
+                ->render();
+        });
+        $this->title = 'Профессионалам';
+        $this->seo = Cache::remember('seo_docs', 24 * 60, function () {
+            return $this->seo_rep->getSeo('doctor/statyi');
+        });
+
+        $this->css = '
+            <link rel="stylesheet" type="text/css" href="' . asset('css') . '/patient.css">
+            <link rel="stylesheet" type="text/css" href="' . asset('css') . '/patient-media.css">
+            <link rel="stylesheet" type="text/css" href="' . asset('css') . '/jquery.mCustomScrollbar.min.css">
+        ';
+        $this->js = '
+            <script src="' . asset('js') . '/libs/jquery.mCustomScrollbar.concat.min.js"></script>
+            <script src="' . asset('js') . '/patient.js"></script>
+        ';
+
+
+        return $this->renderOutput();
+    }
+
     /**
      * @param null $article
      * @return DocsController
@@ -83,6 +129,7 @@ class DocsController extends Controller
                 [['approved', true], ['created_at', '<=', DB::raw('NOW()')], ['id', '<>', $article->id], ['own', 'docs'], ['category_id', $article->category_id]],
                 false, ['image']
             );
+            $this->title = $article->title;
 
             $this->getSidebar();
             $this->content = view('doc.article')
@@ -117,9 +164,7 @@ class DocsController extends Controller
                 ->render();
         });
         $this->title = 'Профессионалам';
-        $this->seo = Cache::remember('seo_docs', 24 * 60, function () {
-            return $this->seo_rep->getSeo('doctor/statyi');
-        });
+        $this->getSeo('doctor/statyi');
 
         $this->css = '
             <link rel="stylesheet" type="text/css" href="' . asset('css') . '/patient.css">
@@ -163,6 +208,8 @@ class DocsController extends Controller
                 ->with(['articles' => $articles, 'sidebar' => $this->sidebar, 'cat' => $cat])
                 ->render();
         });
+        $this->title = $cat->name;
+        $this->getSeo('doctor/kategorii');
         $this->getSidebar();
         return $this->renderOutput();
     }
@@ -248,6 +295,7 @@ class DocsController extends Controller
                 ->render();
         });
 
+        $this->getSeo('doctor/teg');
         return $this->renderOutput();
     }
 
@@ -303,5 +351,15 @@ class DocsController extends Controller
                 ->render();
         });
         return true;
+    }
+
+    /**
+     * @param $url
+     */
+    public function getSeo($url)
+    {
+        $this->seo = Cache::remember('seo-' . $url, 24 * 60, function () use ($url) {
+            return $this->seo_rep->getSeo($url);
+        });
     }
 }

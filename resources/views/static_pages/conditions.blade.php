@@ -1,6 +1,6 @@
 <div class="title-main ">
     <p class="heading-title">
-    <h2>{{ $conditions->title }}</h2>
+        {{ $conditions->title }}
     </p>
 </div>
 <!--section 1-->

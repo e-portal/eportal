@@ -17,7 +17,7 @@
                                     {{ $last->created }}
                                 </time>
                             </div>
-                            <a class="link-title" href="{{ route('doctors', $last->alias) }}">
+                            <a class="link-title" href="{{ route('doctors_art', $last->alias) }}">
                                 <h3>{{ str_limit($last->title, 64) }}</h3>
                             </a>
                         </article>
@@ -26,11 +26,6 @@
                     @endforeach
                 @endif
             </div>
-        </div>
-    </div>
-    <div class="aside-block">
-        <div class="advertising">
-            {!! $advertising['sidebar'] ?? '<img src="'. asset('estet') .'/img/advertising.jpg" >' !!}
         </div>
     </div>
     <div class="aside-block highly-block">
@@ -51,7 +46,7 @@
                                     {{ $article->created }}
                                 </time>
                             </div>
-                            <a class="link-title" href="{{ route('doctors', $article->alias) }}">
+                            <a class="link-title" href="{{ route('doctors_art', $article->alias) }}">
                                 <h3>{{ str_limit($article->title, 64) }}</h3>
                             </a>
                         </article>
@@ -62,13 +57,18 @@
             </div>
         </div>
     </div>
+    <div class="aside-block">
+        <div class="advertising">
+            {!! $advertising['sidebar'] ?? '<img src="'. asset('estet') .'/bannera/200x325.png" >' !!}
+        </div>
+    </div>
     @include('layouts.horoscope.sidebar')
     <div class="aside-block subscribe-block">
         @include('layouts.subscribe')
     </div>
     <div class="aside-block">
         <div class="advertising">
-            {!! $advertising['sidebar_2'] ?? '<img src="'. asset('estet') .'/img/advertising.jpg" >' !!}
+            {!! $advertising['sidebar_2'] ?? '<img src="'. asset('estet') .'/bannera/200x325.png" >' !!}
         </div>
     </div>
 </aside>

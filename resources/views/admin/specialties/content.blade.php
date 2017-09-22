@@ -6,6 +6,7 @@
     <div class="row">
     {!! Form::text('spec', old('spec') ? : '' , ['placeholder'=>'Психиатр...', 'id'=>'spec', 'class'=>'form-control']) !!}
     </div>
+    <hr>
     <div class="row">
         {!! Form::button(trans('admin.add_spec'), ['class' => 'btn btn-primary','type'=>'submit']) !!}
     </div>

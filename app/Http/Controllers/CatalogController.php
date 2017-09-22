@@ -12,6 +12,7 @@ use Fresh\Estet\Repositories\AdvertisingRepository;
 use Fresh\Estet\Repositories\ArticlesRepository;
 use Cache;
 use DB;
+use Fresh\Estet\Repositories\SeoRepository;
 
 class CatalogController extends MainController
 {
@@ -24,7 +25,8 @@ class CatalogController extends MainController
         AdvertisingRepository $adv,
         PremiumsRepository $prem_rep,
         EstablishmentratioRepository $ratio_rep,
-        EstablishmentsRepository $repository
+        EstablishmentsRepository $repository,
+        SeoRepository $seoRepository
     )
     {
         parent::__construct($a_rep, $adv);
@@ -36,6 +38,7 @@ class CatalogController extends MainController
         $this->prem_rep = $prem_rep;
         $this->ratio_rep = $ratio_rep;
         $this->repository = $repository;
+        $this->seo_rep = $seoRepository;
     }
 
     public function index()
@@ -77,6 +80,8 @@ class CatalogController extends MainController
         }
         $this->title = 'Врачи';
 
+        $this->getSeo('catalog/vrachi');
+
         $this->css .= '
             <link rel="stylesheet" type="text/css" href="' . asset('css') . '/katalog.css">
         ';
@@ -114,6 +119,7 @@ class CatalogController extends MainController
         }
 
         $this->title = 'Клиники';
+        $this->getSeo('catalog/kliniki');
         $this->css .= '
             <link rel="stylesheet" type="text/css" href="' . asset('css') . '/katalog.css">
         ';
@@ -157,10 +163,10 @@ class CatalogController extends MainController
                 ->with(['distributor' => $distributor, 'sidebar' => $this->sidebar,
                     'children' => $children, 'ratio' => $ratio[0]])
                 ->render();
-
             return $this->renderOutput();
         }
         $this->title = 'Дистрибьюторы';
+        $this->getSeo('catalog/distributory');
 
         $this->css .= '
             <link rel="stylesheet" type="text/css" href="' . asset('css') . '/katalog.css">
@@ -174,7 +180,13 @@ class CatalogController extends MainController
             $prems = $this->repository->getPrems($prems_ids);
 
             $distributors = $this->repository
-                ->getWithoutPrems(['logo', 'title', 'content', 'alias', 'address'], true, ['category', 'distributor'], $prems_ids);
+                ->getWithoutPrems(
+                    ['logo', 'title', 'content', 'alias', 'address'],
+                    true,
+                    ['category', 'distributor'],
+                    $prems_ids,
+                    ['created_at', 'desc']
+                );
 
             return view('catalog.distributors')
                 ->with(['distributors' => $distributors, 'prems' => $prems, 'sidebar' => $this->sidebar])
@@ -208,6 +220,8 @@ class CatalogController extends MainController
         }
 
         $this->title = 'Бренды';
+        $this->getSeo('catalog/brendy');
+
         $this->css .= '
             <link rel="stylesheet" type="text/css" href="' . asset('css') . '/katalog.css">
         ';
@@ -225,5 +239,12 @@ class CatalogController extends MainController
             return view('catalog.brands')->with(['brands' => $brands, 'prems' => $prems, 'sidebar' => $this->sidebar])->render();
         });
         return $this->renderOutput();
+    }
+
+    public function getSeo($url)
+    {
+        $this->seo = Cache::remember('seo-' . $url, 24 * 60, function () use ($url) {
+            return $this->seo_rep->getSeo($url);
+        });
     }
 }

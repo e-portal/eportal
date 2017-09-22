@@ -1,4 +1,4 @@
-<section id="section-1" class="horoscope">
+<section id="section-1" class="blog-page">
     <div class="left-title left-title-planshet ">
         <div class="line-container text-vertical">
             <div class="vertical-line"></div>
@@ -51,11 +51,10 @@
         @endif
     </div>
     {!! $sidebar !!}
-    </div>
     <div class="pagination content-blog">
         <!--PAGINATION-->
         <div class="pagination-blog">
-            @if($blogs->lastPage() > 1)
+            @if(is_object($blogs) && !empty($blogs->lastPage()) && $blogs->lastPage() > 1)
                 <ul>
                     @if($blogs->currentPage() !== 1)
                         <li>
@@ -100,22 +99,3 @@
     </div>
     </div>
 </section>
-<!---------------------------------------------about the rubrics start------------------------------------->
-<div class="container container-rubrics">
-    <div class="rubrics">
-        <h3>О рубрике Каталог</h3>
-        <p>
-            Раздел «Мероприятия» позволяет всем заинтересованным в сфере эстетической медицины не пропустить
-            медицинские
-            мероприятия, которые помогут не только постоянно следить за мировыми и местными событиями,
-            интересными для
-            врачей-эстетистов и специалистов других отраслей медицины, но и позволят расширить базу знаний и
-            завести новые
-            знакомства, получить бесценный опыт и повысить свою квалификацию. Медицинские мероприятия для
-            профессионалов
-            включают в себя тренинги, практикумы, обучающие курсы, конференции, выставки и прочие события в мире
-            медицины.
-        </p>
-    </div>
-</div>
-<!------------------------------------------------about the rubrics end------------------------------------------------>

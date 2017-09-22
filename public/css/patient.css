@@ -126,7 +126,6 @@
     display: flex;
     padding: 0 10px;
 }
-
 .section-clos {
     display: none;
 }
@@ -142,7 +141,6 @@
 .dot.active {
     background: #455ea7;
 }
-
 .doctor-page .dot.active {
     background: #7e2b83;
 }
@@ -151,7 +149,6 @@
     text-align: right;
     height: 325px;
 }
-
 .doctor-page .video .button-block a:hover {
     background: #7e2b83;
 }
@@ -280,7 +277,6 @@
     flex-direction: column;
     justify-content: space-between;
 }
-
 .doctor-page .aside-block {
     margin-top: 11px;
 }
@@ -374,6 +370,10 @@
     margin-top: 59px;
     padding-right: 4.4%;
 }
+
+.doctor-page .beauty-health .button-block {
+    margin-top: 60px;
+}
 .medicine-treatment {
     margin-top: 88px;
 }
@@ -437,7 +437,6 @@
     margin-top: 87px;
     padding-right: 4.4%;
 }
-
 .doctor-page .stomatology .button-block {
     margin-top: 117px;
 }
@@ -451,19 +450,15 @@
     margin-top: 60px;
     padding-right: 4.4%;
 }
-
 .desser {
     margin-top: 155px;
 }
-
 .treatment-doctor {
     margin-top: 81px;
 }
-
 .endocrinology {
-    margin-top: 176px;
+    margin-top: 176px;  
 }
-
 .stomatology-doctor {
     margin-top: 87px;
 }
@@ -482,14 +477,12 @@
     width: 100%;
     background: #455ea7;
 }
-
 .doctor-page #mCSB_1_scrollbar_vertical .mCSB_dragger {
     background: #7e2b83;
 }
-
 .doctor-page .mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar,
 .doctor-page .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
-.doctor-page .mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar,
+.doctor-page .mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar, 
 .doctor-page .mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar {
     background-color: #7E2B83;
 }
@@ -501,22 +494,18 @@
 .mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar {
     background: #455ea7;
 }
-
 /*section 6-1*/
 .blog-doctor {
     margin-top: 149px;
 }
-
 .blog-doctor article {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
-
 .blog-doctor article a {
     width: 53.6%;
 }
-
 .blog-doctor article div {
     width: 42.1%;
     display: flex;
@@ -524,22 +513,64 @@
     padding-right: 5.8%;
 }
 
+.blog-doctor .views {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    display: none;
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.blog-doctor article:hover .views {
+    display: flex;
+    font-size: 12px;
+    font-family: "Roboto";
+    padding: 0 0 10px 5px;
+    flex-direction: row;
+}
+
+.blog-doctor .views::before {
+    content: '';
+    background: url(/estet/img/veiw.png);
+    width: 14px;
+    height: 14px;
+    margin: 0px 5px 1px 10px
+}
+
+.blog-doctor .content.active article a .views {
+    display: flex;
+    justify-content: end;
+    align-items: flex-end;
+    font-size: 12px;
+    font-family: "Roboto";
+    padding: 0 0 10px 5px;
+    flex-direction: row;
+
+}
+
+.blog-doctor .content.articles-divisions .button-block {
+    width: 100%;
+}
+
 .blog-doctor .content.articles-divisions > * {
     width: 49.8%;
 }
-
 .blog-doctor .content.articles-divisions {
     justify-content: space-between;
     padding-right: 9%;
 }
-
 .blog-doctor .title-time {
     width: 100%;
     flex-direction: column;
     align-items: right;
     order: 1;
 }
-
 .blog-doctor .title-time p {
     margin-top: 17px;
     font-family: 'Roboto', sans-serif;
@@ -547,7 +578,6 @@
     font-size: 14px;
     color: #5D5D5D;
 }
-
 .blog-doctor .link-title {
     width: 100%;
     order: 3;
@@ -555,7 +585,6 @@
     overflow: hidden;
     height: 87px;
 }
-
 .blog-doctor .blog-read-more {
     width: 100%;
     order: 2;
@@ -565,42 +594,40 @@
     font-size: 14px;
     color: #5D5D5D;
 }
-
 .blog-doctor .blog-read-more .author {
     width: 100%;
+    flex-direction: row;
+    align-items: center;
 }
 
+.blog-doctor .blog-doctor article .blog-read-more div {
+    padding-right: 0;
+}
 .blog-doctor .blog-read-more .author p {
     overflow: hidden;
-    height: 20px;
+    height: 19px;
 }
 
 .blog-doctor .content.articles-divisions > :nth-child(1),
 .blog-doctor .content.articles-divisions > :nth-child(2) {
     padding-bottom: 44px;
 }
-
 .blog-doctor .button-block {
-    margin-top: 92px;
+    margin-top: 85px;
 }
-
 .cosmetology-food {
     margin-top: 107px;
 }
-
 .cosmetology-food .button-block {
-    margin-top: 89px;
+    margin-top: 90px;
 }
-
 /*section-11-1*/
 .venerology {
     margin-top: 177px;
 }
-
 .venerology .articles-vertical {
     padding-left: 0;
 }
-
 .venerology .block-doctor-ven .articles-vertical {
     padding-left: 12.1%;
     width: 100%;
@@ -609,14 +636,12 @@
 .venerology .block-doctor-ven .left-title {
     display: flex;
 }
-
 .venerology .content.articles-divisions {
     display: flex;
     justify-content: space-between;
 }
-
 .venerology .content.articles-divisions .articles-vertical {
-    width: 44%;
+    width: 100%;
 }
 
 .venerology .content.articles-divisions .block-doctor-ven .articles-vertical {
@@ -626,16 +651,52 @@
 .venerology .content.articles-divisions .block-doctor-ven .articles-vertical {
     height: 472px;
 }
-
 .venerology .content.articles-divisions .articles-vertical .button-block {
-    top: 104%;
+    top: 107%;
 }
-
 .venerology .content.articles-divisions .block-doctor-ven .articles-vertical .button-block {
-    top: 103%;
-    width: 34%;
+    top: 107%;
+    width: 35%;
+    left: 65%;
 }
-
 .venerology .content.articles-divisions .block-doctor-ven .left-title {
     left: 5%;
+}
+
+.venerology #section-1-1 .left-title {
+    width: 27.8%;
+}
+
+.venerology #section-1-1 .content.articles-divisions {
+    padding-left: 5px;
+    padding-right: 0;
+}
+
+.venerology #section-2-1 .content.articles-divisions {
+    width: 87.2%;
+    padding-right: 5.9%;
+}
+
+.venerology #section-2-2 {
+    padding-left: 5%;
+    width: 88%;
+}
+
+.venerology #section-1-1 {
+    width: 86%;
+    height: 472px;
+}
+
+.venerology #section-1-1 .content.articles-divisions .articles-vertical .button-block {
+    top: 107%;
+    left: 9.5%;
+}
+
+.venerology #section-2-2 .content.articles-divisions .articles-vertical .button-block {
+    top: 107%;
+    left: -4%;
+}
+
+.venerology #section-2-2 .content.articles-divisions .articles-vertical .button-block .button-line {
+    width: 24%;
 }

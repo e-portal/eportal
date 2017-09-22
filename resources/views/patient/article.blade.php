@@ -46,6 +46,7 @@
     </div>
 </section>
 <!--  section 2-->
+@if(!empty($same))
 <section id="section-2" class="articles">
     <div class="left-title">
         <div class="line-container">
@@ -55,7 +56,6 @@
     </div>
     <div class="content">
         <!--articles-gray-->
-        @if(!empty($same))
         <div class="articles-horizontal">
             @foreach($same as $preview)
                 <article>
@@ -78,6 +78,6 @@
             @endif
             @endforeach
         </div>
-        @endif
     </div>
 </section>
+@endif

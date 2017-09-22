@@ -4,10 +4,13 @@ namespace Fresh\Estet\Http\Controllers;
 
 use Cache;
 use Fresh\Estet\Repositories\SitemapRepository;
+use Fresh\Estet\Repositories\SeoRepository;
+use Fresh\Estet\Seo;
 
 class SitemapController extends MainController
 {
     protected $repository;
+    protected $seo_rep;
 
     /**
      * @return bool
@@ -37,6 +40,12 @@ class SitemapController extends MainController
             \Log::info('Карта сайта обновлена: ' . date("d-m-Y H:i"));
 
             return $vars;
+        });
+
+        $this->title = 'Карта сайта';
+        $this->seo_rep = new SeoRepository(new Seo());
+        $this->seo = Cache::remember('site-map-seo', 24 * 60, function () {
+            return $this->seo_rep->getSeo('karta-saita');
         });
 
         $this->content = view('sitemap.content')->with(['vars' => $sitemap, 'sidebar' => $this->sidebar])->render();

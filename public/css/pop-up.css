@@ -1,7 +1,7 @@
 .remember-me {
     position: absolute;
-    margin: 20px auto;
-    left: 34%;
+    margin-top: 20px;
+    width: 100%;
     font-family: "Roboto";
     letter-spacing: 1px;
 }
@@ -99,6 +99,7 @@
 
 .remember-me .label {
     cursor: pointer;
+    margin: 0 auto;
 }
 .line:first-of-type::before {
     content: '';

@@ -3,7 +3,12 @@
         <div class="left">
             <h2 class="footer-head">
                 @if (session()->has('doc'))
-                    <a href="{{ route('doctors') }}"><img src="{{ asset('estet') }}/img/footer/logo.png"></a>
+                    {!!
+                        ('doctors' == Route::currentRouteName()) ?
+                            '<img src="'. asset('estet') .'/img/footer/logo.png">'
+                        :
+                            '<a href="'. route('doctors') .'"><img src="'. asset('estet') .'/img/footer/logo.png"></a>'
+                     !!}
                 @else
                     @if(('main' === Route::currentRouteName()))
                         <img src="{{ asset('estet') }}/img/footer/logo.png">
@@ -50,15 +55,16 @@
                 @if(!empty($adv->text))
                     {!! $adv->text !!}
                 @else
-                    <img src="{{ asset("estet") }}/img/footer/Rectangle 1125.png">
+                    <img src="{{ asset("estet") }}/bannera/331x286.png">
                 @ENDIF
             </div>
         </div>
     </div>
     <div class="footer-bot">
         <div class="left">
-            <a href="https://itunes.apple.com/us/app/fitface/id566417059?mt=8"><img class="app-store"
-                                                                                    src="{{ asset('estet') }}/img/footer/app.png"></a>
+            <a href="https://itunes.apple.com/us/app/fitface/id566417059?mt=8">
+                <img class="app-store" src="{{ asset('estet') }}/img/footer/app.png">
+            </a>
         </div>
         <div class="center">
             <div class="footer-menu">

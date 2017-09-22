@@ -37,11 +37,6 @@
             </div>
         </div>
     </div>
-    <div class="aside-block">
-        <div class="advertising">
-            {!! $advertising['sidebar'] ?? '<img src="'. asset('estet') .'/img/advertising.jpg" >' !!}
-        </div>
-    </div>
     <div class="aside-block highly-block">
         <div class="left-title">
             <div class="line-container">
@@ -62,7 +57,7 @@
                             </div>
                             @if($status)
                                 <p>
-                                    <a class="link-title" href="{{ route('doctors', $article->alias) }}">
+                                    <a class="link-title" href="{{ route('doctors_art', $article->alias) }}">
                                         <h3>{{ str_limit($article->title, 64) }}</h3>
                                     </a>
                                 </p>
@@ -81,10 +76,17 @@
             </div>
         </div>
     </div>
+    @if(session()->has('doc'))
+        <div class="aside-block">
+            <div class="advertising">
+                {!! $advertising['sidebar'] ?? '<img src="'. asset('estet') .'/bannera/200x325.png" >' !!}
+            </div>
+        </div>
+    @endif
     @include('layouts.horoscope.sidebar')
     <div class="aside-block">
         <div class="advertising">
-            {!! $advertising['sidebar_2'] ?? '<img src="'. asset('estet') .'/img/advertising.jpg" >' !!}
+            {!! $advertising['sidebar_2'] ?? '<img src="'. asset('estet') .'/bannera/200x325.png" >' !!}
         </div>
     </div>
     <div class="aside-block">

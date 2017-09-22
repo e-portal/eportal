@@ -189,14 +189,16 @@
         <div class="col-lg-6">
             {{ Form::label('og_description', 'OG_DESCRIPTION') }}
             <div>
-                {!! Form::text('og_description', old('og_description') ? : ($event->seo->og_description ?? '') , ['placeholder'=>'og_description', 'id'=>'og_description', 'class'=>'form-control']) !!}
+                {!! Form::text('og_description', old('og_description') ? : ($event->seo->og_description ?? '') ,
+                 ['placeholder'=>'og_description', 'id'=>'og_description', 'class'=>'form-control', 'rows'=>20]) !!}
             </div>
         </div>
     </div>
     <div class="row">
         {{ Form::label('seo_text', 'SEO_TEXT') }}
         <div>
-            <textarea name="seo_text" class="form-control">{!! old('seo_text') ? : ($event->seo->seo_text ?? '') !!}</textarea>
+            <textarea name="seo_text" class="form-control"
+                      rows="20">{!! old('seo_text') ? : ($event->seo->seo_text ?? '') !!}</textarea>
         </div>
     </div>
 </div>

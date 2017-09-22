@@ -130,17 +130,6 @@
                             @endif
                         </div>
                         @include('layouts.comments_form', ['id' => $distributor->id, 'source' => 3])
-                        <div class="about-description">
-                            <h4>О рубрике Каталог</h4>
-                            <p>Раздел «Мероприятия» позволяет всем заинтересованным в сфере эстетической
-                                медицины не пропустить медицинские мероприятия, которые помогут не только
-                                постоянно следить за мировыми и местными событиями, интересными для
-                                врачей-эстетистов и специалистов других отраслей медицины, но и позволят
-                                расширить базу знаний и завести новые знакомства, получить бесценный опыт
-                                и повысить свою квалификацию. Медицинские мероприятия для профессионалов
-                                включают в себя тренинги, практикумы, обучающие курсы, конференции,
-                                выставки и прочие события в мире медицины..</p>
-                        </div>
                     </div>
                 </div>
 
@@ -150,38 +139,3 @@
 
     </div>
 </section>
-
-{{--
-@if(count($distributor->comments) > 0)
-    <hr>
-    @foreach($distributor->comments as $comment)
-        @if(0 !== $comment->parent_id)
-            @continue
-        @endif
-        <div class="row">
-            <table class="table">
-                <tr><th>#</th><th>{{ $comment->id }}</th></tr>
-                <tr><td>E-mail</td><td>{{ $comment->email }}</td></tr>
-                <tr><td>Имя</td><td>{{ $comment->name }}</td></tr>
-                <tr><td>Коментарий</td><td>{{ $comment->text }}</td></tr>
-            </table>
-        </div>
-        @include('comment', ['children' => $distributor->comments, 'id' => $comment->id])
-    @endforeach
-@endif
-<hr>
-<div class="row">
-    <h4>Добавить коментарий</h4>
-    <div class="row">
-        {!! Form::open(['url' => route('comments'),'class'=>'form-horizontal','method'=>'post']) !!}
-        {!! Form::text('email', old('email') ? : '' , ['placeholder'=>'Ваша почта', 'id'=>'email', 'class'=>'form-control']) !!}
-        {!! Form::text('name', old('name') ? : '' , ['placeholder'=>'Имя', 'id'=>'name', 'class'=>'form-control']) !!}
-        {!! Form::textarea('text', old('text') ? : '' , ['placeholder'=>'Коментарий', 'id'=>'text', 'class'=>'form-control', 'rows'=>5, 'cols'=>50]) !!}
-        {!! Form::button(trans('admin.sent'), ['class' => 'btn btn-success','type'=>'submit']) !!}
-        {{ Form::hidden('comment_post_ID', $distributor->id) }}
-        {{ Form::hidden('comment_parent', 0) }}
-        {{ Form::hidden('comment_source', 3) }}
-        {!! Form::close() !!}
-    </div>
-</div>
-<hr>--}}

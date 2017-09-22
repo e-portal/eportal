@@ -4,6 +4,7 @@
     {{ Form::label('param', 'Выбрать страну') }}
     {!! Form::select('param', $countries, old('param') ? : '', ['class'=>'form-control']) !!}
 </div>
+<hr>
 <div class="row">
     {!! Form::button(trans('admin.find'), ['class' => 'btn btn-primary','type'=>'submit']) !!}
 </div>

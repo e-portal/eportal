@@ -4,7 +4,7 @@
     </p>
 </div>
 <!--section 1-->
-<section id="section-1" class="horoscope">
+<section id="section-1" class="blog-page">
     <div class="left-title left-title-planshet">
         <div class="line-container text-vertical">
             <div class="vertical-line"></div>
@@ -45,7 +45,8 @@
     </div>
 </section>
 <!--  section 2-->
-<section id="section-2" class="articles">
+@if(!empty($same))
+    <section id="section-2" class="articles">
     <div class="left-title">
         <div class="line-container">
             <div class="vertical-line"></div>
@@ -55,10 +56,9 @@
     <div class="content">
         <!--articles-gray-->
         <div class="articles-horizontal">
-            @if(!empty($same))
             @foreach($same as $preview)
                 <article>
-                    <a class="link-img" href="{{ route('doctors', $preview->alias) }}" rel="nofollow">
+                    <a class="link-img" href="{{ route('doctors_art', $preview->alias) }}" rel="nofollow">
                         <img src="{{ asset('/images/article/small') . '/' . $preview->image->path }}"
                              alt="{{ $preview->image->alt }}" title="{{ $preview->image->title }}">
                     </a>
@@ -68,15 +68,15 @@
                             {{ $preview->created }}
                         </time>
                     </div>
-                    <a class="link-title" href="{{ route('doctors', $preview->alias) }}">
-                        <h3>{{ $preview->title }}</h3>
+                    <a class="link-title" href="{{ route('doctors_art', $preview->alias) }}">
+                        <h3>{{ str_limit($preview->title, 72) }}</h3>
                     </a>
                 </article>
                 @if(!$loop->last)
                     <div class="line-vertical"></div>
                 @endif
             @endforeach
-            @endif
         </div>
     </div>
 </section>
+@endif

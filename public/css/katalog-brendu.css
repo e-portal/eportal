@@ -387,6 +387,10 @@
         padding-left: 0;
     }
 
+    .page-content {
+        padding-right: 0;
+    }
+
 }
 
 @media screen and (max-width: 767px) {
@@ -410,6 +414,15 @@
 
     .katalog-page .article-content .article-content_top img {
         width: 100%;
+    }
+
+    .block-info {
+        flex-direction: column;
+    }
+
+    .details-page:nth-child(1),
+    .details-page:nth-child(2) {
+        width: 100%
     }
 
 

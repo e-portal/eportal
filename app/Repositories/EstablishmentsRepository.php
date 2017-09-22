@@ -40,7 +40,7 @@ class EstablishmentsRepository extends Repository
 
         if($pagination) {
 //            return $builder->paginate(Config::get('settings.paginate'));
-            return $builder->paginate(1);
+            return $builder->paginate(9);
         }
 
         return $builder->get();

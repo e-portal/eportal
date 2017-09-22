@@ -21,7 +21,13 @@
     @if(!empty($seo->og_image))
         <meta property="og:image" content="{{ $seo->og_image }}"/>
     @endif
-    <title>{{ $seo->seo_title ??($title ? ($title.' - '. env('APP_NAME')) : env('APP_NAME')) }}</title>
+    <title>
+        @if(!empty($seo->seo_title))
+            {{ $seo->seo_title . ' - ' . env('APP_NAME') }}
+        @else
+            {{ $title ? ($title.' - '. env('APP_NAME')) : env('APP_NAME') }}
+        @endif
+    </title>
     <link rel="stylesheet" type="text/css" href="{{ asset('css') }}/base.css">
     @if(!empty($css))
         {!! $css !!}
@@ -38,11 +44,7 @@
 </head>
 <body>
 @if(session()->has('doc'))
-    <div class="wrapper doctor-page
-    @if((Route::currentRouteName() ==  'blogs'))
-        blog-page
-    @endif
-    ">
+    <div class="wrapper doctor-page">
 @else
     <div class="wrapper">
 @endif
@@ -58,14 +60,24 @@
     <div class="container">
         @if(!empty($title_img))
             <h1>
-                @if(('main' == Route::currentRouteName()))
-                    <img src="{{ asset('estet') }}/img/title.png" alt="{{ env('APP_NAME') }}"
-                         title="{{ env('APP_NAME') }}">
+                @if(session()->has('doc'))
+                    {!! ('doctors' == Route::currentRouteName()) ?
+                            '<img src="'. asset('estet') .'/img/title.png" alt="'. env('APP_NAME') .'"
+                                title="'. env('APP_NAME') .'">'
+                                 :
+                            '<a href="'. route('doctors') .'">
+                                <img src="'. asset('estet') .'/img/title.png" alt="'. env('APP_NAME') .'"
+                                    title="'. env('APP_NAME') .'"></a>'
+                     !!}
                 @else
-                    <a href="{{ route('main') }}">
-                        <img src="{{ asset('estet') }}/img/title.png" alt="{{ env('APP_NAME') }}"
-                             title="{{ env('APP_NAME') }}">
-                    </a>
+                    {!! ('main' == Route::currentRouteName()) ?
+                            '<img src="'. asset('estet') .'/img/title.png" alt="'. env('APP_NAME') .'"
+                                title="'. env('APP_NAME') .'">'
+                                 :
+                            '<a href="'. route('main') .'">
+                                <img src="'. asset('estet') .'/img/title.png" alt="'. env('APP_NAME') .'"
+                                    title="'. env('APP_NAME') .'"></a>'
+                     !!}
                 @endif
             </h1>
         @endif
@@ -76,7 +88,11 @@
             <div class="to-top"></div>
             наверх
         </div>
-
+        <!---------------------------------------------seo text start------------------------------------->
+    @if(!empty($seo->seo_text) && ('main' !== Route::currentRouteName()) && ('doctors' !== Route::currentRouteName()))
+        {!! $seo->seo_text !!}
+    @endif
+    <!---------------------------------------------seo text stop------------------------------------->
     </div>
         @yield('footer')
 </div>

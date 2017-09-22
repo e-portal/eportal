@@ -26,6 +26,13 @@ h6 {
 body {
   background: #e4e4e4;
 }
+
+.social-networks .social-post a {
+    height: 18px;
+    display: block;
+    width: 19px;
+    cursor: pointer;
+}
 .wrapper {
   width: 100%;
   max-width: 1270px;
@@ -40,14 +47,14 @@ header {
 .container {
   width: 100%;
   position: relative;
-  padding-bottom: 200px;
+    padding-bottom: 130px;
 }
 
 /*catalog*/
-.about-description {
-    text-align: -webkit-center;
-}
 
+.about-description {
+    margin-bottom: -4%;
+}
 .about-description-text {
     width: 100%;
 }
@@ -56,6 +63,7 @@ header {
     font-size: 24px;
     padding: 79px 0 38px 0;
     font-weight: bold;
+    text-align: center;
     font-family: 'CormorantGaramond';
 }
 
@@ -65,6 +73,8 @@ header {
     width: 60%;
     font-family: "Cormorant Garamond";
     letter-spacing: 1px;
+    text-align: center;
+    margin: 0 auto;
     line-height: 15px;
 }
 
@@ -103,6 +113,7 @@ header {
     color: #808285;
     padding: 3px 0;
     transition: all .5s linear;
+
 }
 
 .created {
@@ -784,6 +795,7 @@ article > div {
     .content.articles-divisions {
         display: flex;
         flex-wrap: wrap;
+        flex-direction: column-reverse;
     }
 
     .content.articles-divisions > :nth-child(1),
@@ -801,6 +813,10 @@ article > div {
     width: 40.1%;
     min-width: 270px;
   }
+
+    .about-description-text p {
+        width: 95%
+    }
 }
 @media screen and (max-width: 767px) {
   article h3 {
@@ -1363,13 +1379,13 @@ footer .social a:hover::after {
 }
 
 .footer-bot .right .partner {
-    width: 38%;
+    width: 40%;
   display: inline-block;
   vertical-align: middle;
 }
 
 .footer-bot .right .fresh {
-    width: 62%;
+    width: 60%;
     display: inline-block;
     vertical-align: middle;
 }
@@ -1398,19 +1414,78 @@ footer .social a:hover::after {
 .articles {
     margin-top: 5%;
 }
+
+@media (min-width: 1100px) and (max-width: 1366px) {
+    footer .footer-bot .left {
+        min-width: auto;
+        width: 15%;
+    }
+
+    footer .fresh:hover > a .fresh-logo span {
+        width: 18px;
+    }
+
+    footer .footer-bot .center {
+        min-width: 470px;
+    }
+
+    .creative, .created {
+        font-size: 7.3px;
+    }
+
+    .fresh-logo span {
+        width: 20px;
+    }
+
+    footer .created {
+        letter-spacing: 2.2px;
+    }
+
+    footer .creative, .created {
+        letter-spacing: 1px;
+    }
+}
 @media screen and (max-width: 1099px) {
   footer .footer-bot .left {
     min-width: auto;
     width: 15%;
   }
+
+    footer .fresh:hover > a .fresh-logo span {
+        width: 18px;
+    }
   footer .footer-bot .center {
     min-width: 470px;
   }
+
+    .creative, .created {
+        font-size: 7.3px;
+    }
+
+    .fresh-logo span {
+        width: 20px;
+    }
+
+    footer .created {
+        letter-spacing: 2.2px;
+    }
+
+    footer .creative, .created {
+        letter-spacing: 1px;
+    }
 }
 @media screen and (max-width: 991px) {
   footer {
     padding: 53px 13% 63px;
   }
+
+    footer .footer-bot .right .fresh {
+        width: 50%;
+    }
+
+    footer .footer-bot .right .partner {
+        width: 50%;
+    }
   footer > * {
     flex-wrap: wrap;
   }
@@ -1456,6 +1531,7 @@ footer .social a:hover::after {
   }
   footer .footer-bot .app-store {
     width: 145px;
+      margin: 8px 0 0 0;
   }
   .footer-menu div {
     padding: 7px 0;
@@ -1501,6 +1577,32 @@ footer .social a:hover::after {
   footer .footer-bot .center {
     display: none;
   }
+
+    footer .creative, .created {
+        font-size: 8.3px;
+    }
+
+    footer .created {
+        letter-spacing: 3.8px;
+    }
+
+    footer .fresh:hover > a .fresh-logo span {
+        width: 22px;
+    }
+
+    footer .fresh-logo span {
+        width: 25px;
+    }
+
+    footer .footer-bot .right .partner {
+        width: 50%;
+    }
+
+    footer .footer-bot .right .fresh {
+        width: 50%;
+    }
+}
+
 }
 .icons {
   font-family: 'icons-desctop';
@@ -1567,21 +1669,20 @@ footer .social a:hover::after {
     color: #fff;
     padding: 3px 7px;
     background: #000;
-    border: 1px solid #fff;
+    border: 1px solid #000;
 }
 
 .pagination-blog ul li a.next {
-    color: #fff;
-    padding: 4px 8px;
-    background: #000;
+    padding: 3px 7px;
+    border: 1px solid;
     border-radius: 50%;
 }
 
 .pagination-blog ul li a.next:hover {
+    color: #fff;
     padding: 3px 7px;
+    background: #000;
     border: 1px solid #000;
-    background: none;
-    color: #202020;
 }
 
 .pagination-blog ul li.active a,
@@ -1600,6 +1701,20 @@ footer .social a:hover::after {
 }
 
 .pagination-blog ul li.active a {
+    color: #fff;
+    padding: 4px 8px;
+    background: #000;
+    border-radius: 50%;
+}
+
+.pagination-blog .active {
+    color: #fff;
+    padding: 4px 8px;
+    background: #000;
+    border-radius: 50%;
+}
+
+.pagination-blog li .active {
     color: #fff;
     padding: 4px 8px;
     background: #000;
@@ -1629,56 +1744,104 @@ footer .social a:hover::after {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+      margin-top: 50px;
   }
 
     section {
     flex-wrap: wrap;
     }
 
-  .aside-block:nth-child(1) {
+    .aside .aside-block:nth-child(1) {
       width: 49%;
       order: 5;
   }
 
-    .aside-block:nth-child(1):before {
+    .aside .aside-block:nth-child(1):before {
     content: "";
     position: absolute;
     background: #F3F3F3;
     width: 100%;
-    height: 10%;
+        height: 287px;
     left: 0;
     margin-top: -3%;
     }
 
-    aside.aside-block:nth-child(2):after {
+    .aside .aside-block:nth-child(2):after {
     content: "";
     width: 11px;
     height: 326px;
-    top: 88%;
+        top: 91%;
     background: #fff;
     position: absolute;
     left: 49%;
     }
-  .aside-block:nth-child(2) {
+
+    .aside .aside-block:nth-child(2) {
       width: 49%;
     margin-top: 0;
     order: 4;
   }
-  .aside-block:nth-child(3) {
+
+    .aside .aside-block:nth-child(3) {
       width: 100%;
       order: 3;
   }
 
-    .aside-block:nth-child(4) {
+    .aside .aside-block:nth-child(4) {
         width: 46%;
-    order: 1;
+        order: 1;
         display: inherit;
     }
 
-    .aside-block:nth-child(5) {
+    .aside .aside-block:nth-child(5) {
         width: 47%;
         order: 2;
     }
+
+    .aside-block .hrp {
+        margin: 5% 0 5% 0;
+    }
+
+    .doctor-page .aside .aside-block:nth-child(1) {
+        width: 49%;
+        order: 5;
+    }
+
+    .doctor-page .aside .aside-block:nth-child(2) {
+        width: 49%;
+        margin-top: 0;
+        order: 4;
+    }
+
+    .doctor-page .aside .aside-block:nth-child(3) {
+        display: none;
+    }
+
+    .doctor-page .aside .aside-block:nth-child(4) {
+        width: 100%;
+        order: 3;
+        display: block;
+    }
+
+    .doctor-page .aside .aside-block:nth-child(5) {
+        width: 47%;
+        order: 1;
+    }
+
+    .doctor-page .aside .aside-block:nth-child(6) {
+        width: 47%;
+        order: 2;
+        margin-top: 0;
+    }
+
+    .pagination .social-networks {
+        display: none;
+    }
+
+    .pagination {
+        width: 100%;
+    }
+
   .advertising > * {
     width: 100%;
     display: block;
@@ -1746,5 +1909,46 @@ footer .social a:hover::after {
     aside.aside {
         display: none;
     }
-   
+
+    .blog-page {
+        margin-top: 110px;
+    }
+
+    .comment-post .section-form .section-form-up .section-input,
+    .comment-post {
+        width: 100%;
+    }
+
+}
+
+/* clock */
+.icon-men {
+    background-image: url("/estet/img/blog/10.png");
+    width: 10px;
+    height: 11px;
+    display: inline-block;
+    margin-right: 6px;
+    padding-right: 4.99%;
+}
+
+@media (min-width: 319px) and (max-width: 466px) {
+    footer .fresh-logo span {
+        width: 15px;
+    }
+
+    footer .creative, .created {
+        font-size: 5.3px;
+    }
+
+    footer .fresh:hover > a .fresh-logo span {
+        width: 13px;
+    }
+
+    footer .created {
+        letter-spacing: 2px;
+    }
+
+    /*   footer .creative, .created {
+          letter-spacing: 1px;
+      } */
 }

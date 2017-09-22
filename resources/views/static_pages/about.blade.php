@@ -1,6 +1,6 @@
 <div class="title-main ">
     <p class="heading-title">
-    <h2>{{ $about->title }}</h2>
+        {{ $about->title }}
     </p>
 </div>
 <!--section 1-->

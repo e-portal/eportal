@@ -57,10 +57,15 @@
             </div>
         </div>
     </div>
+    <div class="aside-block">
+        <div class="advertising">
+            {!! $advertising['sidebar'] ?? '<img src="'. asset('estet') .'/bannera/200x325.png" >' !!}
+        </div>
+    </div>
     @include('layouts.horoscope.sidebar')
     <div class="aside-block">
         <div class="advertising">
-            {!! $advertising['sidebar'] ?? '<img src="'. asset('estet') .'/img/advertising.jpg" >' !!}
+            {!! $advertising['sidebar_2'] ?? '<img src="'. asset('estet') .'/bannera/200x325.png" >' !!}
         </div>
     </div>
     <div class="aside-block subscribe-block">

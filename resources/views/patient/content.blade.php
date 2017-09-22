@@ -44,7 +44,7 @@
                     @endforeach
                 </div>
                 <aside class="ad">
-                    {!! $advertising['main_1'] ?? '<img src="'. asset('estet') .'/img/content/Group 4058.png" >' !!}
+                    {!! $advertising['main_1'] ?? '<img src="'. asset('estet') .'/bannera/270x450.png" >' !!}
                 </aside>
             </div>
             <!--articles-gray-->
@@ -137,7 +137,7 @@
     <!--AD-->
     <section class="section-useful section-clos">
         <div class="useful">
-            {!! $advertising['main_2'] ?? '<img src="'. asset('estet') .'/img/content/rek-width.png" >' !!}
+            {!! $advertising['main_2'] ?? '<img src="'. asset('estet') .'/bannera/662x230.png" >' !!}
         </div>
     </section>
     <!--AD-->
@@ -166,7 +166,7 @@
                             </time>
                             <div class="horizontal-line"></div>
                         </div>
-                        <a class="link-title" href="">
+                        <a class="link-title" href="{{ route('articles', $video->alias) }}">
                             <h3>{{ str_limit($video->title, 64) }}</h3>
                         </a>
                     </article>
@@ -327,7 +327,7 @@
     <!--AD-->
     <section class="section-useful">
         <div class="useful">
-            {!! $advertising['main_2'] ?? '<img src="'. asset('estet') .'/img/content/rek-width.png" >' !!}
+            {!! $advertising['main_2'] ?? '<img src="'. asset('estet') .'/bannera/662x230.png" >' !!}
         </div>
     </section>
     <!--AD-->
@@ -649,7 +649,7 @@
                                 {{ $article->created }}
                             </time>
                         </div>
-                        <a class="link-title" href="">
+                        <a class="link-title" href="{{ route('articles', $article->alias) }}">
                             <h3>{{ str_limit($article->title, 64) }}</h3>
                         </a>
                     </article>

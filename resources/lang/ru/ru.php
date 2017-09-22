@@ -132,6 +132,12 @@ return [
     'poslednie-novosti' => 'Последние новости',
     'reklama' => 'Реклама',
     'soglashenie' => 'Пользовательское соглашение',
-    'kategorii' => 'Категории'
+    'kategorii' => 'Категории',
+    'doctor/blog/categorii' => 'Категории блога',
+    'doctor/blog/teg' => 'Тэги блога',
+    'doctor/kategorii' => 'Категории статей у врачей',
+    'doctor/teg' => 'Тэги статей у врачей',
+    'statyi/kategorii' => 'Категории статей у пациентов',
+    'statyi/teg' => 'Тэги статей у пациентов',
 
 ];

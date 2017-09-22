@@ -13,9 +13,10 @@
                         3 =>'На паузе',
                         4=>'Все',
                         5=>'ID автора',
-                    ], old('val') ? : 1, ['class'=>'custom-select'])
+                    ], old('val') ? : 1, ['class'=>'form-control'])
             !!}
     </div>
+    <hr>
     <div class="row">
         {!! Form::button(trans('admin.find'), ['class' => 'btn btn-primary','type'=>'submit']) !!}
     </div>

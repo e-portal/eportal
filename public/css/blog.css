@@ -96,6 +96,16 @@
     margin-right: 34px;
 }
 
+.blog-vnutrenyyaya .blog-categories .select a:before {
+    content: "";
+    border-radius: 50%;
+    background: #7e2b83;
+    display: inline-block;
+    border: 1px solid #7e2b83;
+    width: 11px;
+    height: 11px;
+    margin-right: 7px;
+}
 .blog-categories .select a:before {
     content: "";
     border-radius: 50%;
@@ -138,3 +148,13 @@
     margin-top: 0;
 }
 
+@media screen and (max-width: 991px) {
+
+    .blog-section-post {
+        padding-bottom: 72px;
+    }
+
+    .pagination {
+        margin-top: -50px;
+    }
+}

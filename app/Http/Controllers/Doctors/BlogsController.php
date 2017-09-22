@@ -4,11 +4,13 @@ namespace Fresh\Estet\Http\Controllers\Doctors;
 
 use Fresh\Estet\Event;
 use Fresh\Estet\Repositories\AdvertisingRepository;
+use Fresh\Estet\Repositories\ArticlesRepository;
 use Fresh\Estet\Repositories\BlogCategoriesRepository;
 use Fresh\Estet\Repositories\BlogsRepository;
 use DB;
 use Cache;
 use Fresh\Estet\Repositories\EventsRepository;
+use Fresh\Estet\Repositories\SeoRepository;
 use Fresh\Estet\Repositories\TagsRepository;
 
 class BlogsController extends DocsController
@@ -22,10 +24,13 @@ class BlogsController extends DocsController
         BlogsRepository $rep,
         BlogCategoriesRepository $cat_rep,
         TagsRepository $tags,
-        AdvertisingRepository $adv_rep
+        AdvertisingRepository $adv_rep,
+        ArticlesRepository $a_rep,
+        SeoRepository $seo_rep
     )
     {
         Cache::flush();
+        parent::__construct($a_rep, $adv_rep, $seo_rep, $rep);
         $this->css = '
                 <link rel="stylesheet" type="text/css" href="' . asset('css') . '/blog.css">
                 <link rel="stylesheet" type="text/css" href="' . asset('css') . '/blog-vnutrennyaya.css">
@@ -34,6 +39,7 @@ class BlogsController extends DocsController
         $this->tag_rep = $tags;
         $this->cat_rep = $cat_rep;
         $this->adv_rep = $adv_rep;
+        $this->title = 'Профессионалам';
     }
 
     /**
@@ -135,6 +141,7 @@ class BlogsController extends DocsController
             return view('doc.blogs')->with(['blogs' => $blogs, 'sidebar' => $this->sidebar, 'cats' => $cats, 'tags' => $tags])->render();
         });
 
+        $this->getSeo('doctor/blog');
         return $this->renderOutput();
     }
 
@@ -161,6 +168,7 @@ class BlogsController extends DocsController
                 ->render();
         });
 
+        $this->getSeo('doctor/blog/teg');
         return $this->renderOutput();
     }
 
@@ -191,6 +199,7 @@ class BlogsController extends DocsController
                 ->with(['blogs' => $blogs, 'sidebar' => $this->sidebar, 'cats' => $cats, 'tags' => $tags])
                 ->render();
         });
+        $this->getSeo('doctor/blog/categorii');
 
         return $this->renderOutput();
     }

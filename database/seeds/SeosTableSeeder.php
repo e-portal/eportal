@@ -18,6 +18,8 @@ class SeosTableSeeder extends Seeder
                 ['uri'=>'doctor/statyi'],
                 ['uri'=>'meropriyatiya'],
                 ['uri'=>'doctor/blog'],
+                ['uri' => 'doctor/kategorii'],
+                ['uri' => 'doctor/blog'],
                 ['uri'=>'catalog/vrachi'],
                 ['uri'=>'catalog/kliniki'],
                 ['uri'=>'catalog/distributory'],
@@ -29,6 +31,11 @@ class SeosTableSeeder extends Seeder
                 ['uri' => 'reklama'],
                 ['uri' => 'karta-saita'],
                 ['uri' => 'poslednie-novosti'],
+                ['uri' => 'statyi/kategorii'],
+                ['uri' => 'statyi/teg'],
+                ['uri' => 'doctor/teg'],
+                ['uri' => 'doctor/blog/categorii'],
+                ['uri' => 'doctor/blog/teg'],
                 ['uri' => 'kategorii'],
             ]
         );

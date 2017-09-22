@@ -2,12 +2,18 @@
     <div class="social-networks">
         <p>Добавьте в закладки чтобы не потерять / поделитесь с друзьями:</p>
         <div class="social-post">
-            <a><img src="{{ asset('estet') }}/img/social/1.png" alt=""></a>
-            <a><img src="{{ asset('estet') }}/img/social/2.png" alt=""></a>
-            <a><img src="{{ asset('estet') }}/img/social/3.png" alt=""></a>
-            <a><img src="{{ asset('estet') }}/img/social/3.png" alt=""></a>
-            <a><img src="{{ asset('estet') }}/img/social/3.png" alt=""></a>
-            <a><img src="{{ asset('estet') }}/img/social/6.png" alt=""></a>
+            <a href="https://www.facebook.com/EstetPortalProf/" target="_blank" rel="nofollow"><img
+                        src="{{ asset('estet') }}/img/social/facebook_b.svg" alt=""></a>
+            <a href="https://www.youtube.com/user/stesthetic/" target="_blank" rel="nofollow"><img
+                        src="{{ asset('estet') }}/img/social/youtube_b.svg" alt=""></a>
+            <a href="https://twitter.com/Pro_Estet" target="_blank" rel="nofollow"><img
+                        src="{{ asset('estet') }}/img/social/twitter_b.svg" alt=""></a>
+            <a href="http://vk.com/estetportal" target="_blank" rel="nofollow"><img
+                        src="{{ asset('estet') }}/img/social/vk_b.svg" alt=""></a>
+            <a href="http://ok.ru/estetportal" target="_blank" rel="nofollow"><img
+                        src="{{ asset('estet') }}/img/social/odnoklasniki_b.svg" alt=""></a>
+            <a href="https://plus.google.com/+Эстетическаямедицина" target="_blank" rel="nofollow"><img
+                        src="{{ asset('estet') }}/img/social/google_b.svg" alt=""></a>
         </div>
     </div>
     <div class="section-form">
@@ -39,7 +45,7 @@
                     </p>
                 </div>
                 <div class="block-right">
-                    {!! Form::text('capt', old('capt') ? : '' , ['id'=>'capt', 'class'=>'section-input section-input-reload']) !!}
+                    {!! Form::text('capt', old('capt') ? : '' , ['id'=>'capt', 'class'=>'section-input section-input-reload', 'maxlength'=>'5']) !!}
                 </div>
             </div>
             <div class="section-form-down">

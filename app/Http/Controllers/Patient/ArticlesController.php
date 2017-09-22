@@ -69,9 +69,8 @@ class ArticlesController extends Controller
 
         });
         $this->title = 'Главная';
-        $this->seo = Cache::remember('seo_main', 24 * 60, function () {
-            return $this->seo_rep->getSeo('/');
-        });
+        $this->getSeo('/');
+
         $this->css = '
             <link rel="stylesheet" type="text/css" href="' . asset('css') . '/patient.css">
             <link rel="stylesheet" type="text/css" href="' . asset('css') . '/patient-media.css">
@@ -159,6 +158,7 @@ class ArticlesController extends Controller
                 ->with(['articles' => $articles, 'tag' => $tag, 'sidebar' => $this->sidebar])
                 ->render();
         });
+        $this->getSeo('statyi/teg');
 
         return $this->renderOutput();
     }
@@ -178,6 +178,8 @@ class ArticlesController extends Controller
             ';
 
         $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+
+        $this->getSeo('statyi/kategorii');
 
         $this->content = Cache::remember('articles_cats' . $cat->alias . $currentPage, 60, function () use ($cat) {
             $where = array(['approved', true], ['created_at', '<=', DB::raw('NOW()')], ['own', 'patient'], ['category_id', $cat->id] );
@@ -272,10 +274,8 @@ class ArticlesController extends Controller
                 ->render();
         });
 
+        $this->getSeo('poslednie-novosti');
 
-        $this->seo = Cache::remember('seo_lasts', 24 * 60, function () {
-            return $this->seo_rep->getSeo('poslednie-novosti');
-        });
         return $this->renderOutput();
     }
 
@@ -299,5 +299,15 @@ class ArticlesController extends Controller
                 ->render();
         });
         return true;
+    }
+
+    /**
+     * @param $url
+     */
+    public function getSeo($url)
+    {
+        $this->seo = Cache::remember('seo-' . $url, 24 * 60, function () use ($url) {
+            return $this->seo_rep->getSeo($url);
+        });
     }
 }

@@ -45,10 +45,10 @@ class BlogsController extends AdminController
                     $blogs[] = $this->blog_rep->one($data['value']);
                     break;
                 case 2:
-                    $blogs = $this->blog_rep->get(['title', 'id', 'alias', 'created_at'], false, true, ['title', $data['value']]);
+                    $blogs = $this->blog_rep->get(['title', 'id', 'alias', 'created_at'], false, true, ['title' => $data['value']]);
                     break;
                 case 3:
-                    $blogs = $this->blog_rep->get(['title', 'id', 'alias', 'created_at'], false, true, ['approved', 0]);
+                    $blogs = $this->blog_rep->get(['title', 'id', 'alias', 'created_at'], false, true, ['approved' => 0]);
                     if ($blogs) $blogs->appends(['param' => $data['param']])->links();
                     break;
                 case 4:
@@ -56,7 +56,7 @@ class BlogsController extends AdminController
                     if ($blogs) $blogs->appends(['param' => $data['param']])->links();
                     break;
                 case 5:
-                    $blogs = $this->blog_rep->get(['title', 'id', 'alias', 'created_at'], false, true, ['user_id', $data['value']]);
+                    $blogs = $this->blog_rep->get(['title', 'id', 'alias', 'created_at'], false, true, ['user_id' => $data['value']]);
                     if ($blogs) $blogs->appends(['param' => $data['param']])->links();
                     break;
                 default:

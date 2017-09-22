@@ -164,6 +164,7 @@ class EventsController extends DocsController
             'calendar' => $calendar,
             'calendar_vars' => $calendar_vars,
         ];
+        $this->getSeo('meropriyatiya');
         $this->content = view('doc.events.index')->with($vars)->render();
         return $this->renderOutput();
     }

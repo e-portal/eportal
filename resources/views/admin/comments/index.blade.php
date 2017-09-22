@@ -17,6 +17,7 @@
                     ], old('val') ? : 1, ['class'=>'form-control'])
             !!}
     </div>
+    <hr>
     <div class="row">
         {!! Form::button(trans('admin.find'), ['class' => 'btn btn-primary','type'=>'submit']) !!}
     </div>
