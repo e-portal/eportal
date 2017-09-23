@@ -324,38 +324,42 @@
         display: none;
     }
 
-    .venerology #section-1 .left-title {
+    .venerology #section-1-1 .left-title {
         width: 15.2%;
     }
 
-    .venerology #section-2 {
+    .venerology #section-2-2 {
         padding-left: 0;
         width: 100%;
         margin-top: 125px;
         height: initial;
     }
 
-    .venerology #section-1 {
+    .venerology #section-1-1 {
         width: 100%;
         height: initial;
 
     }
 
-    .venerology #section-2 .content.articles-divisions .articles-vertical .button-block .button-line {
+    .venerology #section-2-2 .content.articles-divisions .articles-vertical .button-block .button-line {
         width: 57%;
     }
 
-    .venerology #section-2 .content.articles-divisions {
+    .venerology #section-2-2 .content.articles-divisions {
         width: 84.8%;
     }
 
-    .venerology #section-1 .content.articles-divisions {
+    .venerology #section-1-1 .content.articles-divisions {
         padding-right: 5.8%;
     }
 
-    .venerology #section-1 .content.articles-divisions .articles-vertical .button-block {
+    .venerology #section-1-1 .content.articles-divisions .articles-vertical .button-block {
         left: initial;
         padding: 0;
+    }
+
+    .container {
+        padding-bottom: 130px;
     }
 
 
@@ -384,11 +388,11 @@
     }
 
     .last-articles .articles-horizontal {
-        margin-top: 42px;
+        margin-top: 38px;
     }
 
     .last-articles .articles-horizontal article {
-        margin-bottom: 9%;
+        margin-bottom: 8.3%;
     }
     .slide-right_top {
         overflow: hidden;
@@ -402,7 +406,7 @@
     .slide-right_top a h3 {
         margin-top: 34%;
         overflow: hidden;
-        height: 40px;
+        height: 45px;
     }
 
     .slide-right_top h3 {
@@ -410,7 +414,8 @@
     }
 
     .last-articles .slide-right_top a h3 {
-        margin-top: 3.8%;
+        margin-top: 19px;
+        margin-bottom: -8px;
     }
 
     .last-articles .articles-horizontal article:nth-of-type(2n + 1)::before,
@@ -458,7 +463,7 @@
     }
 
     .most-popular {
-        margin-top: 30px;
+        margin-top: 35px;
     }
 
     .most-popular .content {
@@ -535,7 +540,7 @@
     }
 
     .video .button-block {
-        margin-top: 17px;
+        margin-top: 3px;
         padding-right: 0;
     }
     .video .articles-horizontal article:nth-of-type(2)::before {
@@ -548,7 +553,7 @@
     }
 
     .video .articles-horizontal article:nth-of-type(3)::before {
-        height: 127%;
+        height: 121%;
         background: #202020;
     }
 
@@ -563,7 +568,7 @@
     }
 
     .video .articles-horizontal .title-time {
-        margin-top: 11px;
+        margin-top: 17px;
     }
 
     .video .articles-horizontal h3 {
@@ -582,7 +587,7 @@
 
     .useful {
         margin: 0;
-        height: 182px;
+        height: auto;
     }
 
     .button-block {
@@ -595,8 +600,11 @@
         height: 7px;
     }
 
+    .interesting-facts .content {
+        margin-top: 22px;
+    }
     .interesting-facts {
-        margin-top: 125px;
+        margin-top: 106px;
     }
 
     .interesting-facts {
@@ -617,7 +625,7 @@
     }
 
     .interesting-facts .aside-block {
-        margin-top: 88px;
+        margin-top: 67px;
         padding: initial;
         width: 100%
     }
@@ -671,10 +679,37 @@
     }
 
     /*section-5*/
-    .diet-food {
+    .cosmetology-food .article-big .title-time {
+        margin-top: 4.3%;
+    }
+
+    .treatment-doctor .article-big .title-time {
+        margin-top: 7.3%;
+    }
+
+    .cosmetology-food .article-big article a:last-of-type,
+    .treatment-doctor .article-big article a:last-of-type,
+    .doctor-page #section-9.stomatology .article-big article a:last-of-type,
+    .stomatology-doctor .article-big article a:last-of-type {
+        margin-top: 5.1%;
+        margin-bottom: -8px;
+    }
+
+    .doctor-page .diet-food {
         margin-top: 85px;
     }
 
+    .diet-food {
+        margin-top: 90px;
+    }
+
+    .cosmetology-food {
+        margin-top: 107px;
+    }
+
+    .cosmetology-food content {
+        margin-top: 13px;
+    }
     .diet-food .article-big article a:last-of-type {
         margin-top: 5.1%;
     }
@@ -683,13 +718,188 @@
         margin-top: 16px;
     }
 
-    .diet-food .button-block {
+    .doctor-page .diet-food .button-block {
         margin-top: 57px;
     }
 
+    .diet-food .button-block {
+        margin-top: 50px;
+    }
+
+    .cosmetology-food .button-block {
+        margin-top: 50px;
+    }
+
     /*section-6*/
+    .doctor-page .beauty-health {
+        margin-top: 89px;
+    }
     .beauty-health {
+        margin-top: 85px;
+    }
+
+    .beauty-health .articles-horizontal article,
+    .helpful-tips .articles-horizontal article,
+    .psychology .articles-horizontal article {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        padding: 14px 0;
+    }
+
+    .beauty-health .articles-horizontal article div,
+    .helpful-tips .articles-horizontal article div,
+    .psychology .articles-horizontal article div {
+        width: 71%;
+    }
+
+    .beauty-health .articles-horizontal .title-time,
+    .helpful-tips .articles-horizontal .title-time,
+    .psychology .articles-horizontal .title-time {
+        margin-top: 0;
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    .beauty-health .articles-horizontal h3,
+    .helpful-tips .articles-horizontal h3,
+    .psychology .articles-horizontal h3 {
+        margin-top: 0;
+        margin-left: 0;
+    }
+
+    .beauty-health .articles-horizontal article .link-title,
+    .helpful-tips .articles-horizontal article .link-title,
+    .psychology .articles-horizontal article .link-title {
+        width: 100%;
+        margin-top: 2%;
+    }
+
+    .psychology .button-block,
+    .horoscope-patient .button-block,
+    .helpful-tips .button-block,
+    .beauty-health .button-block {
+        padding-right: 0;
+
+    }
+
+    .venerology #section-1-1 .content.articles-divisions {
+        padding: 0 20px;
+    }
+
+    .venerology #section-2-2 .content.articles-divisions {
+        width: 100%
+    }
+
+    .line-container h2 {
+        opacity: 1;
+    }
+
+    .doctor-page .most-popular {
+        margin-top: 34px;
+    }
+
+    article h3 {
+        height: 47px;
+    }
+
+    .doctor-page .beauty-health .button-block {
+        margin-top: 33px;
+    }
+
+    .doctor-page .desser {
+        margin-top: 88px;
+    }
+
+    .medicine-treatment {
+        margin-top: 40px;
+    }
+
+    .medicine-treatment .button-block {
+        margin-top: 52px;
+    }
+
+    .doctor-page .helpful-tips {
+        margin-top: 90px;
+    }
+
+    .doctor-page .helpful-tips .button-block {
+        display: none;
+    }
+
+    .doctor-page #section-9.stomatology {
+        margin-top: 37px;
+    }
+
+    .doctor-page #section-9.stomatology .button-block {
+        margin-top: 53px;
+    }
+
+    .doctor-page #section-10.psychology {
+        margin-top: 92px;
+    }
+
+    .endocrinology .button-block {
+        margin-top: 28px;
+    }
+
+    .useful img {
+        height: auto;
+    }
+
+    #section-ad.section-useful {
         margin-top: 86px;
     }
+
+    .doctor-page #section-11.stomatology-doctor {
+        margin-top: 43px;
+    }
+
+    .doctor-page #section-11.stomatology .button-block {
+        margin-top: 50px;
+    }
+
+    .venerology,
+    #section-2-2 {
+        margin-top: 86px;
+    }
+
+    .venerology .articles-vertical,
+    #section-2-2 .articles-vertical {
+        margin-top: 4px;
+    }
+
+    .venerology #section-1-1 .content.articles-divisions .articles-vertical .button-block {
+        margin-top: 2px;
+    }
+
+    .venerology #section-2-2 {
+        margin-top: 86px;
+    }
+
+    .venerology #section-2-2 .content.articles-divisions .articles-vertical .button-block {
+        top: 99%;
+        left: 0;
+    }
+
+    #section-12.psychology {
+        margin-top: 78px;
+    }
+
+    #section-12.psychology .button-block {
+        margin-top: 28px;
+    }
+
+    .venerology #section-1-1 .left-title {
+        width: 100%;
+    }
+
+    .venerology, #section-2-2 {
+        margin-top: 90px;
+    }
+
+    .container {
+        padding-bottom: 75px;
+    }
+
 
 }

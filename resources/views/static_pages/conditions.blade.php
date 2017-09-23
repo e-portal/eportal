@@ -1,7 +1,7 @@
 <div class="title-main ">
-    <p class="heading-title">
+    <h2 class="heading-title">
         {{ $conditions->title }}
-    </p>
+    </h2>
 </div>
 <!--section 1-->
 <section id="section-1" class="blog-page">

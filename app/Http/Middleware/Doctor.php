@@ -23,7 +23,7 @@ class Doctor
             return $next($request);
         }
 
-        if ($request->hasCookie('user_status')) {
+        if ($request->hasCookie('userstatus')) {
             session()->put('doc', true);
             return $next($request);
         }

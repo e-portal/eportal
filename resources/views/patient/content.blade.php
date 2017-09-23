@@ -302,15 +302,17 @@
                                  title="{{ $article->img_title }}">
                             <div class="views">{{ $article->view }}</div>
                         </a>
-                        <div class="title-time">
-                            <time>
-                                @if(strlen($article->created) < 6) <i class="icons icon-clock"></i> @endif
-                                {{ $article->created }}
-                            </time>
+                        <div>
+                            <div class="title-time">
+                                <time>
+                                    @if(strlen($article->created) < 6) <i class="icons icon-clock"></i> @endif
+                                    {{ $article->created }}
+                                </time>
+                            </div>
+                            <a class="link-title" href="{{ route('articles', $article->alias) }}">
+                                <h3>{{ str_limit($article->title, 64) }}</h3>
+                            </a>
                         </div>
-                        <a class="link-title" href="">
-                            <h3>{{ str_limit($article->title, 64) }}</h3>
-                        </a>
                     </article>
                     @if(!$loop->last)
                         <div class="line-vertical"></div>
@@ -411,15 +413,17 @@
                                  alt="{{ $article->alt }}" title="{{ $article->img_title }}">
                             <div class="views">{{ $article->view }}</div>
                         </a>
-                        <div class="title-time">
-                            <time>
-                                @if(strlen($article->created) < 6) <i class="icons icon-clock"></i> @endif
-                                {{ $article->created }}
-                            </time>
+                        <div>
+                            <div class="title-time">
+                                <time>
+                                    @if(strlen($article->created) < 6) <i class="icons icon-clock"></i> @endif
+                                    {{ $article->created }}
+                                </time>
+                            </div>
+                            <a class="link-title" href="{{ route('articles', $article->alias) }}">
+                                <h3>{{ str_limit($article->title, 64) }}</h3>
+                            </a>
                         </div>
-                        <a class="link-title" href="">
-                            <h3>{{ str_limit($article->title, 64) }}</h3>
-                        </a>
                     </article>
                     @if(!$loop->last)
                         <div class="line-vertical"></div>
@@ -643,15 +647,17 @@
                                  alt="{{ $article->alt }}" title="{{ $article->img_title }}">
                             <div class="views">{{ $article->view }}</div>
                         </a>
-                        <div class="title-time">
-                            <time>
-                                @if(strlen($article->created) < 6) <i class="icons icon-clock"></i> @endif
-                                {{ $article->created }}
-                            </time>
+                        <div>
+                            <div class="title-time">
+                                <time>
+                                    @if(strlen($article->created) < 6) <i class="icons icon-clock"></i> @endif
+                                    {{ $article->created }}
+                                </time>
+                            </div>
+                            <a class="link-title" href="{{ route('articles', $article->alias) }}">
+                                <h3>{{ str_limit($article->title, 64) }}</h3>
+                            </a>
                         </div>
-                        <a class="link-title" href="{{ route('articles', $article->alias) }}">
-                            <h3>{{ str_limit($article->title, 64) }}</h3>
-                        </a>
                     </article>
                     @if(!$loop->last)
                         <div class="line-vertical"></div>

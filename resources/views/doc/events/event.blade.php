@@ -15,27 +15,41 @@
                      alt="{{ $event->logo->alt }}" title="$event->logo->title">
             </div>
             <!--section 4-->
-            <div class="button-subscribe">
-                <a href="#"><i class="icon-subscribe"></i> Записаться на мероприятие</a>
+            <div class="button-subscribe" data-id="{{ $event->id }}">
+                @if(!empty($event->extlink))
+                    <a href="{{ $event->extlink }}">
+                        <i class="icon-subscribe"></i> Записаться на мероприятие
+                    </a>
+                @elseif(!empty($event->extmail))
+                    <a class="js-pop"><i class="icon-subscribe"></i> Записаться на мероприятие</a>
+                @endif
             </div>
             <!--section 5-->
             <div class="text-meropryyatyya">
                 {{ $event->description }}
             </div>
             <!--section 6-->
+            @if(is_object($event->slider) && $event->slider->isNotEmpty())
             <div class="slide-meropryyatyya">
                 @foreach($event->slider as $slider)
                     <img src="{{ asset('/images/event/slider/main') . '/' . $slider->path }}"
                          alt="{{ $slider->alt }}" title="{{ $slider->title }}">
                 @endforeach
             </div>
+            @endif
             <div class="meropryyatyya-data">
                 {!! $event->content !!}
             </div>
 
 
-            <div class="button-subscribe">
-                <a href="#"><i class="icon-subscribe"></i> Записаться на мероприятие</a>
+            <div class="button-subscribe" data-id="{{ $event->id }}">
+                @if(!empty($event->extlink))
+                    <a href="{{ $event->extlink }}">
+                        <i class="icon-subscribe"></i> Записаться на мероприятие
+                    </a>
+                @elseif(!empty($event->extmail))
+                    <a class="js-pop"><i class="icon-subscribe"></i> Записаться на мероприятие</a>
+                @endif
             </div>
             <!--section 7-3-->
             @include('layouts.comments_form', ['id' => $event->id, 'source' => 4])
@@ -58,22 +72,22 @@
         <div class="content">
             <div class="articles-horizontal">
                 @if(!empty($similars))
-                    @foreach($similars as $event)
+                    @foreach($similars as $sevent)
                         <article>
-                            <a class="link-img" href="{{ route('events', $event->alias) }}" rel="nofollow">
-                                <img src="{{ asset('images\event\mini').'/'. $event->logo->path}}"
-                                     alt="{{ $event->logo->alt }}"
-                                     title="{{ $event->logo->title }}"
+                            <a class="link-img" href="{{ route('events', $sevent->alias) }}" rel="nofollow">
+                                <img src="{{ asset('images\event\mini').'/'. $sevent->logo->path}}"
+                                     alt="{{ $sevent->logo->alt }}"
+                                     title="{{ $sevent->logo->title }}"
                                 >
                             </a>
                             <div class="title-time">
                                 <time>
-                                    @if(strlen($event->created) < 6) <i class="icons icon-clock"></i> @endif
-                                    {{ $event->created }}
+                                    @if(strlen($sevent->created) < 6) <i class="icons icon-clock"></i> @endif
+                                    {{ $sevent->created }}
                                 </time>
                             </div>
-                            <a class="link-title" href="{{ route('events', $event->alias) }}">
-                                <h3>{{ $event->title }}</h3>
+                            <a class="link-title" href="{{ route('events', $sevent->alias) }}">
+                                <h3>{{ $sevent->title }}</h3>
                             </a>
                         </article>
                         @if(!$loop->last)

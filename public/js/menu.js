@@ -4,10 +4,11 @@
 /*  menu line bottom */
 var menuElW,fullOffsetControl,menuElOff;
 planshet = window.matchMedia('(max-width: 1271px)').matches
+
 function lineBottomMenu() {
     w = $(document).width();
 
-    menuElW =   $('.menu-elem').eq(0).width();
+    menuElW = $('.menu-elem.active').width();
     fullOffset =  $('header .container-fool').offset().left;
     fullOffsetControl =  fullOffset;
 
@@ -17,7 +18,7 @@ function lineBottomMenu() {
         fullOffsetControl =  0;
     }
 
-    menuElOff = $('.menu-elem').eq(0).offset().left - fullOffsetControl;
+    menuElOff = $('.menu-elem.active').offset().left - fullOffsetControl;
 
 
     $('<div/>')
@@ -75,13 +76,18 @@ $('.menu-elem').hover(function () {
     }
 });
 
-/* planshet menu */
-$('.with-sub.menu-elem').click(function (e) {
+/* planshet menu & mobile */
+$('.with-sub.menu-elem a').click(function (e) {
     if(window.matchMedia('(max-width: 1271px)').matches) {
-        e.preventDefault(e);
-        $(this).toggleClass('active');
-        $('.submenu').slideUp(500);
-        $(this).hasClass('active') ? $(this).find('.submenu').slideDown(500) : '';
+        if ($(this).parents('ul').hasClass('submenu')) {
+
+        } else {
+            e.preventDefault(e);
+            console.log(21432);
+            $(this).parent().toggleClass('active');
+            $('.submenu').slideUp(500);
+            $(this).parent().hasClass('active') ? $(this).parent().find('.submenu').slideDown(500) : '';
+        }
     }
 });
 
@@ -96,8 +102,7 @@ function getCookie(name) {
 
 function switchSites() {
     $('.doctor,.checkbox-label').click(function () {
-        cook = getCookie('user_status');
-        console.log(cook);
+        cook = getCookie('userstatus');
         if (cook) {
             $('.to-page-doctor form').submit();
             return true
@@ -138,3 +143,33 @@ $('.submenu').mouseover(function () {
 $('.submenu').mouseout(function () {
     $('.background-menu-active').css('display', 'none');
 });
+
+
+/************************ fesak hover katalog*******************************/
+$('.hide-ul').each(function () {
+    $(this).attr('data-h', $(this).height());
+    $(this).css({'height': $(this).attr('data-init-h') + 'px'})
+})
+
+$('.hide-ul').hover(function () {
+    if ($(this).attr('data-h') <= $(this).attr('data-init-h')) {
+        return true
+    }
+    $(this).css({'height': $(this).attr('data-h') + 'px'})
+}).mouseleave(function () {
+    $(this).css({'height': $(this).attr('data-init-h') + 'px'})
+})
+
+
+/* pop-meropriyatia */
+$('.js-pop').click(function () {
+    $('.event-signup .event_source').val($(this).parent().attr('data-id'));
+    $('.event-signup').css({display: 'flex'});
+})
+
+$('.btn-large').click(function () {
+    $.ajax({
+        type: 'POST',
+        data: $(this).parents('form').
+    })
+})

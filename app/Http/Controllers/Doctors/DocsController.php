@@ -48,6 +48,7 @@ class DocsController extends Controller
 
     public function showMain()
     {
+        Cache::flush();
         $this->content = Cache::remember('docsArticles', 60, function () {
             $events = new EventsRepository(new Event());
             $articles = [
@@ -87,7 +88,6 @@ class DocsController extends Controller
             <script src="' . asset('js') . '/libs/jquery.mCustomScrollbar.concat.min.js"></script>
             <script src="' . asset('js') . '/patient.js"></script>
         ';
-
 
         return $this->renderOutput();
     }
@@ -186,6 +186,8 @@ class DocsController extends Controller
      */
     public function category($cat = null)
     {
+        Cache:
+        flush();
         if (!$cat) {
             abort(404);
         }

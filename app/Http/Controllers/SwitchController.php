@@ -9,11 +9,10 @@ class SwitchController extends Controller
 {
     public function index(Request $request)
     {
-//        dd($request->all());
         if ($request->isMethod('post')) {
             if ($request->has('doc')) {
                 if ($request->has('remember')) {
-                    Cookie::queue('user_status', 1, 24 * 60);
+                    Cookie::queue('userstatus', true, 24 * 60, null, null, false, false);
                 }
                 $request->session()->put('doc', true);
                 return redirect(route('doctors'));

@@ -357,11 +357,6 @@ div.horoscope-description:nth-of-type(2n) .img-horoscope-description {
         text-align: right;
     }
 }
-
-.title-main {
-    text-align: center;
-}
-
 .heading-title {
     font-size: 36px;
     font-family: "Cormorant Garamond";
@@ -942,7 +937,7 @@ h3 {
 }
 
 .comment-post .section-form .add-comm {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Roboto', serif;
     font-size: 14px;
     font-weight: 600;
     margin-bottom: 11px;

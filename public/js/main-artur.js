@@ -3,7 +3,7 @@ $(document).ready(function () {
         var h = $(this).height();
         $(this)
             .attr('data-h', h)
-            .css({'height': '161px'});
+            .css({'height': '158px'});
     });
 
     $('.span-spoiler').click(function () {
@@ -11,7 +11,7 @@ $(document).ready(function () {
         // if() планшет z = ??
         //else if мобиле z = ??
 
-        $('.horoscope-path').css({'height': 161 + 'px'});
+        $('.horoscope-path').css({'height': 158 + 'px'});
         var h = $(this).parents('.horoscope-description').find('.horoscope-path').attr('data-h');
         var opa = $(this).parent().hasClass('opened');
         $('.horoscope-controller.opened').removeClass('opened');

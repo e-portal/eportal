@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-993 -125 23 23">
+    <defs>
+        <style>
+            .cls-1 {
+            fill: #202020;
+            }
+
+            .cls-2, .cls-4 {
+            fill: none;
+            }
+
+            .cls-2 {
+            stroke: #202020;
+            }
+
+            .cls-3 {
+            stroke: none;
+            }
+        </style>
+    </defs>
+    <g id="brendu" transform="translate(-1492 -500)">
+        <g id="Group_4072" data-name="Group 4072" transform="translate(499 375)">
+            <g id="mark-as-favorite-star" transform="translate(4.381 4.408)">
+                <g id="star" transform="translate(0 0)">
+                    <path id="Path_748" data-name="Path 748" class="cls-1"
+                          d="M7.137,23.916l4.411,2.725L10.381,21.5l3.893-3.456-5.132-.451-2-4.845-2,4.845L0,18.046,3.893,21.5,2.726,26.641Z"
+                          transform="translate(0 -12.75)"/>
+                </g>
+            </g>
+            <g id="Rectangle_1792" data-name="Rectangle 1792" class="cls-2">
+                <rect class="cls-3" width="23" height="23" rx="11.5"/>
+                <rect class="cls-4" x="0.5" y="0.5" width="22" height="22" rx="11"/>
+            </g>
+        </g>
+    </g>
+</svg>

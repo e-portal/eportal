@@ -16,24 +16,29 @@
                          alt="{{ $blog->person->person->photo_alt ?? $blog->person->person->lastname . ' ' . $blog->person->person->name }} "
                          title="{{ $blog->person->person->photo_title ?? $blog->person->person->lastname . ' ' . $blog->person->person->name}} "
                     >
-                    <div class="title-time">
-                        <time>
-                            @if(strlen($blog->created) < 6) <i class="icons icon-clock"></i> @endif
-                            {{ $blog->created }}
-                        </time>
-                    </div>
-                    <div class="name">
-                        <p>
-                            {{ $blog->person->person->lastname }}
-                            <br>
-                            {{ $blog->person->person->name }}
-                        </p>
-                    </div>
-                    <div class="specialty">
-                        <p>{{ $blog->person->person->specialties->implode('name', ', ') ?? '' }}</p>
-                    </div>
-                    <div class="achievements">
-                        <p>{{ $blog->person->person->category }}</p>
+
+                    <div>
+
+                        <div class="title-time">
+                            <time>
+                                @if(strlen($blog->created) < 6) <i class="icons icon-clock"></i> @endif
+                                {{ $blog->created }}
+                            </time>
+                        </div>
+                        <div class="name">
+                            <p>
+                                {{ $blog->person->person->lastname }}
+                                <br>
+                                {{ $blog->person->person->name }}
+                            </p>
+                        </div>
+                        <div class="specialty">
+                            <p>{{ $blog->person->person->specialties->implode('name', ', ') ?? '' }}</p>
+                        </div>
+                        <div class="achievements">
+                            <p>{{ $blog->person->person->category }}</p>
+                        </div>
+
                     </div>
                 </div>
                 <div class="blog-image">

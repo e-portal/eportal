@@ -37,7 +37,7 @@ class EventsRepository extends Repository
         $event['title'] = $data['title'];
         $event['short_title'] = $data['short_title'];
         $event['extlink'] = $data['extlink'];
-
+        $event['extmail'] = $data['extmail'];
         $event['country_id'] = $data['country'];
         $event['city_id'] = $data['city'];
 
@@ -122,6 +122,7 @@ class EventsRepository extends Repository
         $new['title'] = $data['title'];
         $new['short_title'] = $data['short_title'];
         $new['extlink'] = $data['extlink'];
+        $new['extmail'] = $data['extmail'];
 
         if (empty($data['alias'])) {
             $new['alias'] = $this->transliterate($data['title']);

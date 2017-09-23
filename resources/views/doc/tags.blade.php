@@ -24,7 +24,7 @@
                             {{ $article->created }}
                         </span>
                                     <a href="{{ route('doctors_art', $article->alias) }}">
-                                        <p>{{ str_limit($article->title, 72) }}</p>
+                                        <h3>{{ str_limit($article->title, 72) }}</h3>
                                     </a>
                                 </div>
                             </div>
@@ -45,7 +45,7 @@
                                     {{ $article->created }}
                                 </span>
                                 <a href="{{ route('doctors_art', $article->alias) }}">
-                                    <p>{{ str_limit($article->title, 72) }}</p>
+                                    <h3>{{ str_limit($article->title, 72) }}</h3>
                                 </a>
                             </div>
                         </div>

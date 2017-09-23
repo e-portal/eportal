@@ -6,7 +6,7 @@
             <div class="line-burger"></div>
         </div>
         <div class="menu-left">
-            <div class="person patient menu-elem active">
+            <div class="person patient menu-elem @if(!session()->has('doc')) active @endif">
                 <a href="{{ route('main') }}">Я пациент</a>
             </div>
 
@@ -15,7 +15,7 @@
                        class="ios-toggle @if(!(session()->has('doc'))) active @endif"/>
                 <label for="checkbox1" class="checkbox-label"></label>
             </div>
-            <div class="person doctor menu-elem">Я врач</div>
+            <div class="person doctor menu-elem @if(session()->has('doc')) active @endif">Я врач</div>
         </div>
 
         <div class="header-menu-left">
@@ -118,8 +118,8 @@
             </div>
             <div class="memu-search menu-elem">
                 <div class="search-mobb ">
-                    <form>
-                        <input class="search-mob" type="search" name="q" placeholder="Искать...">
+                    <form method="GET" action="{{ route('search') }}" accept-charset="UTF-8">
+                        <input class="search-mob" type="search" name="value" placeholder="Искать...">
                     </form>
                 </div>
                 <div class="search" id="search"><img src="{{ asset('estet') }}/img/menu/search.png"></div>

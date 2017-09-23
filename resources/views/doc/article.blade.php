@@ -1,7 +1,7 @@
 <div class="title-main ">
-    <p class="heading-title">
+    <h3 class="heading-title">
         {{ $article->title }}
-    </p>
+    </h3>
 </div>
 <!--section 1-->
 <section id="section-1" class="blog-page">

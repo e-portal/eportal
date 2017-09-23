@@ -1,8 +1,8 @@
 <div class="title">
     <!---------------------------Logo end--------------------------->
-    <p class="heading-title">
+    <h3 class="heading-title">
         Ежемесячный гороскоп здоровья и красоты<br> на {{ trans('ru.' . date('m')) }} 2017 по знакам зодиака
-    </p>
+    </h3>
 
 </div>
 <!--section 1-->
@@ -135,7 +135,7 @@
                 <div class="horoscope-description">
                     <div class="horoscope-path">
                         <div class="img-horoscope-description">
-                            <p><b>{{ trans('admin.' . $key) }}</b></p>
+                            <h4>{{ trans('admin.' . $key) }}</h4>
                             <img src="{{asset('estet')}}/img/horoscope/{{ $key }}-description.png" alt="">
                         </div>
                         <div id="{{ $key }}" class="description">

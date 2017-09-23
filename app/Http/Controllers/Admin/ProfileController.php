@@ -56,7 +56,7 @@ class ProfileController extends AdminController
                     $profiles = null;
                 }
             } else {
-                $profiles = $this->pers_rep->get(['name', 'lastname', 'phone', 'user_id'], false, true);
+                $profiles = $this->pers_rep->get(['name', 'lastname', 'phone', 'user_id'], false, 2);
                 if ($profiles) $profiles->appends(['param' => $data['param']])->links();
             }
             $this->content = view('admin.profiles.index')->with('profiles', $profiles)->render();

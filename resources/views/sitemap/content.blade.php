@@ -9,6 +9,7 @@
         <div class="main-content">
             <div class="content-center">
                 <div class="block-main">
+                    <div class="block-main-before"></div>
                     <h3><a href="{{ route('main') }}">Главная</a></h3>
                     <ul>
                         <li><a href="{{ route('horoscope') }}">Гороскоп</a></li>
@@ -20,12 +21,15 @@
                         <li><a href="{{ route('advertising') }}">Реклама</a></li>
                     </ul>
                 </div>
-                <div class="site-patient">
-                    <div class="site-discr"><h2>Пациентам</h2></div>
+                <div class="site-patient js-block-parent">
+                    <div class="site-discr js-block-chaild">
+                        <div class="block-before"></div>
+                        <h2>Пациентам</h2></div>
                     @if(!empty($vars['cats']))
                         @foreach($vars['cats'] as $cat)
                             @if('patient' === $cat->own)
-                                <div class="block">
+                                <div class="block js-block-chaild">
+                                    <div class="block-before"></div>
                                     <h3><a href="{{ route('article_cat', $cat->alias) }}">{{ $cat->name }}</a></h3>
                                     @if(!empty($vars['p_articles']))
                                         <ul>
@@ -44,12 +48,15 @@
                         @endforeach
                     @endif
                 </div>
-                <div class="site-patient">
-                    <div class="site-discr"><h2>Врачам</h2></div>
+                <div class="site-patient js-block-parent">
+                    <div class="site-discr js-block-chaild">
+                        <div class="block-before"></div>
+                        <h2>Врачам</h2></div>
                     @if(!empty($vars['cats']))
                         @foreach($vars['cats'] as $cat)
                             @if('docs' === $cat->own)
-                                <div class="block">
+                                <div class="block js-block-chaild">
+                                    <div class="block-before"></div>
                                     <h3><a href="{{ route('docs_cat', $cat->alias) }}">{{ $cat->name }}</a></h3>
                                     @if(!empty($vars['d_articles']))
                                         <ul>
@@ -70,11 +77,13 @@
 
                     <div class="site-patient">
                         <div class="site-discr">
+                            <div class="block-before"></div>
                             <h2>Блог</h2>
                         </div>
                         @if(!empty($vars['blog_cats']))
                             @foreach($vars['blog_cats'] as $cat)
                                 <div class="block">
+                                    <div class="block-before"></div>
                                     <h3><a href="{{ route('blogs_cat', $cat->alias) }}">{{ $cat->name }}</a></h3>
                                     @if(!empty($vars['blogs']))
                                         <ul>
@@ -93,7 +102,8 @@
                         @endif
                     </div>
                     @if(!empty($vars['events']))
-                        <div class="block">
+                        <div class="block js-block">
+                            <div class="block-before"></div>
                             <h3><a href="{{  route('events') }}">Мероприятия</a></h3>
                             @if(!empty($vars['events']))
                                 <ul>
@@ -107,10 +117,13 @@
                         </div>
                     @endif
                 </div>
-                <div class="site-patient">
-                    <div class="site-discr"><h2>Каталог</h2></div>
+                <div class="site-patient js-block-parent">
+                    <div class="site-discr js-block-chaild">
+                        <div class="site-discr-before"></div>
+                        <h2>Каталог</h2></div>
                     @if(!empty($vars['docs']))
-                        <div class="block">
+                        <div class="block js-block-chaild">
+                            <div class="block-before"></div>
                             <h3><a href="{{ route('docs') }}">Врачи</a></h3>
                             <ul>
                                 @foreach($vars['docs'] as $article)
@@ -125,7 +138,8 @@
                     @endif
                     @if(!empty($vars['establishments']))
                         @foreach($vars['est_cats'] as $cat)
-                            <div class="block">
+                            <div class="block js-block ">
+                                <div class="block-before"></div>
                                 <h3><a href="{{  route($cat.'s') }}">{{ trans('ru.'.$cat) }}</a></h3>
                                 @if(!empty($vars['establishments']))
                                     <ul>

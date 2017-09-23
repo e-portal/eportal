@@ -44,9 +44,9 @@
 </head>
 <body>
 @if(session()->has('doc'))
-    <div class="wrapper doctor-page">
+    <div class="wrapper doctor-page @if('doctors' == Route::currentRouteName()) init-page @endif">
 @else
-    <div class="wrapper">
+            <div class="wrapper @if('main' == Route::currentRouteName()) init-page @endif">
 @endif
     <div class="w-block"></div>
     <!--menu mobal-->
@@ -90,7 +90,14 @@
         </div>
         <!---------------------------------------------seo text start------------------------------------->
     @if(!empty($seo->seo_text) && ('main' !== Route::currentRouteName()) && ('doctors' !== Route::currentRouteName()))
-        {!! $seo->seo_text !!}
+            <div class="about-description">
+                <div class="about-description-text">
+                    <h4>{{ $seo->seo_title ?? '' }}</h4>
+                    <p>
+                        {{ $seo->seo_text }}
+                    </p>
+                </div>
+            </div>
     @endif
     <!---------------------------------------------seo text stop------------------------------------->
     </div>
@@ -102,6 +109,7 @@
                 <div class="pop-up to-page-doctor">
                     <div class="pop-inner">
                         <div class="line"></div>
+
                         <div class="pop-inner-in">
                             <h1 class="own">Я врач</h1>
                             <p>Соглашаясь просматривать материалы раздела, я подтверждаю, что являюсь дипломированным
@@ -135,9 +143,15 @@
             </div>
             <div class="background-menu-active"></div>
             <!--end pop-->
+            @if('events' == Route::currentRouteName())
+            <!-- Event pop-->
+                @include('doc.events.form')
+            <!-- Event pop-->
+            @endif
 <!-- end wraperr -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="{{ asset('js') }}/libs/slick.min.js"></script>
+            <script src="{{ asset('js') }}/jquery.cookie.js"></script>
 <script src="{{ asset('js') }}/menu.js"></script>
             @if(!empty($js))
                 {!! $js !!}

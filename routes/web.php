@@ -95,6 +95,7 @@ Route::group(['prefix' => 'doctor', 'middleware' => 'doctor'], function () {
     });
 //    Events
     Route::get('meropriyatiya/{event_alias?}', 'Doctors\EventsController@show')->name('events')->where('event_alias', '[a-zA-Z0-9-_]+')->middleware('doctor');
+    Route::post('event-sign-up', 'Doctors\EventsController@signup')->name('event_sign_up');
 });
 /**
  * AdminBlog

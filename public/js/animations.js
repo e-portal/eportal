@@ -9,6 +9,7 @@ $(function(){
 });
 $('.Top-link').click(function(e){
     e.preventDefault(e);
+    history.pushState('', '', $(this).attr('href'))
     scrollBody(1000);
 });
 function scrollBody(tim) {
@@ -17,7 +18,7 @@ function scrollBody(tim) {
     },tim);
 };
 portdefault = window.location.protocol + '//' + window.location.hostname + '/';
-mainPage = portdefault == window.location.href;
+mainPage = $('.wrapper').hasClass('init-page');
 /*init lines on scroll*/
 function linesOnScroll() {
     $('.line-container').each(function(){
@@ -186,10 +187,10 @@ function SliderMain(slider, slides) {
 /* Capture */
 $('.reload').click(function () {
     $.ajax({
-        url: 'http://39.j2landing.com/captcha',
+        url: '/captcha',
         success: function (data) {
             img = document.getElementById("captcha");
-            img.src = "http://39.j2landing.com/captcha";
+            img.src = "/captcha";
         }
     });
 
@@ -207,12 +208,12 @@ $('.wrap-top-top').click(function () {
     $('body,html').animate({scrollTop: 0 + 'px'}, 500);
 });
 
-/* raiting */
-$('.top-rating span').click(function () {
-    ind = ($(this).index() - 5) * (-1);
-    dataId = $(this).parent().attr('data-id');
-    dataSource = $(this).parent().attr('data-source');
-    token = $(this).parent().attr('data-token');
+
+/* raiting  init*/
+
+colorStars($('.avg').html());
+
+function golosovanie(dataId, dataSource, token, ind) {
     $.ajax({
         url: '/ratio',
         type: 'POST',
@@ -225,13 +226,60 @@ $('.top-rating span').click(function () {
             ratio: ind
         }),
         success: function (data) {
-
             if (data['success']) {
-                avg = data['success'][0]['avg'];
-                count = data['success'][0]['count'];
-                str = avg + '/' + count + '- (голосов - ' + count + ')';
-                $('.rating p').html(str)
+                if (data['success'].hasOwnProperty('avg')) {
+                    avg = data['success'][0]['avg'];
+                    count = data['success'][0]['count'];
+                    str = '<span class="avg">' + avg + '</span>/' + count + '- (голосов - ' + count + ')';
+                    $('.rating p').html(str);
+                    colorStars(rait);
+                }
             }
         }
     });
+}
+
+/* stars to black */
+function colorStars(num) {
+    num = Math.round(num);
+    stars = $('.top-rating span');
+    for (i = num; i >= 0; i--) {
+        stars.eq(5 - i).addClass('active');
+    }
+}
+
+function findIndexes(obj) {
+    ind = (obj.index() - 5) * (-1);
+    dataId = obj.parent().attr('data-id');
+    dataSource = obj.parent().attr('data-source');
+    token = obj.parent().attr('data-token');
+
+    golosovanie(dataId, dataSource, token, ind)
+}
+
+/* click rait */
+$('.top-rating span').click(function () {
+    findIndexes($(this))
+});
+
+
+/****************line map-site***********************/
+$('.js-block-parent').each(function () {
+    blockLast = $(this).find('.js-block-chaild').eq(-1).find('.block-before');
+    lastBlockTop = blockLast.offset().top;
+
+
+    //console.log(lastBlockTop);
+
+
+    blockFirst = $(this).find('.js-block-chaild').eq(1).find('.block-before');
+    firstBlockTop = blockFirst.offset().top;
+
+    firstBlockHeight = blockFirst.height();
+
+    console.log(firstBlockHeight + '+' + firstBlockTop + '-' + lastBlockTop)
+
+
+    blockLast.css('height', firstBlockHeight + firstBlockTop - lastBlockTop + 'px');
+
 });

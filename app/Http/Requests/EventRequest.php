@@ -56,9 +56,10 @@ class EventRequest extends FormRequest
     {
         if ($this->isMethod('post')) {
             $rules = [
-                'title' => ['required', 'string', 'between:4,64'],
+                'title' => ['required', 'string', 'between:4,128'],
                 'short_title' => ['nullable', 'string', 'between:4,32'],
                 'extlink' => ['nullable', 'string', 'url'],
+                'extmail' => ['nullable', 'email'],
                 'cats' => ['digits_between:1,10', 'required', 'max:4294967295'],
                 'organizer' => ['digits_between:1,10','required', 'max:4294967295'],
                 'country' => ['digits_between:1,4','required', 'max:400'],

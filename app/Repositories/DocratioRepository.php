@@ -24,7 +24,6 @@ class DocratioRepository
         $data['doc_id'] = $request->get('data_id');
         $data['data_key_doc_' . $data['doc_id']] = md5($request->ip() . $request->header('User-Agent') . substr(session()->getId(), 0, 5));
 
-        session()->forget($data['data_key_doc_' . $data['doc_id']]);
         if (session()->has($data['data_key_doc_' . $data['doc_id']])) {
             return ['val' => $data['data_key_doc_' . $data['doc_id']]];
         }
@@ -46,5 +45,4 @@ class DocratioRepository
         return ['val' => $data['value'], 'doc_id' => $data['doc_id']];
 
     }
-
 }

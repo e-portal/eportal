@@ -42,39 +42,46 @@ class SearchRepository
         if (empty($data['value'])) {
             return false;
         }
-        switch ($data['order']) {
-            case 0:
-                $order[0] = 'created_at';
-                $order[1] = 'desc';
-                break;
-            case 1:
-                $order[0] = 'created_at';
-                $order[1] = 'asc';
-                break;
-            case 2:
-                $order[0] = 'title';
-                $order[1] = 'asc';
-                break;
-            case 3:
-                $order[0] = 'view';
-                $order[1] = 'desc';
-                break;
-            default:
-                $order = 'false';
+
+        if (!empty($data['order'])) {
+            switch ($data['order']) {
+                case 0:
+                    $order[0] = 'created_at';
+                    $order[1] = 'desc';
+                    break;
+                case 1:
+                    $order[0] = 'created_at';
+                    $order[1] = 'asc';
+                    break;
+                case 2:
+                    $order[0] = 'title';
+                    $order[1] = 'asc';
+                    break;
+                case 3:
+                    $order[0] = 'view';
+                    $order[1] = 'desc';
+                    break;
+                default:
+                    $order = 'false';
+            }
         }
 
-        switch ($data['limit']) {
-            case 0:
-                $limit = 2;
-                break;
-            case 1:
-                $limit = 5;
-                break;
-            case 2:
-                $limit = 10;
-                break;
-            default:
-                $limit = 2;
+        if (!empty($data['limit'])) {
+            switch ($data['limit']) {
+                case 0:
+                    $limit = 2;
+                    break;
+                case 1:
+                    $limit = 5;
+                    break;
+                case 2:
+                    $limit = 10;
+                    break;
+                default:
+                    $limit = 2;
+            }
+        } else {
+            $limit = 2;
         }
 
         $status = [];
@@ -102,14 +109,14 @@ class SearchRepository
             $builder->where('category', $data['categories']);
         }
         $builder = $builder->where(function ($q) use ($status) { $q->whereIn('status', $status); });
-        $coincidence = $data['coincidence'];
+        $coincidence = $data['coincidence'] ?? 'all';
         $val = $data['value'];
         $builder = $builder->where(function ($q) use ($coincidence, $val) {
             $q = $this->sql($q, $coincidence, $val);
             return $q;
         });
 
-        if ($order) {
+        if (!empty($order)) {
             $builder->orderBy($order[0], $order[1]);
         }
 

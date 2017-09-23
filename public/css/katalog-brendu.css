@@ -125,6 +125,12 @@
   font-size: 16px;
   font-weight: 700;
 }
+
+.rating span {
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
 .kompani-info {
   margin-top: 26px;
 }
@@ -204,6 +210,12 @@
 .top-rating > span:hover ~ span:before {
   content: "\2605";
   position: absolute;
+}
+
+.top-rating > .active:before,
+.top-rating > .active:before {
+    content: "\2605";
+    position: absolute;
 }
 .info-kompani {
   position: relative;
@@ -376,6 +388,15 @@
   display: inline-block;
   font-weight: 700;
 }
+
+.hide-ul {
+    overflow: hidden;
+    position: relative;
+    transition: 0.2s;
+}
+
+
+
 @media screen and (max-width: 991px) {
 
     .bread-crumbs {
@@ -424,6 +445,5 @@
     .details-page:nth-child(2) {
         width: 100%
     }
-
 
 }

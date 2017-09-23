@@ -100,6 +100,7 @@ return [
     'description' => 'Краткое описание',
     'alt' => 'Alt',
     'imgtitle' => 'Title',
+    'content' => 'Описание',
 //    comments
     'comment_added' => 'Коментарий отправлен на модерацию',
     'comment' => 'ID коментария',
@@ -115,6 +116,7 @@ return [
     'organizer' => 'Организатор',
     'start' => 'Дата начала',
     'stop' => 'Дата окончания',
+    'extmail' => 'E-mail для записи на мероприятие',
 //    sibscribe
     'status' => 'Принадлежность',
 //    contacts

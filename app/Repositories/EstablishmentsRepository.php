@@ -129,7 +129,27 @@ class EstablishmentsRepository extends Repository
             }
 
         }
-
+        // SEO handle
+        if (!empty($data['seo_title'] || !empty($data['seo_keywords']) || !empty($data['seo_description']) || !empty($data['seo_text'])
+            || !empty($data['og_image']) || !empty($data['og_title']) || !empty($data['og_description']))) {
+            $obj = new \stdClass;
+            $obj->seo_title = $data['seo_title'] ?? '';
+            $obj->seo_keywords = $data['seo_keywords'] ?? '';
+            $obj->seo_description = $data['seo_description'] ?? '';
+            $obj->seo_text = $data['seo_text'] ?? '';
+            $obj->og_image = $data['og_image'] ?? '';
+            $obj->og_title = $data['og_title'] ?? '';
+            $obj->og_description = $data['og_description'] ?? '';
+            $data['seo'] = json_encode($obj);
+        }
+        array_forget($data, 'seo_title');
+        array_forget($data, 'seo_text');
+        array_forget($data, 'seo_description');
+        array_forget($data, 'seo_keywords');
+        array_forget($data, 'og_image');
+        array_forget($data, 'og_title');
+        array_forget($data, 'og_description');
+        // SEO handle
         // Main Image handle
         if ($request->hasFile('logo')) {
             $path = $this->addImg($request->file('logo'), $data['alias']);
@@ -214,6 +234,29 @@ class EstablishmentsRepository extends Repository
                 array_forget($data, 'extra');
             }
         }
+        // SEO handle
+        if (!empty($data['seo_title'] || !empty($data['seo_keywords']) || !empty($data['seo_description']) || !empty($data['seo_text'])
+            || !empty($data['og_image']) || !empty($data['og_title']) || !empty($data['og_description']))) {
+            $obj = new \stdClass;
+            $obj->seo_title = $data['seo_title'] ?? '';
+            $obj->seo_keywords = $data['seo_keywords'] ?? '';
+            $obj->seo_description = $data['seo_description'] ?? '';
+            $obj->seo_text = $data['seo_text'] ?? '';
+            $obj->og_image = $data['og_image'] ?? '';
+            $obj->og_title = $data['og_title'] ?? '';
+            $obj->og_description = $data['og_description'] ?? '';
+            $data['seo'] = json_encode($obj);
+        } else {
+            $data['seo'] = null;
+        }
+        array_forget($data, 'seo_title');
+        array_forget($data, 'seo_text');
+        array_forget($data, 'seo_description');
+        array_forget($data, 'seo_keywords');
+        array_forget($data, 'og_image');
+        array_forget($data, 'og_title');
+        array_forget($data, 'og_description');
+        // SEO handle
         // Main Image handle
         if ($request->hasFile('logo')) {
             $path = $this->addImg($request->file('logo'), $data['alias']);

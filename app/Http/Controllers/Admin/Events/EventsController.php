@@ -139,7 +139,7 @@ class EventsController extends AdminController
         if (Gate::denies('UPDATE_EVENTS')) {
             abort(404);
         }
-
+//dd($event);
         if ($request->isMethod('post')) {
 
             $result = $this->repository->updateEvent($request, $event);

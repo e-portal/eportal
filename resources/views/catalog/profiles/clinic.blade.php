@@ -78,11 +78,11 @@
                                         <div class="kervices-kompani">
                                             @if(!empty($clinic->services))
                                                 <p>Услуги:</p>
-                                                <lu>
+                                                <ul class="hide-ul" data-init-h="83">
                                                     @foreach($clinic->services as $service)
                                                         <li>{{ $service }}</li>
                                                     @endforeach
-                                                </lu>
+                                                </ul>
                                             @endif
                                         </div>
                                     </div>

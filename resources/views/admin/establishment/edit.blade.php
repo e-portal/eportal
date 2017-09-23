@@ -68,6 +68,64 @@
             {!! Form::text('spec', old('spec') ? : ($establishment->spec ?? ''), ['placeholder' => 'специализация...', 'id'=>'spec', 'class'=>'form-control']) !!}
         </div>
     </div>
+    <!-- SEO -->
+    <div class="panel-heading">
+        <h2>
+            <a data-toggle="collapse" href="#service" class="btn btn-info btn-block">SEO</a>
+        </h2>
+    </div>
+    <div id="service" class="panel-collapse collapse row">
+        <div class="row">
+            <div class="col-lg-6">
+                {{ Form::label('seo_title', 'SEO_TITLE') }}
+                <div>
+                    {!! Form::text('seo_title', old('seo_title') ? : ($establishment->seo->seo_title ?? '') , ['placeholder'=>'seo_title', 'id'=>'seo_title', 'class'=>'form-control']) !!}
+                </div>
+            </div>
+            <div class="col-lg-6">
+                {{ Form::label('seo_keywords', 'SEO_KEYWORDS') }}
+                <div>
+                    {!! Form::text('seo_keywords', old('seo_keywords') ? : ($establishment->seo->seo_keywords ?? '') , ['placeholder'=>'seo_keywords', 'id'=>'seo_keywords', 'class'=>'form-control']) !!}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                {{ Form::label('seo_description', 'SEO_DESCRIPTION') }}
+                <div>
+                    {!! Form::text('seo_description', old('seo_description') ? : ($establishment->seo->seo_description ?? '') , ['placeholder'=>'seo_description', 'id'=>'seo_description', 'class'=>'form-control']) !!}
+                </div>
+            </div>
+            <div class="col-lg-6">
+                {{ Form::label('og_image', 'OG_IMAGE') }}
+                <div>
+                    {!! Form::text('og_image', old('og_image') ? : ($establishment->seo->og_image ?? '') , ['placeholder'=>'og_image', 'id'=>'og_image', 'class'=>'form-control']) !!}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                {{ Form::label('og_title', 'OG_TITLE') }}
+                <div>
+                    {!! Form::text('og_title', old('og_title') ? : ($establishment->seo->og_title ?? '') , ['placeholder'=>'og_title', 'id'=>'og_title', 'class'=>'form-control']) !!}
+                </div>
+            </div>
+            <div class="col-lg-6">
+                {{ Form::label('og_description', 'OG_DESCRIPTION') }}
+                <div>
+                    {!! Form::text('og_description', old('og_description') ? : ($establishment->seo->og_description ?? '') , ['placeholder'=>'og_description', 'id'=>'og_description', 'class'=>'form-control']) !!}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            {{ Form::label('seo_text', 'SEO_TEXT') }}
+            <div>
+            <textarea name="seo_text" rows="20"
+                      class="form-control">{!! old('seo_text') ? : ($establishment->seo->seo_text ?? '') !!}</textarea>
+            </div>
+        </div>
+    </div>
+    <!-- SEO -->
     <div class="row">
         <div class="col-lg-6">
         {{ Form::label('services', 'Услуги\Категории продукции') }}

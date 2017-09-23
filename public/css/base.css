@@ -23,10 +23,13 @@ h5,
 h6 {
   font-family: 'Cormorant Garamond', serif;
 }
+
+.social-networks a {
+    width: 25px;
+}
 body {
   background: #e4e4e4;
 }
-
 .social-networks .social-post a {
     height: 18px;
     display: block;
@@ -149,6 +152,21 @@ header {
     transition: all .8s linear;
 }
 
+.event-signup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .5);
+    z-index: 1000000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
 .fresh:hover > a .fresh-logo span {
     width: 25px;
     color: #ef4136;
@@ -325,6 +343,11 @@ section {
   opacity: 0;
   transition: all 1s cubic-bezier(.17,.86,.82,.98);
 }
+
+.blog-page .line-container h2,
+.blog-page .line-container.active h2 {
+    font-size: 46px;
+}
 aside .line-container h2 {
   opacity:1;
 }
@@ -423,6 +446,10 @@ article:hover .horizontal-line:before {
   .line-container {
     margin-left: -9%;
   }
+
+    .wrap-top-top {
+        display: none;
+    }
 }
 @media screen and (max-width: 767px) {
   section {
@@ -447,11 +474,19 @@ article:hover .horizontal-line:before {
     height: 7px;
     width: 100%;
     order: 2;
-    margin-top: 3px;
+      margin-top: 6px;
     margin-left: 14px;
   }
+
+    .line-container h2 span {
+        opacity: 1;
+        left: 0;
+    }
+
+    .vertical-line {
+        position: relative;
+    }
   .left-title h2 {
-    width: 100%;
     transform: none;
     background: none;
     padding: 0;
@@ -459,11 +494,17 @@ article:hover .horizontal-line:before {
     order: 1;
     font-size: 25px;
   }
+
+    .button-block a {
+        padding: 0 33px;
+    }
+
 }
 .main-content {
   width: 74.8%;
   float: left;
   padding-right: 6%;
+    margin-top: 3px;
 }
 aside.aside {
   width: 25.200000000000003%;
@@ -588,7 +629,7 @@ aside.aside {
   margin-top: 32px;
 }
 .comment-post .section-form .add-comm {
-  font-family: 'Cormorant Garamond', serif;
+    font-family: 'Roboto', serif;
   font-size: 14px;
   font-weight: 600;
   margin-bottom: 11px;
@@ -984,6 +1025,7 @@ article > div {
   font-family: 'Roboto';
   font-weight: 700;
   font-size: 12px;
+    margin-top: 16%;
 }
 
 .aside-block form .pod-purpur {
@@ -1414,7 +1456,6 @@ footer .social a:hover::after {
 .articles {
     margin-top: 5%;
 }
-
 @media (min-width: 1100px) and (max-width: 1366px) {
     footer .footer-bot .left {
         min-width: auto;
@@ -1603,7 +1644,7 @@ footer .social a:hover::after {
     }
 }
 
-}
+
 .icons {
   font-family: 'icons-desctop';
   font-style: normal;
@@ -1713,7 +1754,6 @@ footer .social a:hover::after {
     background: #000;
     border-radius: 50%;
 }
-
 .pagination-blog li .active {
     color: #fff;
     padding: 4px 8px;
@@ -1775,13 +1815,11 @@ footer .social a:hover::after {
     position: absolute;
     left: 49%;
     }
-
     .aside .aside-block:nth-child(2) {
       width: 49%;
     margin-top: 0;
     order: 4;
   }
-
     .aside .aside-block:nth-child(3) {
       width: 100%;
       order: 3;
@@ -1909,18 +1947,25 @@ footer .social a:hover::after {
     aside.aside {
         display: none;
     }
-
     .blog-page {
         margin-top: 110px;
     }
 
     .comment-post .section-form .section-form-up .section-input,
-    .comment-post {
+    .comment-post, .section-form .block-left {
         width: 100%;
     }
 
-}
+    .block-forms {
+        flex-direction: column;
+    }
 
+    .comment-post .section-form .section-form-up .section-form-down {
+        width: 100%;
+        margin-top: 6%;
+    }
+
+}
 /* clock */
 .icon-men {
     background-image: url("/estet/img/blog/10.png");
@@ -1931,6 +1976,7 @@ footer .social a:hover::after {
     padding-right: 4.99%;
 }
 
+
 @media (min-width: 319px) and (max-width: 466px) {
     footer .fresh-logo span {
         width: 15px;
@@ -1939,7 +1985,6 @@ footer .social a:hover::after {
     footer .creative, .created {
         font-size: 5.3px;
     }
-
     footer .fresh:hover > a .fresh-logo span {
         width: 13px;
     }

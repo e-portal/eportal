@@ -395,11 +395,11 @@
         text-align: center;
     }
 
-    .heading-title {
-        font-size: 21px;
-        font-family: "Cormorant Garamond";
-        margin: 3% 0 5% 0;
-    }
+    /*   .heading-title {
+           font-size: 21px;
+           font-family: "Cormorant Garamond";
+           margin: 3% 0 5% 0;
+       }*/
 
     .main-img {
         font-size: 19px;
@@ -515,17 +515,17 @@
         margin: -3% 0 0 46.5%;
     }
 
-    .articles::before {
-        content: "";
-        display: inline-block;
-        vertical-align: middle;
-        width: 79px;
-        height: 7px;
-        background-color: #455ea7;
-        position: relative;
-        left: 70%;
-        top: -3px;
-    }
+    /*    .articles::before {
+            content: "";
+            display: inline-block;
+            vertical-align: middle;
+            width: 79px;
+            height: 7px;
+            background-color: #455ea7;
+            position: relative;
+            left: 70%;
+            top: -3px;
+        }*/
 
     .articles p {
         margin: -27px 0 33px 10px;

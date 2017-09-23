@@ -136,6 +136,13 @@
         </div>
     </section>
     <!--section 2-->
+    <!--AD-->
+    <section class="section-useful section-clos">
+        <div class="useful">
+            {!! $advertising['main_2'] ?? '<img src="'. asset('estet') .'/bannera/662x230.png" >' !!}
+        </div>
+    </section>
+    <!--AD-->
     <!--section 3-->
     <section id="section-3" class="video">
         <div class="left-title">
@@ -300,15 +307,17 @@
                                  title="{{ $article->logo->title }}">
                             <div class="views">{{ $article->view }}</div>
                         </a>
-                        <div class="title-time">
-                            <time>
-                                @if(strlen($article->created) < 6) <i class="icons icon-clock"></i> @endif
-                                {{ $article->created }}
-                            </time>
+                        <div>
+                            <div class="title-time">
+                                <time>
+                                    @if(strlen($article->created) < 6) <i class="icons icon-clock"></i> @endif
+                                    {{ $article->created }}
+                                </time>
+                            </div>
+                            <a class="link-title" href="{{ route('doctors_art', $article->alias) }}">
+                                <h3>{{ str_limit($article->title, 64) }}</h3>
+                            </a>
                         </div>
-                        <a class="link-title" href="{{ route('doctors_art', $article->alias) }}">
-                            <h3>{{ str_limit($article->title, 64) }}</h3>
-                        </a>
                     </article>
                     @if(!$loop->last)
                         <div class="line-vertical"></div>
@@ -457,15 +466,17 @@
                                  alt="{{ $article->alt }}" title="{{ $article->img_title }}">
                             <div class="views">{{ $article->view }}</div>
                         </a>
-                        <div class="title-time">
-                            <time>
-                                @if(strlen($article->created) < 6) <i class="icons icon-clock"></i> @endif
-                                {{ $article->created }}
-                            </time>
+                        <div>
+                            <div class="title-time">
+                                <time>
+                                    @if(strlen($article->created) < 6) <i class="icons icon-clock"></i> @endif
+                                    {{ $article->created }}
+                                </time>
+                            </div>
+                            <a class="link-title" href="{{ route('doctors_art', $article->alias) }}">
+                                <h3>{{ str_limit($article->title, 64) }}</h3>
+                            </a>
                         </div>
-                        <a class="link-title" href="">
-                            <h3>{{ str_limit($article->title, 64) }}</h3>
-                        </a>
                     </article>
                     @if(!$loop->last)
                         <div class="line-vertical"></div>
@@ -480,7 +491,7 @@
     </section>
     <!--section 8-->
     <!--section 9-->
-    <section id="section-10" class="stomatology">
+    <section id="section-9" class="stomatology">
         <div class="left-title">
             <div class="line-container">
                 <div class="vertical-line"></div>
@@ -545,7 +556,7 @@
     </section>
     <!--section 9-->
     <!--section 10-->
-    <section id="section-11" class="psychology endocrinology">
+    <section id="section-10" class="psychology endocrinology">
         <div class="left-title">
             <div class="line-container">
                 <div class="vertical-line"></div>
@@ -561,15 +572,17 @@
                                  alt="{{ $article->alt }}" title="{{ $article->img_title }}">
                             <div class="views">{{ $article->view }}</div>
                         </a>
-                        <div class="title-time">
-                            <time>
-                                @if(strlen($article->created) < 6) <i class="icons icon-clock"></i> @endif
-                                {{ $article->created }}
-                            </time>
+                        <div>
+                            <div class="title-time">
+                                <time>
+                                    @if(strlen($article->created) < 6) <i class="icons icon-clock"></i> @endif
+                                    {{ $article->created }}
+                                </time>
+                            </div>
+                            <a class="link-title" href="{{ route('doctors_art', $article->alias) }}">
+                                <h3>{{ str_limit($article->title, 64) }}</h3>
+                            </a>
                         </div>
-                        <a class="link-title" href="">
-                            <h3>{{ str_limit($article->title, 64) }}</h3>
-                        </a>
                     </article>
                     @if(!$loop->last)
                         <div class="line-vertical"></div>
@@ -584,14 +597,14 @@
     </section>
     <!--section 10-->
     <!--AD-->
-    <section class="section-useful">
+    <section id="section-ad" class="section-useful">
         <div class="useful">
             {!! $advertising['main_3'] ?? '<img src="'. asset('estet') .'/bannera/662x230.png" >' !!}
         </div>
     </section>
     <!--AD-->
     <!--section 11-->
-    <section id="section-10" class="stomatology  stomatology-doctor">
+    <section id="section-11" class="stomatology  stomatology-doctor">
         <div class="left-title">
             <div class="line-container">
                 <div class="vertical-line"></div>
@@ -748,7 +761,7 @@
     <!-- section 11-1 -->
 
     <!--section 12-->
-    <section id="section-11" class="psychology">
+    <section id="section-12" class="psychology">
         <div class="left-title">
             <div class="line-container">
                 <div class="vertical-line"></div>
@@ -764,15 +777,17 @@
                                  alt="{{ $article->alt }}" title="{{ $article->img_title }}">
                             <div class="views">{{ $article->view }}</div>
                         </a>
-                        <div class="title-time">
-                            <time>
-                                @if(strlen($article->created) < 6) <i class="icons icon-clock"></i> @endif
-                                {{ $article->created }}
-                            </time>
+                        <div>
+                            <div class="title-time">
+                                <time>
+                                    @if(strlen($article->created) < 6) <i class="icons icon-clock"></i> @endif
+                                    {{ $article->created }}
+                                </time>
+                            </div>
+                            <a class="link-title" href="{{ route('doctors_art', $article->alias) }}">
+                                <h3>{{ str_limit($article->title, 64) }}</h3>
+                            </a>
                         </div>
-                        <a class="link-title" href="{{ route('doctors_art', $article->alias) }}">
-                            <h3>{{ str_limit($article->title, 64) }}</h3>
-                        </a>
                     </article>
                     @if(!$loop->last)
                         <div class="line-vertical"></div>

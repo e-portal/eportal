@@ -13,6 +13,7 @@ use Fresh\Estet\Repositories\ArticlesRepository;
 use Cache;
 use DB;
 use Fresh\Estet\Repositories\SeoRepository;
+use Illuminate\Http\Request;
 
 class CatalogController extends MainController
 {
@@ -53,7 +54,7 @@ class CatalogController extends MainController
      * @param alias $doc
      * @return view
      */
-    public function docs(PersonsRepository $rep, BlogsRepository $blog_rep, DocratioRepository $ratio_rep, $doc = false)
+    public function docs(PersonsRepository $rep, BlogsRepository $blog_rep, DocratioRepository $ratio_rep, Request $request, $doc = false)
     {
         $this->getSidebar(session()->has('doc'));
         if ($doc) {
@@ -66,7 +67,6 @@ class CatalogController extends MainController
                     $doc->expirience = date_create()->diff(date_create($doc->expirience))->y;
                 }
                 $ratio = $ratio_rep->getRatio($doc->id);
-
                 //  Blogs preview
                 $where = array(['approved', true], ['created_at', '<=', DB::raw('NOW()')], ['user_id', $doc->user_id]);
                 $blogs = $blog_rep->get(['alias', 'title', 'created_at'], 3, false, $where, ['created_at', 'desc'], ['blog_img', 'category'], true);
@@ -114,7 +114,14 @@ class CatalogController extends MainController
                     'sidebar' => $this->sidebar
                 ])
                 ->render();
-
+            $clinic->seo = $this->repository->convertSeo($clinic->seo);
+            if (!empty($clinic->logo) && is_object($clinic->seo)) {
+                $clinic->seo->og_image = asset('/images/establishment/main') . '/' . $clinic->logo;
+            } else {
+                $clinic->seo = new \stdClass();
+                $clinic->seo->og_image = '<img src="' . asset('estet') . '/img/estet.png" >';
+            }
+            $this->seo = $clinic->seo;
             return $this->renderOutput();
         }
 
@@ -163,6 +170,15 @@ class CatalogController extends MainController
                 ->with(['distributor' => $distributor, 'sidebar' => $this->sidebar,
                     'children' => $children, 'ratio' => $ratio[0]])
                 ->render();
+            $distributor->seo = $this->repository->convertSeo($distributor->seo);
+//            dd($distributor);
+            if (!empty($distributor->logo) && is_object($distributor->seo)) {
+                $distributor->seo->og_image = asset('/images/establishment/main') . '/' . $distributor->logo;
+            } else {
+                $distributor->seo = new \stdClass();
+                $distributor->seo->og_image = '<img src="' . asset('estet') . '/img/estet.png" >';
+            }
+            $this->seo = $distributor->seo;
             return $this->renderOutput();
         }
         $this->title = 'Дистрибьюторы';
@@ -216,6 +232,15 @@ class CatalogController extends MainController
                     'sidebar' => $this->sidebar, 'ratio' => $ratio[0]])
                 ->render();
 
+            $brand->seo = $this->repository->convertSeo($brand->seo);
+            if (!empty($brand->logo) && is_object($brand->seo)) {
+                $brand->seo->og_image = asset('/images/establishment/main') . '/' . $brand->logo;
+            } else {
+                $brand->seo = new \stdClass();
+                $brand->seo->og_image = '<img src="' . asset('estet') . '/img/estet.png" >';
+            }
+            $this->seo = $brand->seo;
+            
             return $this->renderOutput();
         }
 

@@ -85,6 +85,7 @@ class EstablishmentsController extends AdminController
         $parents = $this->est_rep->getParents();
 
         $establishment = $this->est_rep->convertParams($establishment, true);
+        $establishment->seo = $this->est_rep->convertSeo($establishment->seo);
 
         $this->content = view('admin.establishment.edit')->with(['parents' => $parents, 'establishment' => $establishment])->render();
         return $this->renderOutput();

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Establishment extends Model
 {
     protected $fillable = ['title', 'alias', 'logo', 'alt', 'imgtitle', 'description', 'address', 'phones', 'site',
-                        'parent', 'extra', 'services', 'content', 'category', 'spec'];
+        'parent', 'extra', 'services', 'content', 'category', 'spec', 'seo'];
 
     /**
      *  Get the establishment associated with the articles.

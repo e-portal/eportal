@@ -18,6 +18,7 @@
         {!! Form::text('alias', old('alias') ? : ($event->alias ?? '') , ['placeholder'=>'psevdonim-meropriyatiya', 'id'=>'alias', 'class'=>'form-control']) !!}
     </div>
 </div>
+<hr>
 <div class="row">
     {{ Form::label('extlink', 'Ссылка на внешний ресурс') }}
     <div>
@@ -25,6 +26,14 @@
          ['placeholder'=>'http://site.com', 'id'=>'extlink', 'class'=>'form-control alert-danger']) !!}
     </div>
 </div>
+<div class="row">
+    {{ Form::label('extmail', 'E-mail для записи на мероприятие') }}
+    <div>
+        {!! Form::text('extmail', old('extmail') ? : ($event->extmail ?? '') ,
+         ['placeholder'=>'event@mail.com', 'id'=>'extlink', 'class'=>'form-control alert-danger']) !!}
+    </div>
+</div>
+<hr>
 {{--Организатор Категория--}}
 <div class="row">
     <div class="col-lg-6">
@@ -107,7 +116,7 @@
             {{ Html::image(asset('/images/event/main').'/'.$logo->path, 'a picture', array('class' => 'thumb')) }}
         </div>
     @endif
-    {{ Form::label('img', 'Логотип') }}
+    {{ Form::label('img', 'Изображене') }}
     <div>
         {!! Form::file('img', ['accept'=>'image/*', 'id'=>'img', 'class'=>'form-control']) !!}
     </div>

@@ -64,7 +64,7 @@
         <div class="row">
             {{ Form::label('seo_text', 'SEO_TEXT') }}
             <div>
-            <textarea name="seo_text" id="seo_text"
+            <textarea name="seo_text" id="seo_text" rows="20"
                       class="form-control">{!! old('seo_text') ? : ($page->seo->seo_text ?? '')  !!}
             </textarea>
             </div>

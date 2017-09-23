@@ -3,6 +3,8 @@
 namespace Fresh\Estet\Http\Controllers\Doctors;
 
 use Fresh\Estet\Http\Requests\EventRequest;
+use Fresh\Estet\Jobs\EventSignup;
+use Illuminate\Http\Request;
 use Fresh\Estet\Repositories\AdvertisingRepository;
 use Fresh\Estet\Repositories\ArticlesRepository;
 use Fresh\Estet\Repositories\BlogsRepository;
@@ -16,6 +18,7 @@ use Fresh\Estet\Repositories\PremiumsRepository;
 use Cache;
 use Carbon\Carbon;
 use Fresh\Estet\Repositories\SeoRepository;
+use Validator;
 
 class EventsController extends DocsController
 {
@@ -48,6 +51,13 @@ class EventsController extends DocsController
         $this->prem = $prem;
     }
 
+    /**
+     * @param EventRequest $request
+     * @param bool|false $event
+     * @return $this
+     * @throws \Exception
+     * @throws \Throwable
+     */
     public function show(EventRequest $request, $event = false)
     {
         Cache::flush();
@@ -57,8 +67,8 @@ class EventsController extends DocsController
             $this->title = $event->title;
 
             $this->css = '
-            <link rel="stylesheet" type="text/css" href="' . asset('css') . '/meropryyatyya-vnutrennyaya.css">
-        ';
+                <link rel="stylesheet" type="text/css" href="' . asset('css') . '/meropryyatyya-vnutrennyaya.css">
+            ';
 
         $this->content = Cache::remember('event_content-' . $event->alias, 60, function () use ($event) {
             if (!empty($event->seo)) {
@@ -85,9 +95,19 @@ class EventsController extends DocsController
             return $this->renderOutput();
         }
 
+
+        $this->css = '
+                <link rel="stylesheet" type="text/css" href="' . asset('css') . '/events.css">
+                <link rel="stylesheet" type="text/css" href="' . asset('css') . '/events-media.css">
+            ';
+        $this->js = '
+            <script src="' . asset('js') . '/events.js"></script>
+        ';
         $prems_ids = Cache::remember('event_prem', 60, function () {
             return $this->prem->getPremIds('event');
         });
+
+        $this->getSidebar();
 
         $where = false;
         $where_in = false;
@@ -163,6 +183,7 @@ class EventsController extends DocsController
             'children' => $children,
             'calendar' => $calendar,
             'calendar_vars' => $calendar_vars,
+            'sidebar' => $this->sidebar,
         ];
         $this->getSeo('meropriyatiya');
         $this->content = view('doc.events.index')->with($vars)->render();
@@ -186,5 +207,35 @@ class EventsController extends DocsController
                 ->render();
         });
         return true;
+    }
+
+    public function signup(Request $request)
+    {
+        if ($request->isMethod('post')) {
+            $validator = Validator::make($request->all(), [
+                'email' => 'required|email',
+                'name' => 'required|string|max:255',
+                'source' => 'required|digits_between:1,10|max:4294967295',
+                'phone' => ['required', 'between:4,255', 'regex:#^[0-9()\,\-\s\+]+$#'],
+            ]);
+
+//            dd($validator->errors());
+
+            if ($validator->fails()) {
+                return \Response::json(['error' => $validator->errors()]);
+            }
+            $content = $request->except('_token');
+            $email = $this->repository->findById($content['source']);
+
+            if (null == $email) {
+                return \Response::json(['error' => 'Что-то пошло не так, попробуйте записаться позже']);
+            }
+            $content['title'] = $email->title;
+//            dd($content);
+            dispatch(new EventSignup($email->extmail, $content));
+            return \Response::json(['success' => 'Письмо организатору отправлено']);
+        } else {
+            abort(404);
+        }
     }
 }

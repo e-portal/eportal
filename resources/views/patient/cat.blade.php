@@ -13,8 +13,10 @@
                         <div class="statyi-content">
                             <div class="statyi-block">
                                 <div class="img-statyi">
-                                    <img src="{{ asset('/images/article/small').'/'.$article->image->path }}"
-                                         alt="{{$article->image->alt}}" title="{{ $article->image->title }}">
+                                    <a href="{{ route('articles', $article->alias) }}">
+                                        <img src="{{ asset('/images/article/small').'/'.$article->image->path }}"
+                                             alt="{{$article->image->alt}}" title="{{ $article->image->title }}">
+                                    </a>
                                 </div>
                                 <div class="block-text">
                         <span>
@@ -22,7 +24,7 @@
                             {{ $article->created }}
                         </span>
                                     <a href="{{ route('articles', $article->alias) }}">
-                                        <p>{{ str_limit($article->title, 64) }}</p>
+                                        <h3>{{ str_limit($article->title, 64) }}</h3>
                                     </a>
                                 </div>
                             </div>
@@ -32,8 +34,10 @@
                     @else
                         <div class="statyi-block">
                             <div class="img-statyi">
-                                <img src="{{ asset('/images/article/small').'/'.$article->image->path }}"
-                                     alt="{{$article->image->alt}}" title="{{ $article->image->title }}">
+                                <a href="{{ route('articles', $article->alias) }}">
+                                    <img src="{{ asset('/images/article/small').'/'.$article->image->path }}"
+                                         alt="{{$article->image->alt}}" title="{{ $article->image->title }}">
+                                </a>
                             </div>
                             <div class="block-text">
                     <span>
@@ -41,7 +45,7 @@
                         {{ $article->created }}
                     </span>
                                 <a href="{{ route('articles', $article->alias) }}">
-                                    <p>{{ str_limit($article->title, 64) }}</p>
+                                    <h3>{{ str_limit($article->title, 64) }}</h3>
                                 </a>
                             </div>
                         </div>

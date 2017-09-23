@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Event extends Model
 {
     protected $fillable = ['title', 'short_title', 'alias', 'extlink', 'country_id', 'city_id', 'start',
-        'stop', 'content', 'description', 'seo', 'approved', 'organizer_id', 'cat_id'];
+        'stop', 'content', 'description', 'seo', 'approved', 'organizer_id', 'cat_id', 'extmail'];
 
     /**
      *  Get the main_img associated with the blog.

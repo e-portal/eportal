@@ -39,7 +39,7 @@
                                             <div class="top-rating" data-id="{{ $profile->id }}" data-source="2">
                                                 <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
                                             </div>
-                                            <p>{{ ($ratio->avg ?? 0) .' / 5 - (голосов - ' . ($ratio->count ?? 0) . ')'}}</p>
+                                            <p>{!! '<span class="avg">'.($ratio->avg ?? 0).'</span>' .' / 5 - (голосов - ' . ($ratio->count ?? 0) . ')' !!}</p>
                                         </div>
                                         <div class="info-kompani">
                                             <div class="kompani-contacts">
@@ -82,11 +82,11 @@
                                         <div class="kervices-kompani">
                                             @if(!empty($profile->services) && is_array($profile->services))
                                                 <p>Услуги:</p>
-                                                <lu>
+                                                <ul class="hide-ul" data-init-h="83">
                                                     @foreach($profile->services as $service)
                                                         <li>{{ $service }}</li>
                                                     @endforeach
-                                                </lu>
+                                                </ul>
                                             @endif
                                         </div>
                                     </div>

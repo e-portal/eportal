@@ -66,6 +66,13 @@ class EstablishmentsRequest extends FormRequest
                 'site' => 'url|max:255|required',
                 'spec' => 'string|nullable',
                 'content' => 'required|string',
+                'seo_title' => 'string|nullable',
+                'seo_keywords' => 'string|nullable',
+                'seo_description' => 'string|nullable',
+                'seo_text' => 'string|nullable',
+                'og_image' => 'string|nullable',
+                'og_title' => 'string|nullable',
+                'og_description' => 'string|nullable',
             ];
 
             if ($this->request->has('extra') && ($this->request->get('extra') != null)) {
