@@ -23,9 +23,9 @@ class HoroscopeController extends ArticlesController
         $where = array(['approved', true], ['created_at', '<=', DB::raw('NOW()')], ['own', 'patient']);
         $bests = $this->a_rep->get(['title', 'alias', 'created_at'], 3, false, $where, ['view', 'desc'], ['image', 'category']);
 
-
+        $comments = false;
         $this->getSidebar();
-        $this->content = view('patient.horoscope')->with(['signs' => $signs, 'bests' => $bests,'sidebar' => $this->sidebar])->render();
+        $this->content = view('patient.horoscope')->with(['signs' => $signs, 'bests' => $bests, 'sidebar' => $this->sidebar, 'comments' => $comments])->render();
 
         $this->title = 'Гороскоп красоты';
         $this->seo = Cache::remember('seo_horoscope', 24 * 60, function () {

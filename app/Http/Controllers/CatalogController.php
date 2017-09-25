@@ -44,7 +44,7 @@ class CatalogController extends MainController
 
     public function index()
     {
-        abort(404);
+        return redirect()->route('main', 301);
 //        $this->title = 'Каталог';
 //        return view('catalog.index')->with('title', $this->title);
     }
@@ -71,8 +71,10 @@ class CatalogController extends MainController
                 $where = array(['approved', true], ['created_at', '<=', DB::raw('NOW()')], ['user_id', $doc->user_id]);
                 $blogs = $blog_rep->get(['alias', 'title', 'created_at'], 3, false, $where, ['created_at', 'desc'], ['blog_img', 'category'], true);
 
+                $comments = false;
+
                 return view('catalog.profiles.doc_profile')
-                    ->with(['profile' => $doc, 'blogs' => $blogs, 'sidebar' => $this->sidebar, 'ratio' => $ratio[0]])
+                    ->with(['profile' => $doc, 'comments' => $comments, 'blogs' => $blogs, 'sidebar' => $this->sidebar, 'ratio' => $ratio[0]])
                     ->render();
             });
             $this->title = $doc->name . ' ' . $doc->lastname;

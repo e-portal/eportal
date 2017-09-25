@@ -1,4 +1,4 @@
-<div class="title-main ">
+<div class="title-main more">
     <h2 class="heading-title">
         {{ $advertising->title }}
     </h2>

@@ -1,3 +1,5 @@
+@include('layouts.comments', ['comments' => $comments])
+<hr>
 <div class="comment-post">
     <div class="social-networks">
         <p>Добавьте в закладки чтобы не потерять / поделитесь с друзьями:</p>

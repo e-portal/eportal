@@ -2,6 +2,7 @@
 
 namespace Fresh\Estet\Jobs;
 
+use Fresh\Estet\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
@@ -16,6 +17,7 @@ class SendUserAddEmail implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     protected $user_id;
+
     /**
      * Create a new job instance.
      *
@@ -34,7 +36,12 @@ class SendUserAddEmail implements ShouldQueue
     public function handle()
     {
         $email = new UserAddRequest($this->user_id);
-        $moders = ['reg_forall@bigmir.net', 'oshaman789@gmail.com', 'shaman78@ukr.net'];
+        $moders = User::whereHas('roles', function ($query) {
+            $query->where('name', 'moderator');
+        })->get();
+        $moders = array_pluck($moders->toArray(), 'email');
+
+//        $moders = ['reg_forall@bigmir.net', 'oshaman789@gmail.com', 'shaman78@ukr.net'];
         Mail::to($moders)->send($email);
         \Log::info('UserAddEmail');
     }

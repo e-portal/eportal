@@ -564,7 +564,13 @@
             </div>
         </div>
     </section>
-
+    <!--AD-->
+    <section id="section-9-1" class="section-useful section-clos">
+        <div class="useful">
+            {!! $advertising['main_2'] ?? '<img src="'. asset('estet') .'/bannera/662x230.png" >' !!}
+        </div>
+    </section>
+    <!--AD-->
     <!--section 10-->
     <section id="section-10" class="stomatology">
         <div class="left-title">

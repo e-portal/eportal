@@ -1,3 +1,4 @@
+
 .slider-wrap {
     display: flex;
     font-size: 0;
@@ -109,9 +110,9 @@
 }
 
 .arr-slider {
-    color: #fff;
+    color: #000;
     padding: 4px 8px;
-    background: #000;
+    background: #fff;
     border-radius: 50%;
     font-family: 'Roboto', sans-serif;
     font-size: 10px;
@@ -120,8 +121,8 @@
 }
 
 .arr-slider:hover {
-    color: #000;
-    background: #fff;
+    color: #fff;
+    background: #000;
 }
 .dots {
     display: flex;
@@ -171,7 +172,7 @@
     line-height: 26px;
 }
 .video {
-    margin-top: 122px;
+    margin-top: 127px;
 }
 .video .articles-horizontal {
     margin-top: 0;
@@ -272,6 +273,9 @@
     padding-right: 4%;
 }
 
+#section-4.interesting-facts .aside-block {
+    margin-top: 14px;
+}
 .interesting-facts .aside-block {
     padding-left: 6%;
     display: flex;
@@ -388,11 +392,12 @@
     width: 100%;
 }
 .medicine-treatment .button-block {
-    margin-top: 119px;
+    margin-top: 92px;
     padding-right: 4.4%;
 }
-.helpful-tips {
-    margin-top: 180px;
+
+.doctor-page .helpful-tips {
+    margin-top: 154px;
 }
 .helpful-tips .articles-horizontal {
     margin-top: 0;
@@ -438,9 +443,15 @@
     margin-top: 87px;
     padding-right: 4.4%;
 }
-.doctor-page .stomatology .button-block {
-    margin-top: 117px;
+
+.doctor-page #section-9.stomatology .button-block {
+    margin-top: 90px;
 }
+
+.doctor-page #section-12.psychology {
+    margin-top: 127px;
+}
+
 .psychology {
     margin-top: 149px;
 }
@@ -453,7 +464,7 @@
 }
 
 .endocrinology .button-block {
-    margin-top: 55px;
+    margin-top: 61px;
 }
 .desser {
     margin-top: 155px;
@@ -462,7 +473,7 @@
     margin-top: 81px;
 }
 .endocrinology {
-    margin-top: 176px;  
+    margin-top: 150px;  
 }
 .stomatology-doctor {
     margin-top: 87px;
@@ -618,7 +629,7 @@
     padding-bottom: 44px;
 }
 .blog-doctor .button-block {
-    margin-top: 85px;
+    margin-top: 94px;
 }
 .cosmetology-food {
     margin-top: 107px;
@@ -628,10 +639,14 @@
 }
 /*section-11-1*/
 .venerology {
-    margin-top: 177px;
+    margin-top: 155px;
 }
 .venerology .articles-vertical {
     padding-left: 0;
+}
+
+#section-11-1.venerology #section-2-2 .articles-vertical article .link-img {
+    width: 34.1%;
 }
 .venerology .block-doctor-ven .articles-vertical {
     padding-left: 12.1%;
@@ -693,15 +708,29 @@
 }
 
 .venerology #section-1-1 .content.articles-divisions .articles-vertical .button-block {
-    top: 108%;
+    top: 106.4%;
     left: 9.5%;
 }
 
 .venerology #section-2-2 .content.articles-divisions .articles-vertical .button-block {
-    top: 108%;
+    top: 106.4%;
     left: -4%;
 }
 
 .venerology #section-2-2 .content.articles-divisions .articles-vertical .button-block .button-line {
     width: 24%;
+}
+
+/*section-8*/
+#section-8.helpful-tips {
+    margin-top: 149px;
+}
+
+/*section-10*/
+#section-10.stomatology {
+    margin-top: 100px;
+}
+
+.container {
+    padding-bottom: 147px;
 }

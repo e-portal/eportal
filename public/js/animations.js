@@ -211,7 +211,6 @@ $('.wrap-top-top').click(function () {
 
 /* raiting  init*/
 
-colorStars($('.avg').html());
 
 function golosovanie(dataId, dataSource, token, ind) {
     $.ajax({
@@ -226,13 +225,14 @@ function golosovanie(dataId, dataSource, token, ind) {
             ratio: ind
         }),
         success: function (data) {
+            console.log(data['success']);
             if (data['success']) {
-                if (data['success'].hasOwnProperty('avg')) {
+                if (!data['success'].hasOwnProperty('avg')) {
                     avg = data['success'][0]['avg'];
                     count = data['success'][0]['count'];
                     str = '<span class="avg">' + avg + '</span>/' + count + '- (голосов - ' + count + ')';
                     $('.rating p').html(str);
-                    colorStars(rait);
+                    colorStars(avg);
                 }
             }
         }
@@ -248,6 +248,9 @@ function colorStars(num) {
     }
 }
 
+if ($('.top-rating').length) {
+    colorStars($('.avg').html());
+}
 function findIndexes(obj) {
     ind = (obj.index() - 5) * (-1);
     dataId = obj.parent().attr('data-id');
@@ -264,22 +267,84 @@ $('.top-rating span').click(function () {
 
 
 /****************line map-site***********************/
-$('.js-block-parent').each(function () {
-    blockLast = $(this).find('.js-block-chaild').eq(-1).find('.block-before');
-    lastBlockTop = blockLast.offset().top;
+// $('.js-block-parent').each(function () {
+//     blockLast = $(this).find('.js-block-chaild').eq(-1).find('.block-before');
+//     lastBlockTop = blockLast.offset().top;
 
 
-    //console.log(lastBlockTop);
+//     //console.log(lastBlockTop);
 
 
-    blockFirst = $(this).find('.js-block-chaild').eq(1).find('.block-before');
-    firstBlockTop = blockFirst.offset().top;
+//     blockFirst = $(this).find('.js-block-chaild').eq(1).find('.block-before');
+//     firstBlockTop = blockFirst.offset().top;
 
-    firstBlockHeight = blockFirst.height();
+//     firstBlockHeight = blockFirst.height();
 
-    console.log(firstBlockHeight + '+' + firstBlockTop + '-' + lastBlockTop)
+//     console.log(firstBlockHeight + '+' + firstBlockTop + '-' + lastBlockTop)
 
 
-    blockLast.css('height', firstBlockHeight + firstBlockTop - lastBlockTop + 'px');
+//     blockLast.css('height', firstBlockHeight + firstBlockTop - lastBlockTop + 'px');
 
+// });
+
+
+/* pop-meropriyatia */
+$('.js-pop').click(function () {
+    $('.event-signup .event_source').val($(this).parent().attr('data-id'));
+    $('.event-signup').css({display: 'flex'});
 });
+
+$('.event-signup').click(function (e) {
+    console.log($(this).parent('form').length);
+    if ($(this).parents('form')) {
+
+    } else {
+        $('.event-signup').css({display: 'none'});
+    }
+});
+
+$('.btn-large').click(function (e) {
+    e.preventDefault(e);
+    _this = $(this)
+    $.ajax({
+        url: _this.parents('form').attr('action'),
+        type: 'POST',
+        data: _this.parents('form').serialize(),
+        success: function (data) {
+            if (data.hasOwnProperty('error')) {
+                for (var key in data.error) {
+                    _this.parents('form').find('input[name="' + key + '"]').css({'border': '2px solid red'});
+                }
+                setTimeout(function () {
+                    _this.parents('form').find('input').attr('style', ' ')
+                }, 2000)
+            } else {
+                $('.event-signup').css({display: 'none'});
+            }
+        }
+    });
+});
+
+/* meropriyatia */
+if ($('.form-organizer').length) {
+    function cities() {
+        idCounrty = $('#country').val() ? $('#country').val() : '000';
+        $('#city option').each(function () {
+            idCity = $(this).attr('data-country');
+            console.log(idCounrty + ' ' + idCity);
+            if (idCounrty == idCity) {
+                $(this).attr('disabled', false).show();
+            } else {
+                $(this).attr('disabled', true).hide();
+                ;
+            }
+        });
+
+    };cities();
+    $('#country').change(function () {
+        idCounrty = $('#country').val();
+        cities();
+    })
+}
+
+

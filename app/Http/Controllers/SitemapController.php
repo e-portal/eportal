@@ -6,6 +6,7 @@ use Cache;
 use Fresh\Estet\Repositories\SitemapRepository;
 use Fresh\Estet\Repositories\SeoRepository;
 use Fresh\Estet\Seo;
+use Fresh\Estet\User;
 
 class SitemapController extends MainController
 {

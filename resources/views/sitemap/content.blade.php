@@ -82,7 +82,7 @@
                         </div>
                         @if(!empty($vars['blog_cats']))
                             @foreach($vars['blog_cats'] as $cat)
-                                <div class="block">
+                                <div class="block js-block-chaild">
                                     <div class="block-before"></div>
                                     <h3><a href="{{ route('blogs_cat', $cat->alias) }}">{{ $cat->name }}</a></h3>
                                     @if(!empty($vars['blogs']))
@@ -102,7 +102,7 @@
                         @endif
                     </div>
                     @if(!empty($vars['events']))
-                        <div class="block js-block">
+                        <div class="block js-block-chaild">
                             <div class="block-before"></div>
                             <h3><a href="{{  route('events') }}">Мероприятия</a></h3>
                             @if(!empty($vars['events']))
@@ -138,7 +138,7 @@
                     @endif
                     @if(!empty($vars['establishments']))
                         @foreach($vars['est_cats'] as $cat)
-                            <div class="block js-block ">
+                            <div class="block js-block-chaild">
                                 <div class="block-before"></div>
                                 <h3><a href="{{  route($cat.'s') }}">{{ trans('ru.'.$cat) }}</a></h3>
                                 @if(!empty($vars['establishments']))

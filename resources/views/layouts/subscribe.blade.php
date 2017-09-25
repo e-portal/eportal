@@ -19,7 +19,23 @@
     <label>{!! Form::text('email', old('email') ? : '' , ['placeholder'=>'почта', 'id'=>'email', 'class'=>'form-control']) !!}</label>
     <label>
         {!! Form::select('status', [0=>'Пациент', 1=>'Доктор'],
-            old('status') ? : '' , [ 'class'=>'form-control', 'placeholder'=>'доктор/пациент'])
+            old('status') ? : '' , [ 'placeholder'=>'доктор/пациент'])
+        !!}
+    </label>
+    <label>
+        {!! Form::select('status', [
+            0=>'Косметолог',
+            1=>'Дерматолог',
+            2=>'Пластический хирург',
+            3=>'Стоматолог',
+            4=>'Гинеколог',
+            5=>'Трихолог',
+            6=>'Эндокринолог',
+            7=>'Венеролог',
+            8=>'Уролог',
+            9=>'Врач другой специализации',
+            ],
+            old('status') ? : '' , [ 'placeholder'=>'cпециализация'])
         !!}
     </label>
     <button class="pod-subs

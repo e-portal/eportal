@@ -128,7 +128,7 @@
                             @endif
                         </div>
                         <div class="comment-post">
-                            @include('layouts.comments_form', ['id' => $profile->id, 'source' => 6])
+                            @include('layouts.comments_form', ['id' => $profile->id, 'source' => 6, 'comments' => $comments])
                         </div>
                     </div>
                 </div>

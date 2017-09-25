@@ -38,7 +38,8 @@ nav {
     text-align: center;
     font-size: 24px;
     letter-spacing: 1px;
-    font-family: "CormorantGaramond";
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
 }
 .toggles {
     width: 52px;
@@ -168,6 +169,8 @@ header .container-fool {
 
 .menu-elem a {
     color: #202020;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
 }
 header .line-bottom-menu {
     border-bottom: 1px solid #000000;
@@ -348,8 +351,9 @@ header .line-bottom-menu {
 .menu li a span {
     display: inline-block;
     padding: 6px 0px;
-    font-family: 'CormorantGaramond';
+    font-family: 'Roboto', sans-serif;
     position: relative;
+    font-weight: 500;
 }
 .menu a.active {
     color: #fff;

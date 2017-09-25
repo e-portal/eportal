@@ -145,6 +145,7 @@ $('.submenu').mouseout(function () {
 });
 
 
+
 /************************ fesak hover katalog*******************************/
 $('.hide-ul').each(function () {
     $(this).attr('data-h', $(this).height());
@@ -158,18 +159,4 @@ $('.hide-ul').hover(function () {
     $(this).css({'height': $(this).attr('data-h') + 'px'})
 }).mouseleave(function () {
     $(this).css({'height': $(this).attr('data-init-h') + 'px'})
-})
-
-
-/* pop-meropriyatia */
-$('.js-pop').click(function () {
-    $('.event-signup .event_source').val($(this).parent().attr('data-id'));
-    $('.event-signup').css({display: 'flex'});
-})
-
-$('.btn-large').click(function () {
-    $.ajax({
-        type: 'POST',
-        data: $(this).parents('form').
-    })
 })

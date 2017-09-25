@@ -12,10 +12,9 @@
         <div class="bread-crumbs">
             <div itemscope itemtype="#">
                 <a href="#" itemprop="url">
-                    <span itemprop="title">Бренды и их представители</span>
+                    <span itemprop="title">Клиники</span>
                 </a>
             </div>
-            /
             <div itemscope itemtype="#">
                 <span itemprop="title"></span>
             </div>

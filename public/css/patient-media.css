@@ -12,6 +12,17 @@
         background: none;
     }
 
+    /*.content {
+        width: 83.8%;
+        padding-right: 4.8%;
+    }*/
+    .left-title {
+        width: 16.2%;
+    }
+
+    .articles-vertical hr {
+        width: 78%;
+    }
     .slider article {
         flex-wrap: wrap;
     }
@@ -32,12 +43,17 @@
         margin-bottom: -55px;
     }
 
+    .slide-right_top {
+        height: 196px;
+    }
     .slide-right_top .title-time {
         margin-top: 4.5%;
     }
 
     .slide-right_top a h3 {
         margin-top: 3.8%;
+        height: 53px;
+
     }
 
     .slide-right_top p {
@@ -98,7 +114,7 @@
     }
 
     .articles-vertical article > div {
-        width: 71.9%;
+        width: 70.9%;
         padding-left: 5%;
     }
 
@@ -106,8 +122,9 @@
         margin-top: 11px;
     }
 
-    .articles-vertical article .link-img {
-        width: 28.1%;
+    .articles-vertical article .link-img,
+    #section-11-1.venerology #section-2-2 .articles-vertical article .link-img {
+        width: 29.1%;;
     }
 
     .video {
@@ -158,6 +175,9 @@
         margin: 0;
     }
 
+    #section-4.interesting-facts .aside-block {
+        margin-top: 53px;
+    }
     .interesting-facts .aside-block .form-wrap {
         margin: 0 0 0 0;
         padding: 7% 13% 10% 16%;
@@ -210,6 +230,9 @@
     }
 
     /* section 5  */
+    #section-5.cosmetology-food .button-block {
+        margin-top: 55px;
+    }
     .diet-food {
         margin-top: 58px;
     }
@@ -247,6 +270,9 @@
         margin-right: 37px;
     }
 
+    #section-8.helpful-tips {
+        margin-top: 141px;
+    }
     .helpful-tips {
         margin-top: 142px;
     }
@@ -261,7 +287,7 @@
     }
 
     .horoscope-patient {
-        margin-top: 115px;
+        margin-top: 112px;
     }
 
     .horoscope-patient .hrp {
@@ -282,6 +308,14 @@
         padding-right: 6.8%;
     }
 
+    /*section-9*/
+    .doctor-page #section-9.stomatology {
+        margin-top: 137px;
+    }
+
+    .doctor-page #section-9.stomatology .button-block {
+        margin-top: 77px;
+    }
     .stomatology {
         margin-top: 111px;
     }
@@ -299,6 +333,9 @@
         margin-top: 143px;
     }
 
+    #section-ad .doctor-page {
+        margin-top: 147px;
+    }
     /*section-6*/
     .beauty-health .articles-horizontal .title-time {
         margin-top: 22px;
@@ -358,8 +395,44 @@
         padding: 0;
     }
 
+    /*section-10*/
+    #section-10.stomatology {
+        margin-top: 112px;
+    }
+
+    /*section-11*/
+    #section-11.stomatology.stomatology-doctor {
+        margin-top: 67px;
+    }
+
+    /*section-11-1*/
+    #section-11-1.venerology #section-1-1 .articles-vertical,
+    #section-11-1.venerology #section-2-2 .articles-vertical {
+        margin-top: 0;
+    }
+
+    #section-11-1.venerology #section-1-1 .articles-vertical article:nth-child(1),
+    #section-11-1.venerology #section-2-2 .articles-vertical article:nth-child(1) {
+        margin-top: 0;
+    }
+
+    #section-11-1.venerology #section-1-1 .line-container,
+    #section-11-1.venerology #section-2-2 .line-container {
+        margin-left: 3%;
+    }
+
     .container {
-        padding-bottom: 130px;
+        padding-bottom: 144px;
+    }
+
+    #section-11-1.venerology #section-2-2 .left-title {
+        width: 15.2%;
+    }
+
+    #section-11-1.venerology {
+        margin-top: 141px;
+        display: flex;
+        flex-direction: column;
     }
 
 
@@ -371,12 +444,16 @@
         font-size: 10px;
     }
 
-    .content {
+    /*.content {
         margin-top: 19px;
+        width: 100%;
+    }*/
+    .left-title {
+        width: 100%;
     }
 
     .last-articles .left-title {
-        margin-top: 34%;
+        margin-top: 14%;
     }
     .slider-nav {
         display: none;
@@ -580,11 +657,17 @@
         height: 4px;
     }
 
+    .section-useful {
+        margin-top: 94px;
+    }
     .section-clos {
         display: inline-block;
         margin-top: 18px;
     }
 
+    #section-9-1.section-useful {
+        margin-top: 69px;
+    }
     .useful {
         margin: 0;
         height: auto;
@@ -630,7 +713,8 @@
         width: 100%
     }
 
-    .articles-vertical article .link-img {
+    .articles-vertical article .link-img,
+    #section-11-1.venerology #section-2-2 .articles-vertical article .link-img {
         width: 26.1%;
     }
 
@@ -782,6 +866,9 @@
 
     }
 
+    #section-6.beauty-health .button-block {
+        margin-top: 37px;
+    }
     .venerology #section-1-1 .content.articles-divisions {
         padding: 0 20px;
     }
@@ -855,7 +942,7 @@
     }
 
     .doctor-page #section-11.stomatology .button-block {
-        margin-top: 50px;
+        margin-top: 55px;
     }
 
     .venerology,
@@ -869,7 +956,7 @@
     }
 
     .venerology #section-1-1 .content.articles-divisions .articles-vertical .button-block {
-        margin-top: 2px;
+        margin-top: 6px;
     }
 
     .venerology #section-2-2 {
@@ -879,6 +966,10 @@
     .venerology #section-2-2 .content.articles-divisions .articles-vertical .button-block {
         top: 99%;
         left: 0;
+    }
+
+    .doctor-page #section-12.psychology {
+        margin-top: 82px;
     }
 
     #section-12.psychology {
@@ -899,6 +990,60 @@
 
     .container {
         padding-bottom: 75px;
+    }
+
+    /*section-8*/
+    #section-8.helpful-tips {
+        margin-top: 91px;
+    }
+
+    #section-8.helpful-tips .button-block {
+        margin-top: 35px;
+    }
+
+    /*section-9*/
+    #section-9.horoscope-patient {
+        margin-top: 94px;
+    }
+
+    .horoscope-patient .hrp {
+        margin: 4.7% 0 0 0;
+        padding: 0 24px;
+    }
+
+    .horoscope-patient .hrp .icons-img {
+        margin-bottom: 35px;
+    }
+
+    .horoscope-patient .button-block {
+        margin-top: 3px;
+    }
+
+    /*section-10*/
+    #section-10.stomatology {
+        margin-top: 34px;
+    }
+
+    #section-10.stomatology .button-block {
+        margin-top: 54px;
+    }
+
+    /*section-11*/
+    #section-11.psychology {
+        margin-top: 89px;
+        margin-bottom: 18px;
+    }
+
+    #section-11.psychology .button-block {
+        margin-top: 31px;
+    }
+
+    #section-11-1.venerology #section-2-2 .left-title {
+        width: 100%;
+    }
+
+    #section-11-1.venerology {
+        margin-top: 93px;
     }
 
 

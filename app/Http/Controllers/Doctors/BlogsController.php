@@ -48,6 +48,7 @@ class BlogsController extends DocsController
      */
     public function index($blog_alias=false)
     {
+        Cache::flush();
         $this->sidebar = $this->getSidebar();
 
         if ($blog_alias) {
@@ -74,6 +75,7 @@ class BlogsController extends DocsController
             }
             $this->blog_rep->displayed($blog->id);
 
+//            dd($blog->comments->isNotEmpty());
 
             $this->content = Cache::remember('blogs-preview-'.$blog_alias, 10, function () use ($blog) {
 

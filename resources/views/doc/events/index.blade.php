@@ -11,72 +11,71 @@
             <h3>Вы можете выбрать мероприятие по дате актуальности</h3>
             <!--form organizer-->
             <div class="form-organizer">
-                <form>
+                {!! Form::open(['url'=>route('events'), 'method'=>'get']) !!}
                     <fieldset>
                         <legend>Выберите организатора</legend>
                         <label>
-                            <select name="country">
-                                <option selected="selected" value="0">Украина</option>
-                                <option value="1">не Украина</option>
-                                <option value="2">не Украина</option>
-                                <option value="3">не Украина</option>
+                            {!! Form::select('country', [null => 'Страна'] + $countries, old('country') ? : '', ['id'=>'country']) !!}
+                        </label>
+                        <label>
+                            <select id="city" name="city">
+                                <option value="" selected="selected">Город</option>
+                                @foreach($cities as $city)
+                                    <option value="{{ $city->id }}" data-country="{{ $city->country_id }}"
+                                            @if(session('city') == $city->id)
+                                            selected="selected"
+                                            @endif
+                                    >{{ $city->name }}</option>
+                                @endforeach
                             </select>
                         </label>
                         <label>
-                            <select name="city">
-                                <option selected="selected" value="0">Киев</option>
-                                <option value="1">тоже город</option>
-                                <option value="2">наверное</option>
-                            </select>
+                            {!! Form::select('cat', [null => 'Категория'] + $cats, old('cat') ? : '') !!}
                         </label>
                         <label>
-                            <select name="type">
-                                <option selected="selected" value="0">Пластическая хирургия</option>
-                                <option value="1">Крохкая хирургия</option>
-                                <option value="2">Вязкая хирургия</option>
-                                <option value="3">Жидкая хирургия</option>
-                                <option value="4">Хирургия тупым скальпелем</option>
-                            </select>
-                        </label>
-                        <label>
-                            <select name="company">
-                                <option selected="selected" value="0">Ella Bache</option>
-                                <option value="1">Bache Ella</option>
-                                <option value="2">Apple</option>
-                                <option value="3">Microsoft</option>
-                            </select>
+                            {!! Form::select('organizer', [null => 'Организатор'] + $organizer, old('organizer') ? : '') !!}
                         </label>
                         <div class="brands">
-                            <input type="checkbox" id="ella-bache" name="ella-bache">
-                            <label for="ella-bache">Ella Bache</label>
-                            <input type="checkbox" id="karse" name="karse">
-                            <label for="karse">Karse</label>
-                            <input type="checkbox" id="real-beauty" name="real-beauty">
-                            <label for="real-beauty">Реал Бьюти</label>
+                            @if(!empty($children))
+                                @foreach($children as $child)
+                                    {{--<a href="{{ route('events') }}/?country=&city=&cat=&organizer={{ $child->id }}">{{ $child->name }}</a>--}}
+                                    <input type="checkbox" data-organizer="{{ $child->id }}" name="{{ $child->id }}">
+                                    <label for="{{ $child->id }}">{{ $child->name }}</label>
+                                @endforeach
+                            @endif
                         </div>
                     </fieldset>
-                </form>
             </div>
             <!--calendar-->
             <div class="calendar-wrap">
-                <form>
-                    <label>
-                        <select name="month">
-                            <option selected="selected" value="0">Апрель</option>
-                            <option value="1">Май</option>
-                            <option value="2">Июнь</option>
-                            <option value="3">Июль</option>
-                        </select>
-                    </label>
-                    <div class="year">
-                        <label><input type="text" value="2017"></label>
-                        <div class="year-choice">
-                            <div class="top"></div>
-                            <div class="bot"></div>
-                        </div>
+                <label>
+                    {!! Form::select('month',
+                    [
+                        1=>'Январь',
+                        2=>'Февраль',
+                        3=>'Март',
+                        4=>'Апрель',
+                        5=>'Май',
+                        6=>'Июнь',
+                        7=>'Июль',
+                        8=>'Август',
+                        9=>'Сентябрь',
+                        10=>'Октябрь',
+                        11=>'Ноябрь',
+                        12=>'Декабрь',
+                    ], old('month') ? : ($profile->month ?? '' ), [ 'placeholder'=>'Месяц'])
+                !!}
+                </label>
+                <div class="year">
+                    <label><input type="text" name="year" value="{{ $calendar_vars['year'] }}"></label>
+                    <div class="year-choice">
+                        <div class="top"></div>
+                        <div class="bot"></div>
                     </div>
-                    <button type="submit">Фильтровать</button>
-                </form>
+                </div>
+                <button type="submit">Фильтровать</button>
+                {!! Form::close() !!}
+                {{ dump($calendar_vars) }}
                 <div class="calendar">
                     <!--slider-->
                     <div class="calendar-slider">
@@ -156,73 +155,57 @@
                     <!--day-numbers-->
                     <div class="days-wrapper">
                         <div class="days" data-month="4" data-year="2017">
-                            <div class="date Sat"><span>1</span></div>
-                            <div class="date"><span>2</span></div>
-                            <div class="event-date">
-                                <img src="../img/events/event-date.jpg" alt="">
-                                <div>
-                                    <span>3</span>
-                                    <span>Красота на кончике иглы...</span>
+                            @for($i = 1; $i < $calendar_vars['last_number']; $i++)
+                                <div @if(1 === $i) class="{{ $calendar_vars['first'] }}" @endif >
+                                    <span>{{ $i }}</span>
+                                    <div class="event-date">
+                                        <div>
+                                            <div class="slides">
+                                                @foreach($calendar as $event)
+
+                                                    @if(($i > $event->stop_date) || ($i < $event->start_date))
+                                                        @continue
+                                                    @else
+                                                        <div class="slide active">
+                                                            <img src="{{ asset('/images/event/mini') . '/' . $event->logo->path }}"
+                                                                 alt="{{ $event->logo->alt }}"
+                                                                 title="{{ $event->logo->title }}">
+                                                            <figure>
+                                                                <figcaption>
+                                                                    <span>{{ str_limit(($event->short_title ?? ''), 32) }}</span>
+                                                                </figcaption>
+                                                                <div class="date">
+                                                                    {{ $i . ' ' . trans('ru.m' . date($calendar_vars['month'])) . ' ' . date($calendar_vars['year']) }}
+                                                                </div>
+                                                                <div class="theme">тема мероприятия</div>
+                                                                <h4>{{ str_limit(($event->short_title ?? ''), 48) }}</h4>
+                                                                <div class="button-block">
+                                                                    <a href="{{ route('events', $event->alias) }}">Подробнее</a>
+                                                                </div>
+                                                            </figure>
+                                                        </div>
+
+                                                    @endif
+
+                                                @endforeach
+                                            </div>
+                                            <span>3</span>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="date"><span>4</span></div>
-                            <div class="date"><span>5</span></div>
-                            <div class="date"><span>6</span></div>
-                            <div class="date"><span>7</span></div>
-                            <div class="date"><span>8</span></div>
-                            <div class="event-date">
-                                <img src="../img/events/event-date.jpg" alt="">
-                                <div>
-                                    <span>9</span>
-                                    <span>Красота на кончике иглы...</span>
-                                </div>
-                            </div>
-                            <div class="date"><span>10</span></div>
-                            <div class="date"><span>11</span></div>
-                            <div class="date"><span>12</span></div>
-                            <div class="date"><span>13</span></div>
-                            <div class="date"><span>14</span></div>
-                            <div class="date"><span>15</span></div>
-                            <div class="date"><span>16</span></div>
-                            <div class="event-date">
-                                <img src="../img/events/event-date.jpg" alt="">
-                                <div>
-                                    <span>17</span>
-                                    <span>Красота на кончике иглы...</span>
-                                </div>
-                            </div>
-                            <div class="date"><span>18</span></div>
-                            <div class="event-date current">
-                                <img src="../img/events/event-date.jpg" alt="">
-                                <div>
-                                    <span>19</span>
-                                    <span>Красота на кончике иглы...</span>
-                                </div>
-                            </div>
-                            <div class="date"><span>20</span></div>
-                            <div class="date"><span>21</span></div>
-                            <div class="date"><span>22</span></div>
-                            <div class="date"><span>23</span></div>
-                            <div class="date"><span>24</span></div>
-                            <div class="date"><span>25</span></div>
-                            <div class="date"><span>26</span></div>
-                            <div class="date"><span>27</span></div>
-                            <div class="date"><span>28</span></div>
-                            <div class="event-date">
-                                <img src="../img/events/event-date.jpg" alt="">
-                                <div>
-                                    <span>29</span>
-                                    <span>Красота на кончике иглы...</span>
-                                </div>
-                            </div>
-                            <div class="date"><span>30</span></div>
+                            @endfor
                         </div>
                     </div>
+                    <!--day-numbers-->
                 </div>
             </div>
             <!--current date-->
             <div class="current-date">
-                <span>Все мероприятия</span>
+                @if(empty($calendar[1]))
+                    <span>К сожалению, по указанным Вами критериям ничего не найдено. Ближайшие мероприятия смотрите ниже:</span>
+                @else
+                    <span>Все мероприятия</span>
+                @endif
             </div>
             <!--articles-->
             <div class="articles-wrap">

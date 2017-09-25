@@ -22,26 +22,32 @@ class DocratioRepository
     public function setRatio($request)
     {
         $data['doc_id'] = $request->get('data_id');
-        $data['data_key_doc_' . $data['doc_id']] = md5($request->ip() . $request->header('User-Agent') . substr(session()->getId(), 0, 5));
+        $data['data_key'] = md5(
+            $request->ip()
+            . $request->header('User-Agent')
+            . substr(session()->getId(), 0, 5)
+            . $data['doc_id']
+        );
 
-        if (session()->has($data['data_key_doc_' . $data['doc_id']])) {
-            return ['val' => $data['data_key_doc_' . $data['doc_id']]];
+        if (session()->has($data['data_key'])) {
+            return ['val' => session()->get($data['data_key'])];
         }
-        $data['data_key'] = $data['data_key_doc_' . $data['doc_id']];
-        $data['value'] = $request->get('ratio');
 
-        if ($val = $this->model->where(['doc_id' => $data['doc_id'], 'data_key' => $data['data_key_doc_' . $data['doc_id']]])->first()) {
-            session()->put($data['data_key_doc_' . $data['doc_id']], $val->value);
+        $data['value'] = $request->get('ratio');
+        $val = $this->model->where(['doc_id' => $data['doc_id'], 'data_key' => $data['data_key']])->first();
+
+        if (!empty($val)) {
+            session()->put($data['data_key'], $val->value);
             return ['val' => $val->value];
         }
 
         try {
             $this->model->fill($data)->save();
         } catch (Exception $e) {
-            return ['val' => $data['data_key_doc_' . $data['doc_id']]];
+            return ['val' => $data['data']];
         }
 
-        session()->put($data['data_key_doc_' . $data['doc_id']], $data['value']);
+        session()->put($data['data_key'], $data['value']);
         return ['val' => $data['value'], 'doc_id' => $data['doc_id']];
 
     }

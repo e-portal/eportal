@@ -6,6 +6,11 @@
         </div>
     </div>
     <div class="content">
+        <div class="blog-categories">
+            <div class="select select-blue">
+                <a href="#">{{ $tag->name }}</a>
+            </div>
+        </div>
         <div class="main-content">
             @if($articles)
                 @foreach($articles as $article)
@@ -17,10 +22,10 @@
                                          alt="{{$article->image->alt}}" title="{{ $article->image->title }}">
                                 </div>
                                 <div class="block-text">
-                        <span>
+                                    <time>
                             @if(strlen($article->created) < 6) <i class="icons icon-clock"></i> @endif
                             {{ $article->created }}
-                        </span>
+                                    </time>
                                     <a href="{{ route('articles', $article->alias) }}">
                                         <h3>{{ str_limit($article->title, 72) }}</h3>
                                     </a>
@@ -36,10 +41,10 @@
                                      alt="{{$article->image->alt}}" title="{{ $article->image->title }}">
                             </div>
                             <div class="block-text">
-                                <span>
+                                <time>
                                     @if(strlen($article->created) < 6) <i class="icons icon-clock"></i> @endif
                                     {{ $article->created }}
-                                </span>
+                                </time>
                                 <a href="{{ route('articles', $article->alias) }}">
                                     <h3>{{ str_limit($article->title, 72) }}</h3>
                                 </a>

@@ -68,7 +68,7 @@
 
             </div>
             <!-- section-5 -->
-            @include('layouts.comments_form', ['id' => $blog->id, 'source' => 2])
+            @include('layouts.comments_form', ['id' => $blog->id, 'source' => 2, 'comments' => $blog->comments])
                 {{--comments--}}
                 {{--@if(count($blog->comments) > 0)
                     <hr>

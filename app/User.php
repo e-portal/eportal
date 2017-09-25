@@ -122,5 +122,4 @@ class User extends Authenticatable
             // do the rest of the cleanup...
         });
     }
-
 }

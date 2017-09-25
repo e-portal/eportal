@@ -42,7 +42,8 @@ class EstablishmentratioRepository
 
         $data['value'] = $request->get('ratio');
 
-        if ($val = $this->model->where(['establishment_id' => $data['establishment_id'], 'data_key' => $data['data_key']])->first()) {
+        $val = $this->model->where(['establishment_id' => $data['establishment_id'], 'data_key' => $data['data_key']])->first();
+        if ($val) {
             session()->put($data['data_key'], $val->value);
             return ['val' => $val->value];
         }

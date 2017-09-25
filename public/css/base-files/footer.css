@@ -1,0 +1,523 @@
+footer {
+    /*margin-top: 150px;*/
+    padding: 4.3% 6.7% 2.5%;
+    background: #202020;
+    color: #fff;
+    font-size: 0;
+}
+
+footer .footer-top,
+footer .footer-bot {
+    display: flex;
+    justify-content: space-between;
+}
+
+footer img {
+    width: 100%;
+    display: block;
+}
+
+.footer-ad img {
+    width: 265px;
+    height: 157px;
+}
+
+footer a {
+    color: #fff;
+    position: relative;
+}
+
+footer .left {
+    width: 17%;
+    min-width: 170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+footer .right {
+    width: 24%;
+}
+
+footer .center {
+    width: 50%;
+}
+
+.footer-bot .center {
+    margin: 0 5px 0 0;
+}
+
+footer p {
+    font-family: "Roboto";
+    color: #a8a7a7;
+    font-size: 12px;
+    line-height: 15px;
+}
+
+footer p:first-child {
+    margin-bottom: 6%;
+}
+
+.footer-top {
+    padding-bottom: 3.1%;
+    border-bottom: 1px solid rgba(168, 167, 167, 0.21);
+}
+
+.footer-head img {
+    margin-top: 4px;
+}
+
+footer .social-wrap h5 {
+    margin-bottom: 10px;
+    font-family: "SegoeUIRegular";
+    font-size: 16px;
+    text-align: center;
+}
+
+footer .social {
+    display: flex;
+    justify-content: space-between;
+}
+
+footer .social a {
+    width: 19px;
+    display: block;
+}
+
+footer .social a::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+footer .social a:hover::after {
+    opacity: 0.3;
+}
+
+.footer-bot {
+    padding-top: 2%;
+}
+
+.footer-bot .app-store {
+    width: 125px;
+}
+
+.footer-menu div {
+    padding: 5px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-menu a {
+    font-family: 'Roboto';
+    color: #d1d1d1;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.footer-menu a:hover {
+    color: #fff;
+}
+
+.footer-bot .right {
+    text-align: center;
+    font-family: 'Roboto';
+    margin: 0 -13px 0 0;
+}
+
+.footer-bot .right .partner span {
+    display: block;
+    transition: transform 0.5s linear, opacity 0.5s linear;
+    transform-origin: center;
+}
+
+.footer-bot .right a {
+    display: block;
+}
+
+.footer-bot .right .partner a span:first-child {
+    font-size: 12px;
+}
+
+.footer-bot .right .partner a:hover span:first-child {
+    transform: translateY(-2px);
+    opacity: 0;
+}
+
+.footer-bot .right .partner a:hover span:last-child {
+    transform: scale(1.1);
+}
+
+.footer-bot .right .partner {
+    width: 40%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.footer-bot .right .fresh {
+    width: 60%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.footer-bot .right .partner span {
+    font-size: 20px;
+    line-height: 28px;
+}
+
+.partner {
+    border-right: 1px solid rgba(168, 167, 167, 0.21);
+}
+
+.partner span:last-child {
+    letter-spacing: 2px;
+    color: #9b9b9b;
+}
+
+.developing span:last-child {
+    font-family: 'Vidaloka', serif;
+    color: #d27360;
+    letter-spacing: 6px;
+}
+
+@media (min-width: 1100px) and (max-width: 1366px) {
+    footer .footer-bot .left {
+        min-width: auto;
+        width: 15%;
+    }
+
+    footer .fresh:hover > a .fresh-logo span {
+        width: 18px;
+    }
+
+    footer .footer-bot .center {
+        min-width: 470px;
+    }
+
+    .creative, .created {
+        font-size: 7.3px;
+    }
+
+    .fresh-logo span {
+        width: 20px;
+    }
+
+    footer .created {
+        letter-spacing: 2.2px;
+    }
+
+    footer .creative, .created {
+        letter-spacing: 1px;
+    }
+}
+
+@media screen and (max-width: 1099px) {
+    footer .footer-bot .left {
+        min-width: auto;
+        width: 15%;
+    }
+
+    footer .fresh:hover > a .fresh-logo span {
+        width: 18px;
+    }
+
+    footer .footer-bot .center {
+        min-width: 470px;
+    }
+
+    .creative, .created {
+        font-size: 7.3px;
+    }
+
+    .fresh-logo span {
+        width: 20px;
+    }
+
+    footer .created {
+        letter-spacing: 2.2px;
+    }
+
+    footer .creative, .created {
+        letter-spacing: 1px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    footer {
+        padding: 53px 13% 63px;
+    }
+
+    footer .footer-bot .right .fresh {
+        width: 50%;
+    }
+
+    footer .footer-bot .right .partner {
+        width: 50%;
+    }
+
+    footer > * {
+        flex-wrap: wrap;
+    }
+
+    footer h2 img {
+        margin: 0 auto;
+        width: 185px;
+    }
+
+    footer .footer-top > * {
+        width: 100%;
+    }
+
+    footer .footer-top .right {
+        display: none;
+    }
+
+    footer .footer-top .center {
+        text-align: center;
+    }
+
+    footer .footer-top .center p:first-child {
+        margin-bottom: 4%;
+    }
+
+    footer .footer-top .center p:last-child {
+        margin-bottom: 2%;
+    }
+
+    footer .social-wrap {
+        margin: 45px auto;
+        width: 100%;
+        max-width: 366px;
+    }
+
+    footer .social-wrap h5 {
+        display: none;
+    }
+
+    footer .social-wrap a {
+        width: 29px;
+    }
+
+    footer .footer-bot .center {
+        width: 100%;
+        order: 1;
+        margin-bottom: 36px;
+    }
+
+    footer .footer-bot .left,
+    footer .footer-bot .right {
+        width: 50%;
+        order: 2;
+    }
+
+    footer .footer-bot .app-store {
+        width: 145px;
+        margin: 8px 0 0 0;
+    }
+
+    .footer-menu div {
+        padding: 7px 0;
+    }
+
+    .footer-menu a {
+        font-size: 14px;
+        letter-spacing: 1.3px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    footer {
+        padding: 62px 12.6% 42px;
+    }
+
+    footer .footer-top {
+        border-bottom: 0;
+    }
+
+    footer .footer-top .center {
+        margin-bottom: 10px;
+    }
+
+    footer .footer-top .center p:first-child {
+        margin: 0;
+        font-size: 10px;
+        line-height: 16px;
+    }
+
+    footer .footer-top .center p:last-child {
+        display: none;
+    }
+
+    footer .social-wrap h5 {
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    footer .footer-bot .left,
+    footer .footer-bot .right {
+        width: 100%;
+    }
+
+    footer .footer-bot .app-store {
+        margin: auto;
+        width: 125px;
+    }
+
+    footer .footer-bot .left {
+        margin-bottom: 37px;
+    }
+
+    footer .footer-bot .center {
+        display: none;
+    }
+
+    footer .creative, .created {
+        font-size: 8.3px;
+    }
+
+    footer .created {
+        letter-spacing: 3.8px;
+    }
+
+    footer .fresh:hover > a .fresh-logo span {
+        width: 22px;
+    }
+
+    footer .fresh-logo span {
+        width: 25px;
+    }
+
+    footer .footer-bot .right .partner {
+        width: 50%;
+    }
+
+    footer .footer-bot .right .fresh {
+        width: 50%;
+    }
+}
+
+@media (min-width: 319px) and (max-width: 466px) {
+    footer .fresh-logo span {
+        width: 15px;
+    }
+
+    footer .creative, .created {
+        font-size: 5.3px;
+    }
+
+    footer .fresh:hover > a .fresh-logo span {
+        width: 13px;
+    }
+
+    footer .created {
+        letter-spacing: 2px;
+    }
+
+    /*   footer .creative, .created {
+          letter-spacing: 1px;
+      } */
+}
+
+/*logo fresh*/
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&subset=cyrillic');
+@font-face {
+    font-family: 'Conv_Vidaloka-Regular';
+    src: url("/../fonts/Vidaloka/Vidaloka-Regular.eot");
+    src: local("☺"), url("/../fonts/Vidaloka/Vidaloka-Regular.woff") format("woff"), url("/../fonts/Vidaloka/Vidaloka-Regular.ttf") format("truetype"), url("/../fonts/Vidaloka/Vidaloka-Regular.svg") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.fresh {
+    font-size: 10px;
+    font-family: 'Roboto';
+    letter-spacing: 2px;
+    color: #a7a9ac;
+    text-transform: uppercase;
+    line-height: 15px;
+    margin-top: 0;
+    float: right;
+    text-align: center;
+    cursor: pointer;
+    width: 165px;
+}
+
+.creative,
+.created {
+    position: relative;
+    top: 0;
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-size: 9.3px;
+    color: #808285;
+    padding: 3px 0;
+    transition: all .5s linear;
+
+}
+
+.created {
+    letter-spacing: 3.8px;
+    margin-top: 0;
+}
+
+.fresh-logo {
+    color: #808285;
+    font-size: 21.99px;
+    font-family: 'Conv_Vidaloka-Regular';
+    position: relative;
+    text-align: center;
+    transition: all .3s linear;
+    right: 2px;
+}
+
+.fresh-logo span {
+    display: inline-block;
+    width: 31px;
+    transition: all .5s linear, color .5s linear .35s;
+}
+
+.fresh:hover > .creative {
+    top: 10px;
+    opacity: 0;
+    transition: all .8s linear;
+}
+
+.fresh:hover > .created {
+    top: -10px;
+    opacity: 0;
+    transition: all .8s linear;
+}
+
+.event-signup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .5);
+    z-index: 1000000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+
+.fresh:hover > a .fresh-logo span {
+    width: 25px;
+    color: #ef4136;
+    transition: all .5s linear, color .5s linear .35s;
+}
+
+.fresh:hover > a .fresh-logo {
+    color: #ef4136;
+    transition: color .5s linear .3s;
+}

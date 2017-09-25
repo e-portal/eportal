@@ -35,7 +35,7 @@ abstract class Repository {
 
         if($pagination) {
             if (true === $pagination) {
-                $pagination = 10;
+                $pagination = 14;
             }
             return $this->check($builder->paginate($pagination));
 //            return $this->check($builder->paginate(Config::get('settings.paginate')));

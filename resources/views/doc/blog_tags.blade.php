@@ -6,6 +6,11 @@
         </div>
     </div>
     <div class="content">
+        <div class="blog-categories">
+            <div class="select select-blue">
+                <a href="#">{{ $tag->name }}</a>
+            </div>
+        </div>
         <div class="main-content">
             @if($blogs)
                 @foreach($blogs as $blog)
@@ -22,7 +27,7 @@
                                     {{ $blog->created }}
                                 </span>
                                     <a href="{{ route('blogs', $blog->alias) }}">
-                                        <p>{{ str_limit($blog->title, 72) }}</p>
+                                        <h3>{{ str_limit($blog->title, 72) }}</h3>
                                     </a>
                                 </div>
                             </div>
@@ -41,7 +46,7 @@
                                     {{ $blog->created }}
                                 </span>
                                 <a href="{{ route('blogs', $blog->alias) }}">
-                                    <p>{{ str_limit($blog->title, 72) }}</p>
+                                    <h3>{{ str_limit($blog->title, 72) }}</h3>
                                 </a>
                             </div>
                         </div>

@@ -13,7 +13,7 @@
             <div class="content-centr">
                 {!! Form::open(['url'=>route('search'), 'method'=>'get']) !!}
                     <div class="form-search">
-                        <input type="search" name="value" placeholder="введите ваш запрос">
+                        {!! Form::search('value', old('value') ? : '' , ['placeholder'=>'введите ваш запрос', 'id'=>'value']) !!}
                         <img src="{{ asset('estet') }}/img/menu/search.png" alt="">
                     </div>
 

@@ -3,7 +3,6 @@
     font-size: 19px;
     color: #000;
     display: inline-block;
-    margin: 0px 34px 35px 0px;
 }
 
 .blog-page .blog-categories .select a:before {
@@ -363,6 +362,16 @@ div.horoscope-description:nth-of-type(2n) .img-horoscope-description {
     margin: 3% auto 5%;
     width: 77%;
     font-weight: 600;
+    text-align: center;
+}
+
+.more .heading-title {
+    font-size: 36px;
+    font-family: "Cormorant Garamond";
+    margin: 3% auto 5%;
+    width: 77%;
+    font-weight: 600;
+    text-align: start;
 }
 
 .main-img {

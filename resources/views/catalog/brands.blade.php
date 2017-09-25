@@ -14,7 +14,7 @@
                 <a href="#" itemprop="url">
                     <span itemprop="title">Бренды и их представители</span>
                 </a>
-            </div>/
+            </div>
             <div itemscope itemtype="#">
                 <span itemprop="title"></span>
             </div>

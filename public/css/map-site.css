@@ -13,6 +13,13 @@ h3 {
   font-size: 24px;
 }
 
+.js-block-parent .js-block-chaild:last-child .block-before {
+    overflow: hidden;
+}
+
+.js-block-parent .js-block-chaild:last-child {
+    height: 100%;
+}
 .doctor-page .block h3::before {
     content: '';
     display: inline-block;
@@ -51,7 +58,7 @@ h3 {
     width: 12px;
     border: 1px solid #7e2b83;
     position: absolute;
-    margin: 18px 0 0 -10px;
+    margin: 18px 0 0 -15px;
 }
 .main-content h2::before {
     content: '';
@@ -64,7 +71,7 @@ h3 {
     width: 12px;
     border: 1px solid #455ea7;
     position: absolute;
-    margin: 18px 0 0 -10px;
+    margin: 18px 0 0 -15px;
 }
 
 .doctor-page .site-discr-before {
@@ -150,8 +157,8 @@ h3 {
   margin: 0 14px 0 0;
 }
 .block {
-    margin: 0 0 0 27px;
     position: relative;
+    margin: 30px 0 0 27px;
 }
 
 .block-main a {

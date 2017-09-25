@@ -37,7 +37,7 @@ class EventsRepository extends Repository
         $event['title'] = $data['title'];
         $event['short_title'] = $data['short_title'];
         $event['extlink'] = $data['extlink'];
-        $event['extmail'] = $data['extmail'];
+        $event['extmail'] = $data['extmail'] ?? env('ADMIN_EMAIL');
         $event['country_id'] = $data['country'];
         $event['city_id'] = $data['city'];
 
@@ -372,16 +372,12 @@ class EventsRepository extends Repository
         return true;
     }
 
-    public function getWithoutPrems($pagination=false, $where=false, $wherenot=false, $order=false, $where_in)
+    public function getWithoutPrems($where_in = false, $pagination = false, $where = false, $wherenot = false, $order = false)
     {
         $builder = $this->model->with('logo');
 
         if ($where) {
-            if (is_array($where[0])) {
-                $builder->where($where);
-            } else {
-                $builder->where($where[0], $where[1], $where[2] = false);
-            }
+            $builder->where($where);
         }
 
         if ($where_in) {

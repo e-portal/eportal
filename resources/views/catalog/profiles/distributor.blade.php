@@ -39,7 +39,7 @@
                                             <div class="top-rating" data-id="{{ $distributor->id }}" data-source="1">
                                                 <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
                                             </div>
-                                            <p>{{ ($ratio->avg ?? 0) .' / 5 - (голосов - ' . ($ratio->count ?? 0) . ')'}}</p>
+                                            <p>{!! '<span class="avg">'.($ratio->avg ?? 0).'</span>' .' / 5 - (голосов - ' . ($ratio->count ?? 0) . ')'!!}</p>
                                         </div>
                                         <div class="info-kompani">
                                             <div class="kompani-contacts">
@@ -129,7 +129,7 @@
                                 </div>
                             @endif
                         </div>
-                        @include('layouts.comments_form', ['id' => $distributor->id, 'source' => 3])
+                        @include('layouts.comments_form', ['id' => $distributor->id, 'source' => 3, 'comments' => $distributor->comments])
                     </div>
                 </div>
 

@@ -28,7 +28,13 @@
             {{ $title ? ($title.' - '. env('APP_NAME')) : env('APP_NAME') }}
         @endif
     </title>
-    <link rel="stylesheet" type="text/css" href="{{ asset('css') }}/base.css">
+    {{--<link rel="stylesheet" type="text/css" href="{{ asset('css') }}/base.css">--}}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css') }}/base-files/base-main.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css') }}/base-files/base-articles.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css') }}/base-files/base-aside.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css') }}/base-files/base-hrp.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css') }}/base-files/base-media.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css') }}/base-files/footer.css">
     @if(!empty($css))
         {!! $css !!}
     @endif
@@ -43,6 +49,7 @@
             rel="stylesheet">
 </head>
 <body>
+<div class="color-top"></div>
 @if(session()->has('doc'))
     <div class="wrapper doctor-page @if('doctors' == Route::currentRouteName()) init-page @endif">
 @else
@@ -62,20 +69,20 @@
             <h1>
                 @if(session()->has('doc'))
                     {!! ('doctors' == Route::currentRouteName()) ?
-                            '<img src="'. asset('estet') .'/img/title.png" alt="'. env('APP_NAME') .'"
+                            '<img src="'. asset('estet') .'/img/logo.png" alt="'. env('APP_NAME') .'"
                                 title="'. env('APP_NAME') .'">'
                                  :
                             '<a href="'. route('doctors') .'">
-                                <img src="'. asset('estet') .'/img/title.png" alt="'. env('APP_NAME') .'"
+                                <img src="'. asset('estet') .'/img/logo.png" alt="'. env('APP_NAME') .'"
                                     title="'. env('APP_NAME') .'"></a>'
                      !!}
                 @else
                     {!! ('main' == Route::currentRouteName()) ?
-                            '<img src="'. asset('estet') .'/img/title.png" alt="'. env('APP_NAME') .'"
+                            '<img src="'. asset('estet') .'/img/logo.png" alt="'. env('APP_NAME') .'"
                                 title="'. env('APP_NAME') .'">'
                                  :
                             '<a href="'. route('main') .'">
-                                <img src="'. asset('estet') .'/img/title.png" alt="'. env('APP_NAME') .'"
+                                <img src="'. asset('estet') .'/img/logo.png" alt="'. env('APP_NAME') .'"
                                     title="'. env('APP_NAME') .'"></a>'
                      !!}
                 @endif

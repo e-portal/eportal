@@ -1,0 +1,385 @@
+.main-block aside.aside {
+    display: none;
+}
+
+.aside > div:last-child {
+    margin-bottom: 0;
+}
+
+.aside-block {
+    position: relative;
+    margin-bottom: 70px;
+    font-size: 16px;
+    line-height: 21px;
+}
+
+.aside-block > * {
+    width: 100%;
+    padding: 0;
+}
+
+.aside-block .content {
+    /*margin-top: 17px;*/
+    margin-top: 16px;
+}
+
+.aside-block .line-container {
+    width: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.aside-block .left-title .vertical-line {
+    height: 7px;
+    width: 100%;
+    -webkit-box-ordinal-group: 3;
+    -webkit-order: 2;
+    -moz-box-ordinal-group: 3;
+    -ms-flex-order: 2;
+    order: 2;
+    margin-top: 5px;
+    margin-left: 12px;
+    position: relative;
+}
+
+.aside-block .left-title h2 {
+    width: auto;
+    transform: none;
+    background: none;
+    padding: 0;
+    position: relative;
+    order: 1;
+    font-size: 24px;
+}
+
+.aside-block .articles-vertical {
+    padding: 0;
+}
+
+.aside-block .title-time {
+    padding: 0;
+    width: 100%;
+}
+
+.aside-block article {
+    margin: 18px 0 15px;
+}
+
+.aside-block article:last-child {
+    margin: 18px 0 0;
+}
+
+.aside-block .link-title {
+    margin: 12px 0 0;
+}
+
+.aside-block h3 {
+    font-size: 16px;
+    line-height: 21px;
+}
+
+.advertising {
+    /*margin: 48px 0 56px;*/
+}
+
+.advertising > * {
+    width: 100%;
+    display: block;
+}
+
+.aside-block .form-wrap {
+    background: #f3f3f3;
+    /*margin: 16.6% 0;*/
+    padding: 11% 9.6%;
+}
+
+.aside-block .form-wrap input,
+.aside-block .form-wrap select {
+    padding-left: 14px;
+}
+
+.aside-block form * {
+    display: block;
+    width: 100%;
+    outline: none;
+}
+
+.aside-block form h4 {
+    font-weight: 600;
+    line-height: 18px;
+    font-size: 19px;
+    font-family: 'Cormorant';
+    text-align: center;
+}
+
+.aside-block form strong {
+    margin: 20px 0 11px;
+    text-align: center;
+    font-family: 'Cormorant';
+    font-weight: 600;
+    line-height: 18px;
+    font-size: 16px;
+}
+
+.aside-block form label {
+    margin-bottom: 13px;
+}
+
+.aside-block form input,
+.aside-block form select {
+    height: 28px;
+    border: 0;
+}
+
+.aside-block form button {
+    height: 23px;
+    border-radius: 23px;
+    background: #455ea7;
+    color: #fff;
+    text-transform: uppercase;
+    border: none;
+    letter-spacing: 3.6px;
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-size: 12px;
+    /*margin-top: 16%;*/
+}
+
+.aside-block form .pod-purpur {
+    background: #7e2b83;
+}
+
+.highly-block {
+    margin-top: 49px;
+}
+
+@media screen and (max-width: 991px) {
+    .aside {
+        margin-top: 83px;
+        font-size: 0;
+    }
+
+    .aside-block {
+        width: 50%;
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    /*
+    .advertising>* {
+        width: 100%;
+        display: block;
+        height: 300px;
+    }
+    .advertising {
+        width: 331px;
+        height: auto;
+        margin: 0;
+    }
+
+    aside .aside-block .form-wrap {
+        margin: 0;
+        padding: 11% 9.6%;
+    }
+
+    .aside .aside-block:nth-child(1) {
+        width: 49%;
+        order: 5;
+    }
+
+    .aside .aside-block:nth-child(1):before {
+        content: "";
+        position: absolute;
+        background: #F3F3F3;
+        width: 100%;
+        height: 287px;
+        left: 0;
+        margin-top: -3%;
+    }
+
+    .aside .aside-block:nth-child(2):after {
+        content: "";
+        width: 11px;
+        height: 326px;
+        top: 91%;
+        background: #fff;
+        position: absolute;
+        left: 49%;
+    }
+    .aside .aside-block:nth-child(2) {
+        width: 49%;
+        margin-top: 0;
+        order: 4;
+    }
+    .aside .aside-block:nth-child(3) {
+        width: 100%;
+        order: 3;
+    }
+
+    .aside .aside-block:nth-child(4) {
+        width: 46%;
+        order: 1;
+        display: inherit;
+    }
+
+    .aside .aside-block:nth-child(5) {
+        width: 47%;
+        order: 2;
+    }
+
+    .aside-block .hrp {
+        margin: 5% 0 5% 0;
+    }
+
+    .doctor-page .aside .aside-block:nth-child(1) {
+        width: 49%;
+        order: 5;
+    }
+
+    .doctor-page .aside .aside-block:nth-child(2) {
+        width: 49%;
+        margin-top: 0;
+        order: 4;
+    }
+
+    .doctor-page .aside .aside-block:nth-child(3) {
+        display: none;
+    }
+
+    .doctor-page .aside .aside-block:nth-child(4) {
+        width: 100%;
+        order: 3;
+        display: block;
+    }
+
+    .doctor-page .aside .aside-block:nth-child(5) {
+        width: 47%;
+        order: 1;
+    }
+
+    .doctor-page .aside .aside-block:nth-child(6) {
+        width: 47%;
+        order: 2;
+        margin-top: 0;
+    }
+    */
+    .aside-block:nth-child(2n) {
+        padding-left: 9%;
+    }
+
+    .aside-block .advertising {
+        height: 286px;
+    }
+
+    .aside-block .advertising img {
+        height: 100%;
+    }
+
+    .aside-block.to-hide {
+        display: none;
+    }
+
+    .aside-block.to-full-width {
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    .aside-block .hrp {
+        margin: 6.5% 0;
+        padding: 0 5%;
+    }
+
+    .aside-block .hrp .icons-img {
+        margin-bottom: 39px;
+    }
+
+    .aside-block .articles-vertical hr {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .aside {
+        margin-top: 33px;
+    }
+
+    .aside-block {
+        width: 100%;
+        margin-bottom: 36px;
+    }
+
+    .aside-block:nth-child(2n) {
+        padding-left: 0;
+    }
+
+    .aside-block .advertising {
+        height: 182px;
+        position: relative;
+        left: -6%;
+        width: 112%;
+    }
+
+    .aside-block .form-wrap {
+        margin-top: -36px;
+        padding: 8% 7% 9.4%;
+        position: relative;
+    }
+
+    .aside-block .form-wrap::before {
+        content: '';
+        position: absolute;
+        width: 120%;
+        height: 100%;
+        left: -10%;
+        top: 0;
+        background: #f3f3f3;
+    }
+
+    .aside-block form {
+        position: relative;
+    }
+
+    .aside-block form strong {
+        margin: 0 0 21px;
+        line-height: 19px;
+        font-size: 19px;
+    }
+
+    .aside-block form label {
+        margin-bottom: 9px;
+    }
+
+    .aside-block form input,
+    .aside-block form select {
+        height: 19px;
+    }
+
+    .aside-block form button {
+        margin: 30px auto 0;
+        height: 25px;
+        width: 87%;
+    }
+
+    .aside-block .hrp {
+        margin: 0 7%;
+    }
+
+    .aside-block .hrp .icons-img {
+        margin-bottom: 23px;
+    }
+
+    .aside-block .hrp .icons-img span {
+        margin-top: 1px;
+    }
+
+    .aside-articles::before {
+        content: '';
+        position: absolute;
+        background: #e3e3e3;
+        width: 120%;
+        height: 117%;
+        top: -7%;
+        left: -10%;
+    }
+}

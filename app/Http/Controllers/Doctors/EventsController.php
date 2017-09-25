@@ -2,6 +2,7 @@
 
 namespace Fresh\Estet\Http\Controllers\Doctors;
 
+use Fresh\Estet\Eadv;
 use Fresh\Estet\Http\Requests\EventRequest;
 use Fresh\Estet\Jobs\EventSignup;
 use Illuminate\Http\Request;
@@ -70,23 +71,23 @@ class EventsController extends DocsController
                 <link rel="stylesheet" type="text/css" href="' . asset('css') . '/meropryyatyya-vnutrennyaya.css">
             ';
 
-        $this->content = Cache::remember('event_content-' . $event->alias, 60, function () use ($event) {
-            if (!empty($event->seo)) {
-                $event->seo = $this->repository->convertSeo($event->seo);
-            } else {
-                $event->seo = new \stdClass();
-            }
-            $event->seo->og_image = asset('/images/event/main') . '/' . $event->logo->path;
-            
-            $event->created = $this->repository->convertDate($event->created_at);
-            $event->load('logo');
-            $event->load('slider');
-            $event->load('comments');
+            $this->content = Cache::remember('event_content-' . $event->alias, 60, function () use ($event) {
+                if (!empty($event->seo)) {
+                    $event->seo = $this->repository->convertSeo($event->seo);
+                } else {
+                    $event->seo = new \stdClass();
+                }
+                $event->seo->og_image = asset('/images/event/main') . '/' . $event->logo->path;
 
-            $similar = $this->repository->getSimilar($event->id, $event->organizer_id, $event->cat_id);
+                $event->created = $this->repository->convertDate($event->created_at);
+                $event->load('logo');
+                $event->load('slider');
+                $event->load('comments');
 
-            return view('doc.events.event')->with(['event' => $event, 'similars' => $similar, 'sidebar' => $this->sidebar])->render();
-        });
+                $similar = $this->repository->getSimilar($event->id, $event->organizer_id, $event->cat_id);
+
+                return view('doc.events.event')->with(['event' => $event, 'similars' => $similar, 'sidebar' => $this->sidebar])->render();
+            });
 
             $this->seo = $event->seo ?? '<img src="' . asset('estet') . '/img/estet.png" >';
 
@@ -110,30 +111,37 @@ class EventsController extends DocsController
         $this->getSidebar();
 
         $where = false;
+        $where1 = false;
         $where_in = false;
         $children = false;
         if (!empty($request->all())) {
             $data = $request->all();
+
             if (!empty($data['country'])) {
                 $where[] = ['country_id', $data['country']];
+                $where1[] = ['country_id', $data['country']];
             }
 
-            $request->session()->forget('city');
+//            $request->session()->forget('city');
             if (!empty($data['city'])) {
-                $request->session()->flash('city', $data['city']);
+//                $request->session()->flash('city', $data['city']);
                 $where[] = ['city_id', $data['city']];
+                $where1[] = ['city_id', $data['city']];
             }
 
             if (!empty($data['cat'])) {
                 $where[] = ['cat_id', $data['cat']];
+                $where1[] = ['cat_id', $data['cat']];
             }
 
             if (!empty($data['organizer'])) {
                 $children = $this->organizer->getChildren($data['organizer']);
                 $where_in[] = $data['organizer'];
+                $where_in1[] = $data['organizer'];
                 if ($children->isNotEmpty()) {
                     foreach ($children as $child) {
                         $where_in[] = $child->id;
+                        $where_in1[] = $child->id;
                     }
                 }
             }
@@ -153,17 +161,28 @@ class EventsController extends DocsController
 
         $calendar_vars['first'] = date('D', mktime(0, 0, 0, $month, 1, $year));
         $calendar_vars['last_number'] = date('t', mktime(0, 0, 0, $month, 1, $year));
+        $calendar_vars['year'] = $year;
+        $calendar_vars['month'] = $month;
 
 //        $day_number = cal_days_in_month(CAL_GREGORIAN, $month, $year);
 
-        $where1 = [
-            ['stop', '>=', date('Y-m-01', mktime(0, 0, 0, $month, 1, $year))],
-            ['start', '<=', date('Y-m-t', mktime(0, 0, 0, $month, 1, $year))],
-        ];
+        $where[] = ['stop', '>=', date('Y-m-01', mktime(0, 0, 0, $month, 1, $year))];
+        $where[] = ['start', '<=', date('Y-m-t', mktime(0, 0, 0, $month, 1, $year))];
 
-        $calendar = $this->repository->get(['title', 'stop', 'start'], false, false, $where1, false, ['logo']);
-        $events = $this->repository->getWithoutPrems(true, $where, $prems_ids, false, $where_in);
-        $calendar = $this->repository->convertStop($calendar);
+        $calendar = $this->repository->getWithoutPrems($where_in, false, $where, $prems_ids, false);
+//        dd($calendar);
+        if (!empty($calendar[0])) {
+            $calendar = $this->repository->convertStop($calendar);
+            $where1[] = ['stop', '>=', date('Y-m-d', mktime(0, 0, 0, $month, date('d'), $year))];
+            $where1[] = ['start', '>=', date('Y-m-d', mktime(0, 0, 0, $month, 1, $year))];
+        } else {
+            $where_in = false;
+            $where1 = false;
+            $where1[] = ['stop', '>=', date('Y-m-d', mktime(0, 0, 0, date('m'), date('d'), date('Y')))];
+            $where1[] = ['start', '>=', date('Y-m-d', mktime(0, 0, 0, date('m'), 1, date('Y')))];
+        }
+        $events = $this->repository->getWithoutPrems($where_in, true, $where1, $prems_ids, false);
+//        dd($where1);
 
         $vars = [
             'events' => $events,
@@ -189,6 +208,7 @@ class EventsController extends DocsController
         $this->content = view('doc.events.index')->with($vars)->render();
         return $this->renderOutput();
     }
+
     /**
      * @return bool
      */
@@ -199,11 +219,12 @@ class EventsController extends DocsController
             $lasts = $this->repository->get(['title', 'alias', 'created_at'], 2, false, $where, ['created_at', 'desc']);
 
             $advertising = $this->adv_rep->getSidebar('doc');
+            $ad_slider = $this->repository->getAd(new Eadv());
             //          most displayed
             $where = array(['approved', true], ['created_at', '<=', DB::raw('NOW()')], ['own', 'docs']);
             $articles = $this->a_rep->mostDisplayed(['title', 'alias', 'created_at'], $where, 2, ['view', 'asc']);
             return view('doc.events.sidebar')
-                ->with(['lasts' => $lasts, 'articles' => $articles, 'advertising' => $advertising])
+                ->with(['lasts' => $lasts, 'articles' => $articles, 'advertising' => $advertising, 'ad_slider' => $ad_slider])
                 ->render();
         });
         return true;
@@ -218,8 +239,6 @@ class EventsController extends DocsController
                 'source' => 'required|digits_between:1,10|max:4294967295',
                 'phone' => ['required', 'between:4,255', 'regex:#^[0-9()\,\-\s\+]+$#'],
             ]);
-
-//            dd($validator->errors());
 
             if ($validator->fails()) {
                 return \Response::json(['error' => $validator->errors()]);

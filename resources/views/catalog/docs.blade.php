@@ -15,7 +15,6 @@
                     <span itemprop="title">Врачи</span>
                 </a>
             </div>
-            /
             <div itemscope itemtype="#">
                 <span itemprop="title"></span>
             </div>

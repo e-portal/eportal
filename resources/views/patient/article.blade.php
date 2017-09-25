@@ -40,7 +40,7 @@
                 </div>
                 <!----------------------------------blog-categories---------------------------------->
             </div>
-            @include('layouts.comments_form', ['id' => $article->id, 'source' => 1])
+            @include('layouts.comments_form', ['id' => $article->id, 'source' => 1, 'comments' => $article->comments])
         </div>
         {!! $sidebar !!}
     </div>
