@@ -11,15 +11,17 @@
     <div class="content">
         <div class="main-content page-content">
             <!-- section-2 -->
-            <div class="blog-section">
+            <div class="blog-section hidden-blog">
                 @foreach($cats as $cat)
-                    <div class="categories-section">
+                    <div class="categories-section ">
                         <a href="{{ route('blogs_cat', $cat->alias) }}">
                             <img src="{{ asset('estet') }}/img/blog/7.png" alt="">
                             <span>{{ $cat->name }}</span>
                         </a>
                     </div>
                 @endforeach
+
+                <button class="will-open" type="submit">Больше</button>
             </div>
 
             <!-- section-3 -->
@@ -28,10 +30,11 @@
                     <div class="categories">
                         <p>Категории</p>
                     </div>
-                    <div class="select">
+                    <div class="select hidden-blog">
                         @foreach($tags as $tag)
                             <a href="{{ route('blog_tag', $tag->alias) }}">{{ $tag->name }}</a>
                         @endforeach
+                        <button class="will-open" type="submit">Больше</button>
                     </div>
                 </div>
             </div>
@@ -125,3 +128,18 @@
 
     </div>
 </section>
+{{--BreadCrumbs--}}
+<div class="bread-crumbs" id="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
+    <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="button">
+        <a href="{{ route('doctors') }}" itemprop="item">
+            <span itemprop="name" class="label1">Главная</span>
+            <meta itemprop="position" content="1"/>
+        </a>
+    </div>
+    /
+    <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="button">
+        <span itemprop="name" class="label1">Блог</span>
+        <meta itemprop="position" content="2"/>
+    </div>
+</div>
+{{--BreadCrumbs--}}

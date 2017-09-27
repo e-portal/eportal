@@ -68,26 +68,7 @@
 
             </div>
             <!-- section-5 -->
-            @include('layouts.comments_form', ['id' => $blog->id, 'source' => 2, 'comments' => $blog->comments])
-                {{--comments--}}
-                {{--@if(count($blog->comments) > 0)
-                    <hr>
-                    @foreach($blog->comments as $comment)
-                        @if(0 !== $comment->parent_id)
-                            @continue
-                        @endif
-                        <div class="row">
-                            <table class="table">
-                                <tr><th>#</th><th>{{ $comment->id }}</th></tr>
-                                <tr><td>E-mail</td><td>{{ $comment->email }}</td></tr>
-                                <tr><td>Имя</td><td>{{ $comment->name }}</td></tr>
-                                <tr><td>Коментарий</td><td>{{ $comment->text }}</td></tr>
-                            </table>
-                        </div>
-                        @include('comment', ['children' => $blog->comments, 'id' => $comment->id])
-                    @endforeach
-                @endif
-                <hr>--}}
+            @include('layouts.comments.comments_form', ['id' => $blog->id, 'source' => 2, 'comments' => $blog->comments])
         </div>
         {!! $sidebar !!}
     </div>
@@ -132,3 +113,32 @@
         </div>
     </div>
 </section>
+{{--BreadCrumbs--}}
+<div class="bread-crumbs" id="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
+    <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="button">
+        <a href="{{ route('doctors') }}" itemprop="item">
+            <span itemprop="name" class="label1">Главная</span>
+            <meta itemprop="position" content="1"/>
+        </a>
+    </div>
+    /
+    <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="button">
+        <a href="{{ route('blogs') }}" itemprop="item">
+            <span itemprop="name" class="label1">Блог</span>
+            <meta itemprop="position" content="2"/>
+        </a>
+    </div>
+    /
+    <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="button">
+        <a href="{{ route('blogs_cat', $blog->category->alias) }}" itemprop="item">
+            <span itemprop="name" class="label1">{{ $blog->category->name }}</span>
+            <meta itemprop="position" content="3"/>
+        </a>
+    </div>
+    /
+    <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="button">
+        <span itemprop="name" class="label1">{{ $blog->title }}</span>
+        <meta itemprop="position" content="4"/>
+    </div>
+</div>
+{{--BreadCrumbs--}}

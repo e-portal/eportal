@@ -104,3 +104,25 @@
     </div>
     </div>
 </section>
+{{--BreadCrumbs--}}
+<div class="bread-crumbs" id="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
+    <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="button">
+        <a href="{{ route('doctors') }}" itemprop="item">
+            <span itemprop="name" class="label1">Главная</span>
+            <meta itemprop="position" content="1"/>
+        </a>
+    </div>
+    /
+    <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="button">
+        <a href="{{ route('blogs') }}" itemprop="item">
+            <span itemprop="name" class="label1">Блог</span>
+            <meta itemprop="position" content="2"/>
+        </a>
+    </div>
+    /
+    <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="button">
+        <span itemprop="name" class="label1">Тэг - {{ $tag->name }}</span>
+        <meta itemprop="position" content="3"/>
+    </div>
+</div>
+{{--BreadCrumbs--}}

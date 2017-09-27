@@ -75,8 +75,6 @@ class BlogsController extends DocsController
             }
             $this->blog_rep->displayed($blog->id);
 
-//            dd($blog->comments->isNotEmpty());
-
             $this->content = Cache::remember('blogs-preview-'.$blog_alias, 10, function () use ($blog) {
 
 
@@ -198,7 +196,7 @@ class BlogsController extends DocsController
             $tags = $this->tag_rep->get(['name', 'alias']);
             $this->sidebar = $this->getSidebar();
             return view('doc.blogcat')
-                ->with(['blogs' => $blogs, 'sidebar' => $this->sidebar, 'cats' => $cats, 'tags' => $tags])
+                ->with(['blogs' => $blogs, 'sidebar' => $this->sidebar, 'cats' => $cats, 'tags' => $tags, 'catname' => $cat->name])
                 ->render();
         });
         $this->getSeo('doctor/blog/categorii');
@@ -211,21 +209,33 @@ class BlogsController extends DocsController
      */
     public function getSidebar()
     {
-        $sidebar = Cache::remember('blogs_sidebar', 60, function () {
-            //            Last 2 events
+        //            Last 2 events
+        $lasts = Cache::remember('blog_sidebar_lasts', 60, function () {
             $events_rep = new EventsRepository(new Event());
             $where = array(['approved', true], ['created_at', '<=', DB::raw('NOW()')]);
-            $lasts = $events_rep->get(['title', 'alias', 'created_at'], 2, false, $where, ['created_at', 'desc']);
-            //          most displayed
-            $where = array(['approved', true], ['created_at', '<=', DB::raw('NOW()')]);
-            $articles = $this->blog_rep->getLast(['title', 'alias', 'created_at'], $where, 2, ['view', 'asc']);
-
-            $advertising = $this->adv_rep->getSidebar('doc');
-
-            return view('doc.blogs_sidebar')
-                ->with(['lasts' => $lasts, 'articles' => $articles, 'advertising' => $advertising])
-                ->render();
+            return $events_rep->get(['title', 'alias', 'created_at'], 2, false, $where, ['created_at', 'desc']);
         });
+
+        //            Last 2 events
+        //          most displayed
+        $articles = Cache::remember('blog_sidebar_popular', 60, function () {
+            $where = array(['approved', true], ['created_at', '<=', DB::raw('NOW()')]);
+            return $this->blog_rep->getLast(['title', 'alias', 'created_at'], $where, 10, ['view', 'asc']);
+        });
+        $articles = $articles->random(2);
+        //          most displayed
+
+        $advertisings = Cache::remember('docs_sidebar_adv', 24 * 60, function () {
+            return $this->adv_rep->getSidebar('doc');
+        });
+
+        $advertising['sidebar'] = $advertisings['sidebar']->random();
+        $advertising['sidebar_2'] = $advertisings['sidebar_2']->random();
+
+        $sidebar = view('doc.blogs_sidebar')
+            ->with(['lasts' => $lasts, 'articles' => $articles, 'advertising' => $advertising])
+            ->render();
+
         return $sidebar;
     }
 }

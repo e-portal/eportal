@@ -9,9 +9,9 @@
     </div>
     <div class="content">
         <!-- section 2 -->
-        <div class="bread-crumbs">
+        <div class="bread-crumbss">
             <div itemscope itemtype="#">
-                <a href="#" itemprop="url">
+                <a itemprop="url">
                     <span itemprop="title">Врачи</span>
                 </a>
             </div>
@@ -162,3 +162,18 @@
         {!! $sidebar !!}
     </div>
 </section>
+{{--BreadCrumbs--}}
+<div class="bread-crumbs" id="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
+    <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="button">
+        <a href="{{ route('main') }}" itemprop="item">
+            <span itemprop="name" class="label1">Главная</span>
+            <meta itemprop="position" content="1"/>
+        </a>
+    </div>
+    /
+    <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="button">
+        <span itemprop="name" class="label1">Врачи</span>
+        <meta itemprop="position" content="2"/>
+    </div>
+</div>
+{{--BreadCrumbs--}}

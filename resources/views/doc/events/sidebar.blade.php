@@ -1,5 +1,5 @@
 <aside class="aside">
-    <div class="aside-block">
+    <div class="aside-block aside-articles">
         <div class="left-title">
             <div class="line-container">
                 <div class="vertical-line line-purple"></div>
@@ -28,7 +28,7 @@
             </div>
         </div>
     </div>
-    <div class="aside-block highly-block">
+    <div class="aside-block aside-articles">
         <div class="left-title">
             <div class="line-container">
                 <div class="vertical-line line-purple"></div>
@@ -57,18 +57,31 @@
             </div>
         </div>
     </div>
-    <div class="aside-block">
-        <div class="advertising">
-            {!! $advertising['sidebar'] ?? '<img src="'. asset('estet') .'/img/200x325.png" >' !!}
+    {{--adv slider--}}
+    <div class="aside-block to-hide">
+        <div class="content">
+            <div class="just-slider">
+                <div class="slides">
+                    @foreach($ad_slider as $slider)
+                        @if(empty($slider->image))
+                            @continue
+                        @endif
+                        <a href="{{ $slider->extlink }}"><img src="/images/event/ad/main/{{ $slider->image }}"></a>
+                    @endforeach
+                </div>
+                <div class="pagination">
+                </div>
+            </div>
         </div>
     </div>
+    {{--adv slider--}}
     @include('layouts.horoscope.sidebar')
-    <div class="aside-block">
+    <div class="aside-block to-hide">
         <div class="advertising">
-            {!! $advertising['sidebar_2'] ?? '<img src="'. asset('estet') .'/img/200x325.png" >' !!}
+            {!! $advertising['sidebar_2'] ?? '<img src="'. asset('estet') .'/bannera/200x325.png" >' !!}
         </div>
     </div>
-    <div class="aside-block subscribe-block">
+    <div class="aside-block to-hide">
         @include('layouts.subscribe')
     </div>
 </aside>

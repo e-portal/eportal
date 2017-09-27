@@ -50,12 +50,12 @@ class BlogController extends Controller
                     break;
                 case 4:
                     $model = new BlogsRepository(new Blog);
-                    $blogs = $model->get(['title', 'id', 'created_at'], false, true, ['user_id', Auth::id()]);
+                    $blogs = $model->get(['title', 'id', 'created_at'], false, true, ['user_id' => Auth::id()]);
                     $blogs->appends(['param' => $data['param']])->links();
                     break;
                 default:
                     $model = new BlogsRepository(new Blog);
-                    $blogs = $model->get(['title', 'id', 'created_at'], false, true, ['user_id', Auth::id()]);
+                    $blogs = $model->get(['title', 'id', 'created_at'], false, true, ['user_id' => Auth::id()]);
             }
         } else {
             $blogs = $this->blog_rep->get(['title', 'id', 'created_at', 'blog_id'], false, true, [['user_id', Auth::id()], ['moderate', false]]);

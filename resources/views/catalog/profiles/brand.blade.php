@@ -9,17 +9,7 @@
     </div>
     <div class="content">
         <!-- section 2 -->
-        <div class="bread-crumbs">
-            <div itemscope itemtype="#">
-                <a href="#" itemprop="url">
-                    <span itemprop="title">Бренды и их представители</span>
-                </a>
-            </div>/
-            <div itemscope itemtype="#">
-                <span itemprop="title">Alfa Spa Development</span>
-            </div>
-        </div>
-        <div class="katalog-page">
+        <div class="katalog-page katalog-internal">
 
             <div class="main-content page-content">
                 <!-- section-3 -->
@@ -63,19 +53,19 @@
                                             @isset($brand->extra[0])
                                                 <div class="kompani-contacts">
                                                     <p>{{ $brand->extra[0][0] }}</p>
-                                                    {{ $brand->extra[0][1] }}
+                                                    <span>{{ $brand->extra[0][1] }}</span>
                                                 </div>
                                             @endisset
                                             @isset($brand->extra[1])
                                                 <div class="kompani-contacts">
                                                     <p>{{ $brand->extra[1][0] }}</p>
-                                                    {{ $brand->extra[1][1] }}
+                                                    <span>{{ $brand->extra[1][1] }}</span>
                                                 </div>
                                             @endisset
                                         </div>
                                         <div class="kervices-kompani">
                                             @if(!empty($brand->spec))
-                                                <p>Описание продкта:</p>
+                                                <p>Описание продукта:</p>
                                                 {{ $brand->spec }}
                                             @endif
                                         </div>
@@ -118,7 +108,7 @@
                             </div>
                             @endif
                         </div>
-                        @include('layouts.comments_form', ['id' => $brand->id, 'source' => 3, 'comments' => $brand->comments])
+                        @include('layouts.comments.comments_form', ['id' => $brand->id, 'source' => 3, 'comments' => $brand->comments])
                     </div>
                 </div>
             </div>
@@ -127,20 +117,25 @@
 
     </div>
 </section>
-{{--@if(count($brand->comments) > 0)
-    <hr>
-    @foreach($brand->comments as $comment)
-        @if(0 !== $comment->parent_id)
-            @continue
-        @endif
-        <div class="row">
-            <table class="table">
-                <tr><th>#</th><th>{{ $comment->id }}</th></tr>
-                <tr><td>E-mail</td><td>{{ $comment->email }}</td></tr>
-                <tr><td>Имя</td><td>{{ $comment->name }}</td></tr>
-                <tr><td>Коментарий</td><td>{{ $comment->text }}</td></tr>
-            </table>
-        </div>
-        @include('comment', ['children' => $brand->comments, 'id' => $comment->id])
-    @endforeach
-@endif--}}
+{{--BreadCrumbs--}}
+<div class="bread-crumbs" id="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
+    <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="button">
+        <a href="{{ route('main') }}" itemprop="item">
+            <span itemprop="name" class="label1">Главная</span>
+            <meta itemprop="position" content="1"/>
+        </a>
+    </div>
+    /
+    <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="button">
+        <a href="{{ route('brands',['brand'=> $brand->alias]) }}" itemprop="item">
+            <span itemprop="name" class="label1">Бренды и их представители</span>
+            <meta itemprop="position" content="2"/>
+        </a>
+    </div>
+    /
+    <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="button">
+        <span itemprop="name" class="label1">{{ $brand->title }}</span>
+        <meta itemprop="position" content="3"/>
+    </div>
+</div>
+{{--BreadCrumbs--}}

@@ -69,7 +69,14 @@ class DocsController extends Controller
                 'blogs' => $this->blog_rep->get(['id', 'alias', 'title', 'created_at', 'view'], 4, false, [['approved', 1]], ['created_at', 'desc'], ['blog_img', 'category', 'person'], true),
             ];
 
-            $advertising = $this->adv_rep->getMainDocs();
+            $advertisings = Cache::remember('doc_main_adv', 24 * 60, function () {
+                return $this->adv_rep->getMainDocs();
+            });
+
+            $advertising['main_1'] = $advertisings['main_1']->random();
+            $advertising['main_2'] = $advertisings['main_2']->random();
+            $advertising['main_3'] = $advertisings['main_3']->random();
+
             return view('doc.content')
                 ->with(['articles' => $articles, 'advertising' => $advertising])
                 ->render();
@@ -158,7 +165,14 @@ class DocsController extends Controller
                 'blogs' => $this->blog_rep->get(['id', 'alias', 'title', 'created_at', 'view'], 4, false, [['approved', 1]], ['created_at', 'desc'], ['blog_img', 'category', 'person'], true),
             ];
 
-            $advertising = $this->adv_rep->getMainDocs();
+            $advertisings = Cache::remember('doc_main_adv', 24 * 60, function () {
+                return $this->adv_rep->getMainDocs();
+            });
+
+            $advertising['main_1'] = $advertisings['main_1']->random();
+            $advertising['main_2'] = $advertisings['main_2']->random();
+            $advertising['main_3'] = $advertisings['main_3']->random();
+
             return view('doc.content')
                 ->with(['articles' => $articles, 'advertising' => $advertising])
                 ->render();
@@ -238,10 +252,15 @@ class DocsController extends Controller
         if (!empty($this->footer)) {
             $footer = $this->footer;
         } else {
-            $footer = Cache::remember('docs_footer', 24 * 60, function () {
-                $adv = $this->adv_rep->getFooter('doc');
-                return view('layouts.footer')->with(['adv' => $adv])->render();
+
+            $advertisings = Cache::remember('doc_footer_adv', 24 * 60, function () {
+                return $this->adv_rep->getFooter('doc');
             });
+
+            $adv['text'] = $advertisings->random();
+
+            $footer = view('layouts.footer')->with(['adv' => $adv])->render();
+
         }
         $this->vars = array_add($this->vars, 'footer', $footer);
 
@@ -263,6 +282,7 @@ class DocsController extends Controller
 
         return Menu::make('menu', function ($menu) use ($cats) {
             $menu->add('Последние', ['route' => ['docs_articles_last']]);
+            $menu->add('Самые популярные', ['route' => ['most_popular']]);
             foreach ($cats as $cat) {
                 if ('Видео' == $cat->name) {
                     continue;
@@ -279,6 +299,8 @@ class DocsController extends Controller
      */
     public function tag($tag = null)
     {
+        Cache::flush();
+
         if (!$tag) {
             abort(404);
         }
@@ -334,24 +356,68 @@ class DocsController extends Controller
     }
 
     /**
+     * @return
+     */
+    public function mostPopular()
+    {
+        $this->css = '
+                <link rel="stylesheet" type="text/css" href="' . asset('css') . '/statyi.css">
+                <link rel="stylesheet" type="text/css" href="' . asset('css') . '/statyi-media.css">
+            ';
+
+        $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+
+        $this->content = Cache::remember('docs_articles_popular-' . $currentPage, 60, function () {
+            $where = array(['approved', true], ['created_at', '<=', DB::raw('NOW()')], ['own', 'docs']);
+            $articles = $this->a_rep->get('*', 14, true, $where, ['view', 'desc'], ['image']);
+
+            $cat = new \stdClass();
+            $cat->name = 'Самые популярные';
+            $this->getSidebar();
+
+            return view('doc.cat')
+                ->with(['articles' => $articles, 'cat' => $cat, 'sidebar' => $this->sidebar])
+                ->render();
+        });
+
+        $this->seo = Cache::remember('seo_lasts', 24 * 60, function () {
+            return $this->seo_rep->getSeo('populyarnye');
+        });
+        $this->getSidebar();
+        return $this->renderOutput();
+    }
+
+    /**
      * @return bool
      */
     public function getSidebar()
     {
-        $this->sidebar = Cache::remember('docsArticleSidebar', 60, function () {
-            //            Last 2 publications
+//          Last 2 publications
+        $lasts = Cache::remember('docs_sidebar_lasts', 60, function () {
             $where = array(['approved', true], ['created_at', '<=', DB::raw('NOW()')], ['own', 'docs']);
-            $lasts = $this->a_rep->getLast(['title', 'alias', 'created_at'], $where, 2, ['created_at', 'desc']);
-            //          most displayed
-            $where = array(['approved', true], ['created_at', '<=', DB::raw('NOW()')], ['own', 'docs']);
-            $articles = $this->a_rep->mostDisplayed(['title', 'alias', 'created_at'], $where, 2, ['view', 'asc']);
-
-            $advertising = $this->adv_rep->getSidebar('doc');
-
-            return view('doc.sidebar')
-                ->with(['lasts' => $lasts, 'articles' => $articles, 'advertising' => $advertising])
-                ->render();
+            return $this->a_rep->getLast(['title', 'alias', 'created_at'], $where, 2, ['created_at', 'desc']);
         });
+//          Last 2 publications
+
+//          most displayed
+        $articles = Cache::remember('docs_sidebar_popular', 60, function () {
+            $where = array(['approved', true], ['created_at', '<=', DB::raw('NOW()')], ['own', 'docs']);
+            return $this->a_rep->mostDisplayed(['title', 'alias', 'created_at'], $where, 10, ['view', 'asc']);
+        });
+        $articles = $articles->random(2);
+//          most displayed
+
+        $advertisings = Cache::remember('docs_sidebar_adv', 24 * 60, function () {
+            return $this->adv_rep->getSidebar('doc');
+        });
+
+        $advertising['sidebar'] = $advertisings['sidebar']->random();
+        $advertising['sidebar_2'] = $advertisings['sidebar_2']->random();
+
+        $this->sidebar = view('doc.sidebar')
+            ->with(['lasts' => $lasts, 'articles' => $articles, 'advertising' => $advertising])
+            ->render();
+
         return true;
     }
 

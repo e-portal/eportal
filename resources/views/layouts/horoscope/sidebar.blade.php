@@ -1,4 +1,4 @@
-<div class="aside-block horoscope-block  ">
+<div class="aside-block to-full-width">
     <div class="left-title">
         <div class="line-container">
             <div class="vertical-line @if(session()->has('doc')) line-purple @endif"></div>

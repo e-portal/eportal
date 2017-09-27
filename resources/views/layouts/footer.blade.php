@@ -51,11 +51,11 @@
                 над или под источником контента.</p>
         </div>
         <div class="right">
-            <div class="footer-ad">
-                @if(!empty($adv->text))
-                    {!! $adv->text !!}
+            <div class="footer-advertising">
+                @if(!empty($adv['text']))
+                    {!! $adv['text'] !!}
                 @else
-                    <img src="{{ asset("estet") }}/bannera/331x286.png">
+                    <img src="{{ asset("estet") }}/bannera/265x157.png">
                 @ENDIF
             </div>
         </div>
@@ -95,26 +95,18 @@
             </div>
         </div>
         <div class="right">
-            <div class="partner">
+            <!-- <div class="partner">
                 <a target="_blank" href="https://econet.ua/">
                     <span>партнер</span>
                     <span>ECONET</span>
                 </a>
-            </div>
-
-            <!--  <a target="_blank" href="https://freshweb.agency?utm_source=ESTET-PORTAL">
-                 <span>разработка</span>
-                 <span>FRESH</span>
-             </a> -->
-            <div class="fresh">
-                <div class="created">САЙТ РАЗРАБОТАН</div>
-                <a href="http://freshweb.agency/?utm_source=our-sites&utm_medium=estet" target="_blank">
-                    <div class="fresh-logo"><span>F</span><span>R</span><span>E</span><span>S</span><span>H</span></div>
+            </div> -->
+            <div class="developing">
+                <a target="_blank" href="https://freshweb.agency?utm_source=ESTET-PORTAL">
+                    <span>разработка</span>
+                    <span>FRESH</span>
                 </a>
-                <div class="creative">CREATIVE WEB AGENCY</div>
             </div>
-
-
         </div>
     </div>
 </footer>

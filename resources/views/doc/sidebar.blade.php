@@ -1,5 +1,5 @@
 <aside class="aside">
-    <div class="aside-block">
+    <div class="aside-block aside-articles">
         <div class="left-title">
             <div class="line-container">
                 <div class="vertical-line line-purple"></div>
@@ -28,7 +28,7 @@
             </div>
         </div>
     </div>
-    <div class="aside-block highly-block">
+    <div class="aside-block aside-articles  ">
         <div class="left-title">
             <div class="line-container">
                 <div class="vertical-line line-purple"></div>
@@ -63,11 +63,11 @@
         </div>
     </div>
     @include('layouts.horoscope.sidebar')
-    <div class="aside-block subscribe-block">
+    <div class="aside-block to-hide">
         @include('layouts.subscribe')
     </div>
     <div class="aside-block">
-        <div class="advertising">
+        <div class="advertising to-hide">
             {!! $advertising['sidebar_2'] ?? '<img src="'. asset('estet') .'/bannera/200x325.png" >' !!}
         </div>
     </div>

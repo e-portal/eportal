@@ -102,6 +102,9 @@ function getCookie(name) {
 
 function switchSites() {
     $('.doctor,.checkbox-label').click(function () {
+        if ($(this).hasClass('active')) {
+            return true
+        }
         cook = getCookie('userstatus');
         if (cook) {
             $('.to-page-doctor form').submit();
@@ -138,10 +141,10 @@ $('.burger').click(function () {
 
 /*background-menu-active hover*/
 $('.submenu').mouseover(function () {
-    $('.background-menu-active').css('display', 'block');
+    $('.background-menu-active').stop().fadeIn(150)
 });
 $('.submenu').mouseout(function () {
-    $('.background-menu-active').css('display', 'none');
+    $('.background-menu-active').stop().fadeOut(150)
 });
 
 

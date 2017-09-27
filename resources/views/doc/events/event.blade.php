@@ -1,4 +1,4 @@
-<section id="section-1" class="meropryyatyya">
+<section id="section-1" class="meropryyatyya blog-page">
     <div class="left-title">
         <div class="line-container text-vertical">
             <div class="vertical-line line-purple"></div>
@@ -52,7 +52,7 @@
                 @endif
             </div>
             <!--section 7-3-->
-            @include('layouts.comments_form', ['id' => $event->id, 'source' => 4])
+            @include('layouts.comments.comments_form', ['id' => $event->id, 'source' => 4, 'comments' => $event->comments])
         </div>
         <!--section 8-->
         {!! $sidebar !!}
@@ -75,7 +75,7 @@
                     @foreach($similars as $sevent)
                         <article>
                             <a class="link-img" href="{{ route('events', $sevent->alias) }}" rel="nofollow">
-                                <img src="{{ asset('images\event\mini').'/'. $sevent->logo->path}}"
+                                <img src="{{ asset('images\event\small').'/'. $sevent->logo->path}}"
                                      alt="{{ $sevent->logo->alt }}"
                                      title="{{ $sevent->logo->title }}"
                                 >
@@ -100,3 +100,25 @@
         </div>
     </section>
 <!--section 10-->
+{{--BreadCrumbs--}}
+<div class="bread-crumbs" id="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
+    <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="button">
+        <a href="{{ route('doctors') }}" itemprop="item">
+            <span itemprop="name" class="label1">Главная</span>
+            <meta itemprop="position" content="1"/>
+        </a>
+    </div>
+    /
+    <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="button">
+        <a href="{{ route('events') }}" itemprop="item">
+            <span itemprop="name" class="label1">Мероприятия</span>
+            <meta itemprop="position" content="2"/>
+        </a>
+    </div>
+    /
+    <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="button">
+        <span itemprop="name" class="label1">{{ str_limit($event->title, 72) }}</span>
+        <meta itemprop="position" content="3"/>
+    </div>
+</div>
+{{--BreadCrumbs--}}

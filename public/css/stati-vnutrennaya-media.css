@@ -1978,6 +1978,7 @@
 
     .heading-title {
         font-size: 30px;
+        padding: 70px 0;
     }
 
     .main-img {
@@ -2319,4 +2320,10 @@
     .img_articles_news-popul img {
         width: 100%;
     }
+
+    .heading-title {
+        width: 100%;
+        line-height: 32px;
+    }
+
 }

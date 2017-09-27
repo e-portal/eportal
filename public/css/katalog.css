@@ -149,7 +149,7 @@
 
 .article-content {
     position: relative;
-    padding: 31px 0 92px;
+    padding: 31px 0 75px;
 }
 
 .article.premium .article-content::before {
@@ -301,6 +301,34 @@
     .katalog-page .blog-section .categories-section a {
         font-size: 16px;
     }
+
+    .katalog-page .article-content .article-content_top {
+        padding-right: 0;
+    }
+
+    /************************* aside *****************/
+    .highly-block {
+        margin-top: 0;
+    }
+
+    .blog-page .left-title, .articles .left-title {
+        padding: 0;
+    }
+
+    .aside-block {
+        padding-right: 4%;
+    }
+
+    .aside-block:nth-child(2n) {
+        padding-left: 5%;
+    }
+
+    .horoscope-block {
+        margin-top: 0;
+        width: 100%;
+        margin-bottom: 0;
+    }
+    
 }
 
 

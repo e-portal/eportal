@@ -2,19 +2,16 @@
     .container::before {
         display: none;
     }
-
     .left-title {
         /*width: 15.2%;*/
         width: 16.4%;
     }
-
     .content {
         /*width: 84.8%;
         padding-right: 5.8%;*/
         width: 83.6%;
         padding-right: 4.6%;
     }
-
     .line-container {
         margin-left: -9%;
     }
@@ -26,18 +23,15 @@
     .container::before {
         background: #fff;
     }
-
     .main-content,
     aside.aside {
         width: 100%;
         padding: 0;
         float: none;
     }
-
     .main-content .aside {
         display: block;
     }
-
     /*aside.aside {
         width: 100%;
         display: flex;
@@ -45,23 +39,20 @@
         justify-content: space-between;
         margin-top: 50px;
     }*/
+
     .has-aside {
         padding: 0 6.5%;
     }
-
     .has-aside h1 {
         margin: 26px 0 12px;
     }
-
     .has-aside section {
         flex-wrap: wrap;
     }
-
     .has-aside .left-title {
         width: 100%;
         padding: 0;
     }
-
     .has-aside .left-title .vertical-line {
         height: 7px;
         width: 100%;
@@ -69,7 +60,6 @@
         margin-top: 8px;
         margin-left: 14px;
     }
-
     .has-aside .left-title h2 {
         transform: none;
         background: none;
@@ -79,12 +69,10 @@
         font-size: 25px;
         width: auto;
     }
-
     .has-aside .content {
         width: 100%;
         padding: 0;
     }
-
     .has-aside .line-container {
         width: 100%;
         margin: 0;
@@ -103,11 +91,6 @@
         width: 100%;
     }
 
-    .blog-page .left-title, .articles .left-title {
-        width: 100%;
-        padding: 0 0 0 20px;
-    }
-
     .blog-page .line-container,
     .articles .line-container {
         width: 100%;
@@ -124,7 +107,6 @@
         margin-top: 3px;
         margin-left: 14px;
     }
-
     .blog-page .left-title .vertical-line {
         position: relative;
     }
@@ -136,41 +118,60 @@
         padding: 0;
         position: relative;
         order: 1;
-        font-size: 25px;
+        font-size: 39px;
         text-align: left;
         width: initial;
 
     }
-
     .blog-page .left-title h2 {
         opacity: 1;
     }
-
     .blog-page .content,
     .articles .content {
         width: 100%;
-        padding-right: 5.8%;
-        padding-left: 5.8%;
     }
+
+    #section-2.articles .line-container .vertical-line {
+        position: relative;
+    }
+
+    #section-2.articles .line-container h2 {
+        opacity: 1;
+    }
+
+    #section-2.articles .content {
+        margin-top: 42px;
+    }
+
+    #section-1.blog-page {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .bread-crumbs {
+        margin: 7% 0 16px 3%;
+        position: relative;
+    }
+
+    .bread-crumbss {
+        display: none;
+    }
+
 }
 
 @media screen and (max-width: 767px) {
     .container {
         padding: 0 5.3%;
     }
-
     .container h1 {
         display: none;
     }
-
     .about-description {
         margin-bottom: 20%;
     }
-
     section {
         flex-wrap: wrap;
     }
-
     .blog-page .content,
     .content {
         width: 100%;
@@ -179,18 +180,12 @@
         margin-top: 17px;
     }
 
-    .left-title {
-        width: 100%;
-        padding: 0 0 0 20px;
-    }
-
     .left-title .line-container {
         width: 100%;
         margin: 0;
         display: flex;
         align-items: center;
     }
-
     .left-title .vertical-line {
         height: 7px;
         width: 100%;
@@ -220,7 +215,6 @@
     .vertical-line {
         position: relative;
     }
-
     .left-title h2 {
         transform: none;
         background: none;
@@ -233,17 +227,14 @@
     .button-block a {
         padding: 0 33px;
     }
-
     .button-line {
         display: none;
     }
-
     .button-block {
         padding-right: 0;
         justify-content: center;
         align-self: center;
     }
-
     .blog-page {
         margin-top: 50px;
     }

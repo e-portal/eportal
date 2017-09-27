@@ -151,7 +151,7 @@
                 </div>
             @endforeach
         @endif
-            @include('layouts.comments_form', ['id' => 1, 'source' => 5, 'comments' => $comments])
+            @include('layouts.comments.comments_form', ['id' => 1, 'source' => 5, 'comments' => $comments])
         </div>
 
        {!! $sidebar !!}

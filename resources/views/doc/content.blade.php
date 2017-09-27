@@ -302,7 +302,7 @@
                 @foreach($articles['events'] as $article)
                     <article>
                         <a class="link-img" href="{{ route('doctors_art', $article->alias) }}" rel="nofollow">
-                            <img src="{{ asset('/images/event/mini').'/'.$article->logo->path }}"
+                            <img src="{{ asset('/images/event/small').'/'.$article->logo->path }}"
                                  alt="{{ $article->logo->alt }}"
                                  title="{{ $article->logo->title }}">
                             <div class="views">{{ $article->view }}</div>

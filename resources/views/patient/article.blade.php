@@ -1,8 +1,4 @@
-<div class="title-main ">
-    <h3 class="heading-title">
-        {{ $article->title }}
-    </h3>
-</div>
+
 <!--section 1-->
 <section id="section-1" class="blog-page">
     <div class="left-title left-title-planshet">
@@ -13,6 +9,11 @@
     </div>
 
     <div class="content content-vnutrennaya">
+        <div class="title-main ">
+            <h3 class="heading-title">
+                {{ $article->title }}
+            </h3>
+        </div>
         <div class="main-content">
             <div class="content-centr">
 
@@ -40,7 +41,7 @@
                 </div>
                 <!----------------------------------blog-categories---------------------------------->
             </div>
-            @include('layouts.comments_form', ['id' => $article->id, 'source' => 1, 'comments' => $article->comments])
+            @include('layouts.comments.comments_form', ['id' => $article->id, 'source' => 1, 'comments' => $article->comments])
         </div>
         {!! $sidebar !!}
     </div>
@@ -81,3 +82,25 @@
     </div>
 </section>
 @endif
+{{--BreadCrumbs--}}
+<div class="bread-crumbs" id="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
+    <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="button">
+        <a href="{{ route('main') }}" itemprop="item">
+            <span itemprop="name" class="label1">Главная</span>
+            <meta itemprop="position" content="1"/>
+        </a>
+    </div>
+    /
+    <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="button">
+        <a href="{{ route('article_cat', $article->category->alias) }}" itemprop="item">
+            <span itemprop="name" class="label1">{{ $article->category->name }}</span>
+            <meta itemprop="position" content="2"/>
+        </a>
+    </div>
+    /
+    <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="button">
+        <span itemprop="name" class="label1">{{ str_limit($article->title, 72) }}</span>
+        <meta itemprop="position" content="3"/>
+    </div>
+</div>
+{{--BreadCrumbs--}}

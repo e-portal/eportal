@@ -56,22 +56,6 @@ class Static_pageController extends MainController
         return $this->cacheHandler($name);
     }
 
-
-    public function getFooter($name)
-    {
-        if (session()->has('doc')) {
-            $this->footer = Cache::remember('footer-doc-' . $name, 24 * 60, function () {
-                $adv = $this->adv_rep->getFooter('doc');
-                return view('layouts.footer')->with(['adv' => $adv])->render();
-            });
-        } else {
-            $this->footer = Cache::remember('footer-patient-' . $name, 24 * 60, function () {
-                $adv = $this->adv_rep->getFooter('patient');
-                return view('layouts.footer')->with(['adv' => $adv])->render();
-            });
-        }
-    }
-
     /**
      * @param $name
      * @return view
@@ -95,7 +79,7 @@ class Static_pageController extends MainController
         $this->seo->og_image = asset('/estet/img') . '/' . $name . '.png';
 
         $this->content = view('static_pages.' . $name)->with([$name => $page, 'sidebar' => $this->sidebar])->render();
-        $this->getFooter($name);
+
         return $this->renderOutput();
     }
 }

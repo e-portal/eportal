@@ -14,10 +14,11 @@ class CommentsController extends Controller
         $result = $c_rep->addComment($request);
 
         if(is_array($result) && !empty($result['error'])) {
-            return redirect()->back()->withErrors($result['error'])->withInput();
+//            return redirect()->back()->withErrors($result['error'])->withInput();
+            return \Response::json(['error' => $result['error']]);
         }
 
-        return redirect()->back()->with($result);
+        return \Response::json(['success' => $result]);
 
     }
 }

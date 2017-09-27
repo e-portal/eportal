@@ -129,7 +129,7 @@ class EventsController extends DocsController
                 $where1[] = ['city_id', $data['city']];
             }
 
-            if (!empty($data['cat'])) {
+            if (!empty($data['cat']) && (0 != $data['cat'])) {
                 $where[] = ['cat_id', $data['cat']];
                 $where1[] = ['cat_id', $data['cat']];
             }
@@ -182,7 +182,6 @@ class EventsController extends DocsController
             $where1[] = ['start', '>=', date('Y-m-d', mktime(0, 0, 0, date('m'), 1, date('Y')))];
         }
         $events = $this->repository->getWithoutPrems($where_in, true, $where1, $prems_ids, false);
-//        dd($where1);
 
         $vars = [
             'events' => $events,
@@ -214,19 +213,34 @@ class EventsController extends DocsController
      */
     public function getSidebar()
     {
-        $this->sidebar = Cache::remember('eventSidebar', 60, function () {
+//        last
+        $lasts = Cache::remember('events_sidebar_lasts', 60, function () {
             $where = array(['approved', true], ['created_at', '<=', DB::raw('NOW()')]);
-            $lasts = $this->repository->get(['title', 'alias', 'created_at'], 2, false, $where, ['created_at', 'desc']);
-
-            $advertising = $this->adv_rep->getSidebar('doc');
-            $ad_slider = $this->repository->getAd(new Eadv());
-            //          most displayed
-            $where = array(['approved', true], ['created_at', '<=', DB::raw('NOW()')], ['own', 'docs']);
-            $articles = $this->a_rep->mostDisplayed(['title', 'alias', 'created_at'], $where, 2, ['view', 'asc']);
-            return view('doc.events.sidebar')
-                ->with(['lasts' => $lasts, 'articles' => $articles, 'advertising' => $advertising, 'ad_slider' => $ad_slider])
-                ->render();
+            return $this->repository->get(['title', 'alias', 'created_at'], 2, false, $where, ['created_at', 'desc']);
         });
+//        last
+
+//        most displayed
+        $articles = Cache::remember('events_sidebar_popular', 60, function () {
+            $where = array(['approved', true], ['created_at', '<=', DB::raw('NOW()')], ['own', 'docs']);
+            return $this->a_rep->mostDisplayed(['title', 'alias', 'created_at'], $where, 10, ['view', 'asc']);
+        });
+        $articles = $articles->random(2);
+//        most displayed
+
+        $advertisings = Cache::remember('docs_sidebar_adv', 24 * 60, function () {
+            return $this->adv_rep->getSidebar('doc');
+        });
+
+        $advertising['sidebar'] = $advertisings['sidebar']->random();
+        $advertising['sidebar_2'] = $advertisings['sidebar_2']->random();
+
+
+        $ad_slider = $this->repository->getAd(new Eadv());
+//dd($ad_slider);
+        $this->sidebar = view('doc.events.sidebar')
+            ->with(['lasts' => $lasts, 'articles' => $articles, 'advertising' => $advertising, 'ad_slider' => $ad_slider])
+            ->render();
         return true;
     }
 

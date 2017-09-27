@@ -24,6 +24,10 @@ class AdvertisingRepository extends Repository
     {
         $validator = Validator::make($request->all(), [
             'text' => 'nullable|string',
+            'text2' => 'nullable|string',
+            'text3' => 'nullable|string',
+            'text4' => 'nullable|string',
+            'text5' => 'nullable|string',
         ]);
 
         if ($validator->fails()) {
@@ -46,13 +50,14 @@ class AdvertisingRepository extends Repository
      */
     public function getMainPatient()
     {
-        $collection = $this->model->select('text', 'placement')->where('own', 'patient')->get();
+        $collection = $this->model->select('text', 'text2', 'text3', 'text4', 'text5', 'placement')->where('own', 'patient')
+            ->whereIn('placement', ['main_1', 'main_2'])->get();
         $result = [];
         foreach ($collection as $item) {
             if ('main_1' == $item->placement) {
-                $result['main_1'] = $item->text;
+                $result['main_1'] = collect($item->toArray())->forget('placement');
             } elseif ('main_2' == $item->placement) {
-                $result['main_2'] = $item->text;
+                $result['main_2'] = collect($item->toArray())->forget('placement');
             } else {
                 continue;
             }
@@ -65,15 +70,15 @@ class AdvertisingRepository extends Repository
      */
     public function getMainDocs()
     {
-        $collection = $this->model->select('text', 'placement')->where('own', 'doc')->get();
+        $collection = $this->model->select('text', 'text2', 'text3', 'text4', 'text5', 'placement')->where('own', 'doc')->get();
         $result = [];
         foreach ($collection as $item) {
             if ('main_1' == $item->placement) {
-                $result['main_1'] = $item->text;
+                $result['main_1'] = collect($item->toArray())->forget('placement');
             } elseif ('main_2' == $item->placement) {
-                $result['main_2'] = $item->text;
+                $result['main_2'] = collect($item->toArray())->forget('placement');
             } elseif ('main_3' == $item->placement) {
-                $result['main_3'] = $item->text;
+                $result['main_3'] = collect($item->toArray())->forget('placement');
             } else {
                 continue;
             }
@@ -87,13 +92,15 @@ class AdvertisingRepository extends Repository
      */
     public function getSidebar($own)
     {
-        $collection = $this->model->select('text', 'placement')->where('own', $own)->get();
+        $collection = $this->model->select('text', 'text2', 'text3', 'text4', 'text5', 'placement')
+            ->where('own', $own)->whereIn('placement', ['sidebar', 'sidebar_2'])->get();
+
         $result = [];
         foreach ($collection as $item) {
             if ('sidebar' == $item->placement) {
-                $result['sidebar'] = $item->text;
+                $result['sidebar'] = collect($item->toArray())->forget('placement');
             } elseif ('sidebar_2' == $item->placement) {
-                $result['sidebar_2'] = $item->text;
+                $result['sidebar_2'] = collect($item->toArray())->forget('placement');
             } else {
                 continue;
             }
@@ -103,7 +110,10 @@ class AdvertisingRepository extends Repository
 
     public function getFooter($own)
     {
-        $result = $this->model->select('text', 'placement')->where(['own' => $own, 'placement' => 'footer'])->first();
+        $collection = $this->model->select('text', 'text2', 'text3', 'text4', 'text5', 'placement')->where(['own' => $own, 'placement' => 'footer'])->first();
+
+        $result = collect($collection->toArray())->forget('placement');
+
         return $result;
     }
 }

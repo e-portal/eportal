@@ -489,7 +489,8 @@ class EventsRepository extends Repository
             if (!empty($item->start)) {
                 $item->start_date = date('d', strtotime($item->start));
                 if (date('m', strtotime($item->stop)) != date('m', strtotime($item->start))) {
-                    $item->start_date = 1;
+                    $item->stop_date = 31;
+//                    $item->start_date = 1;
                 }
             }
 

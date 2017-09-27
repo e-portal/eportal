@@ -605,31 +605,7 @@ div.horoscope-description:nth-of-type(2n) .img-horoscope-description {
   color: #d27360;
   letter-spacing: 6px;
 }
-.icons {
-  font-family: 'icons-desctop';
-  font-style: normal;
-  font-weight: normal;
-  speak: none;
-  display: inline-block;
-  text-decoration: inherit;
-  text-align: center;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1em;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-.icon-sandwich:before {
-  content: '\e800';
-}
-/* sandwich */
-.icon-close:before {
-  content: '\e801';
-}
-/* close */
-.icon-clock:before {
-  content: '\e802';
-}
+
 /* clock */
 /*************************************************aside*************************************************/
 .horoscope .content-aside-main article {

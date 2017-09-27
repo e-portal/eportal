@@ -65,5 +65,4 @@ class Role extends Model
 
         return true;
     }
-
 }

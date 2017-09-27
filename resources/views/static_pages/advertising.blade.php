@@ -1,8 +1,3 @@
-<div class="title-main more">
-    <h2 class="heading-title">
-        {{ $advertising->title }}
-    </h2>
-</div>
 <!--section 1-->
 <section id="section-1" class="blog-page">
     <div class="left-title left-title-planshet">
@@ -13,6 +8,11 @@
     </div>
 
     <div class="content content-vnutrennaya">
+        <div class="title-main more">
+            <h2 class="heading-title">
+                {{ $advertising->title }}
+            </h2>
+        </div>
         <div class="main-content">
             <div class="content-centr">
                 <div class="main-img-info">

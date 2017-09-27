@@ -10,17 +10,8 @@
     </div>
     <div class="content">
         <!-- section 2 -->
-        <div class="bread-crumbs">
-            <div itemscope itemtype="#">
-                <a href="#" itemprop="url">
-                    <span itemprop="title">Дистрибуторы</span>
-                </a>
-            </div>
-            <div itemscope itemtype="#">
-                <span itemprop="title">Alfa Spa Development</span>
-            </div>
-        </div>
-        <div class="katalog-page">
+
+        <div class="katalog-page katalog-internal">
 
             <div class="main-content page-content">
                 <!-- section-3 -->
@@ -71,13 +62,13 @@
                                             @isset($distributor->extra[0])
                                                 <div class="kompani-contacts">
                                                     <p>{{ $distributor->extra[0][0] }}</p>
-                                                    {{ $distributor->extra[0][1] }}
+                                                    <span>{{ $distributor->extra[0][1] }}</span>
                                                 </div>
                                             @endisset
                                             @isset($distributor->extra[1])
                                                 <div class="kompani-contacts">
                                                     <p>{{ $distributor->extra[1][0] }}</p>
-                                                    {{ $distributor->extra[1][1] }}
+                                                    <span>{{ $distributor->extra[1][1] }}</span>
                                                 </div>
                                             @endisset
                                         </div>
@@ -129,7 +120,7 @@
                                 </div>
                             @endif
                         </div>
-                        @include('layouts.comments_form', ['id' => $distributor->id, 'source' => 3, 'comments' => $distributor->comments])
+                        @include('layouts.comments.comments_form', ['id' => $distributor->id, 'source' => 3, 'comments' => $distributor->comments])
                     </div>
                 </div>
 
@@ -139,3 +130,25 @@
 
     </div>
 </section>
+{{--BreadCrumbs--}}
+<div class="bread-crumbs" id="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
+    <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="button">
+        <a href="{{ route('main') }}" itemprop="item">
+            <span itemprop="name" class="label1">Главная</span>
+            <meta itemprop="position" content="1"/>
+        </a>
+    </div>
+    /
+    <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="button">
+        <a href="{{ route('distributors')}}" itemprop="item">
+            <span itemprop="name" class="label1">Дистрибуторы</span>
+            <meta itemprop="position" content="2"/>
+        </a>
+    </div>
+    /
+    <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="button">
+        <span itemprop="name" class="label1">{{ $distributor->title }}</span>
+        <meta itemprop="position" content="3"/>
+    </div>
+</div>
+{{--BreadCrumbs--}}

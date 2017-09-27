@@ -9,18 +9,8 @@
     </div>
     <div class="content">
         <!-- section 2 -->
-        <div class="bread-crumbs">
-            <div itemscope itemtype="#">
-                <a href="#" itemprop="url">
-                    <span itemprop="title">Врачи</span>
-                </a>
-            </div>
-            /
-            <div itemscope itemtype="#">
-                <span itemprop="title">Alfa Spa Development</span>
-            </div>
-        </div>
-        <div class="katalog-page">
+
+        <div class="katalog-page katalog-internal">
 
             <div class="main-content page-content">
                 <!-- section-3 -->
@@ -69,13 +59,13 @@
                                             @isset($brand->extra[0])
                                                 <div class="kompani-contacts">
                                                     <p>{{ $brand->extra[0][0] }}</p>
-                                                    {{ $brand->extra[0][1] }}
+                                                    <span>{{ $brand->extra[0][1] }}</span>
                                                 </div>
                                             @endisset
                                             @isset($brand->extra[1])
                                                 <div class="kompani-contacts">
                                                     <p>{{ $brand->extra[1][0] }}</p>
-                                                    {{ $brand->extra[1][1] }}
+                                                    <span>{{ $brand->extra[1][1] }}</span>
                                                 </div>
                                             @endisset
                                         </div>
@@ -128,7 +118,7 @@
                             @endif
                         </div>
                         <div class="comment-post">
-                            @include('layouts.comments_form', ['id' => $profile->id, 'source' => 6, 'comments' => $comments])
+                            @include('layouts.comments.comments_form', ['id' => $profile->id, 'source' => 6, 'comments' => $profile->comments])
                         </div>
                     </div>
                 </div>
@@ -137,3 +127,25 @@
         {!! $sidebar !!}
     </div>
 </section>
+{{--BreadCrumbs--}}
+<div class="bread-crumbs" id="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
+    <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="button">
+        <a href="{{ route('main') }}" itemprop="item">
+            <span itemprop="name" class="label1">Главная</span>
+            <meta itemprop="position" content="1"/>
+        </a>
+    </div>
+    /
+    <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="button">
+        <a href="{{ route('docs') }}" itemprop="item">
+            <span itemprop="name" class="label1">Врачи</span>
+            <meta itemprop="position" content="2"/>
+        </a>
+    </div>
+    /
+    <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="button">
+        <span itemprop="name" class="label1">{{ $profile->name .' '. $profile->lastname}}</span>
+        <meta itemprop="position" content="3"/>
+    </div>
+</div>
+{{--BreadCrumbs--}}

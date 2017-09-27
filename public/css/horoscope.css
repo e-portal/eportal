@@ -334,7 +334,7 @@ div.horoscope-description:nth-of-type(2n) .img-horoscope-description {
   margin-top: 36px;
 }
 .horoscope .aside-block .advertising {
-  margin: 69px 0 56px;
+    margin: -29px 0 56px;
 }
 .horoscope .aside-block .form-wrap-aside-block {
   margin: 24.6% 0;

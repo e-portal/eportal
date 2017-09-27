@@ -38,8 +38,6 @@ nav {
     text-align: center;
     font-size: 24px;
     letter-spacing: 1px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
 }
 .toggles {
     width: 52px;
@@ -79,6 +77,7 @@ nav {
 .menu > li img {
     display: block;
     margin: 0 auto;
+    height: 20px;
 }
 
 .main-page,
@@ -169,8 +168,7 @@ header .container-fool {
 
 .menu-elem a {
     color: #202020;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
+
 }
 header .line-bottom-menu {
     border-bottom: 1px solid #000000;
@@ -266,7 +264,7 @@ header .line-bottom-menu {
     width: 95%;
     background-color: #fff;
     border-radius: 18px;
-    padding-left: 30px;
+    padding: 2px 0 2px 30px;
     border: 1px solid #000;
 }
 .memu-search-1:before {
@@ -381,7 +379,7 @@ header .line-bottom-menu {
     border-radius: 10px;
     letter-spacing: 1px;
     font-family: "ProximaNova";
-    padding: 0 15px;
+    padding: 0;
 }
 
 .menu .mega-menu-title {
@@ -535,6 +533,15 @@ header .line-bottom-menu {
         right: 108px;
     }
 
+    .search-mobb input {
+        padding: 0 0 0 30px;
+        background-color: #E4E4E4;
+        border: 1px solid #E4E4E4;
+    }
+
+    .search-mobb input::placeholder {
+        color: #E4E4E4;
+    }
     .memu-search:hover .search-mobb {
         width: 74%;
     }
@@ -654,10 +661,11 @@ header .line-bottom-menu {
     .main-page,
     .menu .menu-elem {
         border-bottom: 1px solid rgba(255,255,255,.5);
-        width:85%;
+        width: 89%;
         display: block;
-        margin-left: 10%;
+        margin-left: 0;
         text-align: left;
+        margin: 0 5.9%;
     }
 
     .menu li.with-sub a span:after {
@@ -741,7 +749,7 @@ header .line-bottom-menu {
     }
 }
 
-@media only screen and (max-width: 760px) {
+@media only screen and (max-width: 767px) {
     .nav_container .menu,
     .nav_container.active {
         width: 100vw;
@@ -774,22 +782,31 @@ header .line-bottom-menu {
     }
 
     .burger {
-        top: 70px;
+        top: 68px;
+        height: 14px;
+        width: 21px;
+
+    }
+
+    .burger .line-burger {
+        transform-origin: 7.5px 50%;
     }
 
     .nav_container,
     .nav_container .menu, .nav_container.active {
         top: 49px;
+        overflow-y: scroll;
     }
 
     .memu-search {
         display: flex;
         position: relative;
         z-index: 1;
+        width: 82%;
     }
 
     .search-mobb {
-        width: 84%;
+        width: 100%;
         position: relative;
         right: 0;
         margin-left: 7%;

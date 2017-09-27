@@ -37,6 +37,7 @@ class SeosTableSeeder extends Seeder
                 ['uri' => 'doctor/blog/categorii'],
                 ['uri' => 'doctor/blog/teg'],
                 ['uri' => 'kategorii'],
+                ['uri' => 'populyarnye'],
             ]
         );
     }

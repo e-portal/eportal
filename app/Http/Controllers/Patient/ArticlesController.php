@@ -62,7 +62,13 @@ class ArticlesController extends Controller
                 'stomatology' => $this->a_rep->getMain([['category_id', 8]],4, ['created_at', 'desc'], 'patient'),
                 'psychology' => $this->a_rep->getMain([['category_id', 18]],3, ['created_at', 'desc'], 'patient'),
             ];
-            $advertising = $this->adv_rep->getMainPatient();
+            $advertisings = Cache::remember('patient_main_adv', 24 * 60, function () {
+                return $this->adv_rep->getMainPatient();
+            });
+
+            $advertising['main_1'] = $advertisings['main_1']->random();
+            $advertising['main_2'] = $advertisings['main_2']->random();
+
             return view('patient.content')
                 ->with(['articles' => $articles, 'advertising' => $advertising])
                 ->render();
@@ -216,10 +222,13 @@ class ArticlesController extends Controller
         if (!empty($this->footer)) {
             $footer = $this->footer;
         } else {
-            $footer = Cache::remember('footer', 24*60, function () {
-                $adv = $this->adv_rep->getFooter('patient');
-                return view('layouts.footer')->with(['adv' => $adv])->render();
+            $advertisings = Cache::remember('patient_footer_adv', 24 * 60, function () {
+                return $this->adv_rep->getFooter('patient');
             });
+
+            $adv['text'] = $advertisings->random();
+
+            $footer = view('layouts.footer')->with(['adv' => $adv])->render();
         }
         $this->vars = array_add($this->vars, 'footer', $footer);
 
@@ -284,20 +293,32 @@ class ArticlesController extends Controller
      */
     public function getSidebar()
     {
-        $this->sidebar = Cache::remember('patientSidebar', 60, function () {
-//                Last 2 publications
+//          Last 2 publications
+        $lasts = Cache::remember('patient_sidebar_lasts', 60, function () {
             $where = array(['approved', true], ['created_at', '<=', DB::raw('NOW()')], ['own', 'patient']);
-            $lasts = $this->a_rep->getLast(['title', 'alias', 'created_at'], $where, 2, ['created_at', 'desc']);
-
-            //          most displayed
-            $where = array(['approved', true], ['created_at', '<=', DB::raw('NOW()')], ['own', 'patient']);
-            $articles = $this->a_rep->mostDisplayed(['title', 'alias', 'created_at'], $where, 2, ['view', 'desc']);
-
-            $advertising = $this->adv_rep->getSidebar('patient');
-            return view('patient.sidebar')
-                ->with(['lasts' => $lasts, 'articles' => $articles, 'advertising' => $advertising])
-                ->render();
+            return $this->a_rep->getLast(['title', 'alias', 'created_at'], $where, 2, ['created_at', 'desc']);
         });
+//          Last 2 publications
+
+
+        //          most displayed
+        $articles = Cache::remember('patient_sidebar_popular', 60, function () {
+            $where = array(['approved', true], ['created_at', '<=', DB::raw('NOW()')], ['own', 'patient']);
+            return $this->a_rep->mostDisplayed(['title', 'alias', 'created_at'], $where, 10, ['view', 'desc']);
+        });
+        $articles = $articles->random(2);
+        //          most displayed
+
+        $advertisings = Cache::remember('patient_sidebar_adv', 24 * 60, function () {
+            return $this->adv_rep->getSidebar('patient');
+        });
+
+        $advertising['sidebar_2'] = $advertisings['sidebar_2']->random();
+
+        $this->sidebar = view('patient.sidebar')
+            ->with(['lasts' => $lasts, 'articles' => $articles, 'advertising' => $advertising])
+            ->render();
+
         return true;
     }
 

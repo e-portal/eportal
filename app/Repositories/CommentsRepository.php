@@ -93,10 +93,12 @@ class CommentsRepository
         ]);
 
         if ($validator->fails()) {
-            return ['error'=>$validator];
+            return ['error' => $validator->errors()];
         }
 
+
         $data = $request->except('_token');
+//        dd($data);
 
         if (session('captcha') != $data['capt']) {
             return ['error' => 'Пожалуйста введите код изображенный на картинке'];

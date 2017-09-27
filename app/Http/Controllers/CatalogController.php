@@ -44,9 +44,7 @@ class CatalogController extends MainController
 
     public function index()
     {
-        return redirect()->route('main', 301);
-//        $this->title = 'Каталог';
-//        return view('catalog.index')->with('title', $this->title);
+        abort(404);
     }
 
     /**
@@ -66,15 +64,14 @@ class CatalogController extends MainController
                 if (!empty($doc->expirience)) {
                     $doc->expirience = date_create()->diff(date_create($doc->expirience))->y;
                 }
+                $doc->load('comments');
                 $ratio = $ratio_rep->getRatio($doc->id);
                 //  Blogs preview
                 $where = array(['approved', true], ['created_at', '<=', DB::raw('NOW()')], ['user_id', $doc->user_id]);
                 $blogs = $blog_rep->get(['alias', 'title', 'created_at'], 3, false, $where, ['created_at', 'desc'], ['blog_img', 'category'], true);
 
-                $comments = false;
-
                 return view('catalog.profiles.doc_profile')
-                    ->with(['profile' => $doc, 'comments' => $comments, 'blogs' => $blogs, 'sidebar' => $this->sidebar, 'ratio' => $ratio[0]])
+                    ->with(['profile' => $doc, 'blogs' => $blogs, 'sidebar' => $this->sidebar, 'ratio' => $ratio[0]])
                     ->render();
             });
             $this->title = $doc->name . ' ' . $doc->lastname;
