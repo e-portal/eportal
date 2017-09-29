@@ -145,3 +145,103 @@
   text-align: center;
   letter-spacing: 3px;
 }
+
+.unfortunately {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .wrapper {
+    padding-top: 0;
+  }
+
+  .color-top {
+    height: auto;
+  }
+
+  .content-block {
+    height: auto;
+    margin-top: 14px;
+  }
+
+  .flex-404:nth-child(1),
+  .flex-404:nth-child(3) {
+    width: 100%;
+    text-align: center;
+  }
+
+  .flex-404:nth-child(2) {
+    display: none;
+  }
+
+  .flex-404:nth-child(1) {
+    margin-bottom: 30px;
+  }
+
+  .content-404 {
+    margin: 104px -5.4% 0 -5.4%;
+    border: 14px solid;
+  }
+
+  footer,
+  .flex-item-container,
+  .fakt-404,
+  .search-404 {
+    display: none;
+  }
+
+  .flex-bitum {
+    flex-direction: column;
+    margin-bottom: 56px;
+    margin-top: -16px;
+  }
+
+  .has-aside {
+    margin-bottom: 0;
+    padding: 0 4.9%;
+  }
+
+  .flex-404 button {
+    background-color: #000;
+    color: #ffffff;
+  }
+
+  .unfortunately {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 53px;
+    position: relative;
+  }
+
+  .content-block .unfortunately p {
+    font-size: 22px;
+    color: #202020;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    width: 86%;
+  }
+
+  .content-block span {
+    display: none;
+  }
+
+  .unfortunately span {
+    font-size: 16px;
+    display: block;
+    color: #E65A3F;
+    margin-top: 6px;
+  }
+
+  .unfortunately:before {
+    content: '';
+    position: absolute;
+    background: url(/../../estet/img/puls.png);
+    width: 91%;
+    height: 36px;
+    top: 0;
+    margin-top: -57px;
+  }
+
+}

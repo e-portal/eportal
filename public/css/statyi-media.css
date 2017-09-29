@@ -1880,3 +1880,29 @@
     width: 100%;
   }
 }
+
+@media screen and (max-width: 767px) {
+    .block-text h3 {
+        font-size: 19px;
+        height: 49px;
+    }
+
+    .block-text time {
+        font-size: 8px;
+    }
+
+    .statyi-cat .content {
+        margin-top: 41px;
+    }
+
+    .statyi-cat .pagination {
+        display: none;
+    }
+
+    .more-articles {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        margin-top: 37px;
+    }
+}

@@ -1,12 +1,6 @@
-<div class="title">
-    <!---------------------------Logo end--------------------------->
-    <h3 class="heading-title">
-        Ежемесячный гороскоп здоровья и красоты<br> на {{ trans('ru.' . date('m')) }} 2017 по знакам зодиака
-    </h3>
 
-</div>
 <!--section 1-->
-<section id="section-1" class="horoscope">
+<section id="section-1" class="horoscope blog-page">
     <div class="left-title left-title-planshet">
         <div class="line-container heading-title-main">
             <div class="vertical-line"></div>
@@ -14,6 +8,13 @@
         </div>
     </div>
     <div class="content">
+        <div class="title">
+
+            <h3 class="heading-title">
+                Ежемесячный гороскоп здоровья и красоты<br> на {{ trans('ru.' . date('m')) }} 2017 по знакам зодиака
+            </h3>
+
+        </div>
         <div class="hrp-main hrp-main-media">
             <div class="hrp">
                 <a href="#aries" class="icons-img z-index-item-up Top-link">

@@ -40,6 +40,16 @@ class ArticlesRepository extends Repository
             ->get());
     }
 
+    public function getLastAjax($select, $where, $skip, $take, $order)
+    {
+        $builder = $this->model->where($where)
+            ->skip($skip)
+            ->select($select)
+            ->with('image')
+            ->orderBy($order[0], $order[1]);
+        return $this->check($builder->paginate($take));
+    }
+
     public function mostDisplayed($select, $where, $take, $order)
     {
         return $this->check($this->model->where($where)

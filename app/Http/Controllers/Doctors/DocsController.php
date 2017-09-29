@@ -200,8 +200,7 @@ class DocsController extends Controller
      */
     public function category($cat = null)
     {
-        Cache:
-        flush();
+        Cache::flush();
         if (!$cat) {
             abort(404);
         }
@@ -209,8 +208,6 @@ class DocsController extends Controller
                 <link rel="stylesheet" type="text/css" href="' . asset('css') . '/statyi.css">
                 <link rel="stylesheet" type="text/css" href="' . asset('css') . '/statyi-media.css">
             ';
-
-        $this->getSidebar();
 
         $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 
@@ -226,7 +223,6 @@ class DocsController extends Controller
         });
         $this->title = $cat->name;
         $this->getSeo('doctor/kategorii');
-        $this->getSidebar();
         return $this->renderOutput();
     }
 

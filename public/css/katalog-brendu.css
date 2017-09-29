@@ -425,6 +425,7 @@
 
     .page-content {
         padding-right: 0;
+        margin-top: 52px;
     }
 
     .bread-crumbss {
@@ -434,6 +435,14 @@
     .blog-page .content {
         padding-right: 0;
         padding-left: 0;
+    }
+
+    .katalog-page .blog-section .categories-section a {
+        font-size: 16px;
+    }
+
+    .katalog-page {
+        margin-top: 0;
     }
 
 
@@ -471,5 +480,21 @@
         width: 100%
     }
 
+    .katalog-internal {
+        margin-top: -16px;
+    }
+
+    .katalog-page .blog-section-post {
+        margin-top: 0;
+    }
+
+    .details-page-info {
+        margin: 27px 0%;
+    }
+
+    .details-page img {
+        padding: 7%;
+    }
+   
 }
 

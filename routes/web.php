@@ -15,6 +15,7 @@ Route::get('/', ['uses' => 'Patient\ArticlesController@index', 'as' => 'main'])-
 //Captcha
 Route::match(['post', 'get'], '/captcha', 'CaptchaController@show')->name('captcha');
 Route::post('ratio', 'RatioController@setRatio')->name('ratio');
+Route::post('more_lasts', 'AjaxMainController@getLasts')->name('more_lasts');
 /**
  * Articles
  */

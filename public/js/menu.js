@@ -135,7 +135,15 @@ function searchW() {
 /*hover search menu */
 $('.burger').click(function () {
     $(this).toggleClass('active');
-    $(this).hasClass('active') ? $('.nav_container').addClass('active') : $('.nav_container').removeClass('active');
+    if ($(this).hasClass('active')) {
+        $('.nav_container').addClass('active');
+        $('#search').addClass('active');
+        $('.background-menu-active').addClass('active');
+    } else {
+        $('.nav_container').removeClass('active');
+        $('#search').removeClass('active');
+        $('.background-menu-active').removeClass('active');
+    }
 })
 
 

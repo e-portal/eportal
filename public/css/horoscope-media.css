@@ -148,9 +148,9 @@
 /*********************************@media (min-width: 375px) and (max-width: 439px)*********************************/
 @media (min-width: 375px) and (max-width: 439px) {
   .hrp {
-    margin: 28% 0 13% 11%;
+      margin: 28% 0 13% 0;
     line-height: 0;
-    width: 81%;
+      width: 100%;
   }
   .horoscope .hrp-main-media {
     margin: -10% 0 -8% 0;
@@ -676,13 +676,29 @@
   .horoscope-controller {
     margin-top: 5%;
   }
+
+    .horoscope-description .horoscope-path h4 {
+        font-size: 14px;
+    }
 }
 /*********************************@media (min-width: 640px) and (max-width: 767px))*********************************/
 /*********************************@media (min-width: 640px) and (max-width: 767px))*********************************/
 @media (min-width: 768px) and (max-width: 1024px) {
+    .container {
+        padding-bottom: 0;
+    }
   .hrp {
-    margin: 3.8% 0 10% 0;
-    width: 91%;
+      margin: 22.8% 0 10% 0;
+      width: 100%;;
+  }
+
+    .heading-title {
+        margin-top: 62px;
+        font-size: 30px;
+    }
+
+    .horoscope h2 {
+        font-size: 39px;
   }
   div.horoscope-description:nth-of-type(2n) .img-horoscope-description {
     float: right;
@@ -999,3 +1015,31 @@
   }
 }
 /*********************************@media (min-width: 640px) and (max-width: 767px))*********************************/
+@media screen and (max-width: 767px) {
+    .horoscope-description .horoscope-path h4 {
+        font-size: 14px;
+    }
+
+    .horoscope-description .description {
+        width: 100%;
+        margin: 0;
+    }
+
+    .horoscope-description .img-horoscope-description {
+        margin: 0 13px 0 0;
+        padding-right: 0;
+    }
+
+    .img-horoscope-description img {
+        max-width: 70%;
+    }
+
+    .container {
+        padding-bottom: 0;
+    }
+
+    .articles-horizontal article {
+        padding: 11px 0;
+    }
+
+}

@@ -81,6 +81,7 @@
                     @if('sitemap' !== Route::currentRouteName())
                         <a href="{{ route('sitemap') }}">КАРТА САЙТА</a>
                     @endif
+                    <!-- <a href="#">RSS</a> -->
                 </div>
                 <div>
                     @if('conditions' !== Route::currentRouteName()) <a href="{{ route('conditions') }}">СОГЛАШЕНИЕ ОБ

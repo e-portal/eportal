@@ -61,7 +61,7 @@
                                     <div class="blog-read-more">
                                         <div class="author">
                                             <i class="icon-men"></i>
-                                            <p>{{ $blog->person->person->name . ' ' . $blog->person->person->lastname }}</p>
+                                            <p>{{ str_limit(($blog->person->person->lastname . ' ' . $blog->person->person->name), 16) }}</p>
                                         </div>
                                         <div class="button-read-more">
                                             <a href="{{ route('blogs', $blog->alias) }}">Подробнее</a>

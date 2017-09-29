@@ -80,15 +80,17 @@
                                      title="{{ $sevent->logo->title }}"
                                 >
                             </a>
-                            <div class="title-time">
-                                <time>
-                                    @if(strlen($sevent->created) < 6) <i class="icons icon-clock"></i> @endif
-                                    {{ $sevent->created }}
-                                </time>
+                            <div>
+                                <div class="title-time">
+                                    <time>
+                                        @if(strlen($sevent->created) < 6) <i class="icons icon-clock"></i> @endif
+                                        {{ $sevent->created }}
+                                    </time>
+                                </div>
+                                <a class="link-title" href="{{ route('events', $sevent->alias) }}">
+                                    <h3>{{ $sevent->title }}</h3>
+                                </a>
                             </div>
-                            <a class="link-title" href="{{ route('events', $sevent->alias) }}">
-                                <h3>{{ $sevent->title }}</h3>
-                            </a>
                         </article>
                         @if(!$loop->last)
                             <div class="line-vertical"></div>

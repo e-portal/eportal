@@ -189,4 +189,64 @@
     .pagination {
         margin-top: -50px;
     }
+
+    .page-content {
+        margin-top: 63px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .blog-section .categories-section a {
+        font-size: 21px;
+    }
+
+    .blog-section .categories-section {
+        width: 100%;
+        margin-bottom: 25px;
+    }
+
+    .blog-section {
+        margin-top: -50px;
+    }
+
+    .categories {
+        display: none;
+    }
+
+    .doctor-page .blog-categories .select a {
+        font-size: 17px;
+    }
+
+    .blog-section-post .content-blog .articles-horizontal article {
+        width: 100%
+    }
+
+    .blog-section-post .articles-horizontal article .link-img {
+        order: 1;
+        width: 100%;
+    }
+
+    .articles-horizontal article .link-title {
+        width: 100%;
+    }
+
+    .content-blog .articles-horizontal article .blog-read-more {
+        order: 4;
+        width: 100%;
+    }
+
+    .blog-section-post .content-blog .articles-horizontal h3 {
+        font-size: 22px;
+    }
+
+    .blog-section-post .content-blog .articles-horizontal article:nth-child(2),
+    .blog-section-post .content-blog .articles-horizontal article {
+        margin-top: 17px;
+    }
+
+    .page-content {
+        padding-right: 0;
+    }
+
+
 }

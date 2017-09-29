@@ -64,7 +64,7 @@
     <div class="pagination content-blog">
         <!--PAGINATION-->
         <div class="pagination-blog">
-            @if($articles->lastPage() > 1)
+            @if(is_object($articles) && !empty($articles->lastPage()) && $articles->lastPage() > 1)
                 <ul>
                     @if($articles->currentPage() !== 1)
                         <li>

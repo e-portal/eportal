@@ -63,15 +63,17 @@
                         <img src="{{ asset('/images/article/small') . '/' . $preview->image->path }}"
                              alt="{{ $preview->image->alt }}" title="{{ $preview->image->title }}">
                     </a>
-                    <div class="title-time">
-                        <time>
-                            @if(strlen($preview->created) < 6) <i class="icons icon-clock"></i> @endif
-                            {{ $preview->created }}
-                        </time>
+                    <div>
+                        <div class="title-time">
+                            <time>
+                                @if(strlen($preview->created) < 6) <i class="icons icon-clock"></i> @endif
+                                {{ $preview->created }}
+                            </time>
+                        </div>
+                        <a class="link-title" href="{{ route('doctors_art', $preview->alias) }}">
+                            <h3>{{ str_limit($preview->title, 72) }}</h3>
+                        </a>
                     </div>
-                    <a class="link-title" href="{{ route('doctors_art', $preview->alias) }}">
-                        <h3>{{ str_limit($preview->title, 72) }}</h3>
-                    </a>
                 </article>
                 @if(!$loop->last)
                     <div class="line-vertical"></div>

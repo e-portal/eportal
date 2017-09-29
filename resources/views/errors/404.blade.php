@@ -9,6 +9,10 @@
         <div class="content-block">
             <p>4 0 4</p>
             <span>Вы потерялись</span>
+            <div class="unfortunately">
+                <p>К сожалению эту страницу спасти не удалось.</p>
+                <span>Примите наши искренние соболезнования</span>
+            </div>
 
             <div class="search-404">
 
@@ -26,8 +30,8 @@
                          alt="{{$article->alt}}" title="{{ $article->img_title }}">
                 </div>
                 <div class="flex-item">
-                    <p>{{ str_limit($article->title, 72) }}</p>
-                    <span>{!! str_limit(strip_tags($article->content), 512) !!}</span>
+                    <p>{{ str_limit($article->title, 32) }}</p>
+                    <span>{!! str_limit(strip_tags($article->content), 256) !!}</span>
                 </div>
 
             </div>

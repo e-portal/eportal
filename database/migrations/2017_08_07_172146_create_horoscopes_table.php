@@ -15,18 +15,18 @@ class CreateHoroscopesTable extends Migration
     {
         Schema::create('horoscopes', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('Aries')->nullable()->default(null);
-            $table->text('Taurus')->nullable()->default(null);
-            $table->text('Gemini')->nullable()->default(null);
-            $table->text('Cancer')->nullable()->default(null);
-            $table->text('Leo')->nullable()->default(null);
-            $table->text('Virgo')->nullable()->default(null);
-            $table->text('Libra')->nullable()->default(null);
-            $table->text('Scorpio')->nullable()->default(null);
-            $table->text('Sagittarius')->nullable()->default(null);
-            $table->text('Capricorn')->nullable()->default(null);
-            $table->text('Aquarius')->nullable()->default(null);
-            $table->text('Pisces')->nullable()->default(null);
+            $table->text('aries')->nullable()->default(null);
+            $table->text('taurus')->nullable()->default(null);
+            $table->text('gemini')->nullable()->default(null);
+            $table->text('cancer')->nullable()->default(null);
+            $table->text('leo')->nullable()->default(null);
+            $table->text('virgo')->nullable()->default(null);
+            $table->text('libra')->nullable()->default(null);
+            $table->text('scorpio')->nullable()->default(null);
+            $table->text('sagittarius')->nullable()->default(null);
+            $table->text('capricorn')->nullable()->default(null);
+            $table->text('aquarius')->nullable()->default(null);
+            $table->text('pisces')->nullable()->default(null);
             $table->timestamps();
         });
     }

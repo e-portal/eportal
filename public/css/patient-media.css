@@ -343,7 +343,6 @@
 
     .section-useful {
         margin-top: 133px;
-        margin: 0 -6.2%;
     }
 
     .useful {
@@ -436,8 +435,21 @@
         flex-direction: column;
     }
 
+    .venerology #section-2-2 .content.articles-divisions .articles-vertical .button-block,
+    .venerology #section-1-1 .content.articles-divisions .articles-vertical .button-block,
+    .stomatology .button-block,
+    .medicine-treatment .content > .button-block,
+    #section-5.cosmetology-food .button-block,
+    .doctor-page .beauty-health .button-block,
+    .helpful-tips .button-block {
+        width: 100%;
+        left: 0%;
+        padding-right: 5.8%;
+    }
 
-
+    .doctor-page .interesting-facts .aside-block .form-wrap {
+        margin: 0;
+    }
 
 }
 @media screen and (max-width: 767px) {
@@ -453,6 +465,10 @@
         width: 100%;
     }
 
+    .section-useful {
+        margin-top: 133px;
+        margin: 0 -6.2%;
+    }
     .last-articles .left-title {
         margin-top: 14%;
     }
@@ -732,7 +748,8 @@
         padding: 16px 0;
     }
 
-    .interesting-facts .aside-block .form-wrap {
+    .interesting-facts .aside-block .form-wrap,
+    .doctor-page .interesting-facts .aside-block .form-wrap {
         padding: 10% 7%;
         position: relative;
     }
@@ -871,7 +888,7 @@
         margin-top: 37px;
     }
     .venerology #section-1-1 .content.articles-divisions {
-        padding: 0 20px;
+        padding: 0;
     }
 
     .venerology #section-2-2 .content.articles-divisions {
@@ -888,6 +905,10 @@
 
     article h3 {
         height: 47px;
+    }
+
+    #section-11-1.venerology #section-1-1 .line-container, #section-11-1.venerology #section-2-2 .line-container {
+        margin-left: 0;
     }
 
     .doctor-page .beauty-health .button-block {

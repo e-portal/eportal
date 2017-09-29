@@ -6,6 +6,27 @@
             <div class="line-burger"></div>
         </div>
         <div class="menu-left">
+            <div class="logo-for-mobile">
+                @if(session()->has('doc'))
+                    {!! ('doctors' == Route::currentRouteName()) ?
+                            '<img src="'. asset('estet') .'/img/estet-logo.jpg" alt="'. env('APP_NAME') .'"
+                                title="'. env('APP_NAME') .'">'
+                                 :
+                            '<a href="'. route('doctors') .'">
+                                <img src="'. asset('estet') .'/img/estet-logo.jpg" alt="'. env('APP_NAME') .'"
+                                    title="'. env('APP_NAME') .'"></a>'
+                     !!}
+                @else
+                    {!! ('main' == Route::currentRouteName()) ?
+                            '<img src="'. asset('estet') .'/img/estet-logo.jpg" alt="'. env('APP_NAME') .'"
+                                title="'. env('APP_NAME') .'">'
+                                 :
+                            '<a href="'. route('main') .'">
+                                <img src="'. asset('estet') .'/img/estet-logo.jpg" alt="'. env('APP_NAME') .'"
+                                    title="'. env('APP_NAME') .'"></a>'
+                     !!}
+                @endif
+            </div>
             <div class="person patient menu-elem @if(!session()->has('doc')) active @endif">
                 <a href="{{ route('main') }}">Я пациент</a>
             </div>
@@ -30,8 +51,8 @@
                     </li>
                     <li class="with-sub menu-elem">
                         <a>
-                            <img src="{{ asset('estet') }}/img/menu/1.png"><img
-                                    src="{{ asset('estet') }}/img/menu/2074.png">
+                            <img src="{{ asset('estet') }}/img/menu/1.png">
+                            <img src="{{ asset('estet') }}/img/menu/2074.png">
                             <span>Статьи</span>
                         </a>
                         <ul class="submenu">

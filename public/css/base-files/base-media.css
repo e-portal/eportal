@@ -42,6 +42,7 @@
 
     .has-aside {
         padding: 0 6.5%;
+        margin-bottom: 50px;
     }
     .has-aside h1 {
         margin: 26px 0 12px;
@@ -59,6 +60,7 @@
         order: 2;
         margin-top: 8px;
         margin-left: 14px;
+        position: relative;
     }
     .has-aside .left-title h2 {
         transform: none;
@@ -68,6 +70,11 @@
         order: 1;
         font-size: 25px;
         width: auto;
+        opacity: 1;
+    }
+
+    .has-aside .horoscope h2 {
+        font-size: 39px;
     }
     .has-aside .content {
         width: 100%;
@@ -80,12 +87,17 @@
         align-items: center;
     }
 
+    .comment-post {
+        width: 100%
+    }
+
     /*section {
         flex-wrap: wrap;
     }*/
     .pagination .social-networks {
         display: none;
     }
+
 
     .pagination {
         width: 100%;
@@ -99,14 +111,6 @@
         align-items: center;
     }
 
-    .blog-page .left-title .vertical-line,
-    .articles .left-title .vertical-line {
-        height: 7px;
-        width: 100%;
-        order: 2;
-        margin-top: 3px;
-        margin-left: 14px;
-    }
     .blog-page .left-title .vertical-line {
         position: relative;
     }
@@ -123,6 +127,16 @@
         width: initial;
 
     }
+
+    .aside-block .left-title h2 {
+        width: auto;
+        transform: none;
+        background: none;
+        padding: 0;
+        position: relative;
+        order: 1;
+        font-size: 24px;
+    }
     .blog-page .left-title h2 {
         opacity: 1;
     }
@@ -137,10 +151,11 @@
 
     #section-2.articles .line-container h2 {
         opacity: 1;
+        font-size: 30px;
     }
 
     #section-2.articles .content {
-        margin-top: 42px;
+        margin-top: 54px;
     }
 
     #section-1.blog-page {
@@ -151,10 +166,17 @@
     .bread-crumbs {
         margin: 7% 0 16px 3%;
         position: relative;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .bread-crumbss {
         display: none;
+    }
+
+    .has-aside > section:last-of-type > .left-title {
+        margin-bottom: 70px;
     }
 
 }
@@ -236,7 +258,7 @@
         align-self: center;
     }
     .blog-page {
-        margin-top: 50px;
+        margin-top: 59px;
     }
 
     .comment-post .section-form .section-form-up .section-input,
@@ -246,9 +268,137 @@
 
     .block-forms {
         flex-direction: column;
+        margin: 4px 0 0 0;
     }
 
+    .reload p {
+        width: 100%;
+    }
     .comment-post .section-form .section-form-up .section-form-down {
         width: 100%;
         margin-top: 6%;
+        justify-content: center;
     }
+
+    .comment-post .social-networks {
+        flex-direction: column;
+    }
+
+    .comment-post .social-networks .social-post {
+        width: 100%;
+        margin-top: 15px;
+        justify-content: space-between;
+    }
+
+    .social-networks .social-post a {
+        width: 28px;
+    }
+
+    .comment-post .section-form .section-form-up .but-section-form {
+        width: 75%;
+        height: 25px;
+        font-size: 13px;
+    }
+
+    .comment-post .social-networks p {
+        font-size: 16px;
+    }
+
+    .form-control {
+        height: 99px;
+        font-size: 10px;
+    }
+
+    .comment-post .section-form .section-form-up .section-input {
+        height: 21px;
+        font-size: 10px;
+    }
+
+    .section-form::before {
+        content: '';
+        position: absolute;
+        width: 120%;
+        height: 121.5%;
+        left: -10%;
+        top: -32px;
+        background: #E4E4E4;
+    }
+
+    .comment-post .section-form {
+        margin-top: 84px;
+    }
+
+    .reload img {
+        width: 64%;
+    }
+
+    .reload p img {
+        width: auto;
+    }
+
+    .section-form .block-left {
+        justify-content: space-between;
+    }
+
+    .section-form .block-right {
+        width: 27%;
+    }
+
+    #section-2.articles {
+        margin-top: 17%;
+    }
+
+    #section-2.articles .content {
+        margin-top: 25px;
+    }
+
+    .title-time time {
+        font-size: 8px;
+        padding: 1px 4px;
+    }
+
+    .blog-categories .select a {
+        font-size: 17px;
+    }
+
+    .blog-categories .select a:before {
+        margin: 10px 9px 0 0;
+        width: 9px;
+        height: 9px;
+    }
+
+    .content-vnutrennaya .blog-categories {
+        border-top: 1px solid #E4E4E4;
+        border-bottom: 1px solid #E4E4E4;
+    }
+
+    .blog-categories .select {
+        border-top: 0;
+        border-bottom: 0;
+    }
+
+    .blog-page .left-title .vertical-line, .articles .left-title .vertical-line {
+        height: 7px;
+        width: 100%;
+        order: 2;
+        margin-top: 3px;
+        margin-left: -9px;
+    }
+
+    .event-signup h4 {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .event-form button {
+        font-size: 11px;
+    }
+
+    .event-form {
+        padding: 43px 29px;
+    }
+
+    .has-aside > section:last-of-type > .left-title {
+        margin-bottom: 20px;
+    }
+}

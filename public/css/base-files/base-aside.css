@@ -86,6 +86,7 @@
 .doctor-page .advertising {
     margin: -29px 0 56px;
 }
+
 .advertising > * {
     width: 100%;
     display: block;
@@ -246,104 +247,7 @@
         vertical-align: top;
     }
 
-    /*
-    .advertising>* {
-        width: 100%;
-        display: block;
-        height: 300px;
-    }
-    .advertising {
-        width: 331px;
-        height: auto;
-        margin: 0;
-    }
 
-    aside .aside-block .form-wrap {
-        margin: 0;
-        padding: 11% 9.6%;
-    }
-
-    .aside .aside-block:nth-child(1) {
-        width: 49%;
-        order: 5;
-    }
-
-    .aside .aside-block:nth-child(1):before {
-        content: "";
-        position: absolute;
-        background: #F3F3F3;
-        width: 100%;
-        height: 287px;
-        left: 0;
-        margin-top: -3%;
-    }
-
-    .aside .aside-block:nth-child(2):after {
-        content: "";
-        width: 11px;
-        height: 326px;
-        top: 91%;
-        background: #fff;
-        position: absolute;
-        left: 49%;
-    }
-    .aside .aside-block:nth-child(2) {
-        width: 49%;
-        margin-top: 0;
-        order: 4;
-    }
-    .aside .aside-block:nth-child(3) {
-        width: 100%;
-        order: 3;
-    }
-
-    .aside .aside-block:nth-child(4) {
-        width: 46%;
-        order: 1;
-        display: inherit;
-    }
-
-    .aside .aside-block:nth-child(5) {
-        width: 47%;
-        order: 2;
-    }
-
-    .aside-block .hrp {
-        margin: 5% 0 5% 0;
-    }
-
-    .doctor-page .aside .aside-block:nth-child(1) {
-        width: 49%;
-        order: 5;
-    }
-
-    .doctor-page .aside .aside-block:nth-child(2) {
-        width: 49%;
-        margin-top: 0;
-        order: 4;
-    }
-
-    .doctor-page .aside .aside-block:nth-child(3) {
-        display: none;
-    }
-
-    .doctor-page .aside .aside-block:nth-child(4) {
-        width: 100%;
-        order: 3;
-        display: block;
-    }
-
-    .doctor-page .aside .aside-block:nth-child(5) {
-        width: 47%;
-        order: 1;
-    }
-
-    .doctor-page .aside .aside-block:nth-child(6) {
-        width: 47%;
-        order: 2;
-        margin-top: 0;
-    }
-    */
     .aside-block:nth-child(2n) {
         padding-left: 9%;
     }
@@ -363,12 +267,23 @@
     .aside-block.to-full-width {
         width: 100%;
         margin-bottom: 0;
+        padding-left: 0;
+    }
+
+    .aside-block.to-full-width::before {
+        content: '';
+        width: 140%;
+        height: 105%;
+        position: absolute;
+        left: -20%;
+        top: -7%;
+        background: #f9f9f9;
     }
 
     .aside-block .hrp {
         margin: 6.5% 0;
         padding: 0 5%;
-        max-width: 320px;
+        /*max-width: 320px;*/
         margin: auto;
     }
 
@@ -441,6 +356,10 @@
         margin: 30px auto 0;
         height: 25px;
         width: 87%;
+    }
+
+    .aside-block.to-full-width::before {
+        display: none;
     }
 
     .aside-block .hrp {

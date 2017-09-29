@@ -332,14 +332,15 @@
     </section>
     <!--section 6-->
     <!--section 6-1 -->
-    <section id="section-6-1" class="blog-doctor">
+    <section id="section-6-1" class="blog-doctor ">
         <div class="left-title">
             <div class="line-container">
                 <div class="vertical-line"></div>
                 <h2>Блог</h2>
             </div>
         </div>
-        <div class="content articles-divisions">
+        <div class="content ">
+            <div class="articles-divisions">
             @if(!empty($articles['blogs']))
                 @foreach($articles['blogs'] as $blog)
                     <article>
@@ -370,11 +371,13 @@
                     </article>
                 @endforeach
             @endif
-        </div>
-        <div class="button-block">
-            <div class="button-line"></div>
+            </div>
+            <div class="button-block">
+                <div class="button-line"></div>
             <a href="{{ route('blogs') }}">Перейти к разделу</a>
+            </div>
         </div>
+
     </section>
     <!--section 6-1 -->
     <!--AD-->

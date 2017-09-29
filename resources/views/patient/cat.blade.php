@@ -1,4 +1,4 @@
-<section id="section-1" class="blog-page">
+<section id="section-1" class="blog-page statyi-cat">
     <div class="left-title left-title-planshet ">
         <div class="line-container text-vertical">
             <div class="vertical-line"></div>
@@ -102,6 +102,9 @@
                     </ul>
                 @endif
             </div>
+        </div>
+        <div class="more-articles">
+            <button type="submit">Больше статей</button>
         </div>
         @endif
         </div>

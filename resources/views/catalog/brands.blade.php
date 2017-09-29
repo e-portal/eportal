@@ -99,7 +99,7 @@
                     <div class="pagination content-blog">
                         <!--PAGINATION-->
                         <div class="pagination-blog">
-                            @if($brands->lastPage() > 1)
+                            @if(is_object($brands) && !empty($brands->lastPage()) && $brands->lastPage() > 1)
                                 <ul>
                                     @if($brands->currentPage() !== 1)
                                         <li>

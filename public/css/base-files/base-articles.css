@@ -261,7 +261,11 @@ article:hover .horizontal-line:before {
     }
 
     .articles-horizontal article:nth-of-type(2n + 1)::before,
-    .articles-vertical article:nth-of-type(2n + 1)::before {
+    .articles-vertical article:nth-of-type(2n + 1)::before,
+    #section-2.articles .articles-horizontal article:nth-of-type(2n + 1)::before,
+    #section-2.articles .articles-vertical article:nth-of-type(2n + 1)::before,
+    #section-2.meropryyatyya-health .articles-horizontal article:nth-of-type(2n + 1)::before,
+    #section-2.meropryyatyya-health .articles-vertical article:nth-of-type(2n + 1)::before {
         content: '';
         position: absolute;
         width: 150%;
@@ -269,6 +273,11 @@ article:hover .horizontal-line:before {
         left: -25%;
         top: 0;
         background: #f3f3f3;
+    }
+
+    .has-aside .articles-horizontal article:nth-of-type(2n + 1)::before,
+    .has-aside .articles-vertical article:nth-of-type(2n + 1)::before {
+        background: none;
     }
 
     .articles-horizontal {

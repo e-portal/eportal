@@ -1,5 +1,5 @@
 <!--section 1-->
-<section id="section-1" class="events-section">
+<section id="section-1" class="events-section blog-page">
     <div class="left-title">
         <div class="line-container">
             <div class="vertical-line"></div>

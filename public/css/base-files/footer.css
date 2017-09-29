@@ -809,4 +809,86 @@ footer .social a:hover::after {
 /*transition: color .5s linear .3s;*/
 /*}*/
 
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&subset=cyrillic');
+@font-face {
+    font-family: 'Conv_Vidaloka-Regular';
+    src: url("../fonts/Vidaloka/Vidaloka-Regular.eot");
+    src: local("☺"), url("../fonts/Vidaloka/Vidaloka-Regular.woff") format("woff"), url("../fonts/Vidaloka/Vidaloka-Regular.ttf") format("truetype"), url("../fonts/Vidaloka/Vidaloka-Regular.svg") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/
+/
+fresh logo
+.fresh {
+    font-size: 10px;
+    font-family: 'Roboto';
+    letter-spacing: 2px;
+    color: #a7a9ac;
+    text-transform: uppercase;
+    line-height: 15px;
+    margin-top: 39px;
+    float: right;
+    text-align: center;
+    cursor: pointer;
+    width: 165px;
+}
+
+.creative,
+.created {
+    position: relative;
+    top: 0;
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-size: 9.3px;
+    color: #808285;
+    padding: 3px 0;
+    transition: all .5s linear;
+}
+
+.created {
+    letter-spacing: 3.8px;
+    margin-top: 7px
+}
+
+.fresh-logo {
+    color: #808285;
+    font-size: 21.99px;
+    font-family: 'Conv_Vidaloka-Regular';
+    position: relative;
+    text-align: center;
+    transition: all .3s linear;
+    right: 2px;
+}
+
+.fresh-logo span {
+    display: inline-block;
+    width: 31px;
+    transition: all .5s linear, color .5s linear .35s;
+}
+
+.fresh:hover > .creative {
+    top: 10px;
+    opacity: 0;
+    transition: all .8s linear;
+}
+
+.fresh:hover > .created {
+    top: -10px;
+    opacity: 0;
+    transition: all .8s linear;
+}
+
+.fresh:hover > a .fresh-logo span {
+    width: 25px;
+    color: #ef4136;
+    transition: all .5s linear, color .5s linear .35s;
+}
+
+.fresh:hover > a .fresh-logo {
+    color: #ef4136;
+    transition: color .5s linear .3s;
+}
+
 

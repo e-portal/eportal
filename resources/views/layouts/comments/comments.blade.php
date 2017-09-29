@@ -9,7 +9,9 @@
             <li>
                 <div class="post-content">
                     <div class="avatar-time">
-                        <span>{{ $comment->name }}</span>#{{ $comment->id }}
+                        <div>
+                            <span>{{ $comment->name }}</span><span>#{{ $comment->id }}</span>
+                        </div>
                         <time>
                             {{
                                 date('d', strtotime($comment->created_at))

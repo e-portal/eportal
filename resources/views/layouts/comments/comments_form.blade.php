@@ -34,10 +34,10 @@
         @endif
         <p class="add-comm">Добавить коментарий:</p>
         {!! Form::open(['url' => route('comments'),'class'=>'section-form-up','method'=>'post']) !!}
-        {!! Form::text('email', old('email') ? : '' , ['placeholder'=>'Ваша почта', 'id'=>'email', 'class'=>'section-input']) !!}
-        {!! Form::text('name', old('name') ? : '' , ['placeholder'=>'Имя', 'id'=>'name', 'class'=>'section-input']) !!}
+        {!! Form::text('email', old('email') ? : '' , ['placeholder'=>'ваша почта', 'id'=>'email', 'class'=>'section-input']) !!}
+        {!! Form::text('name', old('name') ? : '' , ['placeholder'=>'имя', 'id'=>'name', 'class'=>'section-input']) !!}
         {!! Form::textarea('text', old('text') ? : '' ,
-         ['placeholder'=>'Коментарий', 'id'=>'text', 'class'=>'form-control', 'rows'=>3, 'cols'=>40]) !!}
+         ['placeholder'=>'текст', 'id'=>'text', 'class'=>'form-control', 'rows'=>3, 'cols'=>40]) !!}
         <div class="block-forms">
             <div class="block-left">
                 <div class="reload">

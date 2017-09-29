@@ -1,56 +1,86 @@
 .meropryyatyya. main-content {
-  position: relative;
+    position: relative;
 }
+
 .meropryyatyya h3 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 24px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
 }
+
 .meropryyatyya .img-meropryyatyya img {
-  width: 100%;
-  margin-top: 55px;
+    width: 100%;
+    margin-top: 55px;
 }
+
 .meropryyatyya .comment-post {
-  margin-top: 54px;
+    margin-top: 54px;
 }
+
 .button-subscribe {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
+
 .button-subscribe a {
-  text-transform: uppercase;
-  border: 1px solid;
-  border-radius: 15px;
-  font-family: 'Roboto', sans-serif;
-  font-size: 12px;
-  color: #202020;
-  width: 270px;
-  text-align: center;
-  line-height: 20px;
-  font-weight: 700;
-  padding-top: 1px;
+    height: 23px;
+    font-family: 'Roboto';
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 16px;
+    text-align: center;
+    display: block;
+    white-space: nowrap;
+    line-height: 24px;
+    transition: .5s;
+    background: none;
+    border: 1px solid #000;
+    color: #000;
+    padding: 0 14px;
+    letter-spacing: 1.2px;
+    cursor: pointer;
 }
+
+.button-subscribe a:hover {
+    background: #7e2b83;
+    color: #fff;
+    border: 1px solid #7e2b83;
+    transition: .5s;
+}
+
 .button-subscribe {
-  margin-top: 53px;
+    margin-top: 53px;
 }
-.icon-subscribe {
-    background-image: url("../estet/img/blog/9.png");
-  width: 13px;
-  height: 13px;
-  display: inline-block;
-  margin-right: 6px;
+
+.button-subscribe a:hover::before {
+    filter: brightness(0) invert(1);
 }
+
+.button-subscribe a::before {
+    content: '';
+    position: relative;
+    margin-right: 8px;
+    top: 1px;
+    width: 14px;
+    height: 13px;
+    display: inline-block;
+    background: url("/../../images/event/calendar.svg");
+    transition: .5s;
+}
+
 .text-meropryyatyya {
-  margin-top: 52px;
+    margin-top: 52px;
 }
+
 .text-meropryyatyya p {
-  font-family: 'Roboto';
-  text-decoration: 500;
+    font-family: 'Roboto';
+    text-decoration: 500;
 }
 
 .slide-meropryyatyya {
     position: relative;
     display: inline-block;
-  margin-top: 81px;
+    margin-top: 81px;
     width: 100%;
 }
 
@@ -124,221 +154,245 @@
 }
 
 .experts {
-  margin-top: 69px;
+    margin-top: 69px;
 }
+
 .experts p {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 700;
-  font-size: 36px;
-}
-.experts p:before {
-  content: '';
-  display: inline-block;
-  vertical-align: middle;
-  box-sizing: border-box;
-  width: 6.5%;
-  height: 8px;
-  background: #202020;
-  border: solid #fff;
-  border-width: 0 14px 2px 0;
-}
-.experts .experts-title {
-  padding-left: 6.5%;
-  overflow: hidden;
-  height: 56px;
-  margin-top: 31px;
-  line-height: 28px;
-  margin-bottom: 39px;
-}
-.experts .experts-title p {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
-  font-size: 19px;
-}
-.experts .experts-title p:before {
-  display: none;
-}
-.experts .experts-title span {
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-}
-.topics {
-  margin-top: 75px;
-}
-.topics p {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 700;
-  font-size: 36px;
-}
-.topics p:before {
-  content: '';
-  display: inline-block;
-  vertical-align: middle;
-  box-sizing: border-box;
-  width: 6.5%;
-  height: 8px;
-  background: #202020;
-  border: solid #fff;
-  border-width: 0 14px 2px 0;
-}
-.topics ul {
-  padding-left: 4%;
-  line-height: 21.6px;
-  margin-top: 30px;
-}
-.topics ul li {
-  color: #7e2b83;
-  padding-bottom: 27px;
-  -webkit-padding-start: 17px;
-}
-.topics ul li:last-of-type {
-  margin-bottom: 0;
-}
-.topics ul li span {
-  color: #202020;
-  font-family: 'Roboto';
-}
-.meropryyatyya-data {
-  margin-top: 23px;
-  line-height: 33px;
-}
-.meropryyatyya-data .data-title {
-  margin-top: 14px;
-}
-.meropryyatyya-data .data-title:nth-child(1) {
-  margin-top: 0;
-}
-.meropryyatyya-data .data-title p {
-  font-size: 24px;
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 700;
-}
-.meropryyatyya-data .data-title p:before {
-  content: '';
-  display: inline-block;
-  vertical-align: middle;
-  box-sizing: border-box;
-  width: 6.5%;
-  height: 3px;
-  background: #202020;
-  border: solid #fff;
-  border-width: 0 14px 0 0;
-}
-.meropryyatyya-data .data-title span {
-  font-size: 16px;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
-  padding-left: 6.5%;
-}
-.meropryyatyya-data .data-title span a {
-  color: #202020;
-}
-.about-heading {
-  margin-top: 72px;
-}
-.content-about {
-  font-family: 'Cormorant Garamond', serif;
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  text-align: center;
-  width: 100%;
-}
-.content-about .about-description h4 {
-  font-size: 24px;
-}
-.content-about .about-description p {
-  margin-top: 28px;
-  max-width: 770px;
-  display: inline-block;
-}
-.aside-block h3 {
-  font-size: 16px;
-  line-height: 21px;
-}
-.meropryyatyya-health {
-  margin-top: 95px;
-}
-.meropryyatyya-health .articles-horizontal {
-  margin-top: 0;
-}
-
-/************************************   *****************************/
-.event-form {
-    width: 457px;
-    border: 5px solid #7E2B83;
-    background: #F9F9F9;
-    height: 327px;
-    padding: 26px 74px;
-    z-index: 1;
-    position: relative;
-}
-
-.event-form form * {
-    display: block;
-    width: 100%;
-    outline: none;
-}
-
-.event-form form {
-    margin-top: 35px;
-}
-
-.event-signup h4 {
-    font-size: 30px;
     font-family: 'Cormorant Garamond', serif;
     font-weight: 700;
-    padding-left: 6px;
-
+    font-size: 36px;
 }
 
-.event-form button {
-    background: #7E2B83;
-    color: #FFFFFF;
-    font-family: 'Roboto', serif;
-    font-weight: 700;
-    width: 76%;
-    height: 27px;
-    margin: auto;
-    margin-top: 36px;
-    font-size: 14px;
-    letter-spacing: 4px;
-    cursor: pointer;
-    border-radius: 23px;
-    text-transform: uppercase;
-    border: none;
+.experts p:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    box-sizing: border-box;
+    width: 6.5%;
+    height: 8px;
+    background: #202020;
+    border: solid #fff;
+    border-width: 0 14px 2px 0;
 }
 
-.event-form form input {
-    height: 32px;
-    border: 1px solid #e4e4e4;
-    padding-left: 21px;
+.experts .experts-title {
+    padding-left: 6.5%;
+    overflow: hidden;
+    height: 56px;
+    margin-top: 31px;
+    line-height: 28px;
+    margin-bottom: 39px;
+}
+
+.experts .experts-title p {
     font-family: 'Roboto', sans-serif;
-    color: #5D5D5D;
-    margin-bottom: 10px;
-    font-weight: 400;
-    font-size: 12px;
+    font-weight: 500;
+    font-size: 19px;
 }
 
-.event-signup {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(255, 255, 255, 0.9);
-    z-index: 1000000000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.experts .experts-title p:before {
     display: none;
 }
 
-.signup-form {
+.experts .experts-title span {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+.topics {
+    margin-top: 75px;
+}
+
+.topics p {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: 36px;
+}
+
+.topics p:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    box-sizing: border-box;
+    width: 6.5%;
+    height: 8px;
+    background: #202020;
+    border: solid #fff;
+    border-width: 0 14px 2px 0;
+}
+
+.topics ul {
+    padding-left: 4%;
+    line-height: 21.6px;
+    margin-top: 30px;
+}
+
+.topics ul li {
+    color: #7e2b83;
+    padding-bottom: 27px;
+    -webkit-padding-start: 17px;
+}
+
+.topics ul li:last-of-type {
+    margin-bottom: 0;
+}
+
+.topics ul li span {
+    color: #202020;
+    font-family: 'Roboto';
+}
+
+.meropryyatyya-data {
+    margin-top: 23px;
+    line-height: 33px;
+}
+
+.meropryyatyya-data .data-title {
+    margin-top: 14px;
+}
+
+.meropryyatyya-data .data-title:nth-child(1) {
+    margin-top: 0;
+}
+
+.meropryyatyya-data .data-title p {
+    font-size: 24px;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+}
+
+.meropryyatyya-data .data-title p:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    box-sizing: border-box;
+    width: 6.5%;
+    height: 3px;
+    background: #202020;
+    border: solid #fff;
+    border-width: 0 14px 0 0;
+}
+
+.meropryyatyya-data .data-title span {
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    padding-left: 6.5%;
+}
+
+.meropryyatyya-data .data-title span a {
+    color: #202020;
+}
+
+.about-heading {
+    margin-top: 72px;
+}
+
+.content-about {
+    font-family: 'Cormorant Garamond', serif;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    text-align: center;
     width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 0;
+}
+
+.content-about .about-description h4 {
+    font-size: 24px;
+}
+
+.content-about .about-description p {
+    margin-top: 28px;
+    max-width: 770px;
+    display: inline-block;
+}
+
+.aside-block h3 {
+    font-size: 16px;
+    line-height: 21px;
+}
+
+.meropryyatyya-health {
+    margin-top: 95px;
+}
+
+.meropryyatyya-health .articles-horizontal {
+    margin-top: 0;
+}
+
+@media screen and (max-width: 991px) {
+    .slide-meropryyatyya {
+        margin-top: 50px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+
+    .meropryyatyya-health .articles-horizontal article {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        padding: 14px 0;
+    }
+
+    .meropryyatyya-health .articles-horizontal article div {
+        width: 71%;
+    }
+
+    .meropryyatyya-health .articles-horizontal .title-time {
+        margin-top: 0;
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    .meropryyatyya-health .articles-horizontal h3 {
+        margin-top: 0;
+        margin-left: 0;
+    }
+
+    .meropryyatyya-health .articles-horizontal article .link-title {
+        width: 100%;
+        margin-top: 2%;
+    }
+
+    .meropryyatyya-health .button-block {
+        padding-right: 0;
+    }
+
+    .meropryyatyya .main-content h3 {
+        margin-top: 30px;
+    }
+
+    .meropryyatyya .img-meropryyatyya img {
+        margin-top: 27px;
+    }
+
+    .button-subscribe {
+        margin-top: 40px;
+    }
+
+    .text-meropryyatyya {
+        margin-top: 44px;
+    }
+
+    .arr-slider {
+        width: 21px;
+        height: 21px;
+    }
+
+    .meropryyatyya .aside {
+        display: none;
+    }
+
+    .meropryyatyya-health {
+        margin-top: 45px;
+    }
+
+    /**/
+    .slide-meropryyatyya {
+        margin-top: 32px;
+    }
+
+    .meropryyatyya-data {
+        line-height: 26px;
+    }
 }
