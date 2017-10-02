@@ -19,13 +19,11 @@ class DatabaseSeeder extends Seeder
         $this->call(CategoriesTableSeeder::class);
         $this->call(TagsTableSeeder::class);
         $this->call(HoroscopeSeeder::class);
-        $this->call(EstablishmentsTableSeeder::class);
         $this->call(PremiumTableSeeder::class);
         $this->call(CountriesTableSeeder::class);
         $this->call(CitiesTableSeeder::class);
         $this->call(EventscategoriesTableSeeder::class);
         $this->call(SeosTableSeeder::class);
-        $this->call(OrganizersTableSeeder::class);
         $this->call(AdvertisingsTableSeeder::class);
         $this->call(EventsAdTableSeeder::class);
     }

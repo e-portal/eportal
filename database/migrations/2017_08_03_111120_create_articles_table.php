@@ -19,7 +19,7 @@ class CreateArticlesTable extends Migration
             $table->string('alias')->unique();
             $table->string('own')->index()->default('patient')->index();
             $table->boolean('approved')->index()->default(false)->index();
-            $table->text('content')->nullable()->default(null);
+            $table->mediumText('content')->nullable()->default(null);
 
             $table->unsignedInteger('view')->default(1)->index();
 

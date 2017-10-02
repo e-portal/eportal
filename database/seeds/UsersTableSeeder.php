@@ -13,10 +13,7 @@ class UsersTableSeeder extends Seeder
     {
         DB::table('users')->insert(
             [
-                ['email'=>'guest@mail.com', 'password'=>bcrypt('111222'), 'verified'=>1, 'email_token'=>'qwe'],
-                ['email'=>'moderator@mail.com', 'password'=>bcrypt('111222'), 'verified'=>1, 'email_token'=>'qwe1'],
-                ['email'=>'admin@mail.com', 'password'=>bcrypt('111222'), 'verified'=>1, 'email_token'=>'qwe2'],
-                ['email'=>'author@mail.com', 'password'=>bcrypt('111222'), 'verified'=>1, 'email_token'=>'qwe3'],
+                ['email' => 'oshaman78@gmail.com', 'password' => bcrypt('111222'), 'verified' => 1, 'email_token' => 'qwe'],
             ]
         );
     }

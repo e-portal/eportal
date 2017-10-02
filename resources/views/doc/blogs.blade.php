@@ -11,20 +11,23 @@
     <div class="content">
         <div class="main-content page-content">
             <!-- section-2 -->
-            <div class="blog-section hidden-blog">
-                @foreach($cats as $cat)
-                    <div class="categories-section ">
-                        <a href="{{ route('blogs_cat', $cat->alias) }}">
-                            <img src="{{ asset('estet') }}/img/blog/7.png" alt="">
-                            <span>{{ $cat->name }}</span>
-                        </a>
-                    </div>
-                @endforeach
+            <div class="blog-relative">
+                <div class="blog-section hidden-blog">
+                    @foreach($cats as $cat)
+                        <div class="categories-section ">
+                            <a href="{{ route('blogs_cat', $cat->alias) }}">
+                                <img src="{{ asset('estet') }}/img/blog/7.png" alt="">
+                                <span>{{ $cat->name }}</span>
+                            </a>
+                        </div>
+                    @endforeach
 
-                <button class="will-open" type="submit">Больше</button>
+                    <button class="will-open" type="submit">Больше</button>
+                </div>
             </div>
 
             <!-- section-3 -->
+
             <div class="blog-categories">
                 <div class="content">
                     <div class="categories">
@@ -38,6 +41,7 @@
                     </div>
                 </div>
             </div>
+
             <!-- section-4 -->
             <div class="blog-section-post">
                 <div class="content content-blog">

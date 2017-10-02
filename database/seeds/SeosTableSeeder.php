@@ -19,7 +19,6 @@ class SeosTableSeeder extends Seeder
                 ['uri'=>'meropriyatiya'],
                 ['uri'=>'doctor/blog'],
                 ['uri' => 'doctor/kategorii'],
-                ['uri' => 'doctor/blog'],
                 ['uri'=>'catalog/vrachi'],
                 ['uri'=>'catalog/kliniki'],
                 ['uri'=>'catalog/distributory'],
