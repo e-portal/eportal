@@ -95,11 +95,11 @@
                         @endforeach
                     @endif
                     {{--clinics--}}
-                    <hr>
-                    <div class="pagination content-blog">
-                        <!--PAGINATION-->
+                    @if(is_object($clinics) && !empty($clinics->lastPage()) && $clinics->lastPage() > 1)
+                    <!--PAGINATION-->
+                        <hr>
+                        <div class="pagination content-blog">
                         <div class="pagination-blog">
-                            @if(is_object($clinics) && !empty($clinics->lastPage()) && $clinics->lastPage() > 1)
                                 <ul>
                                     @if($clinics->currentPage() !== 1)
                                         <li>
@@ -143,9 +143,9 @@
                                         </li>
                                     @endif
                                 </ul>
-                            @endif
                         </div>
                     </div>
+                    @endif
                 </div>
             </div>
         </div>

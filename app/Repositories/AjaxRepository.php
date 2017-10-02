@@ -42,12 +42,17 @@ class AjaxRepository extends Repository
             default:
                 return $result['error'] = 'Ошибка получения данных';
         }
-
         $where = array(['approved', true], ['created_at', '<=', DB::raw('NOW()')], ['own', $own]);
+        $articles_count = $this->a_rep->getCount($where);
+
         $articles = $this->a_rep->getLastAjax(
             '*', $where, $currentPage, 14, ['created_at', 'desc']);
 
-        $result['has_more'] = $articles->hasMorePages();
+        if (($currentPage + 14) < $articles_count) {
+            $result['has_more'] = true;
+        } else {
+            $result['has_more'] = false;
+        }
 
         if ('patient' == $own) {
             $own = 'doctors_art';

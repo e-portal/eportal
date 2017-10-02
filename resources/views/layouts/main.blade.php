@@ -67,27 +67,28 @@
     </header>
                 <div class="container @if(!('doctors' == Route::currentRouteName()) && !('main' == Route::currentRouteName())) has-aside @endif">
         @if(!empty($title_img))
-            <h1>
-                @if(session()->has('doc'))
-                    {!! ('doctors' == Route::currentRouteName()) ?
-                            '<img src="'. asset('estet') .'/img/estet-logo.jpg" alt="'. env('APP_NAME') .'"
-                                title="'. env('APP_NAME') .'">'
-                                 :
-                            '<a href="'. route('doctors') .'">
-                                <img src="'. asset('estet') .'/img/estet-logo.jpg" alt="'. env('APP_NAME') .'"
-                                    title="'. env('APP_NAME') .'"></a>'
-                     !!}
-                @else
-                    {!! ('main' == Route::currentRouteName()) ?
-                            '<img src="'. asset('estet') .'/img/estet-logo.jpg" alt="'. env('APP_NAME') .'"
-                                title="'. env('APP_NAME') .'">'
-                                 :
-                            '<a href="'. route('main') .'">
-                                <img src="'. asset('estet') .'/img/estet-logo.jpg" alt="'. env('APP_NAME') .'"
-                                    title="'. env('APP_NAME') .'"></a>'
-                     !!}
-                @endif
-            </h1>
+                        <div class="logo">
+                            @if(session()->has('doc'))
+                                {!! ('doctors' == Route::currentRouteName()) ?
+                                        '<img src="'. asset('estet') .'/img/logo-estet.jpg" alt="'. env('APP_NAME') .'"
+                                            title="'. env('APP_NAME') .'"><h1>estet <span>portal</span></h1>'
+                                             :
+                                        '<a href="'. route('doctors') .'">
+                                            <img src="'. asset('estet') .'/img/logo-estet.jpg" alt="'. env('APP_NAME') .'"
+                                                title="'. env('APP_NAME') .'"><h1>estet <span>portal</span></h1></a>'
+
+                                 !!}
+                            @else
+                                {!! ('main' == Route::currentRouteName()) ?
+                                        '<img src="'. asset('estet') .'/img/logo-estet.jpg" alt="'. env('APP_NAME') .'"
+                                            title="'. env('APP_NAME') .'"><h1>estet <span>portal</span></h1>'
+                                             :
+                                        '<a href="'. route('main') .'">
+                                            <img src="'. asset('estet') .'/img/logo-estet.jpg" alt="'. env('APP_NAME') .'"
+                                                title="'. env('APP_NAME') .'"><h1>estet <span>portal</span></h1></a>'
+                                 !!}
+                            @endif
+                        </div>
         @endif
 
         @yield('content')
@@ -119,7 +120,7 @@
                         <div class="line"></div>
 
                         <div class="pop-inner-in">
-                            <h1 class="own">Я врач</h1>
+                            <div class="own">Я врач</div>
                             <p>Соглашаясь просматривать материалы раздела, я подтверждаю, что являюсь дипломированным
                                 специалистом</p>
                         {{--temp--}}

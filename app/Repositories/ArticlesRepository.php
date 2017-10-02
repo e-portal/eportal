@@ -44,10 +44,16 @@ class ArticlesRepository extends Repository
     {
         $builder = $this->model->where($where)
             ->skip($skip)
+            ->take($take)
             ->select($select)
             ->with('image')
             ->orderBy($order[0], $order[1]);
-        return $this->check($builder->paginate($take));
+        return $this->check($builder->get());
+    }
+
+    public function getCount($where)
+    {
+        return $this->model->where($where)->count();
     }
 
     public function mostDisplayed($select, $where, $take, $order)

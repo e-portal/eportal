@@ -136,6 +136,26 @@
                         </ul>
                     </li>
                 </ul>
+
+                <div class="social-wrap">
+                    <h5>мы в соц. сетях</h5>
+                    <div class="social">
+                        <a href="https://www.facebook.com/EstetPortalProf/" target="_blank" rel="nofollow"><img
+                                    src="http://39.j2landing.com/estet/img/footer/lg/facebook.svg"></a>
+                        <a href="https://www.youtube.com/user/stesthetic/" target="_blank" rel="nofollow"><img
+                                    src="http://39.j2landing.com/estet/img/footer/lg/youtube.svg"></a>
+                        <a href="https://twitter.com/Pro_Estet" target="_blank" rel="nofollow"><img
+                                    src="http://39.j2landing.com/estet/img/footer/lg/twitter.svg"></a>
+                        <a href="http://vk.com/estetportal" target="_blank" rel="nofollow"><img
+                                    src="http://39.j2landing.com/estet/img/footer/lg/vk.svg"></a>
+                        <a href="http://ok.ru/estetportal" target="_blank" rel="nofollow"><img
+                                    src="http://39.j2landing.com/estet/img/footer/lg/odnoklasniki.svg"></a>
+                        <a href="https://plus.google.com/+Эстетическаямедицина" target="_blank" rel="nofollow"><img
+                                    src="http://39.j2landing.com/estet/img/footer/lg/google.svg"></a>
+                        <a href="https://www.instagram.com/Estet_portal" target="_blank" rel="nofollow"><img
+                                    src="http://39.j2landing.com/estet/img/footer/lg/insta.svg"></a>
+                    </div>
+                </div>
             </div>
             <div class="memu-search menu-elem">
                 <div class="search-mobb ">

@@ -1068,5 +1068,15 @@
         margin-top: 93px;
     }
 
+    .venerology #section-2-2 .content.articles-divisions .articles-vertical .button-block,
+    .venerology #section-1-1 .content.articles-divisions .articles-vertical .button-block,
+    .stomatology .button-block,
+    .medicine-treatment .content > .button-block,
+    #section-5.cosmetology-food .button-block,
+    .doctor-page .beauty-health .button-block,
+    .helpful-tips .button-block {
+        padding-right: 0;
+    }
+
 
 }

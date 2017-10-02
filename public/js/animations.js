@@ -66,8 +66,6 @@ function wordLinePosition(z) {
                 word.html(wordFuture);
             }
             $(this).css({height: $(this).parent().height() + 'px'});
-            // alert($(this).parent().height())
-            // alert($(this).parents('.left-title').height())
             line.attr('data-height', ($(this).height() - word.width() - 15));
 
         }
@@ -76,6 +74,15 @@ function wordLinePosition(z) {
 window.onresize = function () {
     wordLinePosition(1);
     linesOnScroll();
+
+    /* blog page slides */
+    if (window.matchMedia('(max-width: 767px)').matches) {
+        $('.blog-section.hidden-blog').css({'height': 279 + 'px'})
+    } else {
+        $('.blog-section.hidden-blog').css({'height': 174 + 'px'})
+    }
+
+
 }
 setTimeout(function () {
     $(window).scroll(function () {
@@ -424,7 +431,9 @@ function requestComments(e) {
 }
 
 $('.will-open').click(function () {
-    $(this).parents('.hidden-blog').hasClass('blog-section') ? h_small = '174' : h_small = '114';
+    h_small_init = window.matchMedia('(max-width: 767px)').matches ? 279 : 174;
+
+    $(this).parents('.hidden-blog').hasClass('blog-section') ? h_small = h_small_init : h_small = '75';
     $(this).toggleClass('noactive');
     if (!$(this).hasClass('noactive')) {
         $(this).html('Больше')
@@ -436,7 +445,9 @@ $('.will-open').click(function () {
 });
 $('.hidden-blog').each(function () {
     $(this).attr('h_full', $(this).height());
-    $(this).hasClass('blog-section') ? h_small = '174' : h_small = '114';
+    h_small_init = window.matchMedia('(max-width: 767px)').matches ? 279 : 174;
+
+    $(this).hasClass('blog-section') ? h_small = h_small_init : h_small = '75';
     $(this).stop().animate({'height': h_small + 'px'}, 0);
 })
 
@@ -489,6 +500,10 @@ $('.more-articles').click(function () {
             },
             success: function (data) {
                 console.log(data);
+                $('.main-content').append(data.success.content);
+                if (!data.success.has_more) {
+                    $('.more-articles').fadeOut(500)
+                }
             }
         })
     }

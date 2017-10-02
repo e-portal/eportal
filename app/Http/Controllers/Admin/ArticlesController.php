@@ -107,7 +107,8 @@ class ArticlesController extends AdminController
             if(is_array($result) && !empty($result['error'])) {
                 return back()->withErrors($result);
             }
-            return redirect()->route('admin_articles')->with($result);
+//            return redirect()->route('admin_articles')->with($result);
+            return redirect()->back()->with($result);
         }
 
         $this->title = 'Редактирование статьи';

@@ -26,9 +26,33 @@
             style_formats: [
                 {
                     title: 'Шаблоны', items: [
-                    {title: 'Тест1', block: 'div', classes: 'left', exact: true, wrapper: 1},
+//                    {title: 'Тест1', block: 'div', classes: 'left', exact: true, wrapper: 1},
 //                    {title: 'Две картинки', block: 'div', classes: 'two_pics', exact: true, wrapper: 1},
                     {title: 'Две картинки', block: 'div', classes: 'images-block', exact: true, wrapper: 1},
+                    {title: 'Одна большая картинка', block: 'div', classes: 'full-image', exact: true, wrapper: 1},
+                    {title: 'Картинка слева', block: 'div', classes: 'left-image', exact: true, wrapper: 1},
+                    {title: 'Картинка справа', block: 'div', classes: 'right-image', exact: true, wrapper: 1},
+                    {
+                        title: 'Картинка справа без обтекания',
+                        block: 'div',
+                        classes: 'single-img-right',
+                        exact: true,
+                        wrapper: 1
+                    },
+                    {
+                        title: 'Картинка слева без обтекания',
+                        block: 'div',
+                        classes: 'single-img-left',
+                        exact: true,
+                        wrapper: 1
+                    },
+                    {
+                        title: 'Картинка по центру без обтекания',
+                        block: 'div',
+                        classes: 'single-img-center',
+                        exact: true,
+                        wrapper: 1
+                    },
                 ]
                 },
             ],
