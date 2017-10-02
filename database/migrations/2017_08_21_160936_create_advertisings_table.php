@@ -17,6 +17,11 @@ class CreateAdvertisingsTable extends Migration
             $table->increments('id');
             $table->enum('own', ['doc', 'patient'])->index();
             $table->text('text')->nullable()->default(null);
+            $table->text('text')->nullable()->default(null);
+            $table->text('text2')->nullable()->default(null);
+            $table->text('text3')->nullable()->default(null);
+            $table->text('text4')->nullable()->default(null);
+            $table->text('text5')->nullable()->default(null);
             $table->enum('placement', ['footer', 'sidebar', 'sidebar_2', 'main_1', 'main_2', 'main_3']);
 
             $table->timestamps();
